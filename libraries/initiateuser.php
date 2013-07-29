@@ -191,9 +191,9 @@ return 0;
 private function fetchUser($username, $password) {
         
         
-        $data['tables']		= 'users';
-        $data['columns']	= array('user_name', 'password');
-        $data['conditions']=array(array('user_name ="'.$this->getUsername ().'"'),true);
+        $data['tables']		= 'login';
+        $data['columns']	= array('username', 'password');
+        $data['conditions']=array(array('username ="'.$this->getUsername ().'"'),true);
         $result=$this->_db->select($data);
         $myResult=array();
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {

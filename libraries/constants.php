@@ -27,7 +27,7 @@ define ( 'DB_PASSWORD', "root" );
 /*
  * Database name
  */
-define ( 'DB_COMMON', "ulearndb" );
+define ( 'DB_COMMON', "assign_seat" );
 
 /*
  * Version

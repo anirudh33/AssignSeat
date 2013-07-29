@@ -20,7 +20,7 @@ abstract class DBConnection
     {
         $this->_config['DATABSE_USER_NAME'] = 'root';
         $this->_config['DATABSE_PASSWORD'] = 'root';
-        $this->_config['DATABASE_NAME'] = 'pollingSystem';
+        $this->_config['DATABASE_NAME'] = 'assign_seat';
         $this->_config['DATABASE_HOST'] = 'localhost';
         $this->_config['DATABASE_TYPE'] = 'mysql';
         $this->_config['DATABASE_PORT'] = null;

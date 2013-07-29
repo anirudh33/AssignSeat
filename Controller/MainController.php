@@ -18,6 +18,10 @@ class MainController extends Acontroller
 		$result=$this->_objInititateUser->login($_username,$_password);
 		if($result==1) {
 			//login sucessfull
+			echo "login done";
+		}
+		else {
+			echo " unsucessfull login";
 		}
 		
 	}
