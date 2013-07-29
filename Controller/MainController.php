@@ -1,6 +1,13 @@
 <?php
 
-
+/*
+ * Creation Log File Name - MainController.php
+* Description - Main Controller file
+* Version - 1.0
+* Created by - Avni jain
+* Created on - july 29, 2013
+* *************************************************
+*/
 class MainController extends Acontroller
 {
 	private $_username;
@@ -19,10 +26,15 @@ class MainController extends Acontroller
 		if($result==1) {
 			//login sucessfull
 			echo "login done";
+			header("location:index.php?controller=MainController&method=mainPage");
 		}
 		else {
 			echo " unsucessfull login";
 		}
+		
+	}
+	public function mainPage() 
+	{
 		
 	}
 
