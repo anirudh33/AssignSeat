@@ -19,6 +19,8 @@ require_once getcwd().'/libraries/constants.php';
 function __autoload($controller) {
 	include SITE_PATH .'/Controller/'.$controller . '.php';
 }
+require_once SITE_PATH.'/libraries/initiateuser.php';
+
 /* Method calls from views handled here */
 
 //header ,left,right 
@@ -32,7 +34,7 @@ if (isset ( $_REQUEST ['controller'] )) {
 			//print $_REQUEST ["method"];die;
 			if (method_exists ( $object, $_REQUEST ["method"] )) {
 			
-				$Question=$object->$_REQUEST ["method"] ();
+				$object->$_REQUEST ["method"] ();
 				if($_REQUEST ["method"]=='loadView')
 				{
 					$object->loadView("main");
