@@ -21,9 +21,9 @@ login
 	 
 	</div>
 	<div id="leftbar">
-	
+		
 		<div id="leftsubbar">
-	
+	   <?php include_once 'seat.php';?>
 		</div>
 	</div>
 	

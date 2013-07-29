@@ -37,6 +37,14 @@ class MainController extends Acontroller
 	{
 		
 	}
+	
+	public function searchEmployee()
+	{
+		$employeeObj = $this->loadModel('Employee');
+		$record = $employeeObj->searchEmp($_REQUEST['name'],($_REQUEST['page']*10));
+		echo json_encode($record);
+		die;
+	}
 
 }
 
