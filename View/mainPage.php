@@ -15,9 +15,17 @@ echo $_SESSION ["userid"];
 <title></title>
 <link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css" type="text/css" media="all">
 </head>
-<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js"></script>
+<link rel = "stylesheet" href = "<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
+<script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js" ></script> 
 <script>
-$(document).ready(function () {
+$(function(){
+	getData();
+	startTooltip();// -- this will be enabled after seat drag testing
+
 $("#logout").click(function(){
 
 	alert("session will end");
