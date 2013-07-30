@@ -59,7 +59,7 @@ function startTooltip(){
 
   <div class="sofachess"><div style=" border: 1px solid black;
     height: 13%;
-    margin-top: 600%;
+    margin-top: 550%;
     width: 90%;">
   
   
