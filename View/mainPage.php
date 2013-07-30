@@ -7,6 +7,7 @@
 * Created on - july 29, 2013
 * *************************************************
 */
+
 ?>
 <html lang="">
 <head>  
@@ -15,10 +16,10 @@
 </head>
 
 <body>
-login
+
 <div id="maindiv">
 	<div id="header">
-	 
+	<h2>Welcome <?php echo $_SESSION ["username"];?></h2>
 	</div>
 	<div id="leftbar">
 		
