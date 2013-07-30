@@ -13,6 +13,18 @@
 <head>  
 <title></title>
 <link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css" type="text/css" media="all">
+<link rel = "stylesheet" href = "<?php echo SITE_URL;?>/assets/css/jquery ui/jquery.ui.tooltip.css" />
+<script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js" ></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js" ></script>
+<script>
+$(function(){
+	getData();
+	startTooltip();
+});
+</script>
 </head>
 
 <body>

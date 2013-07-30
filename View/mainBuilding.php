@@ -1,3 +1,36 @@
+<script>
+function startTooltip(){
+	$( document ).tooltip({
+		items: "img",
+		content : function() {
+			displayData = "";
+			$.ajax({
+				async : false,
+				url : 'View/tooltipContent.php',
+				type :'post',				
+				data : 'any data',
+				success : function (data) {
+					//alert(data);
+					displayData = data;
+				}
+			});
+			return displayData;
+		},
+		position: {
+			my: "center bottom-20",
+			at: "center top",
+			using: function( position, feedback ) {
+				$( this ).css( position );
+				$( "<div>" )
+					.addClass( "arrow" )
+					.addClass( feedback.vertical )
+					.addClass( feedback.horizontal )
+					.appendTo( this );
+			}
+		}
+	});
+}
+</script>
 <div class="mainContainer">
 	<div class="div1">
 		<div class="googol">GOOGOL</div>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Custom ToolTip</title>
+<link rel = "stylesheet" href = "../../../../assets/css/jquery ui/jquery.ui.tooltip.css" />
+<script src="../../../../assets/js/jquery-1.9.1.min.js" ></script>
+<script src="../../../../assets/js/jquery ui/jquery.ui.core.min.js" ></script>
+<script src="../../../../assets/js/jquery ui/jquery.ui.widget.min.js" ></script>
+<script src="../../../../assets/js/jquery ui/jquery.ui.position.min.js" ></script>
+<script src="../../../../assets/js/jquery ui/jquery.ui.tooltip.min.js" ></script>
+
+<script>
+$(function() {
+	$( document ).tooltip({
+		items: "img",
+		content : function() {
+			displayData = "";
+			$.ajax({
+				async : false,
+				url : 'testAJAX.html',
+				type :'post',				
+				data : 'any data',
+				success : function (data) {
+					//alert(data);
+					displayData = data;
+				}
+			});
+			return displayData;
+		},
+		position: {
+			my: "center bottom-20",
+			at: "center top",
+			using: function( position, feedback ) {
+				$( this ).css( position );
+				$( "<div>" )
+					.addClass( "arrow" )
+					.addClass( feedback.vertical )
+					.addClass( feedback.horizontal )
+					.appendTo( this );
+			}
+		}
+	});
+});
+</script>
+	
+<style>
+.ui-tooltip, .arrow:after {
+	background: black;
+	border: 2px solid white;
+}
+.ui-tooltip {
+	padding: 10px 20px;
+	color: white;
+	border-radius: 20px;
+	font: bold 14px "Helvetica Neue", Sans-Serif;
+	text-transform: uppercase;
+	box-shadow: 0 0 7px black;
+}
+.arrow {
+	width: 70px;
+	height: 16px;
+	overflow: hidden;
+	position: absolute;
+	left: 50%;
+	margin-left: -35px;
+	bottom: -16px;
+}
+.arrow.top {
+	top: -16px;
+	bottom: auto;
+}
+.arrow.left {
+	left: 20%;
+}
+.arrow:after {
+	content: "";
+	position: absolute;
+	left: 20px;
+	top: -20px;
+	width: 25px;
+	height: 25px;
+	box-shadow: 6px 5px 9px -9px black;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	tranform: rotate(45deg);
+}
+.arrow.top:after {
+	bottom: -20px;
+	top: auto;
+}
+</style>
+
+
+</head>
+<body>
+<p><img src = "../../../../assets/images/img1.png" title = "some image" class = "custom_tooltip" width = "200px" height = "200px" alt = "some image" /></p>
+
+<p><label for="age">Your age:</label> <input id="age" title="We ask for your age only for statistical purposes."></p>
+<p>Hover the field to see the tooltip.</p>
+<p><label for="age">Your age:</label> <input id="age" title="We ask for your age only for statistical purposes."></p>
+<p>Hover the field to see the tooltip.</p>
+</body>
+</html>
