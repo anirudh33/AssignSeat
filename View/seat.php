@@ -49,15 +49,6 @@ page=0;
   		}); 
 }
 </script>
-<style>
-#searchtxt {
-	width : 80%;
-}
-.SearchedEmp {
-	border :1px dotted black;
-	margin-top: 2px;
-}
-</style>
-Name: <input type="text" id="searchtxt" onkeyup="getData()"/>
+<lable>Name:</lable> <input type="text" id="searchtxt" onkeyup="getData()"/>
 <div id="result"></div>
 <div id="pager"></div>

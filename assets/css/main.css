@@ -247,7 +247,7 @@ input[type=file] {
 	
 	float:left;
 	width:18%;
-	height:70%;
+	height:80%;
 	padding-right: 3px;
 	border:1px solid black;
 	
@@ -401,5 +401,22 @@ input[type=file] {
 .dvclear{
 	clear: both;
 }
-
+#searchtxt {
+	width : 80%;
+}
+.SearchedEmp {
+	border :1px solid #B4EDD9;
+	background-color: #8AE2FF;
+	margin-top: 2px;
+	margin-left: 3px;
+	margin-right: 10px;
+}
+#pager {
+	margin-top: 2px;
+	margin-right: 10px;
+	float: right;
+}
+#pager a {
+	color: red;
+}
 
