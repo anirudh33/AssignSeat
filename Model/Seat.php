@@ -141,7 +141,7 @@ class Seat extends DBConnection
 	 */
 	public function assignSeat()
 	{
-		$this->setEid($_POST['eid']);
+        $this->setEid($_POST['eid']);
     	$this->setSid($_POST['sid']);
     	$this->setAsignee($_POST['asignee']);
     	$this->setComputer_id($_POST['computer_id']);
@@ -174,4 +174,19 @@ class Seat extends DBConnection
 		$result = $db->update('posts', $data, $where);
 		return "true";
 	}
+        
+        public function allSeat()
+	{		
+		//$this->setStatus(0);
+		$data['tables'] = 'room_row';
+		//$where = array('id' => $db->lastInsertId());
+		$result=$this->_db->select($data);
+		$myResult=array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			$myResult[]=$row;
+		}
+		return $myResult;
+	}
+        
 }

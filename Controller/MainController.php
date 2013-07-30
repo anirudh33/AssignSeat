@@ -24,9 +24,14 @@ class MainController extends Acontroller
 		$this->_objInititateUser= new InitiateUser();
 		$result=$this->_objInititateUser->login($_username,$_password);
 		if($result==1) {
-			//login sucessfull
-			echo "login done";
-			header("location:index.php?controller=MainController&method=mainPage");
+			$obj = $this->loadModel('Seat'); 
+                        $value = $obj->allSeat();
+                       // echo "<pre/>";
+                       // print_r($value);die;
+                        session_start();
+                        $_SESSION['variable'] = $value;
+                        header("location:index.php?controller=MainController&method=mainPage");
+                       //include("../");
 		}
 		else {
 			echo " unsucessfull login";

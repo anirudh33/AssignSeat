@@ -34,7 +34,21 @@
 			<div class="room2">terra</div>
 		</div>
 		<div style="float: right;border: 1px solid pink;width:619px; height: 393px;">
-			16 X 9 chairs
+			<?php 
+                        //  print_r($_SESSION['variable']);die;
+                          foreach($_SESSION['variable'] as $key=>$values){
+				if($values['room_id']==2){
+				               
+						for($i=0;$i<$values['computer'];$i++){
+							//echo "hii";
+                                                 ?><img src="images/green_seat.jpeg" height=20 width=30 /><?php
+
+						}echo "<br/>";
+					}
+                          //echo "<pre/>";
+                          //print_r($_SESSION['variable']['3']);
+                         }
+                        ?>
 		</div>
 	</div>
 	<div class="lastdiv" style="float: left;height: 50px; width:963px; border: 1px solid blue;">
