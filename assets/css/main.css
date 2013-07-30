@@ -300,12 +300,11 @@ input[type=file] {
 }
 
 /************** css for the building div **************/
- div
-{
- text-align:center;
+div {
+	text-align: center;
 }
 
-  .mainContainer {
+.mainContainer {
 
    border: 1px solid black;
  width: 100%;

@@ -22,7 +22,7 @@
 <script>
 $(function(){
 	getData();
-	startTooltip();
+	//startTooltip();
 });
 </script>
 </head>
