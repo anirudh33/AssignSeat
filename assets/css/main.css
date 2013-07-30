@@ -300,142 +300,178 @@ input[type=file] {
 }
 
 /************** css for the building div **************/
-.mainContainer {
-	border: 1px solid black;
-	width: 100%;
-	height: 200%;
+ div
+{
+ text-align:center;
 }
+
+  .mainContainer {
+
+   border: 1px solid black;
+ width: 82%;
+ height: 150%;
+  
+}
+
+  
 
 .googol {
-	width: 19%;
-	border: 1px solid black;
-	height: 100%;
-	float: left;
-}
 
+   width: 19%;
+ border: 1px solid black;
+ height: 100%;
+ float: left;
+
+  }
+
+
+  
 .srijjan_2 {
-	width: 80%;
-	border: 1px solid black;
-	height: 100%;
-	float: left;
-}
+
+   width: 80%;
+ border: 1px solid black;
+ height: 100%;
+ float: left;
+
+  }
+
+  
 
 .sofachess {
-	border: 1px solid black;
-	float: left;
-	height: 27%;
-	margin-top: -17%;
-	width: 5%;
+
+       border: 1px solid black;
+    float: left;
+    height: 100%;
+    margin-top: -25%;
+    width: 5%;
+  
 }
 
-.room {
-	border: 1px solid black;
-	float: left;
-	height: 10%;
-	margin-top: -17%;
-	width: 16%;
+ 
+
+  .room {
+    border: 1px solid black;
+    float: left;
+    height: 30%;
+    margin-top: -25%;
+    width: 16%;
 }
+
 
 .room1 {
-	width: 16%;
-	border: 1px solid black;
-	height: 5%;
-	float: left;
+ width: 16%;
+ border: 1px solid black;
+ height: 30%;
+ float: left; margin-top: -10%
+
 }
+
 
 .room2 {
-	border: 1px solid black;
-	float: left;
-	height: 10%;
-	width: 24.5%;
+ border: 1px solid black;
+    float: left;
+    height: 11%;
+    width: 24.5%;
 }
+
 
 .room3 {
-	border: 1px solid black;
-	float: left;
-	height: 91%;
-	width: 24%;
+ border: 1px solid black;
+    float: left;
+    height: 91%;
+    width: 24%;
 }
+
 
 .sofa_reception {
-	border: 1px solid black;
-	float: left;
-	height: 10%;
-	width: 33%;
+    border: 1px solid black;
+    float: left;
+    height: 70%;
+    width: 33%;
 }
+
+ 
 
 .lobby {
-	border: 1px solid black;
-	float: left;
-	height: 17%;
-	width: 12%;
+    border: 1px solid black;
+    float: left;
+    height: 99%;
+    width: 12%;
 }
+
+ 
 
 .loby2 {
-	border: 1px solid black;
-	float: right;
-	height: 3%;
-	width: 54%;
+    border: 1px solid black;
+    float: right;
+    height: 23%;
+    width: 53%;
 }
+
+ 
 
 .aer {
-	border: 1px solid black;
-	float: left;
-	height: 7%;
-	width: 54%;
+    border: 1px solid black;
+    float: left;
+    height: 35%;
+    width: 53%;
 }
+
+ 
 
 .aqua {
-	border: 1px solid black;
-	float: left;
-	height: 7%;
-	width: 54%;
+    border: 1px solid black;
+    float: left;
+    height: 39%;
+    width: 53%;
 }
+
+ 
 
 .conference {
-	border: 1px solid black;
-	float: left;
-	height: 12%;
-	width: 16%;
+    border: 1px solid black;
+    float: left;
+    height: 40%;
+    width: 16%;
 }
 
-.member {
-	border: 1px solid black;
-	float: left;
-	height: 20px;
-	width: 20px;
+
+.member{
+ border: 1px solid black;
+ float: left;
+ height: 20px;
+ width: 20px;
 }
 
-.div1 {
-	width: 78%;
-	border: 1px solid red;
-	float: left;
-	height: 10%;
-	/*  position:absolute; */
+
+.div1{
+ width:78%;
+ border:1px solid black;
+ float:left;
+ height:50%;
+/*  position:absolute; */
 }
 
-.div2 {
-	width: 78%;
-	border: 1px solid green;
-	float: left;
-	height: auto;
+ 
+
+.div2{
+ width:78%;
+ border:1px solid green;
+ float:left;
+ height:50%;
+ 
 }
 
-.div3 {
-	float: left;
-	width: 100%;
-	height: 50%;
-	border: 1px solid red;
+.div3{
+ float:left;
+ width:100%; height:60%;
+ border: 1px solid black;
 }
 
-.dvclear {
-	clear: both;
+.dvclear{
+ clear: both;
 }
-
-.cabin {
-	border: 1px solid green;
-	height: 6%;
-}
+.cabin{border:1px solid green; height:6%;}
 
 /************** END css for the building div **************/
 
@@ -458,7 +494,7 @@ input[type=file] {
 }
 
 #pager a {
-	color: red;
+	color: black;
 }
 
 /********* START Tooltip Css *****/
