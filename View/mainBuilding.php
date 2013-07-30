@@ -1,3 +1,4 @@
+<?php //print_r($_SESSION);die;?>
 <script>
 function startTooltip(){
 	$( document ).tooltip({
@@ -35,7 +36,29 @@ function startTooltip(){
 <div style="border: 1px solid black; height:30%">
   <div class="div1">
    <div class="googol">GOOGOL</div>
-   <div class="srijjan_2">srijjan_2</div>
+   <div class="srijjan_2">
+   		<?php
+//print_r($_SESSION['variable']);die;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 7) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            // echo "hii";
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+    // echo "<pre/>";
+    // print_r($_SESSION['variable']['3']);
+}
+?>
+   
+   
+   </div>
   </div>  
 <div class="div2">
    <div class="sofa_reception">sofa_reception</div>
