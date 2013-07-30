@@ -2,6 +2,10 @@
 <script type="text/javascript" src="assets/js/jquery-1.9.1.min.js" >
 </script>
 <script>
+$(function(){
+	getData();
+});
+
 function getData(page) {
 //alert("hello");
 var name = document.getElementById("searchtxt").value;
