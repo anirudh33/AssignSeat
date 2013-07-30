@@ -38,6 +38,11 @@ class MainController extends Acontroller
 		}
 		
 	}
+	public function logout() {
+		$this->_objInititateUser= new InitiateUser();
+		$result=$this->_objInititateUser->logout();
+	
+	}
 	public function mainPage() 
 	{
 		

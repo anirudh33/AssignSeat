@@ -7,32 +7,38 @@
 * Created on - july 29, 2013
 * *************************************************
 */
-
+echo $_SESSION ["username"];
+echo $_SESSION ["userid"];
 ?>
 <html lang="">
 <head>  
 <title></title>
 <link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css" type="text/css" media="all">
-<link rel = "stylesheet" href = "<?php echo SITE_URL;?>/assets/css/jquery ui/jquery.ui.tooltip.css" />
-<script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js" ></script>
+</head>
+<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js"></script>
 <script>
-$(function(){
-	getData();
-	//startTooltip();
+$(document).ready(function () {
+$("#logout").click(function(){
+
+	alert("session will end");
+	$.post('index.php?controller=MainController&method=logout',function(data,status){
+				});
+
+		
+});
 });
 </script>
-</head>
 
 <body>
 
 <div id="maindiv">
 	<div id="header">
-	<h2>Welcome <?php echo $_SESSION ["username"];?></h2>
+	<input type="button" class="btn blue" id="logout" value="logout" onclick="logout()">
+	<h1>Assign Seat</h1>
+	<h4>Welcome <?php echo $_SESSION ["username"];?></h4>
+	
 	</div>
+	
 	<div id="leftbar">
 		
     <div id="leftsubbar">
@@ -45,7 +51,7 @@ $(function(){
         <?php include_once 'mainBuilding.php';?>
     </div>
 	<div id="footer">
-	
+		<center>Copyright Batch1 OssCube Pvt Ltd</center>
 	</div>
 </div>
 </body>

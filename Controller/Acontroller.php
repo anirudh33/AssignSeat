@@ -12,9 +12,5 @@ abstract class Acontroller
 	{
 		include SITE_PATH .'/View/'.$viewName . '.php';
 	}
-	function test()
-	{
-		echo "test pass";
-		die;
-	}
+	
 }

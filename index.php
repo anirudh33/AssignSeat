@@ -28,7 +28,7 @@ require_once SITE_PATH.'/libraries/initiateuser.php';
 if (isset ( $_REQUEST ['controller'] )) {
 		
 		if (isset ( $_REQUEST ["method"] )) {
-			
+	
 			// Creating object of controller to initiate the process
 			$object = new $_REQUEST ["controller"] ();
 			//print $_REQUEST ["method"];die;
@@ -37,6 +37,7 @@ if (isset ( $_REQUEST ['controller'] )) {
 				$object->$_REQUEST ["method"] ();
 				if($_REQUEST ["method"]=='loadView')
 				{
+							//die("sjdjjsf");
 					$object->loadView("main");
 				}
 				if($_REQUEST ["method"]=='mainPage')

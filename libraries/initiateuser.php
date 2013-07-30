@@ -132,7 +132,10 @@ private function fetchUser($username, $password) {
             if(md5($myResult[0]['password']) === md5($password))
             {
 				$this->setUserId($myResult[0]['id']);  //if login is sucessfull,setting userid
-                return 1;
+                 /*** security
+				 $objSecurity= new Security();
+                 $objSecurity->logSessionId($username);***********/
+				return 1;
             }
             else
             {
@@ -157,7 +160,16 @@ private function fetchUser($username, $password) {
 private function encryptPassword($password) {	
 return md5($password);	
 }	
+/***************logout***/
 
+public function logout() 
+	{
+		//unlink ("./tmp/" . $_SESSION ['username'] . ".txt" );
+		
+		session_destroy ();
+		//header ( "Location:index.php" );
+		header ( "Location:index.php?controller=Acontroller&method=loadView" );
+	}
 }
 ?>
 
