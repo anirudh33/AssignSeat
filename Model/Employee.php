@@ -9,8 +9,8 @@ class Employee extends DBConnection
 	{
 		$data = array();
 		$data['tables'] = array("employee");
-		$data['columns'] = array('SQL_CALC_FOUND_ROWS Name','ID');
-		$data['conditions']=array(array('Name LIKE "%'.$name
+		$data['columns'] = array('SQL_CALC_FOUND_ROWS name','id');
+		$data['conditions']=array(array('name LIKE "%'.$name
 				.'%" LIMIT '.
 				$page.',10 UNION SELECT FOUND_ROWS(),"NA" '),true);
 		$result=$this->_db->select($data);

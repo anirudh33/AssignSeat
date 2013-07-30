@@ -15,20 +15,24 @@ page=0;
 			$("#result").html("");
 			var totalRow;
 			$.each(data,function(index,val){
-				if(val['ID']=='NA')
+				if(val['id']=='NA')
 				{
-					totalRow=val['Name'];
+					totalRow=val['name'];
 				}
 				else
 				{
-					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['ID']+"'>"+val['Name']+"<input name = 'empId' type = 'hidden' value='"+val['ID']+"'></div>");
+					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+"<input name = 'empId' type = 'hidden' value='"+val['id']+"'></div>");
 					//$("#result").append(val['Name']+"<br>");
 				}
 
 				});
-
-			if(page==0)
+			if(page==0 && totalRow < 11)
 			{
+				$("#pager").html("");
+			}
+			else if(page==0 && totalRow >= 11)
+			{
+				//alert(totalRow);
 			   $("#pager").html("");
 			   $("#pager").append("<a href=# onClick=getData("+(page+1)+")>Next</a> <a href=# onClick=getData("+Math.floor((totalRow-1)/10)+")>Last</a>");
 			}
@@ -42,10 +46,6 @@ page=0;
 			   $("#pager").html("");
 			   $("#pager").append("<a href=# onClick=getData('0')>First</a> <a href=# onClick=getData("+(page-1)+")>Prev</a> <a href=# onClick=getData("+(page+1)+")>Next</a> <a href=# onClick=getData("+Math.floor((totalRow-1)/10)+")>Last</a>");
 			}
-
-			/*$.each(data ,function(key,val){
-				$("#result").append(val['Name']+"<br>");
-				});*/
   		}); 
 }
 </script>
