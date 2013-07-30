@@ -48,7 +48,7 @@
 			<div class="cabin"></div>
 			<div class="cabin"></div>
 		</div>
-		<div style="border: 1px solid pink; float: right; height: 88%; width: 63%;">
+		<div style="border: 1px solid pink; float: right; height: 88%; width: 62%;">
 <?php
 // print_r($_SESSION['variable']);die;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
