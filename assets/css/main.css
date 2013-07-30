@@ -1,7 +1,3 @@
-
-
-<style type="text/css">
-
 html, body, h1, form, fieldset, legend, ol, li {
 	margin: 0;
 	padding: 0;
@@ -10,7 +6,7 @@ body {
 	background: #ffffff;
 	color: #111111;
 	font-family: Helvetica;
-	padding: 20px;
+	padding: 3px;
 	font-size: 12px
 }
 
@@ -250,8 +246,9 @@ input[type=file] {
 #leftbar {
 	
 	float:left;
-	width:20%;
+	width:18%;
 	height:70%;
+	padding-right: 3px;
 	border:1px solid black;
 	
 }
@@ -267,7 +264,7 @@ input[type=file] {
 	
 	float:left;
 	width:78 %;
-	height:70%;
+/* 	height:70%; */
 	border:1px solid black;
 }
 
@@ -279,5 +276,130 @@ input[type=file] {
 	border:1px solid black;
 }
 
+/************** css for the building div **************/
 
-</style>
+
+.mainContainer {
+	border: 1px solid black;
+	width: 967px;
+	height: 860px;
+}
+
+.googol {
+	width: 150px;
+	border: 1px solid black;
+	height: 100px;
+	float: left;
+}
+
+.srijjan_2 {
+	width: 600px;
+	border: 1px solid black;
+	height: 100px;
+	float: left;
+}
+
+.sofachess {
+	border: 1px solid black;
+    float: left;
+    height: 202px;
+    margin-top: -100px;
+    width: 50px;
+}
+
+.room {
+	width: 153px;
+	border: 1px solid black;
+	height: 100px;
+	float: left;
+	margin-top: -100px;
+}
+
+.room1 {
+	width: 153px;
+	border: 1px solid black;
+	height: 100px;
+	float: left;
+/* 	margin-top: -50px; */
+}
+.room2 {
+	width: 153px;
+	border: 1px solid black;
+	height: 50px;
+	float: left;
+/* 	margin-top: -50px; */
+}
+.sofa_reception {
+
+	float: left;
+	border: 1px solid black;
+	width: 250px;
+	height: 100px;
+}
+
+.lobby {
+	width: 90px;
+	border: 1px solid black;
+	height: 250px;
+	float: left;
+}
+
+.loby2 {
+	width: 409px;
+	border: 1px solid black;
+	height: 50px;
+	float: right;
+}
+
+.aer {
+	width: 407px;
+	border: 1px solid black;
+	height: 100px;
+	float: left;
+}
+
+.aqua {
+	border: 1px solid black;
+	float: left;
+	height: 96px;
+	width: 407px;
+}
+
+.conference {
+	border: 1px solid black;
+	float: left;
+	height: 148px;
+	width: 205px;
+}
+.member{
+	border: 1px solid black;
+	float: left;
+	height: 20px;
+	width: 20px;
+}
+.div1{
+	width:755px;
+	border:1px solid red;
+	float:left;
+	height:100px;
+/* 	position:absolute; */
+}
+
+.div2{
+	width:755px;
+	border:1px solid green;
+	float:left;
+	height:auto;
+	
+	
+}
+.div3{
+	float:left;
+	height:450px;
+	border: 1px solid red;
+}
+.dvclear{
+	clear: both;
+}
+
+

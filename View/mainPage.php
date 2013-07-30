@@ -22,14 +22,14 @@ login
 	</div>
 	<div id="leftbar">
 		
-		<div id="leftsubbar">
-	   <?php include_once 'seat.php';?>
-		</div>
+    <div id="leftsubbar">
+        <?php include_once 'seat.php';?>
+    </div>
 	</div>
 	
-	<div id="rightbar">
-	
-	</div>
+    <div id="rightbar">
+        <?php include_once 'mainBuilding.php';?>
+    </div>
 	<div id="footer">
 	
 	</div>
