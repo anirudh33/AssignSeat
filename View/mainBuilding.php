@@ -32,6 +32,67 @@ function startTooltip(){
 	});
 }
 </script>
+<!-- Updated By Amber Sharma -->
+<style>
+#rows
+{
+	height:20px;
+	float:left;
+	text-align:center;
+	margin:2px;
+	margin-left:auto;
+}
+.cols
+{
+	border:1px solid blue;
+	
+	float:left;
+	
+	margin-left:6px;
+	margin-right:6px;
+}
+
+ 
+/** style for droppable content **/
+.dropped {
+    width: 40px;
+    height: 21px;
+    float: left;
+    border:solid 1px gray;
+   
+}
+ 
+/** style for dragable content **/
+.dragged{
+    
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+    font-size:12px;
+    font-weight:bold;
+    width:40px;
+    height:16px;
+    float: left;
+}
+ 
+/** style when an object is moving hover **/
+.hoverClass{
+    background:#339bfb;
+    color:#444444;
+}
+ 
+/** style for droppable when the moveable object is dropped **/
+.dropClass{
+    background:#55d532;
+}
+ 
+/** clear the float used by other dragable and moveable objects **/
+.clear{
+    clear:both;
+}
+
+</style>
+<!-- Updated By Amber Sharma -->
 <div class="mainContainer">
 <div style="border: 1px solid black; height:30%">
   <div class="div1">
@@ -116,22 +177,40 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
         <div class="cabin"></div>
    </div>
    <div style="border: 1px solid black;float: right;height: 88%;width: 62%;">
-        <?php
-        // print_r($_SESSION['variable']);die;
-        foreach ( $_SESSION ['variable'] as $key => $values ) {
-            if ($values ['room_id'] == 2) {
-                
-                for($i = 0; $i < $values ['computer']; $i ++) {
-                    // echo "hii";
-                    ?><img src="images/black_seat.jpeg" height=20 width=30 /><?php
-                
-                }
-                echo "<br/>";
-            }
-            // echo "<pre/>";
-            // print_r($_SESSION['variable']['3']);
-        }
-        ?>
+	<!-- Updated By Amber Sharma -->
+        <?php 
+                                foreach($_SESSION['variable'] as $key=>$values)
+				{
+					echo "<div id='rows'>";	
+					$rand = rand(1,9);
+					if($values['room_id']==2)
+					{
+						for($i=0;$i<$values['computer'];$i++)
+						{
+							if($i != $rand)
+							{
+			?>
+								<div class="cols"  id="<?php echo 'main'.$key . '_'. $i; ?>" >
+								<img class='dragable dragged' id="<?php echo  $key . '_'. $i; ?>" src="images/red_chair.png"/>
+								</div>
+			<?php
+							}
+							else
+							{
+			?>				
+								<div id="<?php echo 'main'. $key . '_'. $i; ?>" class="cols droppable dropped">
+								<img id="<?php echo $key . '_'. $i; ?>" src="images/green_chair.png" height="18" width="30"/>
+								</div>
+			<?php
+							}
+							
+                                         		echo "<script>dragdropevent();</script>";
+						}
+					}
+					echo "</div>";
+                         	}
+                        ?>
+	<!-- Updated By Amber Sharma -->
    </div>   
 </div>
 
