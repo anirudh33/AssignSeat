@@ -78,3 +78,4 @@ class Room extends RoomRow
 
 	
 }
+ $y=new Room();

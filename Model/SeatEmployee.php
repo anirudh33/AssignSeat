@@ -139,15 +139,15 @@ class SeatEmployee extends DBConnection
 	/**
 	 * @return true after assigning seat to an employee
 	 */
-	public function assignSeat()
+	public function assignSeat($assignInfo)
 	{
-        $this->setEid($_POST['eid']);
-    	$this->setSid($_POST['sid']);
-    	$this->setAsignee($_POST['asignee']);
-    	$this->setComputer_id($_POST['computer_id']);
+//         $this->setEid($assignInfo['eid']);
+    	$this->setSid($assignInfo['sid']);
+    	$this->setAsignee($assignInfo['asignee']);
+    	$this->setComputer_id($assignInfo['computer_id']);
     	$this->setStatus(1);
-    	$this->setUpdated_on($_POST['updated_on']);
-    	$this->setDetails($_POST['details']);
+    	$this->setUpdated_on($assignInfo['updated_on']);
+    	$this->setDetails($assignInfo['details']);
 		
 		 $data['tables'] = 'seat_employee';
 		 $insertValue = array('eid'=>$this->getEid(),
@@ -166,9 +166,10 @@ class SeatEmployee extends DBConnection
 	 * @return true after seting the status flag to 0 array
 	 * 0 implies seat is not free
 	 */
-	public function deleteSeat()
+	public function deleteSeat($delEid)
 	{		
 		$this->setStatus(0);
+		$this->setEid($delEid['eid']);
 		$data = array('status' => 0);
 		$where = array('id' =>$this->getEid(), 'status'=>1);
 		$result = $this->_db->update('seat_employee', $data, $where);
