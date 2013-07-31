@@ -572,3 +572,10 @@ div {
 	bottom: -20px;
 	top: auto;
 }
+#loginUser {
+	border: 1px solid black;
+	float :left;
+	width: 100%;
+	height: 20%;
+	overflow: scroll;
+}
