@@ -9,6 +9,7 @@
 */
 echo $_SESSION ["username"];
 echo $_SESSION ["userid"];
+//echo "hi";die;
 ?>
 <html lang="">
 <head>  
