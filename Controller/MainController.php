@@ -26,11 +26,14 @@ class MainController extends Acontroller
 		if($result==1) {
 			$obj = $this->loadModel('Seat'); 
                         $value = $obj->allSeat();
-                        session_start();
+                        //session_start();
                         $_SESSION['variable'] = $value;
+                        $objSecurity= new Security();
+                        $objSecurity->logSessionId( $_SESSION['username']);
+                        $objLogger = new Logger();
+                        $objLogger->logLoginEntryCuurentFile(); 
                         header("location:index.php?controller=MainController&method=mainPage");
-			$objSecurity= new Security();
-            		$objSecurity->logSessionId( $_SESSION['username']);
+			
                        
 		}
 		else {
@@ -40,6 +43,8 @@ class MainController extends Acontroller
 	}
 	public function logout() {
 		unlink ("./tmp/" . $_SESSION ['username'] . ".txt" );
+		$objLogger = new Logger();
+		$objLogger->logLogoutEntryCuurentFile();
 		session_destroy ();
 		die;
 	
