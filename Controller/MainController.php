@@ -62,7 +62,7 @@ class MainController extends Acontroller
 		$info['row']=$a[0][1];
 		$info['col']=$a[0][2];
 		$info['assigne']=$_SESSION ['username'];
-		//die(yesssssssssssss);
+		
 	}
 	public function searchEmployee()
 	{
