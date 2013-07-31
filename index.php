@@ -14,6 +14,7 @@ session_start();
 
 /* Including all constants to be used */
 require_once getcwd().'/libraries/constants.php';
+require_once getcwd().'/libraries/Security.php';
 
 /* Requiring all essential files */
 function __autoload($controller) {
@@ -31,13 +32,15 @@ if (isset ( $_REQUEST ['controller'] )) {
 	
 			// Creating object of controller to initiate the process
 			$object = new $_REQUEST ["controller"] ();
-			//print $_REQUEST ["method"];die;
+			
 			if (method_exists ( $object, $_REQUEST ["method"] )) {
-				
+				if($_REQUEST ["method"] != 'loginClick') {
+				$objSecurity= new Security();
+            		        $objSecurity->secureMultiLogin( $_SESSION['username']);
+				}
 				$object->$_REQUEST ["method"] ();
 				if($_REQUEST ["method"]=='loadView')
 				{
-							//die("sjdjjsf");
 					$object->loadView("main");
 				}
 				if($_REQUEST ["method"]=='mainPage')
@@ -48,10 +51,12 @@ if (isset ( $_REQUEST ['controller'] )) {
 
 	}
 }
-else if (isset($_POST['loginStatus']))
+else if (isset($_SESSION ["username"]))
 {
-	$objMainController = new mainController();
-	$objMainController->loadView("poll");
+	$objSecurity= new Security();
+        $objSecurity->secureMultiLogin( $_SESSION['username']);
+	$objMainController = new MainController();
+	$objMainController->loadView("mainPage");
 }
 else
 {

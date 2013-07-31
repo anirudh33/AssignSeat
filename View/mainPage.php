@@ -27,21 +27,25 @@ $(function(){
 	startTooltip();// -- this will be enabled after seat drag testing
 
 $("#logout").click(function(){
-
-	alert("session will end");
 	$.post('index.php?controller=MainController&method=logout',function(data,status){
+				window.location.href = 'index.php';
 				});
 
 		
 });
 });
+
 </script>
 
 <body>
-
+<?php 
+if(!isset($_SESSION ["username"])) { 
+header("location:index.php");
+}
+?>
 <div id="maindiv">
 	<div id="header">
-	<input type="button" class="btn blue" id="logout" value="logout" onclick="logout()">
+	<input type="button" class="btn blue" id="logout" value="logout">
 	<h1>Assign Seat</h1>
 	<h4>Welcome <?php echo $_SESSION ["username"];?></h4>
 	

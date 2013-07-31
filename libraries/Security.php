@@ -54,13 +54,14 @@ class Security
     	fclose($file);
     }
     
+	
     public function secureMultipleRegister()
     {
     	
     }
     
     
-    public function getNewSyatemError()
+    public function getNewSystemError()
     {
         $file=fopen('../temp/PHP_errors_temp.log',"a");	
         $data="";

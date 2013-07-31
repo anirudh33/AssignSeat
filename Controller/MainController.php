@@ -26,12 +26,12 @@ class MainController extends Acontroller
 		if($result==1) {
 			$obj = $this->loadModel('Seat'); 
                         $value = $obj->allSeat();
-                       // echo "<pre/>";
-                       // print_r($value);die;
                         session_start();
                         $_SESSION['variable'] = $value;
                         header("location:index.php?controller=MainController&method=mainPage");
-                       //include("../");
+			$objSecurity= new Security();
+            		$objSecurity->logSessionId( $_SESSION['username']);
+                       
 		}
 		else {
 			echo " unsucessfull login";
@@ -39,8 +39,9 @@ class MainController extends Acontroller
 		
 	}
 	public function logout() {
-		$this->_objInititateUser= new InitiateUser();
-		$result=$this->_objInititateUser->logout();
+		unlink ("./tmp/" . $_SESSION ['username'] . ".txt" );
+		session_destroy ();
+		die;
 	
 	}
 	public function mainPage() 

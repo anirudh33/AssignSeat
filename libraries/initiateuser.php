@@ -90,7 +90,7 @@ return 1;
 
 } else {
 $msg = "Login Failed username or password does not exist";
-header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=$msg" );	
+header ( "Location:index.php?msg=".$msg);	
 }	
 }
 
