@@ -29,8 +29,8 @@ require_once SITE_PATH.'/libraries/initiateuser.php';
 $options = getopt("C:M:");
 if(!empty($options))
 {
-	$_REQUEST ['controller']=$option['C'];
-	$_REQUEST ["method"]=$option['M'];
+	$_REQUEST ['controller']=$options['C'];
+	$_REQUEST ["method"]=$options['M'];
 }
 if (isset ( $_REQUEST ['controller'] )) {
 		
@@ -40,9 +40,9 @@ if (isset ( $_REQUEST ['controller'] )) {
 			$object = new $_REQUEST ["controller"] ();
 			
 			if (method_exists ( $object, $_REQUEST ["method"] )) {
-				if($_REQUEST ["method"] != 'loginClick') {
-				$objSecurity= new Security();
-            		        $objSecurity->secureMultiLogin( $_SESSION['username']);
+				if(!in_array($_REQUEST ["method"],array('loginClick','logHistory'))) {
+					$objSecurity= new Security();
+            		$objSecurity->secureMultiLogin( $_SESSION['username']);
 				}
 				$object->$_REQUEST ["method"] ();
 				if($_REQUEST ["method"]=='loadView')
@@ -71,7 +71,6 @@ else
     $objMainController = new MainController();    
     $objMainController->loadView("main");
 }
- 
 
 //footer..
 ?>

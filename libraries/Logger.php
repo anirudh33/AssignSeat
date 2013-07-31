@@ -43,6 +43,13 @@ class Logger
 	 */
 	public function logHistoryFile()
 	{
-		
+		$fileName = './Log/Current/CurrentHistory.txt';
+		$logData = file_get_contents('./Log/Current/CurrentHistory.txt');
+		$historyFile = './Log/History/'.date('d-M-y').'.txt';
+		$fp = fopen($historyFile,'a');
+		fwrite($fp,$logData);
+		//file_put_contents($fileName, "");
+		fclose($fp);
+		return;
 	}
 }

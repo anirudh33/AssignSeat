@@ -33,7 +33,7 @@ class MainController extends Acontroller
                         $objSecurity= new Security();
                         $objSecurity->logSessionId( $_SESSION['username']);
                         $objLogger = new Logger();
-                        $objLogger->logLoginEntryCuurentFile(); 
+                        $objLogger->logLoginEntryCuurentFile();
                         header("location:index.php?controller=MainController&method=mainPage");
 			
                        
@@ -77,6 +77,12 @@ class MainController extends Acontroller
 		$record = $employeeObj->searchEmp($_REQUEST['name'],($_REQUEST['page']*10));
 		echo json_encode($record);
 		die;
+	}
+	
+	public function logHistory()
+	{
+		$objLogger = new Logger();
+		$objLogger->logHistoryFile();
 	}
 
 }
