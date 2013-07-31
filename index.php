@@ -26,7 +26,12 @@ require_once SITE_PATH.'/libraries/initiateuser.php';
 /* Method calls from views handled here */
 
 //header ,left,right 
-
+$options = getopt("C:M:");
+if(!empty($options))
+{
+	$_REQUEST ['controller']=$option['C'];
+	$_REQUEST ["method"]=$option['M'];
+}
 if (isset ( $_REQUEST ['controller'] )) {
 		
 		if (isset ( $_REQUEST ["method"] )) {
