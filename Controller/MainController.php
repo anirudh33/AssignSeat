@@ -8,6 +8,8 @@
 * Created on - july 29, 2013
 * *************************************************
 */
+
+require_once SITE_PATH.'/Model/SeatEmployee.php';
 class MainController extends Acontroller
 {
 	private $_username;
@@ -62,7 +64,8 @@ class MainController extends Acontroller
 		$info['row']=$a[0][1];
 		$info['col']=$a[0][2];
 		$info['assigne']=$_SESSION ['username'];
-		
+		$ob=new SeatEmployee();
+		$ob->assignSeat($info);
 	}
 	public function searchEmployee()
 	{
