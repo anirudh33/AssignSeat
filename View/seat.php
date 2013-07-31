@@ -1,9 +1,12 @@
-<!-- Updated By Amber Sharma -->
+<!-- Updated By Amber Sharma and Prateek Saini -->
+<link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css"
+    	 media="screen" />
 <script type="text/javascript" src="assets/js/jquery.ui.core.js"></script>
 <script type="text/javascript" src="assets/js/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="assets/js/jquery.ui.mouse.js"></script>
 <script type="text/javascript" src="assets/js/jquery.ui.draggable.js"></script>
 <script type="text/javascript" src="assets/js/jquery.ui.droppable.js"></script>
+<script type="text/javascript" src="assets/js/fancybox/jquery.fancybox.js"></script>
 <!-- Updated By Amber Sharma -->
 <script>
 function getData(page) {
@@ -91,6 +94,13 @@ function dragdropevent()
         },
         /** This is the drop event, when the dragable object is moved on the top of the dropable object area **/
         drop: function( event, ui ) {
+        	$("#changeCommentLink").fancybox({
+            	afterLoad : function(){
+            	$("#changeComment").val('');
+            	return;
+            	}
+            });
+        	$("#changeCommentLink").trigger("click");
 		alert(thisid);
 		$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid},function(data,status){
 			//window.location.href = 'index.php';
@@ -114,5 +124,16 @@ function dragdropevent()
 /* Updated By Amber Sharma */
 </script>
 <lable>Name:</lable> <input type="text" id="searchtxt" onkeyup="getData()"/>
+<a id="changeCommentLink" href="#detailDiv">
+<div id="detailDiv" style = "display : none">
+	<h3 class="customHeading">Change Reason</h3>
+	<section>
+	<label>Comment:</label><br> 
+	<textarea rows="10" cols="10" id="changeComment" name="changeComment"></textarea>
+	</section>
+	<input type="button" id="commentSubmit" name="commentSubmit" value="Submit" />
+</div>
+</a>
 <div id="result"></div>
 <div id="pager"></div>
+
