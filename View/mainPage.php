@@ -74,8 +74,14 @@ $("#logout").click(function(){
 					<div id="loginUser">
 					<?php include_once 'loggedInusers.php';?>	
 					</div>
+					
+					
 					</div>
-
+					<br class="clear" />
+					<div class="droppable" >
+						<img src="<?php echo SITE_URL;?>/images/trash1.png" />
+					</div>
+					<br class="clear" />
 				</div>
 				<div id="content">
 					<h2>Blue Print</h2>
