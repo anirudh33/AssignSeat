@@ -69,6 +69,9 @@ $("#logout").click(function(){
 							<h3>Search Employee</h3>
 	   <?php include_once 'seat.php';?>
     </div>
+					<div id="loginUser">
+					<?php include_once 'loggedInusers.php';?>	
+					</div>
 					</div>
 
 				</div>
