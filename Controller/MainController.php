@@ -9,7 +9,6 @@
 * *************************************************
 */
 
-require_once SITE_PATH.'/Model/SeatEmployee.php';
 class MainController extends Acontroller
 {
 	private $_username;
