@@ -14,7 +14,7 @@
  *
  * ************************************************************************
  */
-class Seat extends DBConnection
+class SeatEmployee extends DBConnection
 {
 	private $_eid;
 	private $_sid;

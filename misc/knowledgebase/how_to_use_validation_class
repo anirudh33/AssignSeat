@@ -1,0 +1,74 @@
+/*
+ * FileName: how to use validate class
+ * Author: Keshi Chander Yadav, Tanu Trehan, Manish 
+ * Date: May 03, 2013
+ * Description: Validation class to server side validation
+ */
+
+How to use validate class:
+# Include validate class
+require_once("validate.php")
+# Create Object of class validate
+$obj = new validate();
+# Call validator() functions for all the fields, for which you want server side validation
+$obj­>add_fields($controler_name,$postVar, $authType, $errorMsg);
+# Validate your data using result() function, which will return errors if any...
+$error = $obj­>result();
+=============================================================================
+eg:
+$obj = new validate();
+$obj->validator("Username","raj42", 'required#alphanumeric#minlength=4#maxlength=25','Username Required#alphanumeric Required#Enter Username atleast 4 characters long#Username should not be more than 25 characters long');
+$obj->validator("zip","12345", 'datatype=int,5','data');
+$error=$obj->result();
+============================================================================
+
+
+$postVar:     $_POST, $_GET, $_FILES  e.g. $_POST['username'], $_FILES['images']
+$authType:  Authentication/validation Type (Currently support 26 validation types)
+(01) required ­ Check for blank, unselected, unchecked field/fields
+(02) alphabets ­ Only alphabets are allowed (a­z, A­Z)
+(03) alphanumeric ­ Only alpha­numerics are allowed (a­z, A­Z, 0­9)
+(04) numeric ­ Only numbers are allowed (0­9)
+(05) maxlength ­ Check for maximum character length e.g. max=10 
+	i.e. only a string of maximum length 10 is allowed
+(06) min ­ Check for minimum character length e.g. min=6 
+	i.e. only a string of minimum length 6 is allowed
+(07) username ­ validate username
+(08) address ­ validate address
+(09) phone ­ validate phone no.
+	Allowed Options:
+	in­ for India, us for ­US, fr­ for France, sw for­Swedish, br for ­Brazil
+(10) mobile ­ validate Mobile no.
+(11) email ­ validate EMAIL address
+(12)  url ­ validate URL
+(13) date     ­ validate date default: dd­mm­yyyy e.g. date=dd­mm­yyyy,dd/mm/yyyy
+	Allowed Date Formats:
+	# dd­mm­yyyy,  dd­mm­yy,  dd/mm/yyyy, dd/mm/yy, dd.mm.yyyy, dd.mm.yy
+	# mm­dd­yyyy, mm­dd­yy, mm/dd/yyyy, mm/dd/yy, mm.dd.yyyy, mm.dd.yy
+	# yyyy­dd­mm, yy­dd­mm, yyyy/dd/mm, yy/dd/mm, yyyy.dd.mm, yy.dd.mm
+	# yyyy­mm­dd, yy­mm­dd, yyyy/mm/dd, yy/mm/dd, yyyy.mm.dd, yy.mm.dd
+(14) ftype    ­ validate file types e.g. ftype=jpg,gif,png
+	Allowed Options:
+	txt, xml, csv
+	zip, tar, ctar
+	pdf, doc, xls, ppt
+	jpg, gif, bmp, icon, font
+(15) fsize ­ validate file size e.g. fsize=500
+(16) custom   ­ custom validation e.g. custom=/^some regular exp$/ 
+(17) match     to match the two given strings e.g. $match = $value1."#" . $value2;
+                                                  $obj->validator("confirmpassword",$match, 'match','Password does not match');
+	$errorMsg:  Error message to be displayed upon error.
+	Other Functions
+# for internal use...
+	validateDate()                  for Date Validation
+	validateFileType()              for File Type Validation
+	availableFileTypes()            contains available file types
+	validateFileSize()              for File Size Validation
+	availablePhoneType()            contains available countries's phone pattern
+	encodeXSString()		Helps prevent XSS attacks
+	decodeXSString()                Helps prevent XSS attacks
+	preventSQLInjection()           prevent sql injection and param parameter will accept array type
+
+
+
+
