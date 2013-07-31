@@ -105,7 +105,15 @@ class MainController extends Acontroller
 		$objLogger = new Logger();
 		$objLogger->logHistoryFile();
 	}
-
+	public function dataFetch()
+	{
+	    $obj = $this->loadModel('SeatEmployee');
+	    $value = $obj->seatStatus($_REQUEST['value'],$_REQUEST['value1']);
+	   // print_r($value);die;
+	     include('View/status.php');
+	    //print_r($value);die;
+	          
+	}
 }
 
 ?>

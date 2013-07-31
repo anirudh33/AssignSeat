@@ -16,6 +16,8 @@
 <title>Assign Seat</title>
 <link rel="stylesheet"
 	href="<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
+<link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css"
+	 media="screen" />
 <link href="<?php echo SITE_URL;?>assets/css/style.css" rel="stylesheet"
 	type="text/css" />
 <script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js"></script>
@@ -27,7 +29,9 @@
 	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
 <script
 	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js"></script>
+<script type="text/javascript" src="assets/js/fancybox/jquery.fancybox.js"></script>
 <script>
+
 $(function(){
 	getData();
 	startTooltip();// -- this will be enabled after seat drag testing
@@ -40,7 +44,13 @@ $("#logout").click(function(){
 		
 });
 });
-
+function showLog()
+{
+	alert("will display log");
+// 	$.ajax({
+// 		url : 
+// 		});
+}
 </script>
 
 <body>
@@ -56,7 +66,7 @@ $("#logout").click(function(){
 					<ul>
 						<li class="first active"><a href="#">Home</a></li>
 						<li><a href="#" id="logout">Logout</a></li>
-
+                        <li><a href="#" id="logout" onClick = "showLog()">Show User</a></li>
 					</ul>
 					<br class="clear" />
 				</div>

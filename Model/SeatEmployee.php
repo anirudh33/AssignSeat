@@ -14,7 +14,7 @@
  *
  * ************************************************************************
  */
-include Room.php;
+//include 'Room.php';
 class SeatEmployee extends DBConnection
 {
 	private $_eid;
@@ -207,16 +207,49 @@ class SeatEmployee extends DBConnection
 	}        
         public function allSeat()
 	{		
-		//$this->setStatus(0);
+		
 		$data['tables'] = 'room_row';
-		//$where = array('id' => $db->lastInsertId());
+                $data['order_by'] = array(array('row_number'));
 		$result=$this->_db->select($data);
+		
 		$myResult=array();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC))
 		{
 			$myResult[]=$row;
 		}
 		return $myResult;
+	}
+
+         public function seatStatus($val,$val1)
+	 {				
+		
+	       $data['columns']        = array('seat_employee.computer_id','seat_employee.eid',);
+               $data['tables']=array('room');
+               
+               $data['joins'][] = array(
+                               'table' => 'room_row',
+                               'type'        => 'inner',
+                               'conditions' => array('room.id' => 'room_row.room_id'));
+               $data['joins'][] = array(
+                               'table' => 'seat_employee',
+                               'type'        => 'left',
+                               'conditions' => array('room_row.id' => 'seat_employee.sid'));	       
+               
+               $data['conditions']=array(array('room.id='.$val.' AND room_row.room_id='.$val.' AND room_row.row_number='.$val1),true);
+	       //$data['order_by'] = array(array('seat_employee.computer_id'));
+               $result=$this->_db->select($data);
+                            
+               $myResult=array();
+               while ($row = $result->fetch(PDO::FETCH_ASSOC))
+               {
+                       $myResult[]=$row;
+               }
+               // print_r($myResult);
+	       return  $myResult;
+
+ 
+
+                
 	}
         
 }
