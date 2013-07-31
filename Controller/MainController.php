@@ -89,6 +89,7 @@ class MainController extends Acontroller
 		$info['computerid']=$a[0][2];
 		$info['details']=$_REQUEST['changeComment'];
 		$info['assigne']=$_SESSION ['username'];
+		$info['empid']=$_REQUEST['draggedElement'];
 		$seatObj = $this->loadModel('SeatEmployee');
 		$seatObj->assignSeat($info);
 	}

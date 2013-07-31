@@ -73,7 +73,9 @@ function dragdropevent()
 function closeFancyBox(){
 	$changeComment = $("#changeComment").val();	
 	$.fancybox.close();
-	$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment},function(data,status){
+	//alert(draggedElement);
+	//alert(moveid);
+	$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment,employee:draggedElement},function(data,status){
 		//window.location.href = 'index.php';
 		});
 	 $('#' + thisid).droppable('disable')
