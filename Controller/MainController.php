@@ -24,7 +24,7 @@ class MainController extends Acontroller
 		$this->_objInititateUser= new InitiateUser();
 		$result=$this->_objInititateUser->login($_username,$_password);
 		if($result==1) {
-			$obj = $this->loadModel('Seat'); 
+			$obj = $this->loadModel('SeatEmployee'); 
                         $value = $obj->allSeat();
                         //session_start();
                         $_SESSION['variable'] = $value;

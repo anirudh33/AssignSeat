@@ -55,7 +55,7 @@ $("#logout").click(function(){
 				<div id="nav">
 					<ul>
 						<li class="first active"><a href="#">Home</a></li>
-						<li><a href="#">Logout</a></li>
+						<li><a href="#" id="logout">Logout</a></li>
 
 					</ul>
 					<br class="clear" />
