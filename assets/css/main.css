@@ -285,6 +285,7 @@ input[type=file] {
 	width: 99%;
 	/* 	height:70%; */
 	border: 1px solid black;
+	box-shadow:-13px -12px 11px #DEB887 ;
 }
 
 #footer {
@@ -322,6 +323,8 @@ input[type=file] {
 /************** css for the building div **************/
 div {
 	text-align: center;
+	
+	
 }
 
 .mainContainer {
@@ -329,25 +332,37 @@ div {
    border: 1px solid black;
  width: 100%;
  height: 150%;
+	
   
 }
-
+.writing
+{
+	text-align:right;	
+	 -webkit-transform: rotate(314deg);
+   -moz-transform: rotate(314deg);
+   -o-transform: rotate(314deg);
+   writing-mode: bt-rl;
+}
   
 
 .googol {
-
-   width: 19%;
+	box-shadow:inset 9px 10px 75px #DEB887;
+ width: 19%;
  border: 1px solid black;
  height: 100%;
  float: left;
+	
+	
+	
 
   }
 
 
   
 .srijjan_2 {
-
-   width: 80%;
+	box-shadow:inset 9px 10px 75px #FFF8DC;
+//background-color:#FFF8DC;
+   width: 80.3%;
  border: 1px solid black;
  height: 100%;
  float: left;
@@ -357,6 +372,8 @@ div {
   
 
 .sofachess {
+	box-shadow:inset 9px 10px 40px #DEB887;
+	//background-color:#DEB887;
 border: 1px solid black;
     float: left;
     height: 100%;
@@ -368,6 +385,8 @@ border: 1px solid black;
  
 
   .room {
+  	box-shadow:inset 9px 10px 40px #FFF8DC;
+  	//background-color:#FFF8DC;
     border: 1px solid black;
     float: left;
     height: 25%;
@@ -377,6 +396,8 @@ border: 1px solid black;
 
 
 .room1 {
+	box-shadow:inset 9px 10px 75px #E8C291;
+	background-color:#E8C291;
  border: 1px solid black;
     float: left;
     height: 30%;
@@ -386,6 +407,7 @@ border: 1px solid black;
 
 
 .room2 {
+	box-shadow:inset 9px 10px 75px #FFF8DC;
  border: 1px solid black;
     float: left;
     height: 11%;
@@ -402,6 +424,7 @@ border: 1px solid black;
 
 
 .sofa_reception {
+	box-shadow:inset 9px 10px 40px #FFF8DC;
     border: 1px solid black;
     float: left;
     height: 70%;
@@ -411,6 +434,7 @@ border: 1px solid black;
  
 
 .lobby {
+	box-shadow:inset 9px 10px 40px #DEB887;
     border: 1px solid black;
     float: left;
     height: 99%;
@@ -420,20 +444,22 @@ border: 1px solid black;
  
 
 .loby2 {
+	box-shadow:inset 9px 10px 40px #DEB887;
     border: 1px solid black;
     float: right;
     height: 23%;
-    margin-right: 1.2%;
-    width: 52%;
+    margin-right: 0%;
+    width: 54%;
 }
 
  
 
 .aer {
     border: 1px solid black;
+	box-shadow:inset 9px 10px 40px #FFF8DC;
     float: left;
     height: 35%;
-    width: 53%;
+    width: 54%;
 }
 
  
@@ -442,7 +468,7 @@ border: 1px solid black;
     border: 1px solid black;
     float: left;
     height: 39%;
-    width: 53%;
+    width: 54%;
 }
 
  
@@ -452,6 +478,7 @@ border: 1px solid black;
     float: left;
     height: 44%;
     width: 16%;
+	background-color:#FFF8DC;
 }
 
 
@@ -491,7 +518,8 @@ border: 1px solid black;
  clear: both;
 }
 .cabin{border:1px solid green; height:6%;
-margin-top:5%;}
+margin-top:5%;
+box-shadow:inset 9px 10px 40px #DEB887;}
 
 
 #rows

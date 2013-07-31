@@ -81,7 +81,7 @@ ul {
 }
 
 #box1 {
-	
+	box-shadow:-5px 1px 75px #936D3C ;
     margin: 0 -18px;
     overflow: hidden;
     width: 103%;
@@ -89,6 +89,7 @@ ul {
 
 
 #content {
+	box-shadow:-13px -12px 11px #DEB887 ;
 	background: none repeat scroll 0 0 #FFFFFF;
     margin: 0 0 0 320px;
     padding: 40px;
@@ -164,7 +165,7 @@ ul {
 }
 
 #logo h1 {
-	font-size: 3.5em;
+	font-size: 5.5em;
 	font-family: Lobster, cursive;
 	text-shadow: 0 2px 1px #32251B;
 }
@@ -257,6 +258,7 @@ ul {
 }
 
 #sidebar {
+	box-shadow:-17px -12px 11px #DEB887 ;
 	background: none repeat scroll 0 0 #32251B;
     color: #E1D2C7;
     float: left;

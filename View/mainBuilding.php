@@ -33,10 +33,10 @@ function startTooltip(){
 }
 </script>
 <div class="mainContainer">
-	<div style="border: 1px solid black; height: 30%">
+	<div style="border: 1px solid black; height: 30%;width:100%;">
 		<div class="div1">
-			<div class="googol">GOOGOL</div>
-			<div class="srijjan_2"></div>
+			<div class="googol"><label class="writing">GOOGOL</label>  </div>
+			<div class="srijjan_2">SRIJJAN -II</div>
 		</div>
 		<div class="div2">
 			<div class="sofa_reception">
@@ -47,7 +47,8 @@ function startTooltip(){
 			</div>
 			<div class="lobby">lobby</div>
 			<div class="loby2">lobby</div>
-			<div class="aer"><?php
+			<div class="aer">
+			AER<?php
 			foreach ( $_SESSION ['variable'] as $key => $values ) {
 				if ($values ['room_id'] == 8) {
 					for($i = 0; $i < $values ['computer']; $i ++) 
@@ -64,7 +65,8 @@ function startTooltip(){
 				// echo "<pre/>";
 			}
 			?></div>
-			<div class="aqua"><?php
+			<div class="aqua">
+			AQUA<?php
 			foreach ( $_SESSION ['variable'] as $key => $values ) {
 				if ($values ['room_id'] == 9) {
 					for($i = 0; $i < $values ['computer']; $i ++) 
@@ -123,26 +125,26 @@ function startTooltip(){
 		<div
 			style="float: left; height: 100%; width: 20%; border: 1px solid black;">
 			<div
-				style="border: 1px solid black; float: left; height: 5%; width: 100%;">washroom</div>
+				style="border: 1px solid black; float: left; height: 5%; width: 100%;box-shadow:inset 9px 10px 40px #769DCC;">washroom</div>
 			<div
-				style="border: 1px solid black; float: left; height: 4%; width: 100%;">lobby</div>
+				style="border: 1px solid black; float: left; height: 4%; width: 100%;box-shadow:inset 9px 10px 40px #DEB887;">lobby</div>
 			<div
-				style="float: left; height: 5%; width: 100%; border: 1px solid black;">cafetaria</div>
+				style="float: left; height: 5%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #F4FFB5;">cafetaria</div>
 			<div
-				style="float: left; height: 20%; width: 100%; border: 1px solid black;">room1</div>
+				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;">room1</div>
 			<div
-				style="float: left; height: 20%; width: 100%; border: 1px solid black;">room2</div>
+				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;">room2</div>
 			<div
 				style="float: left; height: 22%; width: 100%; border: 1px solid black;">sirijan
 				3</div>
 			<div
 				style="float: left; height: 15%; width: 100%; border: 1px solid black;">accounts</div>
 			<div
-				style="float: left; height: 6%; width: 100%; border: 1px solid black;">lobby</div>
+				style="float: left; height: 6%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #DEB887;">lobby</div>
 		</div>
 
 		<div
-			style="border: 1px solid black; float: left; height: 99%; width: 4%;">lobby</div>
+			style="border: 1px solid black; float: left; height: 99%; width: 4%;box-shadow:inset 9px 10px 40px #DEB887;">lobby</div>
 		<div style="float: right; width: 75%; border: 1px solid black">
 			<div class="room2"><?php
 			foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -247,14 +249,14 @@ function startTooltip(){
 												?>
 								<div class="cols" id="<?php echo 'main_'.$key . '_'. $i; ?>">
 				<img class='dragable dragged' id="<?php echo  $key . '_'. $i; ?>"
-					src="images/red_chair.png" height="35" width="45" />
+					src="images/redvoid.gif" height="35" width="45" />
 			</div>
 			<?php
 											} else {
 												?>				
 								<div id="<?php echo 'main_'. $key . '_'. $i; ?>"
 				class="cols droppable dropped">
-				<img id="<?php echo $key . '_'. $i; ?>" src="images/green_chair.png"
+				<img id="<?php echo $key . '_'. $i; ?>" src="images/blackvoid.jpeg"
 					height="25" width="35" />
 			</div>
 			<?php
@@ -287,7 +289,7 @@ function startTooltip(){
 	<div class="lastdiv"
 		style="float: left; height: 10%; width: 100%; border: 1px solid black;">
 		<div
-			style="float: left; height: 92%; width: 19%; border: 1px solid black;">washroom</div>
+			style="float: left; height: 92%; width: 19%; border: 1px solid black;box-shadow:inset 9px 10px 40px #769DCC;">washroom</div>
 		<div style="float: right; width: 80%;">
 			<div class="room3"><?php
 			foreach ( $_SESSION ['variable'] as $key => $values ) {
