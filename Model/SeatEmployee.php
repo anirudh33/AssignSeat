@@ -14,6 +14,7 @@
  *
  * ************************************************************************
  */
+include Room.php;
 class SeatEmployee extends DBConnection
 {
 	private $_eid;
@@ -141,16 +142,19 @@ class SeatEmployee extends DBConnection
 	 */
 	public function assignSeat($assignInfo)
 	{
-// 	    print_r($assignInfo);
-// 	    die;
+//   print_r($assignInfo);
+//  	    die;
 //         $this->setEid($assignInfo['eid']);
     	$this->setSid($assignInfo['sid']);
     	$this->setAsignee($assignInfo['asignee']);
     	$this->setComputer_id($assignInfo['computer_id']);
-    	$this->setStatus(1);
     	$this->setUpdated_on($assignInfo['updated_on']);
     	$this->setDetails($assignInfo['details']);
-		
+		$this->deleteSeat();
+		$this->setStatus(1);
+		$roomId=$this->findRoomId($assignInfo['room']);
+		$sid=$this->findSid($roomId, $assignInfo['rowNumber']);
+		$this->setSid($sid);
 		 $data['tables'] = 'seat_employee';
 		 $insertValue = array('eid'=>$this->getEid(),
 		 		'sid'=>$this->getSid(),
@@ -168,16 +172,39 @@ class SeatEmployee extends DBConnection
 	 * @return true after seting the status flag to 0 array
 	 * 0 implies seat is not free
 	 */
-	public function deleteSeat($delEid)
-	{		
+	public function deleteSeat()	{		
 		$this->setStatus(0);
-		$this->setEid($delEid['eid']);
-		$data = array('status' => 0);
+		$data = array('status' => $this->getStatus());
 		$where = array('id' =>$this->getEid(), 'status'=>1);
 		$result = $this->_db->update('seat_employee', $data, $where);
-		return "true";
 	}
-        
+	public function findRoomId($roomName)  {
+		$Room=new Room();
+		$Room->setName($roomName);
+		$data['columns']	= array('room.id');
+		$data['conditions']=array(array('name='.$Room->getName().'status = 1'),true);
+		$data['tables']		= 'room';
+		$result = $this->_db->select($data);
+		$myResult=array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			$myResult[]=$row;
+		}
+		return $myResult['id'];
+	}
+	
+	public function findSid($roomId,$rowNumber)  {
+		$data['columns']	= array('sid');
+		$data['conditions']=array(array('(room_id ='.$roomId.' AND row_number='.$rowNumber.') AND status=1'),true);
+		$data['tables']		= 'room';
+		$result = $this->_db->select($data);
+		$myResult=array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			$myResult[]=$row;
+		}
+		return $myResult['sid'];
+	}        
         public function allSeat()
 	{		
 		//$this->setStatus(0);

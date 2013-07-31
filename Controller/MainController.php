@@ -62,10 +62,11 @@ class MainController extends Acontroller
 // 		print_r($_POST);
 // 		die;
 		$a[]=explode("_", $room);
-		print_r($a);
+		//print_r($a);
 		$info['room']=$a[0][0];
 		$info['row']=$a[0][1];
 		$info['computerid']=$a[0][2];
+		$info['details']=$_REQUEST['changeComment'];
 		$info['assigne']=$_SESSION ['username'];
 		$seatObj = $this->loadModel('SeatEmployee');
 		$seatObj->assignSeat($info);

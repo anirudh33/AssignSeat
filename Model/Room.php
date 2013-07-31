@@ -60,7 +60,8 @@ class Room extends RoomRow
 	public function setName($_name) {
 		$this->_name = $_name;
 	}
-	public function roomDetail() {
+	public function roomDetail($name) {
+		echo "here";
 		$this->setName($name);//($_POST['name']);
 		$data['columns']	= array('room.name');
 		$data['conditions']=array(array('status = 1'),true);
@@ -79,4 +80,4 @@ class Room extends RoomRow
 	
 }
  $y=new Room();
- $y->roomDetail();
+ $y->roomDetail('googol');
