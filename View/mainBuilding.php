@@ -98,26 +98,7 @@ function startTooltip(){
   <div class="div1">
    <div class="googol">GOOGOL</div>
    <div class="srijjan_2">
-   		<?php
-//print_r($_SESSION['variable']);die;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 7) {
-    	for($i = 0; $i < $values ['computer']; $i ++)
-        
-        {
-         for($rows=0;$rows<$values['row_number'];$rows++){
-            // echo "hii";
-            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
-        
-        }
-        echo "<br style='clear:both;'/>";
-        }
-    }
-    // echo "<pre/>";
-    // print_r($_SESSION['variable']['3']);
-}
-?>
-   
+   		   
    
    </div>
   </div>  
@@ -125,8 +106,40 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
    <div class="sofa_reception">sofa_reception</div>
    <div class="lobby">lobby</div>
    <div class="loby2">lobby</div>
-   <div class="aer">Aer</div>
-   <div class="aqua">aqua</div>
+   <div class="aer"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 8) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+    // echo "<pre/>";
+    
+}
+?></div>
+   <div class="aqua"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 9) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+    // echo "<pre/>";
+    
+}
+?></div>
   </div>
 
   <div class="sofachess">
@@ -138,7 +151,23 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 
   <div class="room">room</div>
   <div class="room1">room</div>
-  <div class="conference">conference</div>
+  <div class="conference"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 10) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+    // echo "<pre/>";
+    
+}
+?></div>
 
 </div>  
 <div class="div3">
@@ -155,10 +184,74 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 
    <div style=" border: 1px solid black;float: left;height: 99%;width: 4%;">lobby</div>
    <div style="float: right;width:75%;border: 1px solid black">
-    <div class="room2">Egnis</div>
-    <div class="room2">jugraj singh bedi</div>
-    <div class="room2">sachin khurana</div>
-    <div class="room2 ">terra</div>
+    <div class="room2"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 11) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+     echo "<pre/>";
+    
+}
+?></div>
+    <div class="room2"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 12) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+     echo "<pre/>";
+    
+}
+?></div>
+    <div class="room2"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 13) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+     echo "<pre/>";
+    
+}
+?></div>
+    <div class="room2 "><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 14) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+     echo "<pre/>";
+    
+}
+?></div>
    </div>
    <div style=" border: 1px solid black;float: right;height: 88%;width: 12%;">
         <div class="cabin"></div>
@@ -217,10 +310,74 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
   <div class="lastdiv" style="float: left;height: 10%; width:100%; border: 1px solid black;">
       <div style="float: left;height: 92%; width:19%; border: 1px solid black;">washroom</div>
       <div style="float: right;width:80%;">
-        <div class="room3">Pranabdas</div>
-        <div class="room3">arinder singh suri</div>
-        <div class="room3">sonali minocha</div>
-        <div class="room3">sourabh</div>
+        <div class="room3"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 15) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+     echo "<pre/>";
+    
+}
+?></div>
+        <div class="room3"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 16) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+    // echo "<pre/>";
+    
+}
+?></div>
+        <div class="room3"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 17) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+    // echo "<pre/>";
+    
+}
+?></div>
+        <div class="room3"><?php
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 18) {
+    	for($i = 0; $i < $values ['computer']; $i ++)
+        
+        {
+         for($rows=0;$rows<$values['row_number'];$rows++){
+            ?><div style="float: left; height: 22px; width: 32px;margin-right:25px;"><img src="images/green_seat.jpeg" height=20 width=30 /></div><?php
+        
+        }
+        echo "<br style='clear:both;'/>";
+        }
+    }
+    // echo "<pre/>";
+    
+}
+?></div>
       </div>
   </div>
 </div>
