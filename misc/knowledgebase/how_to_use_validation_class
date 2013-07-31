@@ -10,7 +10,8 @@ How to use validate class:
 require_once("validate.php")
 # Create Object of class validate
 $obj = new validate();
-# Call validator() functions for all the fields, for which you want server side validation
+# Call validator() functions for all the fields, for which you want server 
+side validation
 $obj­>add_fields($controler_name,$postVar, $authType, $errorMsg);
 # Validate your data using result() function, which will return errors if any...
 $error = $obj­>result();

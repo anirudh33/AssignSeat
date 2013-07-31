@@ -36,7 +36,14 @@
   </fieldset>
 
 </form>
-
+<div id="errors">
+<?php if(isset($_SESSION['msg'])) { ?>
+	<h3>Some errors were found, kindly rectify</h3>
+<center>
+<?php echo $_SESSION['msg'];
+}?>
+</center>
+</div>
 </body>
 
 </html>

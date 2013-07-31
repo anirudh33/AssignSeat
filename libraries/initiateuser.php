@@ -89,8 +89,10 @@ $this->setSession ();
 return 1;
 
 } else {
-$msg = "Login Failed username or password does not exist";
-header ( "Location:index.php?msg=".$msg);	
+	$_SESSION['msg']="";
+$_SESSION['msg'] =$_SESSION['msg'].'<br>'. "Login Failed username or password does not exist";
+header ( "Location:index.php");
+die;	
 }	
 }
 

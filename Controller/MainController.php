@@ -8,7 +8,7 @@
 * Created on - july 29, 2013
 * *************************************************
 */
-
+require_once(SITE_PATH."/libraries/validate.php");
 class MainController extends Acontroller
 {
 	private $_username;
@@ -20,10 +20,31 @@ class MainController extends Acontroller
 		//$this->_objInitiateUser= new InitiateUser();
 	}
 	public function loginClick() {
-		$_username=$_REQUEST['username'];
-		$_password=$_REQUEST['password'];
-		$this->_objInititateUser= new InitiateUser();
-		$result=$this->_objInititateUser->login($_username,$_password);
+		$this->_username=$_REQUEST['username'];
+		$this->_password=$_REQUEST['password'];
+		
+		# Create Object of class validate
+		$obj = new validate();
+		$obj->validator("username",$this->_username, 'required#alphanumeric#minlength=4#maxlength=25','Username Required#alphanumeric Required#Enter Username atleast 4 characters long#Username should not be more than 25 characters long');
+		$obj->validator("password",$this->_password, 'minlength=4#maxlength=25','Enter password atleast 4 characters long#Password should not be more than 25 characters long');
+		$error=$obj->result();
+		
+		
+		if(!empty($error)){
+			
+			if(isset($_SESSION['msg'])) {				
+				$_SESSION['msg'] =$_SESSION['msg'].'<br><br>'. $obj->array2table($error);				
+			}else {
+				$_SESSION['msg'] =$obj->array2table($error);				
+			}
+			
+			header ( "Location:".SITE_URL."index.php");
+			die;
+		 }
+		
+		
+		$this->_objInitiateUser= new InitiateUser();
+		$result=$this->_objInitiateUser->login($this->_username,$this->_password);
 		if($result==1) {
 			//die("jjfj");
 			$obj = $this->loadModel('SeatEmployee'); 

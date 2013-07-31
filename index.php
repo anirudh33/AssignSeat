@@ -1,15 +1,17 @@
 <?php
 /*
  * Creation Log File Name - index.php 
- * Description - skillseeker index file
+ * Description - AssignSeat index file
  * Version - 1.0 
  * Created by - Anirudh Pandita 
- * Created on - May 3, 2013 
+ * Created on - July 29, 2013 
  * *************************************************
  */
 
-/* Starting session  */
+/* Show php errors as in development stage */
 ini_set("display_errors","1");
+
+/* Starting session  */
 session_start();
 
 /* Including all constants to be used */
@@ -72,6 +74,8 @@ else
     $objMainController->loadView("main");
 }
 
+/* clear error messages */
+unset($_SESSION['msg']);
 //footer..
 ?>
 
