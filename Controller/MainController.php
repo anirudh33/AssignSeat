@@ -59,6 +59,8 @@ class MainController extends Acontroller
 	public function assignSeat()
 	{
 		$room=$_REQUEST['roomid'];
+// 		print_r($_POST);
+// 		die;
 		$a[]=explode("_", $room);
 		print_r($a);
 		$info['room']=$a[0][0];

@@ -58,7 +58,7 @@ page=0;
 			}
   		}); 
 }
-
+$changeComment = '';
 /* Updated By Amber Sharma */
 function dragdropevent()
 {
@@ -95,32 +95,43 @@ function dragdropevent()
         /** This is the drop event, when the dragable object is moved on the top of the dropable object area **/
         drop: function( event, ui ) {
         	$("#changeCommentLink").fancybox({
+        		closeBtn  : false,
             	afterLoad : function(){
             	$("#changeComment").val('');
             	return;
-            	}
+            	},
+            closeClick  : false, // prevents closing when clicking INSIDE fancybox
+            helpers     : { 
+                overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
+            }
+              
             });
         	$("#changeCommentLink").trigger("click");
-		alert(thisid);
-		$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid},function(data,status){
-			//window.location.href = 'index.php';
-			});
-		$("#"+thisid ).html(' ');
-		$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
-		$("#"+thisid).removeClass('droppable ui-droppable dropped');
-		$( "#"+moveid ).html(' ');
-		if(moveid.indexOf("emp") == -1)
-		{
-			$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30"  />');
-			$("#"+moveid).addClass('droppable ui-droppable dropped');
-		}
-	
-		dragdropevent();
+		//alert(thisid);
+        	
         	
         }
     });
 }
-
+function closeFancyBox(){
+	$changeComment = $("#changeComment").val();	
+	$.fancybox.close();
+	$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment},function(data,status){
+		//window.location.href = 'index.php';
+		});
+	$("#"+thisid ).html(' ');
+	$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
+	$("#"+thisid).removeClass('droppable ui-droppable dropped');
+	$( "#"+moveid ).html(' ');
+	if(moveid.indexOf("emp") == -1)
+	{
+		$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30"  />');
+		$("#"+moveid).addClass('droppable ui-droppable dropped');
+	}
+	
+	dragdropevent();
+	
+}
 /* Updated By Amber Sharma */
 </script>
 <lable>Name:</lable> <input type="text" id="searchtxt" onkeyup="getData()"/>
@@ -131,7 +142,7 @@ function dragdropevent()
 	<label>Comment:</label><br> 
 	<textarea rows="10" cols="10" id="changeComment" name="changeComment"></textarea>
 	</section>
-	<input type="button" id="commentSubmit" name="commentSubmit" value="Submit" />
+	<input type="button" id="commentSubmit" onClick = "closeFancyBox()" name="commentSubmit" value="Submit" />
 </div>
 </a>
 <div id="result"></div>

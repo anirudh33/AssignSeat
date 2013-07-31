@@ -141,8 +141,8 @@ class SeatEmployee extends DBConnection
 	 */
 	public function assignSeat($assignInfo)
 	{
-	    print_r($assignInfo);
-	    die;
+// 	    print_r($assignInfo);
+// 	    die;
 //         $this->setEid($assignInfo['eid']);
     	$this->setSid($assignInfo['sid']);
     	$this->setAsignee($assignInfo['asignee']);
