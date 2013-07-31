@@ -92,6 +92,9 @@ function dragdropevent()
         /** This is the drop event, when the dragable object is moved on the top of the dropable object area **/
         drop: function( event, ui ) {
 		alert(thisid);
+		$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid},function(data,status){
+			//window.location.href = 'index.php';
+			});
 		$("#"+thisid ).html(' ');
 		$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
 		$("#"+thisid).removeClass('droppable ui-droppable dropped');
@@ -101,6 +104,7 @@ function dragdropevent()
 			$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30"  />');
 			$("#"+moveid).addClass('droppable ui-droppable dropped');
 		}
+	
 		dragdropevent();
         	
         }

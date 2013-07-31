@@ -283,7 +283,7 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 							if($i != $rand)
 							{
 			?>
-								<div class="cols"  id="<?php echo 'main'.$key . '_'. $i; ?>" >
+								<div class="cols"  id="<?php echo 'main_'.$key . '_'. $i; ?>" >
 								<img class='dragable dragged' id="<?php echo  $key . '_'. $i; ?>" src="images/red_chair.png"/>
 								</div>
 			<?php
@@ -291,7 +291,7 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 							else
 							{
 			?>				
-								<div id="<?php echo 'main'. $key . '_'. $i; ?>" class="cols droppable dropped">
+								<div id="<?php echo 'main_'. $key . '_'. $i; ?>" class="cols droppable dropped">
 								<img id="<?php echo $key . '_'. $i; ?>" src="images/green_chair.png" height="18" width="30"/>
 								</div>
 			<?php

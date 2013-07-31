@@ -53,7 +53,17 @@ class MainController extends Acontroller
 	{
 		
 	}
-	
+	public function assignSeat()
+	{
+		$room=$_REQUEST['roomid'];
+		$a[]=explode("_", $room);
+		print_r($a);
+		$info['room']=$a[0][0];
+		$info['row']=$a[0][1];
+		$info['col']=$a[0][2];
+		$info['assigne']=$_SESSION ['username'];
+		//die(yesssssssssssss);
+	}
 	public function searchEmployee()
 	{
 		$employeeObj = $this->loadModel('Employee');
