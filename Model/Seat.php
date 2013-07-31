@@ -169,9 +169,9 @@ class Seat extends DBConnection
 	public function deleteSeat()
 	{		
 		$this->setStatus(0);
-		$data['tables'] = 'seat_employee';
-		$where = array('id' => $db->lastInsertId());
-		$result = $db->update('posts', $data, $where);
+		$data = array('status' => 0);
+		$where = array('id' =>$this->getEid(), 'status'=>1);
+		$result = $this->_db->update('seat_employee', $data, $where);
 		return "true";
 	}
         
