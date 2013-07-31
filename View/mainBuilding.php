@@ -245,14 +245,14 @@ function startTooltip(){
 										for($i = 0; $i < $values ['computer']; $i ++) {
 											if ($i != $rand) {
 												?>
-								<div class="cols" id="<?php echo 'main'.$key . '_'. $i; ?>">
+								<div class="cols" id="<?php echo 'main_'.$key . '_'. $i; ?>">
 				<img class='dragable dragged' id="<?php echo  $key . '_'. $i; ?>"
 					src="images/red_chair.png" height="35" width="45" />
 			</div>
 			<?php
 											} else {
 												?>				
-								<div id="<?php echo 'main'. $key . '_'. $i; ?>"
+								<div id="<?php echo 'main_'. $key . '_'. $i; ?>"
 				class="cols droppable dropped">
 				<img id="<?php echo $key . '_'. $i; ?>" src="images/green_chair.png"
 					height="25" width="35" />
