@@ -131,6 +131,9 @@ private function fetchUser($username, $password) {
         {
             if(md5($myResult[0]['password']) === md5($password))
             {
+//             	echo md5($myResult[0]['password']);
+//             	echo "<br/>";
+//             	echo md5($password);die;
 				$this->setUserId($myResult[0]['id']);  //if login is sucessfull,setting userid
                  /*** security
 				 $objSecurity= new Security();
@@ -139,7 +142,7 @@ private function fetchUser($username, $password) {
             }
             else
             {
-                
+            	return 0;
             }
         }
         else

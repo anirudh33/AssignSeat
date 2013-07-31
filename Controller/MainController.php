@@ -25,6 +25,7 @@ class MainController extends Acontroller
 		$this->_objInititateUser= new InitiateUser();
 		$result=$this->_objInititateUser->login($_username,$_password);
 		if($result==1) {
+			//die("jjfj");
 			$obj = $this->loadModel('SeatEmployee'); 
                         $value = $obj->allSeat();
                         //session_start();
@@ -38,6 +39,7 @@ class MainController extends Acontroller
                        
 		}
 		else {
+		
 			echo " unsucessfull login";
 		}
 		
@@ -61,10 +63,10 @@ class MainController extends Acontroller
 		print_r($a);
 		$info['room']=$a[0][0];
 		$info['row']=$a[0][1];
-		$info['col']=$a[0][2];
+		$info['computerid']=$a[0][2];
 		$info['assigne']=$_SESSION ['username'];
-		$ob=new SeatEmployee();
-		$ob->assignSeat($info);
+		$seatObj = $this->loadModel('SeatEmployee');
+		$seatObj->assignSeat($info);
 	}
 	public function searchEmployee()
 	{
