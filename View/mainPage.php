@@ -1,27 +1,32 @@
-<?php 
+<?php
 /*
- * Creation Log File Name - main.php
-* Description - Main view file
-* Version - 1.0
-* Created by - Avni jain
-* Created on - july 29, 2013
-* *************************************************
-*/
-echo $_SESSION ["username"];
-echo $_SESSION ["userid"];
+ * Creation Log File Name - main.php Description - Main view file Version - 1.0 Created by - Avni jain Created on - july 29, 2013 *************************************************
+ */
+// echo $_SESSION ["username"];
+// echo $_SESSION ["userid"];
 //echo "hi";die;
 ?>
 <html lang="">
-<head>  
+<head>
 <title></title>
-<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css" type="text/css" media="all">
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css"
+	type="text/css" media="all">
 </head>
-<link rel = "stylesheet" href = "<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
-<script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js" ></script>
-<script src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js" ></script> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Assign Seat</title>
+<link rel="stylesheet"
+	href="<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
+<link href="<?php echo SITE_URL;?>assets/css/style.css" rel="stylesheet"
+	type="text/css" />
+<script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js"></script>
+<script
+	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js"></script>
+<script
+	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js"></script>
+<script
+	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
+<script
+	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js"></script>
 <script>
 $(function(){
 	getData();
@@ -39,37 +44,50 @@ $("#logout").click(function(){
 </script>
 
 <body>
-<?php 
-if(!isset($_SESSION ["username"])) { 
-header("location:index.php");
-}
-?>
-<div id="maindiv">
-	<div id="header">
-	<input type="button" class="btn blue" id="logout" value="logout">
-	<h1>Assign Seat</h1>
-	<h4>Welcome <?php echo $_SESSION ["username"];?></h4>
-	
-	</div>
-	
-	<div id="leftbar">
-		
-    <div id="leftsubbar">
-		<h3>Search Employee</h3>
+	<div id="bg">
+		<div id="outer">
+			<div id="header">
+				<div id="logo">
+					<h1>
+						<a href="#">Assign Seat</a>
+					</h1>
+				</div>
+				<div id="nav">
+					<ul>
+						<li class="first active"><a href="#">Home</a></li>
+						<li><a href="#">Logout</a></li>
+
+					</ul>
+					<br class="clear" />
+				</div>
+			</div>
+			<div id="main">
+				<div id="sidebar">
+					<div id="leftbar">
+
+						<div id="leftsubbar">
+							<h3>Search Employee</h3>
 	   <?php include_once 'seat.php';?>
     </div>
-    <div id="loginUser">
-    <?php include_once 'loggedInusers.php';?>
-    </div>
-	</div>
-	
-    <div id="rightbar">
+					</div>
+
+				</div>
+				<div id="content">
+					<h2>Blue Print</h2>
+					<div id="box1">
+						<div id="rightbar">
         <?php include_once 'mainBuilding.php';?>
-    </div>
-	<div id="footer">
-		<center>Copyright Batch1 OssCube Pvt Ltd</center>
+        </div>
+					</div>
+
+
+					<br class="clear" />
+				</div>
+				<br class="clear" />
+			</div>
+		</div>
+		<div id="copyright">Osscube: Kawal ,Raman </br>
+		<h3> Burraaraaahhhhhhhhhhhh </h3></div>
 	</div>
-</div>
-</body>
 
 </html>
