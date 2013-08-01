@@ -83,7 +83,7 @@ ul {
 #box1 {
 	box-shadow:-5px 1px 75px #936D3C ;
     margin: 0 -18px;
-    overflow: hidden;
+  /*  overflow: hidden; */
     width: 103%;
 }
 

@@ -41,7 +41,9 @@ function dragdropevent()
         },
         /** This is the drop event, when the dragable object is moved on the top of the dropable object area **/
         drop: function( event, ui ) {
-
+// 				alert(thisid);if(thisid=='trash'){
+// 						alert('haan');
+// 					}
          	$("#changeCommentLink").fancybox({
         		closeBtn  : false,
             	afterLoad : function(){
@@ -57,9 +59,14 @@ function dragdropevent()
         	$("#changeCommentLink").trigger("click");
 		//alert(thisid);
 		//$("#"+thisid).removeClass('droppable ui-droppable dropped');
+    		if(thisid=='trash')
+    		{
+				
+        		}
+    		else{
 		 $('#' + thisid).droppable('disable')
 		$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
-		
+    		}
 		$( "#"+moveid ).html(' ');
 		if(moveid.indexOf("emp") == -1)
 		{
@@ -76,6 +83,16 @@ function closeFancyBox(){
 	$.fancybox.close();
 	//alert(draggedElement);
 	//alert(moveid);
+// 	alert(thisid+'1');
+	if(thisid=='trash'){
+		//alert(moveid);
+		$.post('index.php?controller=MainController&method=trashSeat',{changeComment:$changeComment,employee:draggedElement},function(data,status){
+			
+			alert(data);
+		//window.location.href = 'index.php';
+		});
+
+	}else{
 	$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment,employee:draggedElement},function(data,status){
 		
 			alert(data);
@@ -91,7 +108,7 @@ function closeFancyBox(){
 			$("#"+moveid).addClass('droppable ui-droppable dropped');
 		}
 		dragdropevent();
-	
+	}	
 }
 /* Updated By Amber Sharma */
 </script>

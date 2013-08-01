@@ -232,7 +232,7 @@ class SeatEmployee extends DBConnection
          public function seatStatus($val,$val1)
 	 {				
 		
-	       $data['columns']        = array('seat_employee.computer_id','seat_employee.eid',);
+	       $data['columns']        = array('seat_employee.status','seat_employee.computer_id','seat_employee.eid',);
                $data['tables']=array('room');
                
                $data['joins'][] = array(
@@ -247,7 +247,7 @@ class SeatEmployee extends DBConnection
                $data['conditions']=array(array('room.id='.$val.' AND room_row.room_id='.$val.' AND room_row.row_number='.$val1),true);
 	       //$data['order_by'] = array(array('seat_employee.computer_id'));
                $result=$this->_db->select($data);
-                            
+
                $myResult=array();
                while ($row = $result->fetch(PDO::FETCH_ASSOC))
                {
@@ -259,6 +259,14 @@ class SeatEmployee extends DBConnection
  
 
                 
+	}
+	
+	public function trashSeat()	{
+		$this->setStatus(0);
+		$data = array('status' => $this->getStatus(),'details'=>$this->getDetails());
+		$where = array('eid' =>$this->getEid(), 'status'=>1);
+		$result = $this->_db->update('seat_employee', $data, $where);
+		return $result;
 	}
         
 }

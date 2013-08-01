@@ -85,7 +85,7 @@ function showLog()
 					</div>
                     </div>
                     <br class="clear" />
-                    <div class="droppable">
+                    <div class="droppable" id="trash">
                         <img
                             src="<?php echo SITE_URL;?>/images/trash1.png" />
                     </div>

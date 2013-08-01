@@ -5,7 +5,7 @@ $k = 0;
 
 $count = count($value);
 for($i=0;$i<$_REQUEST['value2'];$i++){
-if($value[$k]['computer_id'] == ($i + 1)){
+if($value[$k]['computer_id'] == ($i + 1) && $value[$k]['status'] == 1){
 if($count < $k)
 $k ++;
 

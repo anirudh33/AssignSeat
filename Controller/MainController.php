@@ -132,6 +132,20 @@ class MainController extends Acontroller
 	    //print_r($value);die;
 	          
 	}
+	
+	
+	public function trashSeat()
+	{
+		
+// 		$info['empid']=$_REQUEST['employee'];
+// 		print_r($info);die;
+		$seatObj = $this->loadModel('SeatEmployee');
+		$seatObj->setEid($_REQUEST['employee']);
+		$seatObj->setDetails($_REQUEST['changeComment']);
+		$trashed=$seatObj->trashSeat();
+		echo " Seat has been trashed";
+	
+	}
 }
 
 ?>
