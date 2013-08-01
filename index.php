@@ -53,6 +53,7 @@ if (isset ( $_REQUEST ['controller'] )) {
 				}
 				if($_REQUEST ["method"]=='mainPage')
 				{
+					
 					$object->loadView("mainPage");
 				}
 			}

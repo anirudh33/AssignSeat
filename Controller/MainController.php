@@ -54,18 +54,20 @@ class MainController extends Acontroller
 		
 		/**** calls login function takes two arguments username and password,will return 1 in case of sucessful login else 0************/
 		$result=$this->_objInitiateUser->login($this->_username,$this->_password);
-	
+	//echo $result;
 		/********** in case of authentic user********/
 		if($result==1) {
-		
+		//echo $result;
 			$obj = $this->loadModel('SeatEmployee'); 
 			$value = $obj->allSeat();			
 			$_SESSION['variable'] = $value;
+			//echo "<pre>";
+			//print_r($_SESSION);
 			$objSecurity= new Security();
 			$objSecurity->logSessionId( $_SESSION['username']);
 			$objLogger = new Logger();
 			$objLogger->logLoginEntryCuurentFile();
-			header("location:index.php?controller=MainController&method=mainPage");                  
+			header("Location:index.php?controller=MainController&method=mainPage");                  
 		}
 		else {
 			echo " unsucessfull login";

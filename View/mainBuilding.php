@@ -193,7 +193,8 @@ transform:rotate(90deg);
 			<div class="googol"><label class="writing"><?php echo $lang->GOOGOL;?></label>  </div>
 			<div class="srijjan_2">
 			
-		<div class="rotate">	
+		<div class="rotate">
+<!--	
 <?php
 $count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -218,7 +219,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('7',i,val,'srijjan_2');
+          status('7',i,val,'srijjan-2');
          </script>
           <?php $i++; ?>
          <div id='display7'></div>
@@ -230,7 +231,7 @@ $count = $key;
     
 }
 ?>			
-			
+			-->
 			</div>
 			</div>
 		</div>
@@ -268,7 +269,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('8',i,val,'aer');
+          status('8',i,val,'Aer');
          </script>
           <?php $i++; ?>
          <div id='display8'></div>
@@ -568,7 +569,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 11) {
 	
          ?>
@@ -578,7 +579,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('11',i,val,'egnis');
+          status('11',i,val,'Egnis');
          </script>
           <?php $i++; ?>
          <div id='display11'></div>
@@ -591,7 +592,7 @@ $count = $key;
 }
 ?>
     </div>
-    <div class="room2">
+    <div class="room2" >
 			 <?php
 $count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -606,7 +607,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' >";	
       if ($values ['room_id'] == 12) {
 	
          ?>
@@ -616,7 +617,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('12',i,val,'room-2');
+          status('12',i,val,'jugraj singh bedi');
          </script>
           <?php $i++; ?>
          <div id='display12'></div>
@@ -655,7 +656,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('13',i,val,'room2');
+          status('13',i,val,'sachin khurana');
          </script>
           <?php $i++; ?>
          <div id='display13'></div>
@@ -683,7 +684,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 14) {
 	
          ?>
@@ -693,7 +694,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('14',i,val,'room2');
+          status('14',i,val,'terra');
          </script>
           <?php $i++; ?>
          <div id='display14'></div>
@@ -724,7 +725,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 3) {
 	
          ?>
@@ -734,7 +735,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('3',i,val,'cabin');
+          status('3',i,val,'cabin-1');
          </script>
           <?php $i++; ?>
          <div id='display3'></div>
@@ -765,7 +766,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 4) {
 	
          ?>
@@ -775,7 +776,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('4',i,val,'cabin');
+          status('4',i,val,'cabin-2');
          </script>
           <?php $i++; ?>
          <div id='display4'></div>
@@ -805,7 +806,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 5) {
 	
          ?>
@@ -815,7 +816,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('5',i,val,'cabin');
+          status('5',i,val,'cabin-3');
          </script>
           <?php $i++; ?>
          <div id='display5'></div>
@@ -845,7 +846,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 6) {
 	
          ?>
@@ -855,7 +856,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('6',i,val,'cabin');
+          status('6',i,val,'cabin-4');
          </script>
           <?php $i++; ?>
          <div id='display6'></div>
@@ -884,7 +885,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 21) {
 	
          ?>
@@ -894,7 +895,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('21',i,val,'cabin');
+          status('21',i,val,'cabin-5');
          </script>
           <?php $i++; ?>
          <div id='display21'></div>
@@ -924,7 +925,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 22) {
 	
          ?>
@@ -934,7 +935,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('22',i,val,'cabin');
+          status('22',i,val,'cabin-6');
          </script>
           <?php $i++; ?>
          <div id='display22'></div>
@@ -965,7 +966,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 23) {
 	
          ?>
@@ -975,7 +976,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('23',i,val,'cabin');
+          status('23',i,val,'cabin-7');
          </script>
           <?php $i++; ?>
          <div id='display23'></div>
@@ -1005,7 +1006,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 24) {
 	
          ?>
@@ -1015,7 +1016,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('24',i,val,'cabin');
+          status('24',i,val,'cabin-8');
          </script>
           <?php $i++; ?>
          <div id='display24'></div>
@@ -1045,7 +1046,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 25) {
 	
          ?>
@@ -1055,7 +1056,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('25',i,val,'cabin');
+          status('25',i,val,'cabin-9');
          </script>
           <?php $i++; ?>
          <div id='display25'></div>
@@ -1085,7 +1086,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 26) {
 	
          ?>
@@ -1095,7 +1096,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('26',i,val,'cabin');
+          status('26',i,val,'cabin-10');
          </script>
           <?php $i++; ?>
          <div id='display26'></div>
@@ -1125,7 +1126,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 27) {
 	
          ?>
@@ -1135,7 +1136,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('27',i,val,'cabin');
+          status('27',i,val,'cabin-11');
          </script>
           <?php $i++; ?>
          <div id='display27'></div>
@@ -1165,7 +1166,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 28) {
 	
          ?>
@@ -1175,7 +1176,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('28',i,val,'cabin');
+          status('28',i,val,'cabin-12');
          </script>
           <?php $i++; ?>
          <div id='display28'></div>
@@ -1205,7 +1206,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 29) {
 	
          ?>
@@ -1215,7 +1216,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('29',i,val,'cabin');
+          status('29',i,val,'cabin-13');
          </script>
           <?php $i++; ?>
          <div id='display29'></div>
@@ -1245,7 +1246,7 @@ $count = $key;
 }       $i=1;  
 //echo $count;
      foreach ( $_SESSION ['variable'] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' style='margin-top:-10px;'>";	
       if ($values ['room_id'] == 30) {
 	
          ?>
@@ -1255,7 +1256,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('30',i,val,'cabin');
+          status('30',i,val,'cabin-14');
          </script>
           <?php $i++; ?>
          <div id='display30'></div>
@@ -1317,14 +1318,119 @@ $count = $key;
 				<div
 					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC;width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;">
 
-					<?php echo $lang->CHANDERMOHAN;?></div>
+					<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 18) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 31) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('31',i,val,'cabin-15');
+         </script>
+          <?php $i++; ?>
+         <div id='display31' ></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?></div>
 				<div
 					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
-					<?php echo $lang->PRINCE;?></div>
+					<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 18) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 32) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('32',i,val,'cabin-16');
+         </script>
+          <?php $i++; ?>
+         <div id='display32' ></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?></div>
 				<div
 					style="border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
 
-					<?php echo $lang->RONY;?></div>
+					<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 18) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 33) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('33',i,val,'cabin-17');
+         </script>
+          <?php $i++; ?>
+         <div id='display33'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?></div>
 			</div>
 		</div>
 	</div>
@@ -1362,7 +1468,7 @@ $count = $key;
           status('15',i,val,'room3');
          </script>
           <?php $i++; ?>
-         <div id='display15'></div>
+         <div id='display15' style='margin-top:20px;'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
@@ -1401,7 +1507,7 @@ $count = $key;
           status('16',i,val,'room3');
          </script>
           <?php $i++; ?>
-         <div id='display16'></div>
+         <div id='display16' style='margin-top:20px;'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
@@ -1479,7 +1585,7 @@ $count = $key;
           status('18',i,val,'room3');
          </script>
           <?php $i++; ?>
-         <div id='display18'></div>
+         <div id='display18' style='margin-top:20px;'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
