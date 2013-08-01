@@ -1,4 +1,5 @@
-<?php //print_r($_SESSION);die;?>
+<?php //print_r($_SESSION);die;
+?>
 <script type="text/javascript" src="assets/js/jquery.ui.core.js"></script>
 <script type="text/javascript" src="assets/js/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="assets/js/jquery.ui.mouse.js"></script>
@@ -143,24 +144,25 @@ function startTooltip(){
 	});
 }
 </script>
+
 <!-- Updated By Amber Sharma -->
 <div class="mainContainer">
 	<div style="border: 1px solid black; height: 30%;width:100%;">
 		<div class="div1">
-			<div class="googol"><label class="writing">GOOGOL</label>  </div>
-			<div class="srijjan_2">SRIJJAN -II</div>
+			<div class="googol"><label class="writing"><?php echo $lang->GOOGOL;?></label>  </div>
+			<div class="srijjan_2"><?php echo $lang->SRIJJANII;?></div>
 		</div>
 		<div class="div2">
 			<div class="sofa_reception">
 				<img alt="" src="images/sofa.jpg"
 					style="float: left; height: 50%; width: 30%; margin-top: 6%;">
-				sofa_reception <img alt="" src="images/reception.jpeg"
+				<?php echo $lang->SOFARECEPTION;?><img alt="" src="images/reception.jpeg"
 					style="height: 80%; width: 45%; float: right;">
 			</div>
-			<div class="lobby">lobby</div>
-			<div class="loby2">lobby</div>
+			<div class="lobby"><?php echo $lang->LOBBY;?></div>
+			<div class="loby2"><?php echo $lang->LOBBY;?></div>
 			<div class="aer">
-			AER<?php
+			<?php echo $lang->AER;?><?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 8) {
     	for($i = 0; $i < $values ['row_number']; $i ++)
@@ -183,7 +185,7 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 }
 ?></div>
 			<div class="aqua">
-			AQUA<?php
+			<?php echo $lang->AQUA;?><?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 9) {
     	for($i = 0; $i < $values ['row_number']; $i ++)
@@ -218,8 +220,8 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 			</div>
 		</div>
 
-		<div class="room">room</div>
-		<div class="room1">room</div>
+		<div class="room"><?php echo $lang->ROOM;?></div>
+		<div class="room1"><?php echo $lang->ROOM;?></div>
 		<div class="conference"><?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 10) {
@@ -250,13 +252,13 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 		<div
 			style="float: left; height: 100%; width: 20%; border: 1px solid black;">
 			<div
-				style="border: 1px solid black; float: left; height: 5%; width: 100%;box-shadow:inset 9px 10px 40px #769DCC;">washroom</div>
+				style="border: 1px solid black; float: left; height: 5%; width: 100%;box-shadow:inset 9px 10px 40px #769DCC;"><?php echo $lang->WASHROOM;?></div>
 			<div
-				style="border: 1px solid black; float: left; height: 4%; width: 100%;box-shadow:inset 9px 10px 40px #DEB887;">lobby</div>
+				style="border: 1px solid black; float: left; height: 4%; width: 100%;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
 			<div
-				style="float: left; height: 5%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #F4FFB5;">cafetaria</div>
+				style="float: left; height: 5%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #F4FFB5;"><?php echo $lang->CAFETERIA;?></div>
 			<div
-				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;">room1
+				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM1;?>
 				<?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 34) {
@@ -281,7 +283,7 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 ?>
 				</div>
 			<div
-				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;">room2
+				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM2;?>
 				<?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 35) {
@@ -306,8 +308,8 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 ?>
 				</div>
 			<div
-				style="float: left; height: 22%; width: 100%; border: 1px solid black;">sirijan
-				3
+				style="float: left; height: 22%; width: 100%; border: 1px solid black;"><?php echo $lang->SIRIJAN;?>
+				
 				 <?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 20) {
@@ -333,7 +335,7 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 				
 				</div>
 			<div
-				style="float: left; height: 15%; width: 100%; border: 1px solid black;">accounts
+				style="float: left; height: 15%; width: 100%; border: 1px solid black;"><?php echo $lang->ACCOUNTS;?>
 				<?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 19) {
@@ -359,11 +361,11 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 				
 				</div>
 			<div
-				style="float: left; height: 6%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #DEB887;">lobby</div>
+				style="float: left; height: 6%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
 		</div>
 
 		<div
-			style="border: 1px solid black; float: left; height: 99%; width: 4%;box-shadow:inset 9px 10px 40px #DEB887;">lobby</div>
+			style="border: 1px solid black; float: left; height: 99%; width: 4%;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
 		<div style="float: right; width: 75%; border: 1px solid black">
     <div class="room2">
 
@@ -466,20 +468,21 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 		</div>
 		<div
 			style="border: 1px solid black; float: right; height: 88%; width: 12%;">
-			<div class="cabin">cabin-1</div>
-			<div class="cabin">cabin-2</div>
-			<div class="cabin">cabin-3</div>
-			<div class="cabin">cabin-4</div>
-			<div class="cabin">cabin-5</div>
-			<div class="cabin">cabin-6</div>
-			<div class="cabin">cabin-7</div>
-			<div class="cabin">cabin-8</div>
-			<div class="cabin">cabin-9</div>
-			<div class="cabin">cabin-10</div>
-			<div class="cabin">cabin-11</div>
-			<div class="cabin">cabin-12</div>
-			<div class="cabin">cabin-13</div>
-			<div class="cabin">cabin-14</div>
+			<div class="cabin"><?php echo $lang->CABIN1;?></div>
+			<div class="cabin"><?php echo $lang->CABIN2;?></div>
+			<div class="cabin"><?php echo $lang->CABIN3;?></div>
+			<div class="cabin"><?php echo $lang->CABIN4;?></div>
+			<div class="cabin"><?php echo $lang->CABIN5;?></div>
+			<div class="cabin"><?php echo $lang->CABIN6;?></div>
+			<div class="cabin"><?php echo $lang->CABIN7;?></div>
+			<div class="cabin"><?php echo $lang->CABIN8;?></div>
+			<div class="cabin"><?php echo $lang->CABIN9;?></div>
+			<div class="cabin"><?php echo $lang->CABIN10;?></div>
+			<div class="cabin"><?php echo $lang->CABIN11;?></div>
+			<div class="cabin"><?php echo $lang->CABIN12;?></div>
+			<div class="cabin"><?php echo $lang->CABIN13;?></div>
+			<div class="cabin"><?php echo $lang->CABIN14;?></div>
+			
 		</div>
 		<div
 			style="border: 1px solid black; float: right; height: 88%; width: 62%;">
@@ -526,14 +529,14 @@ $count = $key;
 				<div
 					style="border: 1px solid black; width: 15%; height: 50%; margin-top: 1%; float: left; margin-left: 30%;">
 
-					chander mohan</div>
+					<?php echo $lang->CHANDERMOHAN;?></div>
 				<div
 					style="border: 1px solid black; width: 15%; height: 50%; margin-top: 1%; float: left; margin-left: 2%;">
-					prince</div>
+					<?php echo $lang->PRINCE;?></div>
 				<div
 					style="border: 1px solid black; width: 15%; height: 50%; margin-top: 1%; float: left; margin-left: 2%;">
 
-					rony</div>
+					<?php echo $lang->RONY;?></div>
 			</div>
 		</div>
 	</div>

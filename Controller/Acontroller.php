@@ -10,6 +10,7 @@ abstract class Acontroller
 	
 	function loadView($viewName="",$data=array())
 	{
+		include_once SITE_PATH .'/libraries/Language.php';
 		include SITE_PATH .'/View/'.$viewName . '.php';
 	}
 	

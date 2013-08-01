@@ -13,7 +13,7 @@
 	type="text/css" media="all">
 </head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Assign Seat</title>
+<title><?php echo $lang->ASSIGNSEAT?></title>
 <link rel="stylesheet"
 	href="<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
 <link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css"
@@ -59,14 +59,14 @@ function showLog()
 			<div id="header">
 				<div id="logo">
 					<h1>
-						<a href="#">Assign Seat</a>
+						<a href="#"><?php echo $lang->ASSIGNSEAT?></a>
 					</h1>
 				</div>
 				<div id="nav">
 					<ul>
-						<li class="first active"><a href="#">Home</a></li>
-						<li><a href="#" id="logout">Logout</a></li>
-                        <li><a href="#" id="logout" onClick = "showLog()">Show User</a></li>
+						<li class="first active"><a href="#"><?php echo $lang->HOME?></a></li>
+						<li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
+                        <li><a href="#" id="logout" onClick = "showLog()"><?php echo $lang->SHOWUSER?></a></li>
 					</ul>
 					<br class="clear" />
 				</div>
@@ -76,8 +76,8 @@ function showLog()
 					<div id="leftbar">
 
 						<div id="leftsubbar">
-						<h3>Employees</h3>
-							<h3>Search Employee</h3>
+						<h3><?php echo $lang->EMPLOYEES?></h3>
+							<h3><?php echo $lang->SEARCHEMPLOYEE?></h3>
 							
 	   <?php include_once 'seat.php';?>
     </div>
@@ -94,10 +94,12 @@ function showLog()
 					<br class="clear" />
 				</div>
 				<div id="content">
-					<h2>Blue Print</h2>
+					<h2><?php echo $lang->BLUEPRINT?></h2>
 					<div id="box1">
 						<div id="rightbar">
-        <?php include_once 'mainBuilding.php';?>
+        <?php
+		
+		include_once 'mainBuilding.php';?>
         </div>
 					</div>
 
@@ -107,8 +109,8 @@ function showLog()
 				<br class="clear" />
 			</div>
 		</div>
-		<div id="copyright">Osscube: Kawal ,Raman </br>
-		<h3> Burraaraaahhhhhhhhhhhh </h3></div>
+		<div id="copyright"><?php echo $lang->COPYRIGHT?></br>
+		</div>
 	</div>
 
 </html>

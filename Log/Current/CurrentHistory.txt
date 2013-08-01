@@ -22,3 +22,8 @@
 -->User " ADMIN " Logged into the system at Wed - 31/Jul/2013 - 17:17:51 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
 -->User " ADMIN " Logged Out from the system at Wed - 31/Jul/2013 - 17:17:54 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
 -->User " ADMIN " Logged into the system at Wed - 31/Jul/2013 - 13:49:54 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36 
+-->User " ADMIN " Logged Out from the system at Wed - 31/Jul/2013 - 14:22:58 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36 
+-->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 04:12:20 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged Out from the system at Thu - 01/Aug/2013 - 04:13:36 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 04:30:48 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 05:03:58 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0; rv:18.0) Gecko/20100101 Firefox/18.0 

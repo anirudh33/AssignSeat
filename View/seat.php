@@ -56,15 +56,15 @@ page=0;
 
 /* Updated By Amber Sharma */
 </script>
-<lable>Name:</lable> <input type="text" id="searchtxt" onkeyup="getData()"/>
+<lable><?php echo $lang->NAME?></lable> <input type="text" id="searchtxt" onkeyup="getData()"/>
 <a id="changeCommentLink" href="#detailDiv">
 <div id="detailDiv" style = "display : none">
-	<h3 class="customHeading">Change Reason</h3>
+	<h3 class="customHeading"><?php echo $lang->CHANGEREASON?></h3>
 	<section>
-	<label>Comment:</label><br> 
+	<label><?php echo $lang->COMMENT?></label><br> 
 	<textarea rows="10" cols="10" id="changeComment" name="changeComment"></textarea>
 	</section>
-	<input type="button" id="commentSubmit" onClick = "closeFancyBox()" name="commentSubmit" value="Submit" />
+	<input type="button" id="commentSubmit" onClick = "closeFancyBox()" name="commentSubmit" value="<?php echo $lang->POSTIT?>" />
 </div>
 </a>
 <div id="result"></div>

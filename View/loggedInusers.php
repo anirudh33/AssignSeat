@@ -1,4 +1,4 @@
-<h3><u>Login Users</u></h3>
+<h3><u><?php echo $lang->LOGINUSER;?></u></h3>
 <table>
 <?php
 $loggedInUsers = array ();

@@ -18,27 +18,27 @@
 
 <form id="form1" action="index.php?controller=MainController&method=loginClick" method="post">
   <fieldset>
-    <legend>Login</legend>
+    <legend><?php echo $lang->LOGIN?></legend>
     <ol>
-      <li><label for="field1">User Name</label></li>
+      <li><label for="field1"><?php echo $lang->USERNAME?></label></li>
       <li><input type="text" id="field1" name="username" /></li>
     </ol>
     <ol>
 
-      <li><label for="field2">Password</label></li>
+      <li><label for="field2"><?php echo $lang->PASSWORD?></label></li>
       <li><input type="password" id="field2" name="password" /></li>
     </ol>
   
     <ol class="buttons">
-      <li><input type="submit" class="button" value="Login" /></li>
-      <li><input type="reset" class="button" value="Reset" /></li>
+      <li><input type="submit" class="button" value="<?php echo $lang->LOGIN?>"/></li>
+      <li><input type="reset" class="button" value="<?php echo $lang->RESET?>"/></li>
     </ol>
   </fieldset>
 
 </form>
 <div id="errors">
 <?php if(isset($_SESSION['msg'])) { ?>
-	<h3>Some errors were found, kindly rectify</h3>
+	<h3><?php echo $lang->ERRORMSG?></h3>
 <center>
 <?php echo $_SESSION['msg'];
 }?>
