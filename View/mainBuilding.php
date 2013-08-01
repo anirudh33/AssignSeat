@@ -10,105 +10,95 @@ $changeComment = '';
 /* Updated By Amber Sharma */
 function dragdropevent()
 {
-	
-	/** we set the dragable class to be dragable, we add the containment which will be #boxdemo, so dropable and dragable object cant pass out of this box **/
-     $( ".dragable" ).draggable({
-       		
-         revert: "invalid",
-	start: function(event, ui) {    
-    		draggedElement = this.id;
-		moveid = $(this).parent('div').attr('id');
-		//alert(moveid);
-		dragdropevent();
-	//alert(parentid);
-    	}
-    });
- 
-    $( ".droppable" ).droppable({
-        /** tolerance:fit means, the moveable object has to be inside the dropable object area **/
-        tolerance: 'fit',
-        over: function(event, ui) {
-      	thisid = this.id;
-	
-            /** We add the hoverClass when the moveable object is inside of the dropable object **/
-            $('.ui-draggable-dragging').addClass('hoverClass');
-        },
-        out: function(event, ui) {
-        	prevthisid = this.id;
-            /** We remove the hoverClass when the moveable object is outside of the dropable object area **/
-            $('.ui-draggable-dragging').removeClass('hoverClass');
-            $('#'+prevthisid).removeClass('dropClass');
-        },
-        /** This is the drop event, when the dragable object is moved on the top of the dropable object area **/
-        drop: function( event, ui ) {
-// 				alert(thisid);if(thisid=='trash'){
-// 						alert('haan');
-// 					}
-         	$("#changeCommentLink").fancybox({
-        		closeBtn  : false,
-            	afterLoad : function(){
-            	$("#changeComment").val('');
-            	return;
-            	},
-            closeClick  : false, // prevents closing when clicking INSIDE fancybox
-            helpers     : { 
-                overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
-            }
-              
-            });
-        	$("#changeCommentLink").trigger("click");
-		//alert(thisid);
-		//$("#"+thisid).removeClass('droppable ui-droppable dropped');
-    		if(thisid=='trash')
-    		{
-				
-        		}
-    		else{
-		 $('#' + thisid).droppable('disable')
-		$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
-    		}
-		$( "#"+moveid ).html(' ');
-		if(moveid.indexOf("emp") == -1)
-		{
-			$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30"  />');
-			$("#"+moveid).addClass('droppable ui-droppable dropped');
-		}
-		dragdropevent();
-        	
-        }
-    });
+/** we set the dragable class to be dragable, we add the containment which will be #boxdemo, so dropable and dragable object cant pass out of this box **/
+$( ".dragable" ).draggable({
+revert: "invalid",
+start: function(event, ui) {
+draggedElement = this.id;
+moveid = $(this).parent('div').attr('id');
+alert(draggedElement);
+dragdropevent();
+//alert(parentid);
+}
+});
+$( ".droppable" ).droppable({
+/** tolerance:fit means, the moveable object has to be inside the dropable object area **/
+tolerance: 'fit',
+over: function(event, ui) {
+thisid = this.id;
+/** We add the hoverClass when the moveable object is inside of the dropable object **/
+$('.ui-draggable-dragging').addClass('hoverClass');
+},
+out: function(event, ui) {
+prevthisid = this.id;
+/** We remove the hoverClass when the moveable object is outside of the dropable object area **/
+$('.ui-draggable-dragging').removeClass('hoverClass');
+$('#'+prevthisid).removeClass('dropClass');
+},
+/** This is the drop event, when the dragable object is moved on the top of the dropable object area **/
+drop: function( event, ui ) {
+// alert(thisid);if(thisid=='trash'){
+// alert('haan');
+// }
+$("#changeCommentLink").fancybox({
+closeBtn : false,
+afterLoad : function(){
+$("#changeComment").val('');
+return;
+},
+closeClick : false, // prevents closing when clicking INSIDE fancybox
+helpers : {
+overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
+}
+});
+$("#changeCommentLink").trigger("click");
+//alert(thisid);
+//$("#"+thisid).removeClass('droppable ui-droppable dropped');
+if(thisid=='trash')
+{
+}
+else{
+$('#' + thisid).droppable('disable')
+$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
+}
+$( "#"+moveid ).html(' ');
+if(moveid.indexOf("emp") == -1)
+{
+$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30" />');
+$("#"+moveid).addClass('droppable ui-droppable dropped');
+}
+dragdropevent();
+}
+});
 }
 function closeFancyBox(){
-	$changeComment = $("#changeComment").val();	
-	$.fancybox.close();
-	//alert(draggedElement);
-	//alert(moveid);
-// 	alert(thisid+'1');
-	if(thisid=='trash'){
-		//alert(moveid);
-		$.post('index.php?controller=MainController&method=trashSeat',{changeComment:$changeComment,employee:draggedElement},function(data,status){
-			
-			alert(data);
-		//window.location.href = 'index.php';
-		});
+$changeComment = $("#changeComment").val();
+$.fancybox.close();
+//alert(draggedElement);
+//alert(moveid);
+// alert(thisid+'1');
+if(thisid=='trash'){
+//alert(moveid);
+$.post('index.php?controller=MainController&method=trashSeat',{changeComment:$changeComment,employee:draggedElement},function(data,status){
+alert(data);
+//window.location.href = 'index.php';
+});
 
-	}else{
-	$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment,employee:draggedElement},function(data,status){
-		
-			alert(data);
-		//window.location.href = 'index.php';
-		});
-	 $('#' + thisid).droppable('disable')
-		$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
-		
-		$( "#"+moveid ).html(' ');
-		if(moveid.indexOf("emp") == -1)
-		{
-			$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30"  />');
-			$("#"+moveid).addClass('droppable ui-droppable dropped');
-		}
-		dragdropevent();
-	}	
+}else{
+$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment,employee:draggedElement},function(data,status){
+alert(data);
+//window.location.href = 'index.php';
+});
+$('#' + thisid).droppable('disable')
+$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
+$( "#"+moveid ).html(' ');
+if(moveid.indexOf("emp") == -1)
+{
+$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30" />');
+$("#"+moveid).addClass('droppable ui-droppable dropped');
+}
+dragdropevent();
+}
 }
 /* Updated By Amber Sharma */
 </script>

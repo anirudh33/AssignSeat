@@ -22,7 +22,7 @@ page=0;
 				else
 				{
 					/* Updated By Amber Sharma */
-					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+"<span id='"+val['id']+"' style='width:20px;height:16px;' class='dragable'><img src='./assets/images/human.jpeg' width='15px' /></span><input name = 'empId' type = 'hidden' value='"+val['id']+"'></div>");
+					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+"<span id='"+val['id']+"' style='width:20px;height:16px;' class='dragable'><img src='./assets/images/human.jpeg' width='15px' /></span></div>");
 					//$("#result").append(val['Name']+"<br>");
 					dragdropevent();
 					/* Updated by Amber Sharma*/
