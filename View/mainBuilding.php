@@ -184,7 +184,7 @@ transform:rotate(90deg);
 			<div class="srijjan_2">
 			
 		<div class="rotate">
-<!--	
+	
 <?php
 $count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -209,7 +209,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('7',i,val,'srijjan-2');
+          status('7',i,val,'srijan 2');
          </script>
           <?php $i++; ?>
          <div id='display7'></div>
@@ -221,7 +221,7 @@ $count = $key;
     
 }
 ?>			
-			-->
+			
 			</div>
 			</div>
 		</div>
@@ -482,7 +482,7 @@ $count = $key;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('20',i,val,'sirijan');
+          status('20',i,val,'sirijan 3');
          </script>
           <?php $i++; ?>
          <div id='display20'></div>
