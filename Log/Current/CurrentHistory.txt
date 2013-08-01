@@ -27,3 +27,4 @@
 -->User " ADMIN " Logged Out from the system at Thu - 01/Aug/2013 - 04:13:36 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0; rv:18.0) Gecko/20100101 Firefox/18.0 
 -->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 04:30:48 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0; rv:18.0) Gecko/20100101 Firefox/18.0 
 -->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 05:03:58 From the IP ::1 and browser = Mozilla/5.0 (Windows NT 6.0; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " USER1 " Logged into the system at Thu - 01/Aug/2013 - 12:05:09 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:19.0) Gecko/20100101 Firefox/19.0 

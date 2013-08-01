@@ -314,7 +314,7 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 ?>
 				</div>
 			<div
-				style="float: left; height: 22%; width: 100%; border: 1px solid black;"><?php echo $lang->SIRIJAN;?>
+				style="float: left; height: 22%; width: 100%;box-shadow:inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->SIRIJAN;?>
 				
 				 <?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -341,7 +341,7 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 				
 				</div>
 			<div
-				style="float: left; height: 15%; width: 100%; border: 1px solid black;"><?php echo $lang->ACCOUNTS;?>
+				style="float: left; height: 15%; width: 100%;box-shadow:inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->ACCOUNTS;?>
 				<?php
 foreach ( $_SESSION ['variable'] as $key => $values ) {
     if ($values ['room_id'] == 19) {
@@ -531,16 +531,16 @@ $count = $key;
 ?>
 	<!-- Updated By Amber Sharma -->
 			<div id="cabinrony"
-				style="border: 1px solid black; width: 100%; height: 10%; margin-top: 100%">
+				style="border: 1px solid black; width: 100%; height: 15%; margin-top: 94%">
 				<div
-					style="border: 1px solid black; width: 15%; height: 50%; margin-top: 1%; float: left; margin-left: 30%;">
+					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC;width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;">
 
 					<?php echo $lang->CHANDERMOHAN;?></div>
 				<div
-					style="border: 1px solid black; width: 15%; height: 50%; margin-top: 1%; float: left; margin-left: 2%;">
+					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
 					<?php echo $lang->PRINCE;?></div>
 				<div
-					style="border: 1px solid black; width: 15%; height: 50%; margin-top: 1%; float: left; margin-left: 2%;">
+					style="border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
 
 					<?php echo $lang->RONY;?></div>
 			</div>
