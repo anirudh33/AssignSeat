@@ -10,26 +10,27 @@
 <head>
 <title></title>
 <link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css"
-	type="text/css" media="all">
+    type="text/css" media="all">
 </head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><?php echo $lang->ASSIGNSEAT?></title>
 <link rel="stylesheet"
-	href="<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
+    href="<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
 <link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css"
-	 media="screen" />
+    media="screen" />
 <link href="<?php echo SITE_URL;?>assets/css/style.css" rel="stylesheet"
-	type="text/css" />
+    type="text/css" />
 <script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js"></script>
 <script
-	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js"></script>
+    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js"></script>
 <script
-	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js"></script>
+    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js"></script>
 <script
-	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
+    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
 <script
-	src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js"></script>
-<script type="text/javascript" src="assets/js/fancybox/jquery.fancybox.js"></script>
+    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js"></script>
+<script type="text/javascript"
+    src="assets/js/fancybox/jquery.fancybox.js"></script>
 <script>
 
 $(function(){
@@ -52,65 +53,60 @@ function showLog()
 // 		});
 }
 </script>
-
 <body>
-	<div id="bg">
-		<div id="outer">
-			<div id="header">
-				<div id="logo">
-					<h1>
-						<a href="#"><?php echo $lang->ASSIGNSEAT?></a>
-					</h1>
-				</div>
-				<div id="nav">
-					<ul>
-						<li class="first active"><a href="#"><?php echo $lang->HOME?></a></li>
-						<li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
-                        <li><a href="#" id="logout" onClick = "showLog()"><?php echo $lang->SHOWUSER?></a></li>
-					</ul>
-					<br class="clear" />
-				</div>
-			</div>
-			<div id="main">
-				<div id="sidebar">
-					<div id="leftbar">
-
-						<div id="leftsubbar">
-						<h3><?php echo $lang->EMPLOYEES?></h3>
-							<h3><?php echo $lang->SEARCHEMPLOYEE?></h3>
+    <div id="bg">
+        <div id="outer">
+            <div id="header">
+                <div id="logo">
+                    <h1>
+                        <a href="#"><?php echo $lang->ASSIGNSEAT?></a>
+                    </h1>
+                </div>
+                <div id="nav">
+                    <ul>
+                        <li class="first active"><a href="#"><?php echo $lang->HOME?></a></li>
+                        <li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
+                        <li><a href="#" id="logout" onClick="showLog()"><?php echo $lang->SHOWUSER?></a></li>
+                    </ul>
+                    <br class="clear" />
+                </div>
+            </div>
+            <div id="main">
+                <div id="sidebar">
+                    <div id="leftbar">
+                        <div id="leftsubbar">
+                            <h3><?php echo $lang->EMPLOYEES?></h3>
+                            <h3><?php echo $lang->SEARCHEMPLOYEE?></h3>
 							
 	   <?php include_once 'seat.php';?>
     </div>
-					<div id="loginUser">
+                        <div id="loginUser">
 					<?php include_once 'loggedInusers.php';?>	
 					</div>
-					
-					
-					</div>
-					<br class="clear" />
-					<div class="droppable" >
-						<img src="<?php echo SITE_URL;?>/images/trash1.png" />
-					</div>
-					<br class="clear" />
-				</div>
-				<div id="content">
-					<h2><?php echo $lang->BLUEPRINT?></h2>
-					<div id="box1">
-						<div id="rightbar">
+                    </div>
+                    <br class="clear" />
+                    <div class="droppable">
+                        <img
+                            src="<?php echo SITE_URL;?>/images/trash1.png" />
+                    </div>
+                    <br class="clear" />
+                </div>
+                <div id="content">
+                    <h2><?php echo $lang->BLUEPRINT?></h2>
+                    <div id="box1">
+                        <div id="rightbar">
         <?php
 		
 		include_once 'mainBuilding.php';?>
         </div>
-					</div>
-
-
-					<br class="clear" />
-				</div>
-				<br class="clear" />
-			</div>
-		</div>
-		<div id="copyright"><?php echo $lang->COPYRIGHT?></br>
-		</div>
-	</div>
+                    </div>
+                    <br class="clear" />
+                </div>
+                <br class="clear" />
+            </div>
+        </div>
+        <div id="copyright"><?php echo $lang->COPYRIGHT?></br>
+        </div>
+    </div>
 
 </html>
