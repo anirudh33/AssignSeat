@@ -126,27 +126,41 @@ function startTooltip(){
 		items: "img",
 		content : function() {
 			displayData = "";
-			$.ajax({
-				async : false,
-				url : 'View/tooltipContent.php',
-				type :'post',				
-				data : 'any data',
-				success : function (data) {
-					//alert(data);
-					displayData = data;
-				}
-			});
-			return displayData;
+			$id = $(this).attr("id");
+			if($(this).attr("id") > 0 && $(this).attr("id") != '') {
+    			$.ajax({
+    				async : false,
+    				url : 'index.php?controller=MainController&method=fetchUserProfile',
+    				type :'post',
+    				data : 'eid='+$id,
+    				dataType : "json",
+    				success : function (data) {
+    					//alert(data);
+    				    displayData = '';
+    					//$.each(data,function(i,value){
+    				        displayData += "<label>Name : </label>";
+        					displayData += data['name'];
+        					displayData += "<br/>";
+        					displayData += "<label>Designation : </label>";
+        					displayData += data['designation'];
+        					displayData += "<br/>";
+        					displayData += "<label>Details : </label>";
+        					displayData += data['details'];
+//        				alert(i+"_"+value);	
+        				//	});
+    					//displayData = data;
+    				}
+    			});
+    			return displayData;
+			}
 		},
 		position: {
-			my: "center bottom-20",
+			my: "center-25 bottom-20",
 			at: "center top",
 			using: function( position, feedback ) {
 				$( this ).css( position );
 				$( "<div>" )
 					.addClass( "arrow" )
-					.addClass( feedback.vertical )
-					.addClass( feedback.horizontal )
 					.appendTo( this );
 			}
 		}
@@ -156,7 +170,7 @@ function startTooltip(){
       $( this ).tooltip( "open" );
       return false;
     })
-    .	attr( "title", "" ).css({ cursor: "pointer" });
+    .attr( "title", "" ).css({ cursor: "pointer" });
 }
 </script>
 

@@ -631,7 +631,7 @@ box-shadow:inset 9px 10px 40px #DEB887;}
 	height: 16px;
 	overflow: hidden;
 	position: absolute;
-	left: 50%;
+	left: 60%;
 	margin-left: -35px;
 	bottom: -16px;
 }
@@ -675,4 +675,8 @@ box-shadow:inset 9px 10px 40px #DEB887;}
 .customHeading
 {
 	color : black;
+}
+.doNotDisplay
+{
+    display : none;
 }

@@ -47,10 +47,37 @@ $("#logout").click(function(){
 });
 function showLog()
 {
-	alert("will display log");
-// 	$.ajax({
-// 		url : 
-// 		});
+    displayData = '';
+    
+	$.ajax({
+		async : false,
+		url : 'index.php?controller=MainController&method=fetchLogData',
+		type :'post',
+		data : '',
+		dataType : "json",
+		success : function (data) {
+			//alert(data);
+		    displayData = '';
+			$.each(data,function(i,value){
+		        displayData += "<label>"+(i+1)+" </label>";
+				displayData += value;
+				displayData += "<br/>";
+				});
+			//alert(displayData);
+			$("#logData").html('');
+			$("#logData").append(displayData);
+			//displayData = data;
+		}
+	});
+	
+	$("#logOverlayLink").fancybox({	    
+	    closeClick : false, // prevents closing when clicking INSIDE fancybox
+	    helpers : {
+	    overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
+	    }
+	    });
+	$("#logOverlayLink").attr("href","#logData");
+	$("#logOverlayLink").trigger("click");
 }
 </script>
 <body>
@@ -108,5 +135,6 @@ function showLog()
         <div id="copyright"><?php echo $lang->COPYRIGHT?></br>
         </div>
     </div>
-
+    <a id = "logOverlayLink" class = "doNotDisplay"></a>
+    <div id = "logData" class = "doNotDisplay"></div>
 </html>

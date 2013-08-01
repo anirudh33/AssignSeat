@@ -148,6 +148,43 @@ class MainController extends Acontroller
 		echo " Seat has been trashed";
 	
 	}
+	/*
+	* @author Prateek Saini
+	*
+	* This function will fetch data from Employee table
+	* result will be display in tooltip
+	* 
+	* */
+	public function fetchUserProfile()
+	{
+	    $empObj = $this->loadModel('Employee');
+	    $empObj->setId($_POST['eid']);
+	    $result = $empObj->getEmployeeProfile();
+	    echo json_encode($result[0]);
+	}
+	
+	/*
+	 * @author Prateek Saini
+	 * 
+	 * This function will fetch data from log file
+	 * convert it into array then sort them on 
+	 * the key so we can have last data as first
+	 * element then slice the array for top
+	 * 10 elements 
+	 * 
+	 * */
+	public function fetchLogData()
+	{
+	    $dir = getcwd();	    
+	    chdir('Log/Current');
+	    $someData = file_get_contents('CurrentHistory.txt');
+	    $someData = explode("\n", $someData);
+	    krsort($someData);
+	    $someData = array_values($someData);
+	    $someData = array_slice($someData, 0,10);
+	    echo json_encode($someData);	    
+	    chdir($dir);
+	}
 }
 
 ?>
