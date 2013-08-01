@@ -153,12 +153,69 @@ function startTooltip(){
 }
 </script>
 
+
+<style>
+
+.rotate{
+width:360px;
+height:110px;
+
+/* Rotate div */
+transform:rotate(90deg);
+-ms-transform:rotate(90deg); /* IE 9 */
+-webkit-transform:rotate(90deg); /* Safari and Chrome */
+}
+
+
+</style>
+
 <!-- Updated By Amber Sharma -->
 <div class="mainContainer">
 	<div style="border: 1px solid black; height: 30%;width:100%;">
 		<div class="div1">
 			<div class="googol"><label class="writing"><?php echo $lang->GOOGOL;?></label>  </div>
-			<div class="srijjan_2"><?php echo $lang->SRIJJANII;?></div>
+			<div class="srijjan_2">
+			
+		<div class="rotate">	
+<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 7) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 7) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('7',i,val,'srijjan_2');
+         </script>
+          <?php $i++; ?>
+         <div id='display7'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>			
+			
+			</div>
+			</div>
 		</div>
 		<div class="div2">
 			<div class="sofa_reception">
@@ -170,51 +227,82 @@ function startTooltip(){
 			<div class="lobby"><?php echo $lang->LOBBY;?></div>
 			<div class="loby2"><?php echo $lang->LOBBY;?></div>
 			<div class="aer">
-			<?php echo $lang->AER;?><?php
+			<?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 8) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 8) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 8) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('8',i,val);
+          status('8',i,val,'aer');
          </script>
-         <div id='display8'></div> 
+          <?php $i++; ?>
+         <div id='display8'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
-?></div>
+?>
+			</div>
 			<div class="aqua">
-			<?php echo $lang->AQUA;?><?php
+			<?php echo $lang->AQUA;?>
+			<?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 9) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 9) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 9) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('9',i,val);
+          status('9',i,val,'aqua');
          </script>
-         <div id='display9'></div> 
+          <?php $i++; ?>
+         <div id='display9'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
-?></div>
+?>
+			</div>
 		</div>
 
 		<div class="sofachess">
@@ -230,29 +318,44 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 
 		<div class="room"><?php echo $lang->ROOM;?></div>
 		<div class="room1"><?php echo $lang->ROOM;?></div>
-		<div class="conference"><?php
+		<div class="conference">
+		<?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 10) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 10) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 10) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('10',i,val);
+          status('10',i,val,'conference');
          </script>
-         <div id='display10'></div> 
+          <?php $i++; ?>
+         <div id='display10'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
-
+		
 </div>
 
 	</div>
@@ -268,105 +371,163 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 			<div
 				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM1;?>
 				<?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 34) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 34) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 34) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('34',i,val);
+          status('34',i,val,'room1');
          </script>
-         <div id='display34'></div> 
+          <?php $i++; ?>
+         <div id='display34'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
-				</div>
+								</div>
 			<div
 				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM2;?>
 				<?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 35) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 35) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 35) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('35',i,val);
+          status('35',i,val,'room2');
          </script>
-         <div id='display35'></div> 
+          <?php $i++; ?>
+         <div id='display35'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
+				
 				</div>
 			<div
 				style="float: left; height: 22%; width: 100%;box-shadow:inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->SIRIJAN;?>
 				
 				 <?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 20) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 20) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 20) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('20',i,val);
+          status('20',i,val,'sirijan');
          </script>
-         <div id='display20'></div> 
+          <?php $i++; ?>
+         <div id='display20'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
+				
 				
 				</div>
 			<div
 				style="float: left; height: 15%; width: 100%;box-shadow:inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->ACCOUNTS;?>
-				<?php
+			 <?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 19) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 19) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 19) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('19',i,val);
+          status('19',i,val,'accounts');
          </script>
-         <div id='display19'></div> 
+          <?php $i++; ?>
+         <div id='display19'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
-				
+								
 				</div>
 			<div
 				style="float: left; height: 6%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
@@ -376,120 +537,722 @@ foreach ( $_SESSION ['variable'] as $key => $values ) {
 			style="border: 1px solid black; float: left; height: 99%; width: 4%;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
 		<div style="float: right; width: 75%; border: 1px solid black">
     <div class="room2">
-
-<?php
+			 <?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 11) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 11) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 11) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('11',i,val);
+          status('11',i,val,'egnis');
          </script>
-         <div id='display11'></div> 
+          <?php $i++; ?>
+         <div id='display11'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
+    </div>
+    <div class="room2">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 12) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 12) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('12',i,val,'room-2');
+         </script>
+          <?php $i++; ?>
+         <div id='display12'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+    
 </div>
     <div class="room2">
-<?php
+			 <?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 12) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
-         ?>
-         
-         <script>
-		var i = <?php echo $i + 1 ;?>;
-                var val = <?php echo $values['computer'] ;?>;
-          status('12',i,val);
-         </script>
-         <div id='display12'></div> 
-<?php      
-        }
-        echo "<br style='clear:both;'/>";
-        
-    }
-    
-}
-?>
+    if ($values ['room_id'] == 13) 
+       	{
 
-</div>
-    <div class="room2">
-<?php
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 13) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 13) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('13',i,val);
+          status('13',i,val,'room2');
          </script>
-         <div id='display13'></div> 
+          <?php $i++; ?>
+         <div id='display13'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
-</div>
+    </div>
     <div class="room2 ">
-<?php
+			 <?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 14) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+    if ($values ['room_id'] == 14) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 14) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('14',i,val);
+          status('14',i,val,'room2');
          </script>
-         <div id='display14'></div> 
+          <?php $i++; ?>
+         <div id='display14'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
-</div>
+    </div>
 		</div>
 		<div
 			style="border: 1px solid black; float: right; height: 88%; width: 12%;">
-			<div class="cabin"><?php echo $lang->CABIN1;?></div>
-			<div class="cabin"><?php echo $lang->CABIN2;?></div>
-			<div class="cabin"><?php echo $lang->CABIN3;?></div>
-			<div class="cabin"><?php echo $lang->CABIN4;?></div>
-			<div class="cabin"><?php echo $lang->CABIN5;?></div>
-			<div class="cabin"><?php echo $lang->CABIN6;?></div>
-			<div class="cabin"><?php echo $lang->CABIN7;?></div>
-			<div class="cabin"><?php echo $lang->CABIN8;?></div>
-			<div class="cabin"><?php echo $lang->CABIN9;?></div>
-			<div class="cabin"><?php echo $lang->CABIN10;?></div>
-			<div class="cabin"><?php echo $lang->CABIN11;?></div>
-			<div class="cabin"><?php echo $lang->CABIN12;?></div>
-			<div class="cabin"><?php echo $lang->CABIN13;?></div>
-			<div class="cabin"><?php echo $lang->CABIN14;?></div>
+			<div class="cabin">
+			<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 3) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 3) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('3',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display3'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			
+			
+			
+			</div>
+			<div class="cabin">
+			<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 4) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 4) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('4',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display4'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			
+			
+			</div>
+			<div class="cabin">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 5) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 5) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('5',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display5'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			 
+			
+			</div>
+			<div class="cabin">
+			  <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 6) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 6) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('6',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display6'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			  
+			</div>
+			<div class="cabin">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 21) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 21) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('21',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display21'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			 
+			
+			</div>
+			<div class="cabin">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 22) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 22) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('22',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display22'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			 
+			
+			
+			</div>
+			<div class="cabin">
+			  <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 23) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 23) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('23',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display23'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			  
+			
+			</div>
+			<div class="cabin">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 24) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 24) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('24',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display24'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			 
+			
+			</div>
+			<div class="cabin">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 25) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 25) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('25',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display25'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			 
+			
+			</div>
+			<div class="cabin">
+			  <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 26) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 26) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('26',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display26'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			  
+			
+			</div>
+			<div class="cabin">
+			<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 27) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 27) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('27',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display27'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			
+			
+			</div>
+			<div class="cabin">
+			  <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 28) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 28) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('28',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display28'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			  
+			
+			</div>
+			<div class="cabin">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 29) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 29) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('29',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display29'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			 
+			
+			</div>
+			<div class="cabin">
+			<?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 30) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 30) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('30',i,val,'cabin');
+         </script>
+          <?php $i++; ?>
+         <div id='display30'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+			
+			
+			</div>
 			
 		</div>
 		<div
@@ -554,101 +1317,161 @@ $count = $key;
 		<div
 			style="float: left; height: 92%; width: 19%; border: 1px solid black;box-shadow:inset 9px 10px 40px #769DCC;">washroom</div>
 		<div style="float: right; width: 80%;">
-			<div class="room3"><?php
+			<div class="room3">
+						 <?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 15) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
-         ?>
-         
-         <script>
-		var i = <?php echo $i + 1 ;?>;
-                var val = <?php echo $values['computer'] ;?>;
-          status('15',i,val);
-         </script>
-         <div id='display15'></div> 
-<?php      
-        }
-        echo "<br style='clear:both;'/>";
-        
-    }
-    
-}
-?></div>
-        <div class="room3">
+    if ($values ['room_id'] == 15) 
+       	{
 
-<?php
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 16) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 15) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('16',i,val);
+          status('15',i,val,'room3');
          </script>
-         <div id='display16'></div> 
+          <?php $i++; ?>
+         <div id='display15'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
 ?>
+			</div>
+        <div class="room3">
+
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 16) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 16) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('16',i,val,'room3');
+         </script>
+          <?php $i++; ?>
+         <div id='display16'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+        
 </div>
         <div class="room3">
 
-<?php
+			 <?php
+$count=0;
 foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 17) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
-         ?>
-         
-         <script>
-		var i = <?php echo $i + 1 ;?>;
-                var val = <?php echo $values['computer'] ;?>;
-          status('17',i,val);
-         </script>
-         <div id='display17'></div> 
-<?php      
-        }
-        echo "<br style='clear:both;'/>";
-        
-    }
-    
-}
-?></div>
-        <div class="room3">
+    if ($values ['room_id'] == 17) 
+       	{
 
-<?php
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 18) {
-    	for($i = 0; $i < $values ['row_number']; $i ++)
-        
-        {
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 17) {
+	
          ?>
          
          <script>
-		var i = <?php echo $i + 1 ;?>;
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
                 var val = <?php echo $values['computer'] ;?>;
-          status('18',i,val);
+          status('17',i,val,'room3');
          </script>
-         <div id='display18'></div> 
+          <?php $i++; ?>
+         <div id='display17'></div>
 <?php      
         }
         echo "<br style='clear:both;'/>";
-        
-    }
+         echo "</div>";  
+    
     
 }
-?></div>
+?>
+        </div>
+        <div class="room3">
+			 <?php
+$count=0;
+foreach ( $_SESSION ['variable'] as $key => $values ) {
+    if ($values ['room_id'] == 18) 
+       	{
+
+$count = $key;
+}
+
+
+         
+}       $i=1;  
+//echo $count;
+     foreach ( $_SESSION ['variable'] as $key => $values ) {
+	echo "<div id='rows'>";	
+      if ($values ['room_id'] == 18) {
+	
+         ?>
+         
+         <script>
+            $.ajax( { async : false } );
+		var i = <?php echo $i ;?>;
+               
+                var val = <?php echo $values['computer'] ;?>;
+          status('18',i,val,'room3');
+         </script>
+          <?php $i++; ?>
+         <div id='display18'></div>
+<?php      
+        }
+        echo "<br style='clear:both;'/>";
+         echo "</div>";  
+    
+    
+}
+?>
+        </div>
 		</div>
 	</div>
 </div>
