@@ -59,8 +59,19 @@ class MainController extends Acontroller
 		if($result==1) {
 		//echo $result;
 			$obj = $this->loadModel('SeatEmployee'); 
-			$value = $obj->allSeat();			
+			$value = $obj->allSeat();
+			$totalRooms = $obj->totalRooms();			
 			$_SESSION['variable'] = $value;
+			$roomData = array();
+			for($i = 0 ; $i < $totalRooms[0]['total_room'] ; $i++) {
+			    $roomData[] = array();
+			}
+			foreach($_SESSION['variable'] as $key => $value){
+			    $roomData[$value['room_id']][] = $value;
+			}
+			$_SESSION['roomData'] = $roomData;
+			unset($_SESSION['totalRooms']);
+			unset($_SESSION['variable']);
 			//echo "<pre>";
 			//print_r($_SESSION);
 			$objSecurity= new Security();
@@ -85,7 +96,12 @@ class MainController extends Acontroller
 	}
 	public function mainPage() 
 	{
-		
+// 	    echo "<pre>";
+// 	    print_r($_SESSION['variable']);
+
+//	    unset($_SESSION['variable']);
+// 	    print_r($roomData);
+// 	    die;
 	}
 	/******called from:  Mainbuilding.php()
 			description: handle assiging of the seats,call assignseat function of seatemployee model
@@ -178,12 +194,16 @@ class MainController extends Acontroller
 	    $dir = getcwd();	    
 	    chdir('Log/Current');
 	    $someData = file_get_contents('CurrentHistory.txt');
-	    $someData = explode("\n", $someData);
-	    krsort($someData);
-	    $someData = array_values($someData);
-	    $someData = array_slice($someData, 0,10);
-	    echo json_encode($someData);	    
-	    chdir($dir);
+	    if(!empty($someData)){
+    	    $someData = explode("\n", $someData);
+    	    $someData = array_reverse($someData);
+    	    $someData = array_slice($someData, 0,10);
+    	    echo json_encode($someData);	    
+    	    chdir($dir);
+	    }
+	    else{
+	        echo json_encode("No Data in log file");
+	    }
 	}
 }
 

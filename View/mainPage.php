@@ -25,6 +25,12 @@
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js"></script>
 <script
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.widget.min.js"></script>
+<script type="text/javascript"
+    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.mouse.min.js"></script>
+<script type="text/javascript"
+    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.draggable.min.js"></script>
+<script type="text/javascript"
+    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.droppable.min.js"></script>
 <script
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
 <script
@@ -32,6 +38,7 @@
 <script type="text/javascript"
     src="assets/js/fancybox/jquery.fancybox.js"></script>
 <script>
+
 
 $(function(){
 	getData();
@@ -58,14 +65,20 @@ function showLog()
 		success : function (data) {
 			//alert(data);
 		    displayData = '';
-			$.each(data,function(i,value){
-		        displayData += "<label>"+(i+1)+" </label>";
-				displayData += value;
-				displayData += "<br/>";
-				});
-			//alert(displayData);
-			$("#logData").html('');
-			$("#logData").append(displayData);
+		    if(data != "No Data in log file"){
+    			$.each(data,function(i,value){
+    		        displayData += "<label>"+(i+1)+" </label>";
+    				displayData += value;
+    				displayData += "<br/>";
+    				});
+    			//alert(displayData);
+    			$("#logData").html('');
+    			$("#logData").append(displayData);
+		    }
+		    else {
+    			$("#logData").html('');
+    			$("#logData").append(data);		        
+		    }
 			//displayData = data;
 		}
 	});
@@ -135,6 +148,7 @@ function showLog()
         <div id="copyright"><?php echo $lang->COPYRIGHT?></br>
         </div>
     </div>
-    <a id = "logOverlayLink" class = "doNotDisplay"></a>
-    <div id = "logData" class = "doNotDisplay"></div>
+    <a id="logOverlayLink" class="doNotDisplay"></a>
+    <div id="logData" class="doNotDisplay"></div>
+
 </html>

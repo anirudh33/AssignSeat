@@ -1,104 +1,137 @@
-<?php //print_r($_SESSION);die;
-?>
-<script type="text/javascript" src="assets/js/jquery.ui.core.js"></script>
-<script type="text/javascript" src="assets/js/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="assets/js/jquery.ui.mouse.js"></script>
-<script type="text/javascript" src="assets/js/jquery.ui.draggable.js"></script>
-<script type="text/javascript" src="assets/js/jquery.ui.droppable.js"></script>
 <script>
 $changeComment = '';
 /* Updated By Amber Sharma */
-function dragdropevent()
-{
-/** we set the dragable class to be dragable, we add the containment which will be #boxdemo, so dropable and dragable object cant pass out of this box **/
-$( ".dragable" ).draggable({
-revert: "invalid",
-start: function(event, ui) {
-draggedElement = this.id;
-moveid = $(this).parent('div').attr('id');
-alert(draggedElement);
-dragdropevent();
-//alert(parentid);
+function dragdropevent() {
+    /**
+     * we set the dragable class to be dragable, we add the containment which
+     * will be #boxdemo, so dropable and dragable object cant pass out of this
+     * box 
+     *
+     */
+    $(".dragable").draggable({
+        revert : "invalid",
+        start : function(event, ui) {
+            draggedElement = this.id;
+            moveid = $(this).parent('div').attr('id');
+            alert(draggedElement);
+            dragdropevent();
+            // alert(parentid);
+        }
+    });
+    $( ".droppable" ).droppable({
+        /**
+         * tolerance:fit means, the moveable
+         * object has to be inside the dropable
+         * object area *
+         */
+        tolerance : 'fit',
+        over : function(event, ui) {
+            thisid = this.id;
+            /**
+             * We add the hoverClass when the moveable object is
+             * inside of the dropable object *
+             */
+            $('.ui-draggable-dragging').addClass('hoverClass');
+        },
+        out : function(event, ui) {
+            prevthisid = this.id;
+            /**
+             * We remove the hoverClass when the moveable object
+             * is outside of the dropable object area *
+             */
+            $('.ui-draggable-dragging').removeClass(
+                    'hoverClass');
+            $('#' + prevthisid).removeClass('dropClass');
+        },
+        /**
+         * This is the drop event, when the dragable object is
+         * moved on the top of the dropable object area *
+         */
+        drop : function(event, ui) {
+            // alert(thisid);if(thisid=='trash'){
+            // alert('haan');
+            // }
+            $("#changeCommentLink").fancybox({
+                closeBtn : false,
+                afterLoad : function() {
+                    $("#changeComment").val('');
+                    return;
+                },
+                closeClick : false, // prevents closing when
+                                    // clicking INSIDE fancybox
+                helpers : {
+                    overlay : {
+                        closeClick : false
+                    }
+                // prevents closing when clicking OUTSIDE
+                // fancybox
+                }
+            });
+            $("#changeCommentLink").trigger("click");
+            // alert(thisid);
+            // $("#"+thisid).removeClass('droppable ui-droppable
+            // dropped');
+            if (thisid == 'trash') {
+            } else {
+                $('#' + thisid).droppable('disable')
+                $("#" + thisid)
+                        .html(
+                                '<img src="images/red_chair.png" id='
+                                        + draggedElement
+                                        + ' height="30" width="30" class="dragable dragged" />');
+            }
+            $("#" + moveid).html(' ');
+            if (moveid.indexOf("emp") == -1) {
+                $("#" + moveid)
+                        .html(
+                                '<img src="images/green_chair.png" height="18" width="30" />');
+                $("#" + moveid).addClass(
+                        'droppable ui-droppable dropped');
+            }
+            dragdropevent();
+        }
+    });
 }
-});
-$( ".droppable" ).droppable({
-/** tolerance:fit means, the moveable object has to be inside the dropable object area **/
-tolerance: 'fit',
-over: function(event, ui) {
-thisid = this.id;
-/** We add the hoverClass when the moveable object is inside of the dropable object **/
-$('.ui-draggable-dragging').addClass('hoverClass');
-},
-out: function(event, ui) {
-prevthisid = this.id;
-/** We remove the hoverClass when the moveable object is outside of the dropable object area **/
-$('.ui-draggable-dragging').removeClass('hoverClass');
-$('#'+prevthisid).removeClass('dropClass');
-},
-/** This is the drop event, when the dragable object is moved on the top of the dropable object area **/
-drop: function( event, ui ) {
-// alert(thisid);if(thisid=='trash'){
-// alert('haan');
-// }
-$("#changeCommentLink").fancybox({
-closeBtn : false,
-afterLoad : function(){
-$("#changeComment").val('');
-return;
-},
-closeClick : false, // prevents closing when clicking INSIDE fancybox
-helpers : {
-overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
-}
-});
-$("#changeCommentLink").trigger("click");
-//alert(thisid);
-//$("#"+thisid).removeClass('droppable ui-droppable dropped');
-if(thisid=='trash')
-{
-}
-else{
-$('#' + thisid).droppable('disable')
-$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
-}
-$( "#"+moveid ).html(' ');
-if(moveid.indexOf("emp") == -1)
-{
-$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30" />');
-$("#"+moveid).addClass('droppable ui-droppable dropped');
-}
-dragdropevent();
-}
-});
-}
-function closeFancyBox(){
-$changeComment = $("#changeComment").val();
-$.fancybox.close();
-//alert(draggedElement);
-//alert(moveid);
-// alert(thisid+'1');
-if(thisid=='trash'){
-//alert(moveid);
-$.post('index.php?controller=MainController&method=trashSeat',{changeComment:$changeComment,employee:draggedElement},function(data,status){
-alert(data);
-//window.location.href = 'index.php';
-});
+function closeFancyBox() {
+    $changeComment = $("#changeComment").val();
+    $.fancybox.close();
+    // alert(draggedElement);
+    // alert(moveid);
+    // alert(thisid+'1');
+    if (thisid == 'trash') {
+        // alert(moveid);
+        $.post('index.php?controller=MainController&method=trashSeat', {
+            changeComment : $changeComment,
+            employee : draggedElement
+        }, function(data, status) {
+            alert(data);
+            // window.location.href = 'index.php';
+        });
 
-}else{
-$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment,employee:draggedElement},function(data,status){
-alert(data);
-//window.location.href = 'index.php';
-});
-$('#' + thisid).droppable('disable')
-$( "#"+thisid ).html('<img src="images/red_chair.png" id=' + draggedElement + ' height="30" width="30" class="dragable dragged" />');
-$( "#"+moveid ).html(' ');
-if(moveid.indexOf("emp") == -1)
-{
-$( "#"+moveid ).html('<img src="images/green_chair.png" height="18" width="30" />');
-$("#"+moveid).addClass('droppable ui-droppable dropped');
-}
-dragdropevent();
-}
+    } else {
+        $.post('index.php?controller=MainController&method=assignSeat', {
+            roomid : thisid,
+            changeComment : $changeComment,
+            employee : draggedElement
+        }, function(data, status) {
+            alert(data);
+            // window.location.href = 'index.php';
+        });
+        $('#' + thisid).droppable('disable')
+        $("#" + thisid)
+                .html(
+                        '<img src="images/red_chair.png" id='
+                                + draggedElement
+                                + ' height="30" width="30" class="dragable dragged" />');
+        $("#" + moveid).html(' ');
+        if (moveid.indexOf("emp") == -1) {
+            $("#" + moveid)
+                    .html(
+                            '<img src="images/green_chair.png" height="18" width="30" />');
+            $("#" + moveid).addClass('droppable ui-droppable dropped');
+        }
+        dragdropevent();
+    }
 }
 /* Updated By Amber Sharma */
 </script>
@@ -200,21 +233,22 @@ transform:rotate(90deg);
 		<div class="rotate">
 	
 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 7) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 7) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }       
+$i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][7] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 7) {
+    //  if ($values ['room_id'] == 7) {
 	
          ?>
          
@@ -228,7 +262,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display7'></div>
 <?php      
-        }
+      //  }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -250,21 +284,22 @@ $count = $key;
 			<div class="loby2"><?php echo $lang->LOBBY;?></div>
 			<div class="aer">
 			<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 8) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 8) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }       
+$i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][8] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 8) {
+   //   if ($values ['room_id'] == 8) {
 	
          ?>
          
@@ -278,7 +313,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display8'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -289,21 +324,22 @@ $count = $key;
 			<div class="aqua">
 			<?php echo $lang->AQUA;?>
 			<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 9) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 9) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }       
+$i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][9] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 9) {
+  //    if ($values ['room_id'] == 9) {
 	
          ?>
          
@@ -317,7 +353,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display9'></div>
 <?php      
-        }
+    //    }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -342,21 +378,22 @@ $count = $key;
 		<div class="room1"><?php echo $lang->ROOM;?></div>
 		<div class="conference">
 		<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 10) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 10) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][10] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 10) {
+ //     if ($values ['room_id'] == 10) {
 	
          ?>
          
@@ -370,7 +407,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display10'></div>
 <?php      
-        }
+    //    }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -393,21 +430,22 @@ $count = $key;
 			<div
 				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM1;?>
 				<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 34) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 34) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }      
+ $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][34] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 34) {
+   //   if ($values ['room_id'] == 34) {
 	
          ?>
          
@@ -421,7 +459,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display34'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -432,21 +470,22 @@ $count = $key;
 			<div
 				style="float: left; height: 20%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM2;?>
 				<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 35) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 35) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }      
+ $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][35] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 35) {
+  //    if ($values ['room_id'] == 35) {
 	
          ?>
          
@@ -460,7 +499,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display35'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -473,21 +512,22 @@ $count = $key;
 				style="float: left; height: 22%; width: 100%;box-shadow:inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->SIRIJAN;?>
 				
 				 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 20) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 20) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][20] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 20) {
+  //    if ($values ['room_id'] == 20) {
 	
          ?>
          
@@ -501,7 +541,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display20'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -514,21 +554,22 @@ $count = $key;
 			<div
 				style="float: left; height: 15%; width: 100%;box-shadow:inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->ACCOUNTS;?>
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 19) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 19) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }   
+    $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][19] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 19) {
+  //    if ($values ['room_id'] == 19) {
 	
          ?>
          
@@ -542,7 +583,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display19'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -560,21 +601,22 @@ $count = $key;
 		<div style="float: right; width: 75%; border: 1px solid black">
     <div class="room2">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 11) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 11) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][11] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 11) {
+  //    if ($values ['room_id'] == 11) {
 	
          ?>
          
@@ -588,7 +630,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display11'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -598,21 +640,22 @@ $count = $key;
     </div>
     <div class="room2" >
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 12) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 12) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }   
+    $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][12] as $key => $values ) {
 	echo "<div id='rows' >";	
-      if ($values ['room_id'] == 12) {
+    //  if ($values ['room_id'] == 12) {
 	
          ?>
          
@@ -626,7 +669,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display12'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -637,21 +680,22 @@ $count = $key;
 </div>
     <div class="room2">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 13) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 13) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][13] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 13) {
+   //   if ($values ['room_id'] == 13) {
 	
          ?>
          
@@ -665,7 +709,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display13'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -675,21 +719,22 @@ $count = $key;
     </div>
     <div class="room2 ">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 14) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 14) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][14] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 14) {
+  //    if ($values ['room_id'] == 14) {
 	
          ?>
          
@@ -703,7 +748,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display14'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -716,21 +761,22 @@ $count = $key;
 			style="border: 1px solid black; float: right; height: 88%; width: 12%;">
 			<div class="cabin">
 			<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 3) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 3) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][3] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 3) {
+  //    if ($values ['room_id'] == 3) {
 	
          ?>
          
@@ -744,7 +790,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display3'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -757,21 +803,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 4) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 4) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][4] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 4) {
+//      if ($values ['room_id'] == 4) {
 	
          ?>
          
@@ -785,7 +832,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display4'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -797,21 +844,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 5) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 5) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][5] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 5) {
+    //  if ($values ['room_id'] == 5) {
 	
          ?>
          
@@ -825,7 +873,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display5'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -837,21 +885,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			  <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 6) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 6) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }   
+    $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][6] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 6) {
+ //     if ($values ['room_id'] == 6) {
 	
          ?>
          
@@ -865,7 +914,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display6'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -876,21 +925,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 21) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 21) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }  
+     $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][21] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 21) {
+  //    if ($values ['room_id'] == 21) {
 	
          ?>
          
@@ -904,7 +954,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display21'></div>
 <?php      
-        }
+ //       }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -916,21 +966,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 22) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 22) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][22] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 22) {
+  //    if ($values ['room_id'] == 22) {
 	
          ?>
          
@@ -944,7 +995,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display22'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -957,21 +1008,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			  <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 23) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 23) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ($_SESSION['roomData'][23] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 23) {
+   //   if ($values ['room_id'] == 23) {
 	
          ?>
          
@@ -985,7 +1037,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display23'></div>
 <?php      
-        }
+ //       }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -997,21 +1049,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 24) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 24) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][24] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 24) {
+  //    if ($values ['room_id'] == 24) {
 	
          ?>
          
@@ -1025,7 +1078,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display24'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1037,21 +1090,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 25) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 25) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ($_SESSION['roomData'][25] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 25) {
+   //   if ($values ['room_id'] == 25) {
 	
          ?>
          
@@ -1065,7 +1119,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display25'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1077,21 +1131,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			  <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 26) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 26) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }   
+    $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][26] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 26) {
+  //    if ($values ['room_id'] == 26) {
 	
          ?>
          
@@ -1105,7 +1160,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display26'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1117,21 +1172,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 27) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 27) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][27] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 27) {
+   //   if ($values ['room_id'] == 27) {
 	
          ?>
          
@@ -1145,7 +1201,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display27'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1157,21 +1213,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			  <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 28) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 28) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }      
+ $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][28] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 28) {
+ //     if ($values ['room_id'] == 28) {
 	
          ?>
          
@@ -1185,7 +1242,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display28'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1197,21 +1254,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 29) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 29) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][29] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 29) {
+   //   if ($values ['room_id'] == 29) {
 	
          ?>
          
@@ -1225,7 +1283,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display29'></div>
 <?php      
-        }
+ //       }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1237,21 +1295,22 @@ $count = $key;
 			</div>
 			<div class="cabin">
 			<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 30) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 30) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][30] as $key => $values ) {
 	echo "<div id='rows' style='margin-top:-10px;'>";	
-      if ($values ['room_id'] == 30) {
+//      if ($values ['room_id'] == 30) {
 	
          ?>
          
@@ -1265,7 +1324,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display30'></div>
 <?php      
-        }
+ //       }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1279,23 +1338,25 @@ $count = $key;
 		</div>
 		<div
 			style="border: 1px solid black; float: right; height: 88%; width: 62%;">
+			Main Lab
 			<!-- Updated By Amber Sharma -->
 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 2) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 2) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][2] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 2) {
+      //if ($values ['room_id'] == 2) {
 	
          ?>
          
@@ -1309,7 +1370,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display2'></div>
 <?php      
-        }
+     //   }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1323,21 +1384,22 @@ $count = $key;
 					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC;width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;">
 
 					<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 18) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 18) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }      
+ $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][31] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 31) {
+ //     if ($values ['room_id'] == 31) {
 	
          ?>
          
@@ -1351,7 +1413,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display31' ></div>
 <?php      
-        }
+ //       }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1361,21 +1423,22 @@ $count = $key;
 				<div
 					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
 					<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 18) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 18) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ($_SESSION['roomData'][32] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 32) {
+ //     if ($values ['room_id'] == 32) {
 	
          ?>
          
@@ -1389,7 +1452,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display32' ></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1400,21 +1463,22 @@ $count = $key;
 					style="border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
 
 					<?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 18) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 18) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][33] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 33) {
+  //    if ($values ['room_id'] == 33) {
 	
          ?>
          
@@ -1428,7 +1492,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display33'></div>
 <?php      
-        }
+  //      }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1446,21 +1510,22 @@ $count = $key;
 		<div style="float: right; width: 80%;">
 			<div class="room3">
 						 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 15) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 15) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][15] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 15) {
+   //   if ($values ['room_id'] == 15) {
 	
          ?>
          
@@ -1474,7 +1539,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display15' style='margin-top:20px;'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1485,21 +1550,22 @@ $count = $key;
         <div class="room3">
 
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 16) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 16) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][16] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 16) {
+ //     if ($values ['room_id'] == 16) {
 	
          ?>
          
@@ -1513,7 +1579,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display16' style='margin-top:20px;'></div>
 <?php      
-        }
+   //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1525,21 +1591,22 @@ $count = $key;
         <div class="room3">
 
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 17) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 17) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }    
+   $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][17] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 17) {
+ //     if ($values ['room_id'] == 17) {
 	
          ?>
          
@@ -1553,7 +1620,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display17'></div>
 <?php      
-        }
+    //    }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     
@@ -1563,21 +1630,22 @@ $count = $key;
         </div>
         <div class="room3">
 			 <?php
-$count=0;
-foreach ( $_SESSION ['variable'] as $key => $values ) {
-    if ($values ['room_id'] == 18) 
-       	{
+// $count=0;
+// foreach ( $_SESSION ['variable'] as $key => $values ) {
+//     if ($values ['room_id'] == 18) 
+//        	{
 
-$count = $key;
-}
+// $count = $key;
+// }
 
 
          
-}       $i=1;  
+// }     
+  $i=1;  
 //echo $count;
-     foreach ( $_SESSION ['variable'] as $key => $values ) {
+     foreach ( $_SESSION['roomData'][18] as $key => $values ) {
 	echo "<div id='rows'>";	
-      if ($values ['room_id'] == 18) {
+  //    if ($values ['room_id'] == 18) {
 	
          ?>
          
@@ -1591,7 +1659,7 @@ $count = $key;
           <?php $i++; ?>
          <div id='display18' style='margin-top:20px;'></div>
 <?php      
-        }
+  //     }
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     

@@ -228,7 +228,13 @@ class SeatEmployee extends DBConnection
 		}
 		return $myResult;
 	}
-
+    public function totalRooms()
+    {
+        $data['tables'] = 'room';
+        $data['columns'] = array('count(*) total_room');
+        $result=$this->_db->select($data);        
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
          public function seatStatus($val,$val1)
 	 {				
 		
