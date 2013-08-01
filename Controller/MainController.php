@@ -19,7 +19,15 @@ class MainController extends Acontroller
 	{
 		//$this->_objInitiateUser= new InitiateUser();
 	}
+	
+	/* 	called from : main.php.
+		description: This function is to handle login will redirect to mainpage.php in case
+					of sucessfull login and in case of unsucessful login redirect to index 
+		request params: username and password			
+	*/
+	
 	public function loginClick() {
+	
 		$this->_username=$_REQUEST['username'];
 		$this->_password=$_REQUEST['password'];
 		
@@ -28,8 +36,7 @@ class MainController extends Acontroller
 		$obj->validator("username",$this->_username, 'required#alphanumeric#minlength=4#maxlength=25','Username Required#alphanumeric Required#Enter Username atleast 4 characters long#Username should not be more than 25 characters long');
 		$obj->validator("password",$this->_password, 'minlength=4#maxlength=25','Enter password atleast 4 characters long#Password should not be more than 25 characters long');
 		$error=$obj->result();
-		
-		
+			
 		if(!empty($error)){
 			
 			if(isset($_SESSION['msg'])) {				
@@ -42,57 +49,67 @@ class MainController extends Acontroller
 			die;
 		 }
 		
-		
+		/*******object of user initiator class  ***************/
 		$this->_objInitiateUser= new InitiateUser();
+		
+		/**** calls login function takes two arguments username and password,will return 1 in case of sucessful login else 0************/
 		$result=$this->_objInitiateUser->login($this->_username,$this->_password);
+	
+		/********** in case of authentic user********/
 		if($result==1) {
-			//die("jjfj");
+		
 			$obj = $this->loadModel('SeatEmployee'); 
-                        $value = $obj->allSeat();
-                        //session_start();
-                        $_SESSION['variable'] = $value;
-                        $objSecurity= new Security();
-                        $objSecurity->logSessionId( $_SESSION['username']);
-                        $objLogger = new Logger();
-                        $objLogger->logLoginEntryCuurentFile();
-                        header("location:index.php?controller=MainController&method=mainPage");
-			
-                       
+			$value = $obj->allSeat();			
+			$_SESSION['variable'] = $value;
+			$objSecurity= new Security();
+			$objSecurity->logSessionId( $_SESSION['username']);
+			$objLogger = new Logger();
+			$objLogger->logLoginEntryCuurentFile();
+			header("location:index.php?controller=MainController&method=mainPage");                  
 		}
 		else {
-		
 			echo " unsucessfull login";
 		}
 		
 	}
+	/******** called when user logout destroy session and delete(unlink) file of user from the server*******/
+	
 	public function logout() {
 		unlink ("./tmp/" . $_SESSION ['username'] . ".txt" );
 		$objLogger = new Logger();
 		$objLogger->logLogoutEntryCuurentFile();
 		session_destroy ();
 		die;
-	
 	}
 	public function mainPage() 
 	{
 		
 	}
+	/******called from:  Mainbuilding.php()
+			description: handle assiging of the seats,call assignseat function of seatemployee model
+					   passes an array to assignseat function as paramaeter.Array contains room,
+					   row no,computerid,reson to change and assigne id 	*****************/
 	public function assignSeat()
 	{
 		$room=$_REQUEST['roomid'];
-// 		print_r($_POST);
-// 		die;
+	
 		$a[]=explode("_", $room);
 		//print_r($a);
 		$info['room']=$a[0][0];
 		$info['row']=$a[0][1];
 		$info['computerid']=$a[0][2];
 		$info['details']=$_REQUEST['changeComment'];
-		$info['assigne']=$_SESSION ['username'];
-		$info['empid']=$_REQUEST['draggedElement'];
+		$info['assigne']=$_SESSION ['userid'];
+		$info['empid']=$_REQUEST['employee'];
 		$seatObj = $this->loadModel('SeatEmployee');
-		$seatObj->assignSeat($info);
+		$inserted=$seatObj->assignSeat($info);
+		if($inserted=="true") {
+			
+		  echo "Your Seat has been booked";
+		}
+	
 	}
+	
 	public function searchEmployee()
 	{
 		$employeeObj = $this->loadModel('Employee');

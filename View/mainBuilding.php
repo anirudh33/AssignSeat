@@ -77,6 +77,8 @@ function closeFancyBox(){
 	//alert(draggedElement);
 	//alert(moveid);
 	$.post('index.php?controller=MainController&method=assignSeat',{roomid:thisid,changeComment:$changeComment,employee:draggedElement},function(data,status){
+		
+			alert(data);
 		//window.location.href = 'index.php';
 		});
 	 $('#' + thisid).droppable('disable')

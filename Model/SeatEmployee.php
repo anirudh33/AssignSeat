@@ -143,17 +143,19 @@ class SeatEmployee extends DBConnection
 	public function assignSeat($assignInfo)
 	{
 //   print_r($assignInfo);
-//  	    die;
-//         $this->setEid($assignInfo['eid']);
-    	$this->setSid($assignInfo['sid']);
-    	$this->setAsignee($assignInfo['asignee']);
-    	$this->setComputer_id($assignInfo['computer_id']);
-    	$this->setUpdated_on($assignInfo['updated_on']);
+  //    die;
+     $this->setEid($assignInfo['empid']);
+    	//$this->setSid($assignInfo['sid']);
+    	$this->setAsignee($assignInfo['assigne']);
+    	$this->setComputer_id($assignInfo['computerid']);
+    	//$this->setUpdated_on($assignInfo['updated_on']);
     	$this->setDetails($assignInfo['details']);
-		$this->deleteSeat();
+		//$this->deleteSeat();
 		$this->setStatus(1);
+		//echo $assignInfo['room'];die;
 		$roomId=$this->findRoomId($assignInfo['room']);
-		$sid=$this->findSid($roomId, $assignInfo['rowNumber']);
+		//echo "roommmmm id   .".$roomId;die;
+		$sid=$this->findSid($roomId, $assignInfo['row']);
 		$this->setSid($sid);
 		 $data['tables'] = 'seat_employee';
 		 $insertValue = array('eid'=>$this->getEid(),
@@ -164,7 +166,8 @@ class SeatEmployee extends DBConnection
 		 		'updated_on'=>$this->getUpdated_on(),
 		 		'details'=>$this->getDetails()
 		 		);
-		 $this->_db->insert($data['tables'],$insertValue);
+		 $result=$this->_db->insert($data['tables'],$insertValue);
+		 //var_dump($result);die;
 		 return "true";
 		
 	}
@@ -179,31 +182,37 @@ class SeatEmployee extends DBConnection
 		$result = $this->_db->update('seat_employee', $data, $where);
 	}
 	public function findRoomId($roomName)  {
-		$Room=new Room();
-		$Room->setName($roomName);
+		//$Room=new Room();
+		//$Room->setName($roomName);
+		//echo $Room->getName();die;
+	
 		$data['columns']	= array('room.id');
-		$data['conditions']=array(array('name='.$Room->getName().'status = 1'),true);
+		$data['conditions']=array(array('name="'.$roomName.'"'),true);
 		$data['tables']		= 'room';
 		$result = $this->_db->select($data);
+		//var_dump($result);die;
 		$myResult=array();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC))
 		{
 			$myResult[]=$row;
 		}
-		return $myResult['id'];
+	    //echo $myResult[0]['id'];die;
+		return $myResult[0]['id'];
 	}
 	
 	public function findSid($roomId,$rowNumber)  {
-		$data['columns']	= array('sid');
-		$data['conditions']=array(array('(room_id ='.$roomId.' AND row_number='.$rowNumber.') AND status=1'),true);
-		$data['tables']		= 'room';
+		$data['columns']	= array('id');
+		$data['conditions']=array(array('(room_id ='.$roomId.' AND row_number='.$rowNumber.')'),true);
+		$data['tables']		= 'room_row';
 		$result = $this->_db->select($data);
+		//var_dump($result);die;
 		$myResult=array();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC))
 		{
 			$myResult[]=$row;
 		}
-		return $myResult['sid'];
+		//echo($myResult[0]['id']);die;
+		return $myResult[0]['id'];
 	}        
         public function allSeat()
 	{		
