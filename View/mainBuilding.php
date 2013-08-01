@@ -113,7 +113,7 @@ function closeFancyBox(){
   });
   }
 function startTooltip(){
-	$( document ).tooltip({
+	$( ".custom_tooltip" ).tooltip({
 		items: "img",
 		content : function() {
 			displayData = "";
@@ -141,7 +141,13 @@ function startTooltip(){
 					.appendTo( this );
 			}
 		}
-	});
+	})
+	.off( "mouseover" )
+  	.on( "click", function(){
+      $( this ).tooltip( "open" );
+      return false;
+    })
+    .	attr( "title", "" ).css({ cursor: "pointer" });
 }
 </script>
 

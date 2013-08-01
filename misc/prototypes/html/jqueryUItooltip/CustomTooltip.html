@@ -12,7 +12,8 @@
 
 <script>
 $(function() {
-	$( document ).tooltip({
+	$( ".custom_tooltip" ).tooltip({
+	
 		items: "img",
 		content : function() {
 			displayData = "";
@@ -40,7 +41,14 @@ $(function() {
 					.appendTo( this );
 			}
 		}
-	});
+	})
+	.off( "mouseover" )
+  	.on( "click", function(){
+      $( this ).tooltip( "open" );
+      return false;
+    })
+  .	attr( "title", "" ).css({ cursor: "pointer" });
+	
 });
 </script>
 	
@@ -96,6 +104,8 @@ $(function() {
 
 </head>
 <body>
+<div id = "objectData"></div>
+<p><img src = "../../../../assets/images/img1.png" title = "some image" class = "custom_tooltip" width = "200px" height = "200px" alt = "some image" /></p>
 <p><img src = "../../../../assets/images/img1.png" title = "some image" class = "custom_tooltip" width = "200px" height = "200px" alt = "some image" /></p>
 
 <p><label for="age">Your age:</label> <input id="age" title="We ask for your age only for statistical purposes."></p>
