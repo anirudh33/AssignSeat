@@ -539,19 +539,22 @@ div {
 	box-shadow: inset 9px 10px 40px #DEB887;
 }
 
-#rows {
-	height: 20px;
-	float: left;
-	text-align: center;
-	margin: 2px;
-	margin-left: auto;
+#rows
+{
+	height:20px;
+	float:left;
+	text-align:center;
+	margin:1px;
+	
 }
-
-.cols {
-	border: 1px solid blue;
-	float: left;
-	margin-left: 6px;
-	margin-right: 6px;
+.cols
+{
+	border:1px solid blue;
+	
+	float:left;
+	
+	margin-left:4px;
+	margin-right:4px;
 }
 
 /** style for droppable content **/
