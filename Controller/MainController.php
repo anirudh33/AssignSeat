@@ -139,6 +139,11 @@ class MainController extends Acontroller
 			//empid,name,seatid
 		  echo "1";
 		}
+		if($inserted=="true1") {
+			
+			//empid,name,seatid
+		  echo "2";
+		}
 		}
 	
 	}

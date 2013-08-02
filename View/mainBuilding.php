@@ -106,7 +106,12 @@ function closeFancyBox() {
         }, function(data, status) {
 			if(data==1) {
 			alert("Your seat has been booked");
-			}else {
+			}
+			else if(data==2) {
+			alert("Your seat has been been reallocated");
+
+}
+		else {
 				//change chair icon to green here
             alert(data);
 			}
