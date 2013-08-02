@@ -18,12 +18,11 @@ session_start();
 require_once getcwd().'/libraries/constants.php';
 require_once getcwd().'/libraries/Security.php';
 require_once getcwd().'/libraries/Logger.php';
-
+require_once(SITE_PATH."/libraries/validate.php");
 /* Requiring all essential files */
 function __autoload($controller) {
 	include SITE_PATH .'/Controller/'.$controller . '.php';
 }
-require_once SITE_PATH.'/libraries/initiateuser.php';
 
 /* Method calls from views handled here */
 

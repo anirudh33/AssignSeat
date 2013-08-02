@@ -7,11 +7,24 @@
 * Created on - july 29, 2013
 * *************************************************
 */
+
+
 ?>
 <html lang="">
 <head>  
 <title></title>
 <link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css" type="text/css" media="all">
+<?php
+if(!isset($_SESSION['loginStatus']))
+{
+	$_SESSION['loginStatus']="true"	;
+?>
+<script>
+window.location.reload();
+</script>
+<?php
+}
+?>
 </head>
 
 <body>

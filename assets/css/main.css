@@ -436,7 +436,7 @@ border: 1px solid black;
 	border: 1px solid black;
 	float: left;
 	height: 91%;
-	width: 24%;
+    width: 24.6%;
 }
 
 .sofa_reception {
@@ -678,4 +678,15 @@ box-shadow:inset 9px 10px 40px #DEB887;}
 .doNotDisplay
 {
     display : none;
+}
+.lobbySirijan
+{
+    border: 1px solid black;
+    box-shadow: 9px 10px 40px #DEB887 inset; 
+    height: 63%; 
+    float : right;
+    width: 3%;
+    letter-spacing: 0.4em;
+    padding-top: 206px;
+    word-wrap: break-word;
 }

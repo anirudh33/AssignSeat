@@ -116,6 +116,7 @@ function closeFancyBox() {
             employee : draggedElement
         }, function(data, status) {
         	if(data.trim()=="1") {
+
     			alert("Your seat has been booked");
     			}
     			else if(data.trim()=="2") {
@@ -603,11 +604,11 @@ $i=1;
 								
 				</div>
 			<div
-				style="float: left; height: 6%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
+				style="float: left; height: 6.7%; width: 100%; border: 1px solid black;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
 		</div>
-
+    
 		<div
-			style="border: 1px solid black; float: left; height: 99%; width: 4%;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
+			style="letter-spacing: 0.7em; padding-top: 206px; word-wrap: break-word; border: 1px solid black; float: left; height: 74.5%; width: 4%;box-shadow:inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
 		<div style="float: right; width: 75%; border: 1px solid black">
     <div class="room2">
 			 <?php
@@ -625,7 +626,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][11] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
   //    if ($values ['room_id'] == 11) {
 	
          ?>
@@ -743,7 +744,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][14] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
   //    if ($values ['room_id'] == 14) {
 	
          ?>
@@ -767,8 +768,9 @@ $i=1;
 ?>
     </div>
 		</div>
+
 		<div
-			style="border: 1px solid black; float: right; height: 88%; width: 12%;">
+			style="border: 1px solid black; float: right; height: 88%; width: 9.5%;">
 			<div class="cabin">
 			<?php
 // $count=0;
@@ -827,7 +829,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][4] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
 //      if ($values ['room_id'] == 4) {
 	
          ?>
@@ -868,7 +870,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][5] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
     //  if ($values ['room_id'] == 5) {
 	
          ?>
@@ -909,7 +911,7 @@ $i=1;
     $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][6] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
  //     if ($values ['room_id'] == 6) {
 	
          ?>
@@ -949,7 +951,7 @@ $i=1;
      $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][21] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
   //    if ($values ['room_id'] == 21) {
 	
          ?>
@@ -990,7 +992,7 @@ $i=1;
   $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][22] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
   //    if ($values ['room_id'] == 22) {
 	
          ?>
@@ -1032,7 +1034,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ($_SESSION['roomData'][23] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
    //   if ($values ['room_id'] == 23) {
 	
          ?>
@@ -1073,7 +1075,7 @@ $i=1;
   $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][24] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
   //    if ($values ['room_id'] == 24) {
 	
          ?>
@@ -1114,7 +1116,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ($_SESSION['roomData'][25] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
    //   if ($values ['room_id'] == 25) {
 	
          ?>
@@ -1155,7 +1157,7 @@ $i=1;
     $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][26] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
   //    if ($values ['room_id'] == 26) {
 	
          ?>
@@ -1196,7 +1198,7 @@ $i=1;
   $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][27] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
    //   if ($values ['room_id'] == 27) {
 	
          ?>
@@ -1237,7 +1239,7 @@ $i=1;
  $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][28] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
  //     if ($values ['room_id'] == 28) {
 	
          ?>
@@ -1278,7 +1280,7 @@ $i=1;
   $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][29] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
    //   if ($values ['room_id'] == 29) {
 	
          ?>
@@ -1319,7 +1321,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][30] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
 //      if ($values ['room_id'] == 30) {
 	
          ?>
@@ -1346,6 +1348,7 @@ $i=1;
 			</div>
 			
 		</div>
+			<div class="lobbySirijan"><?php echo $lang->LOBBY;?></div>
 		<div
 			style="border: 1px solid black; float: right; height: 88%; width: 62%;">
 			Main Lab
