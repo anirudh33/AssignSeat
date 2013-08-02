@@ -93,6 +93,7 @@ function dragdropevent() {
     });
 }
 function closeFancyBox() {
+	//$("#commentError").replace("");
     $changeComment = $("#changeComment").val();
     $.fancybox.close();
     // alert(draggedElement);
@@ -104,8 +105,12 @@ function closeFancyBox() {
             changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
-        	
-			alert(data);
+        	if(data.trim()=="1") {
+    			alert("Seat has been trashed");
+    			}else {
+    			$("#commentError").html(data);
+                $("#changeCommentLink").trigger("click");
+    			}
             // window.location.href = 'index.php';
         });
 
@@ -123,7 +128,7 @@ function closeFancyBox() {
     			alert("Your seat has been been reallocated");
     			}else {
     				//change chair icon to green here
-                $("#commentError").append(data);
+                $("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
             // window.location.href = 'index.php';

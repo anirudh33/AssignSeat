@@ -11,7 +11,8 @@
  * **********************Update Log ***************************************
  * Sr.NO. Version Updated by 		Updated on	 	Description
  * -------------------------------------------------------------------------
- *
+ *	1.		1.0		Avni Jain		July 30,2013	added functions assignSeat,
+ *													checkEmpSeat,findSid,setEmpName,getEmpName
  * ************************************************************************
  */
 //include 'Room.php';

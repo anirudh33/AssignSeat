@@ -1,12 +1,15 @@
 <?php
-
 /*
- * Creation Log File Name - MainController.php
+* Creation Log File Name - MainController.php
 * Description - Main Controller file
 * Version - 1.0
 * Created by - Avni jain
-* Created on - july 29, 2013
-* *************************************************
+* Created on - July 29, 2013
+* * **************************** Update Log ********************************
+Sr.NO.        Version        Updated by           Updated on          Description
+-------------------------------------------------------------------------
+1				1.0			Anirudh Pandita		August 1, 2013		Validation added on change reason
+* ************************************************************************
 */
 
 class MainController extends Acontroller
@@ -184,8 +187,17 @@ class MainController extends Acontroller
 		$seatObj = $this->loadModel('SeatEmployee');
 		$seatObj->setEid($_REQUEST['employee']);
 		$seatObj->setDetails($_REQUEST['changeComment']);
+		//validating changeComment field by anirudh
+		$obj = new validate();
+		$obj->validator("changeComment",$_REQUEST['changeComment'], "spaceCheck=25#custom=/^[-a-z' '0-9','.']+$/#required#maxlength=250",'Enter minimum 25 chars excluding spaces#Enter alphabets,dashes and spaces only#Comment Required#Comment should not be more than 250 characters long');
+		$error=$obj->result();
+		if(!empty($error)){
+			echo $obj->array2table($error);
+		}else{
 		$trashed=$seatObj->trashSeat();
-		echo " Seat has been trashed";
+		// Seat has been trashed
+		echo "1";
+		}
 	
 	}
 	/*
