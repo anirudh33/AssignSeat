@@ -118,11 +118,18 @@ class MainController extends Acontroller
 		$info['computerid']=$a[0][2];
 		$info['details']=$_REQUEST['changeComment'];
 		$info['assigne']=$_SESSION ['userid'];
+		$info['assignename']=$_SESSION ['username'];
 		$info['empid']=$_REQUEST['employee'];
 		$seatObj = $this->loadModel('SeatEmployee');
 		$inserted=$seatObj->assignSeat($info);
+		$sid=$seatObj->getSid();
+		$ename=$seatObj->getEmpName();
 		if($inserted=="true") {
+			$log['empid']=$ename;
+			$log['uname']=$info['assignename'];
+			$log['seatid']=$sid;
 			
+			//empid,name,seatid
 		  echo "Your Seat has been booked";
 		}
 	

@@ -25,6 +25,7 @@ class SeatEmployee extends DBConnection
 	private $_status;
 	private $_created_on;
 	private $_updated_on;
+	private $_emp_name;
 	/**
 	 * @return the $_eid
 	 */
@@ -94,6 +95,7 @@ class SeatEmployee extends DBConnection
 	public function setSid($_sid) {
 		$this->_sid = $_sid;
 	}
+	
 
 	/**
 	 * @param field_type $_computer_id
@@ -136,6 +138,12 @@ class SeatEmployee extends DBConnection
 	public function setUpdated_on($_updated_on) {
 		$this->_updated_on = $_updated_on;
 	}
+	public function setEmpName($name) {
+		$this->_emp_name = $name;
+	}
+	public function getEmpName() {
+		return $this->_emp_name;
+	}
 
 	/**
 	 * @return true after assigning seat to an employee
@@ -145,6 +153,8 @@ class SeatEmployee extends DBConnection
 //   print_r($assignInfo);
   //    die;
      $this->setEid($assignInfo['empid']);
+    $empName=$this->getEmployeeName($assignInfo['empid']);
+    $this->setEmpName($empName);
     	//$this->setSid($assignInfo['sid']);
     	$this->setAsignee($assignInfo['assigne']);
     	$this->setComputer_id($assignInfo['computerid']);
@@ -199,7 +209,21 @@ class SeatEmployee extends DBConnection
 	    //echo $myResult[0]['id'];die;
 		return $myResult[0]['id'];
 	}
-	
+	/*author:avnijain*/
+	public function getEmployeeName($eid) {
+		$data['columns']	= array('name');
+		$data['conditions']=array(array('id=\''.$eid.'\''),true);
+		$data['tables']		= 'employee';
+		$result = $this->_db->select($data);
+		//var_dump($result);die;
+		$myResult=array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			$myResult[]=$row;
+		}
+		//echo $myResult[0]['id'];die;
+		return $myResult[0]['name'];
+	}
 	public function findSid($roomId,$rowNumber)  {
 		$data['columns']	= array('id');
 		$data['conditions']=array(array('(room_id ='.$roomId.' AND row_number='.$rowNumber.')'),true);
