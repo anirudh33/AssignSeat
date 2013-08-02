@@ -1553,7 +1553,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('15',i,val,'room3');
+          status('15',i,val,'Pranabdas');
          </script>
           <?php $i++; ?>
          <div id='display15' style='margin-top:20px;'></div>
@@ -1593,7 +1593,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('16',i,val,'room3');
+          status('16',i,val,'arinder singh suri');
          </script>
           <?php $i++; ?>
          <div id='display16' style='margin-top:20px;'></div>
@@ -1634,7 +1634,7 @@ Sonali Minocha
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('17',i,val,'room3');
+          status('17',i,val,'sonali minocha');
          </script>
           <?php $i++; ?>
          <div id='display17'></div>
@@ -1674,7 +1674,7 @@ Sonali Minocha
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('18',i,val,'room3');
+          status('18',i,val,'sourabh');
          </script>
           <?php $i++; ?>
          <div id='display18' style='margin-top:20px;'></div>
