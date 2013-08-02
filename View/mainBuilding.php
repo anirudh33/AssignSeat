@@ -559,7 +559,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('20',i,val,'sirijan 3');
+          status('20',i,val,'sirijan3');
          </script>
           <?php $i++; ?>
          <div id='display20'></div>
@@ -687,7 +687,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('12',i,val,'jugraj singh bedi');
+          status('12',i,val,'jugrajsinghbedi');
          </script>
           <?php $i++; ?>
          <div id='display12'></div>
@@ -727,7 +727,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('13',i,val,'sachin khurana');
+          status('13',i,val,'sachinkhurana');
          </script>
           <?php $i++; ?>
          <div id='display13'></div>
@@ -1595,7 +1595,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('16',i,val,'arinder singh suri');
+          status('16',i,val,'arindersinghsuri');
          </script>
           <?php $i++; ?>
          <div id='display16' style='margin-top:20px;'></div>
@@ -1636,7 +1636,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('17',i,val,'sonali minocha');
+          status('17',i,val,'sonaliminocha');
          </script>
           <?php $i++; ?>
          <div id='display17'></div>

@@ -150,9 +150,7 @@ class SeatEmployee extends DBConnection
 	 * @return true after assigning seat to an employee
 	 */
 	public function assignSeat($assignInfo)
-	{
-//   print_r($assignInfo);
-  //    die;
+	{ 
      $this->setEid($assignInfo['empid']);
     $empName=$this->getEmployeeName($assignInfo['empid']);
     $isAssigned=$this->checkEmpSeat($assignInfo['empid']);
@@ -184,8 +182,6 @@ class SeatEmployee extends DBConnection
 		 		'details'=>$this->getDetails()
 		 		);
 		 $result=$this->_db->insert($data['tables'],$insertValue);
-
-		 //var_dump($result);die;
 		 return "true";
 	 	 }
 	else
@@ -316,7 +312,6 @@ class SeatEmployee extends DBConnection
                		seat_employee.status = "1" '),true);
 	       $data['order'] = 'seat_employee.computer_id';
                $result=$this->_db->select($data);
-
                              
                $myResult=array();
                while ($row = $result->fetch(PDO::FETCH_ASSOC))
