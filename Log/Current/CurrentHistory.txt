@@ -36,4 +36,9 @@
 -->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 19:04:54 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0 
 -->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 19:15:35 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0 
 -->User " ADMIN " Logged into the system at Thu - 01/Aug/2013 - 19:42:28 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0 
--->User " ADMIN " Logged into the system at Fri - 02/Aug/2013 - 09:20:46 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged into the system at Fri - 02/Aug/2013 - 09:47:40 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged Out from the system at Fri - 02/Aug/2013 - 09:50:50 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged into the system at Fri - 02/Aug/2013 - 09:50:54 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged Out from the system at Fri - 02/Aug/2013 - 09:50:57 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged into the system at Fri - 02/Aug/2013 - 09:51:25 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
+-->User " ADMIN " Logged into the system at Fri - 02/Aug/2013 - 10:58:52 From the IP 127.0.0.1 and browser = Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:18.0) Gecko/20100101 Firefox/18.0 
