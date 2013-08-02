@@ -119,13 +119,13 @@ class MainController extends Acontroller
 		$info['room']=$a[0][0];
 		$info['row']=$a[0][1];
 		$info['computerid']=$a[0][2];
-		$info['details']=$_REQUEST['changeComment'];
+		$info['details']=htmlentities($_REQUEST['changeComment']);
 		$info['assigne']=$_SESSION ['userid'];
 		$info['assignename']=$_SESSION ['username'];
 		$info['empid']=$_REQUEST['employee'];
 		//validating changeComment field by anirudh
 		$obj = new validate();
-		$obj->validator("changeComment",$info['details'], "spaceCheck=25#custom=/^[-a-z' '0-9','.']+$/#required#maxlength=250",'Enter minimum 25 chars excluding spaces#Enter alphabets,dashes and spaces only#Comment Required#Comment should not be more than 250 characters long');
+		$obj->validator("changeComment",$info['details'], "spaceCheck=25#required#maxlength=250",'Enter minimum 25 chars excluding spaces#Comment Required#Comment should not be more than 250 characters long');
 		$error=$obj->result();
 		if(!empty($error)){
 			echo $obj->array2table($error);	
@@ -199,10 +199,10 @@ class MainController extends Acontroller
 	{
 		$seatObj = $this->loadModel('SeatEmployee');
 		$seatObj->setEid($_REQUEST['employee']);
-		$seatObj->setDetails($_REQUEST['changeComment']);
+		$seatObj->setDetails(htmlentities($_REQUEST['changeComment']));
 		//validating changeComment field by anirudh
 		$obj = new validate();
-		$obj->validator("changeComment",$_REQUEST['changeComment'], "spaceCheck=25#custom=/^[-a-z' '0-9','.']+$/#required#maxlength=250",'Enter minimum 25 chars excluding spaces#Enter alphabets,dashes and spaces only#Comment Required#Comment should not be more than 250 characters long');
+		$obj->validator("changeComment",$_REQUEST['changeComment'], "spaceCheck=25#required#maxlength=250",'Enter minimum 25 chars excluding spaces#Comment Required#Comment should not be more than 250 characters long');
 		$error=$obj->result();
 		if(!empty($error)){
 			echo $obj->array2table($error);

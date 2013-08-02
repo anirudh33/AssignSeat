@@ -8,3 +8,33 @@ From the IP 127.0.0.1 and browser = Google Chrome
 Browser version = 24.0.1312., Os = Linux 
 ========================= 
 
+Fri - 02/Aug/2013 - 16:00:34 User " ADMIN moved the employee "ABBAS Y. DHULIAWALA " at seat number "3" in room "Lab-1"" at row 3 , computer "4"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 16:02:35 User " ADMIN " Assigned the seat number "5" in room "Lab-1" of employee "ABHINAV PRAKASH  TIWARI" at row 5 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 16:03:18 User " ADMIN moved the employee "ABHINAV PRAKASH  TIWARI " at seat number "3" in room "Lab-1"" at row 3 , computer "5"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 16:05:09 User " ADMIN moved the employee "ABHINAV PRAKASH  TIWARI " at seat number "5" in room "Lab-1"" at row 5 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 16:05:44 User " ADMIN " Assigned the seat number "1" in room "Lab-1" of employee "ABHIJEET KALSI" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 16:06:20 User " ADMIN moved the employee "ABHIJEET KALSI " at seat number "1" in room "Lab-1"" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+

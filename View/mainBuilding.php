@@ -108,12 +108,13 @@ function closeFancyBox() {
             employee : draggedElement
         }, function(data, status) {
         	if(data.trim()=="1") {
-    			alert("Seat has been trashed");
+        		alert("Seat has been trashed");
+        		$("#commentError").html("");
     			}else {
     			$("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
-            // window.location.href = 'index.php';
+            window.location.href = 'index.php';
         });
 
     } else {
@@ -123,17 +124,18 @@ function closeFancyBox() {
             employee : draggedElement
         }, function(data, status) {
         	if(data.trim()=="1") {
-
-    			alert("Your seat has been booked");
+        		alert("Your seat has been booked");
+        		$("#commentError").html("");
     			}
     			else if(data.trim()=="2") {
     			alert("Your seat has been been reallocated");
+    			$("#commentError").html("");
     			}else {
     				//change chair icon to green here
                 $("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
-            // window.location.href = 'index.php';
+             window.location.href = 'index.php';
         });
         $('#' + thisid).droppable('disable')
         $("#" + thisid)
@@ -150,6 +152,7 @@ function closeFancyBox() {
         }
         dragdropevent();
     }
+    
 }
 /* Updated By Amber Sharma */
 </script>

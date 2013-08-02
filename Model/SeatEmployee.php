@@ -312,7 +312,8 @@ class SeatEmployee extends DBConnection
                                'type'        => 'left',
                                'conditions' => array('room_row.id' => 'seat_employee.sid'));	       
                
-               $data['conditions']=array(array('room.id='.$val.' AND room_row.room_id='.$val.' AND room_row.row_number='.$val1),true);
+               $data['conditions']=array(array('room.id='.$val.' AND room_row.room_id='.$val.' AND room_row.row_number='.$val1 .' AND 
+               		seat_employee.status = "1" '),true);
 	       //$data['order_by'] = array(array('seat_employee.computer_id'));
                $result=$this->_db->select($data);
 
