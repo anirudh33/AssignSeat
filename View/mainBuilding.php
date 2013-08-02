@@ -104,7 +104,12 @@ function closeFancyBox() {
             changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
+			if(data==1) {
+			alert("Your seat has been booked");
+			}else {
+				//change chair icon to green here
             alert(data);
+			}
             // window.location.href = 'index.php';
         });
 
