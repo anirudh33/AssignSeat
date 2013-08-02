@@ -40,7 +40,7 @@ page=0;
 				else
 				{
 					/* Updated By Amber Sharma */
-					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+"<span id='"+val['id']+"' style='width:20px;height:16px;' class='dragable'><img src='./assets/images/human.jpeg' onClick='searchlocation("+val['id']+");' width='15px' /></span></div>");
+					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+"   <span id='"+val['id']+"' style='width:20px;height:16px;' class='dragable'><img src='./assets/images/human.jpeg' onClick='searchlocation("+val['id']+");' width='15px' /></span></div>");
 					//$("#result").append(val['Name']+"<br>");
 					dragdropevent();
 					/* Updated by Amber Sharma*/

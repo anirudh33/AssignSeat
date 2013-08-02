@@ -50,7 +50,8 @@ class Logger
 	{
 		if(!empty($logActivity))
 		{
-			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logActivity['uname']).' " Updated the seat of " '.strtoupper($logActivity['empid']).'"'."\r\n";
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logActivity['uname']).' " Assigned the seat number "'.$logActivity['seatid'].'" in room "'.$logActivity['room'].'"' ;
+			$logData .= ' of employee "'.strtoupper($logActivity['empid']).'" at row '.$logActivity['row'].' , computer "'.$logActivity['computerid'].'"'."\r\n";
 			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 			$logData .= "========================= \n\n";

@@ -138,6 +138,9 @@ class MainController extends Acontroller
 			$log['empid']=$ename;
 			$log['uname']=$info['assignename'];
 			$log['seatid']=$sid;
+			$log['room'] = $info['room'];
+			$log['row'] = $info['row'];
+			$log['computerid'] = $info['computerid'];
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logAllActivityCuurentFile($log);
 			if($boolLogResult)
