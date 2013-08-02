@@ -283,3 +283,73 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
+Fri - 02/Aug/2013 - 17:11:49 User " ADMIN " Assigned the seat number "47" in room "room-2" of employee "ABHIK GHOSAL" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:12:40 User " ADMIN " Assigned the seat number "47" in room "room-2" of employee "ABHIJEET KALSI" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:13:08 User " ADMIN moved the employee "ABHIJEET KALSI " at seat number "4" in room "Lab-1"" at row 4 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:13:51 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:14:08 User " ADMIN " Assigned the seat number "54" in room "sirijan2" of employee "ABBAS Y. DHULIAWALA" at row 6 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:15:27 User " ADMIN " Assigned the seat number "54" in room "sirijan2" of employee "ABHIJEET KALSI" at row 6 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:15:55 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:16:16 User " ADMIN " Assigned the seat number "54" in room "sirijan2" of employee "ABBAS Y. DHULIAWALA" at row 6 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:21:09 User " ADMIN " Assigned the seat number "54" in room "sirijan2" of employee "ABHISHEK  ARORA" at row 6 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:21:59 User " ADMIN " Assigned the seat number "28" in room "aqua" of employee "ABHINAV PRAKASH  TIWARI" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:22:24 User " ADMIN " Assigned the seat number "46" in room "room-1" of employee "AJAY KUMAR  SHUKLA" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:23:22 User " ADMIN " Assigned the seat number "19" in room "sonaliminocha" of employee "ANKUR KUMAR AERAN" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:23:41 User " ADMIN " Assigned the seat number "19" in room "sonaliminocha" of employee "ANUJ MAHESHWARI" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 17:24:05 User " ADMIN " Assigned the seat number "19" in room "sonaliminocha" of employee "ANIRUDH SOOD" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
