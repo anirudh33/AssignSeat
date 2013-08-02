@@ -437,6 +437,7 @@ border: 1px solid black;
 	float: left;
 	height: 91%;
     width: 24.6%;
+	box-shadow: 9px 10px 40px #DEB887 inset;
 }
 
 .sofa_reception {

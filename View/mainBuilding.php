@@ -1355,7 +1355,7 @@ $i=1;
 		</div>
 			<div class="lobbySirijan"><?php echo $lang->LOBBY;?></div>
 		<div
-			style="border: 1px solid black; float: right; height: 88%; width: 62%;">
+			style="border: 1px solid black; float: right; height: 88%; width: 62%;box-shadow: 9px 10px 75px #FFF8DC inset;">
 			Main Lab
 			<!-- Updated By Amber Sharma -->
 <?php
