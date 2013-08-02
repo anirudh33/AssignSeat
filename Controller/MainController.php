@@ -49,8 +49,8 @@ class MainController extends Acontroller
 			die;
 		 }
 		
-		/*******object of user initiator class  ***************/
-		$this->_objInitiateUser= new InitiateUser();
+		/*******object of user  class  ***************/
+		$this->_objInitiateUser= $this->loadModel('Users');
 		
 		/**** calls login function takes two arguments username and password,will return 1 in case of sucessful login else 0************/
 		$result=$this->_objInitiateUser->login($this->_username,$this->_password);
@@ -160,10 +160,7 @@ class MainController extends Acontroller
 	{
 	    $obj = $this->loadModel('SeatEmployee');
 	    $value = $obj->seatStatus($_REQUEST['value'],$_REQUEST['value1']);
-	   // print_r($value);die;
-	     include('View/status.php');
-	    //print_r($value);die;
-	          
+	    $this->loadView('status',$value); 
 	}
 	
 	

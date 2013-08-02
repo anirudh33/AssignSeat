@@ -1,12 +1,12 @@
 <?php
 $k = 0;
-$count = count($value);
+$count = count($data);
 for($i=0;$i<$_REQUEST['value2'];$i++)
 {
           
-	if(!empty($value))
+	if(!empty($data))
 	{
-		if($value[$k]['computer_id'] == ($i) && ($value[$k]['status'] == 1))
+		if($data[$k]['computer_id'] == ($i) && ($data[$k]['status'] == 1))
 		{
 			if(($count - 1) > ($k)){
 			$k ++;
@@ -14,7 +14,7 @@ for($i=0;$i<$_REQUEST['value2'];$i++)
             }
             
 	?>       
-			<div id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>" class="cols"><img id="<?php echo $value[$k]['eid'];?>" class="dragable dragged custom_tooltip" src="images/red_chair.png" height=20 width=30 /></div>
+			<div id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>" class="cols"><img id="<?php echo $data[$k]['eid'];?>" class="dragable dragged custom_tooltip" src="images/red_chair.png" height=20 width=30 /></div>
 
 	<?php
 		}
