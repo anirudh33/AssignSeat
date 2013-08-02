@@ -261,7 +261,7 @@ class MainController extends Acontroller
 	    if(!empty($someData)){
     	    $someData = explode("\n", $someData);
     	    $someData = array_reverse($someData);
-    	    $someData = array_slice($someData, 0,10);
+    	    //$someData = array_slice($someData, 0,10);
     	    echo json_encode($someData);	    
     	    chdir($dir);
 	    }

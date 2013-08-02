@@ -11,7 +11,7 @@ body {
 	font-size: 12px
 }
 
-input:not  ([type=checkbox]  ),textarea {
+input:not   ([type=checkbox]   ),textarea {
 	width: 250px;
 	padding: 5px;
 	border: 1px solid #ccc;
@@ -152,24 +152,36 @@ input[type=checkbox] {
 top
 
 
+
+
 :
+
 
  
 
+
 0
 px
+
+
 
 
 ;
 left
 
 
+
+
 :
+
 
  
 
+
 14
 px
+
+
 
 
 ;
@@ -197,24 +209,36 @@ input[type=checkbox]:checked+label.check {
 top
 
 
+
+
 :
+
 
  
 
+
 0
 px
+
+
 
 
 ;
 left
 
 
+
+
 :
+
 
  
 
+
 0
 px
+
+
 
 
 ;
@@ -279,8 +303,6 @@ input[type=file] {
 	width: 80px;
 }
 
-
-
 #leftbar {
 	float: left;
 	width: 98%;
@@ -301,7 +323,7 @@ input[type=file] {
 	width: 99%;
 	/* 	height:70%; */
 	border: 1px solid black;
-	box-shadow:-13px -12px 11px #DEB887 ;
+	box-shadow: -13px -12px 11px #DEB887;
 }
 
 #footer {
@@ -345,147 +367,131 @@ input[type=file] {
 /************** css for the building div **************/
 div {
 	text-align: center;
-	
-	
 }
 
 .mainContainer {
+	border: 1px solid black;
+	width: 100%;
+	height: 150%;
+}
 
-   border: 1px solid black;
- width: 100%;
- height: 150%;
-	
-  
+.writing {
+	text-align: right;
+	-webkit-transform: rotate(314deg);
+	-moz-transform: rotate(314deg);
+	-o-transform: rotate(314deg);
+	writing-mode: bt-rl;
 }
-.writing
-{
-	text-align:right;	
-	 -webkit-transform: rotate(314deg);
-   -moz-transform: rotate(314deg);
-   -o-transform: rotate(314deg);
-   writing-mode: bt-rl;
-}
+
 .googol {
-	box-shadow:inset 9px 10px 75px #DEB887;
- width: 19%;
- border: 1px solid black;
- height: 100%;
- float: left;
-	
-	
-	
+	box-shadow: inset 9px 10px 75px #DEB887;
+	width: 19%;
+	border: 1px solid black;
+	height: 100%;
+	float: left;
+}
 
-  }
-
-
-  
 .srijjan_2 {
-	box-shadow:inset 9px 10px 75px #FFF8DC;
-//background-color:#FFF8DC;
-   width: 80.3%;
- border: 1px solid black;
- height: 100%;
- float: left;
-
-  }
-
-  
+	box-shadow: inset 9px 10px 75px #FFF8DC; //
+	background-color: #FFF8DC;
+	width: 80.3%;
+	border: 1px solid black;
+	height: 100%;
+	float: left;
+}
 
 .sofachess {
-	box-shadow:inset 9px 10px 40px #DEB887;
-	//background-color:#DEB887;
-border: 1px solid black;
-    float: left;
-    height: 100%;
-    margin-top: -26.3%;
-    width: 5%;
-  
+	box-shadow: inset 9px 10px 40px #DEB887; //
+	background-color: #DEB887;
+	border: 1px solid black;
+	float: left;
+	height: 100%;
+	margin-top: -26.3%;
+	width: 5%;
 }
 
- 
-
-  .room {
-  	box-shadow:inset 9px 10px 40px #FFF8DC;
-  	//background-color:#FFF8DC;
-    border: 1px solid black;
-    float: left;
-    height: 25%;
-    margin-top: -26.3%;
-    width: 16%;
+.room {
+	box-shadow: inset 9px 10px 40px #FFF8DC; //
+	background-color: #FFF8DC;
+	border: 1px solid black;
+	float: left;
+	height: 25%;
+	margin-top: -26.3%;
+	width: 16%;
 }
 
 .room1 {
-	box-shadow:inset 9px 10px 75px #E8C291;
-	background-color:#E8C291;
- border: 1px solid black;
-    float: left;
-    height: 30%;
-    margin-top: -13.1%;
-    width: 16%;
+	box-shadow: inset 9px 10px 75px #E8C291;
+	background-color: #E8C291;
+	border: 1px solid black;
+	float: left;
+	height: 30%;
+	margin-top: -13.1%;
+	width: 16%;
 }
 
 .room2 {
-	box-shadow:inset 9px 10px 75px #FFF8DC;
- border: 1px solid black;
-    float: left;
-    height: 11%;
-    width: 24.5%;
+	box-shadow: inset 9px 10px 75px #FFF8DC;
+	border: 1px solid black;
+	float: left;
+	height: 11%;
+	width: 24.5%;
 }
 
 .room3 {
 	border: 1px solid black;
 	float: left;
 	height: 91%;
-    width: 24.6%;
+	width: 24.6%;
 	box-shadow: 9px 10px 40px #DEB887 inset;
 }
 
 .sofa_reception {
-	box-shadow:inset 9px 10px 40px #FFF8DC;
-    border: 1px solid black;
-    float: left;
-    height: 70%;
-    width: 33%;
+	box-shadow: inset 9px 10px 40px #FFF8DC;
+	border: 1px solid black;
+	float: left;
+	height: 70%;
+	width: 33%;
 }
 
 .lobby {
-	box-shadow:inset 9px 10px 40px #DEB887;
-    border: 1px solid black;
-    float: left;
-    height: 99%;
-    width: 12%;
+	box-shadow: inset 9px 10px 40px #DEB887;
+	border: 1px solid black;
+	float: left;
+	height: 99%;
+	width: 12%;
 }
 
 .loby2 {
-	box-shadow:inset 9px 10px 40px #DEB887;
-    border: 1px solid black;
-    float: right;
-    height: 23%;
-    margin-right: 0%;
-    width: 54%;
+	box-shadow: inset 9px 10px 40px #DEB887;
+	border: 1px solid black;
+	float: right;
+	height: 23%;
+	margin-right: 0%;
+	width: 54%;
 }
 
 .aer {
-    border: 1px solid black;
-	box-shadow:inset 9px 10px 40px #FFF8DC;
-    float: left;
-    height: 35%;
-    width: 54%;
+	border: 1px solid black;
+	box-shadow: inset 9px 10px 40px #FFF8DC;
+	float: left;
+	height: 35%;
+	width: 54%;
 }
 
 .aqua {
-    border: 1px solid black;
-    float: left;
-    height: 39%;
-    width: 54%;
+	border: 1px solid black;
+	float: left;
+	height: 39%;
+	width: 54%;
 }
 
 .conference {
-    border: 1px solid black;
-    float: left;
-    height: 44%;
-    width: 16%;
-	background-color:#FFF8DC;
+	border: 1px solid black;
+	float: left;
+	height: 44%;
+	width: 16%;
+	background-color: #FFF8DC;
 }
 
 .member {
@@ -525,68 +531,66 @@ border: 1px solid black;
 	border: 1px solid green;
 	height: 6%;
 }
-.cabin{border:1px solid green; height:6%;
-margin-top:5%;
-box-shadow:inset 9px 10px 40px #DEB887;}
 
-
-#rows
-{
-	height:20px;
-	float:left;
-	text-align:center;
-	margin:2px;
-	margin-left:auto;
-}
-.cols
-{
-	border:1px solid blue;
-	
-	float:left;
-	
-	margin-left:6px;
-	margin-right:6px;
+.cabin {
+	border: 1px solid green;
+	height: 6%;
+	margin-top: 5%;
+	box-shadow: inset 9px 10px 40px #DEB887;
 }
 
- 
+#rows {
+	height: 20px;
+	float: left;
+	text-align: center;
+	margin: 2px;
+	margin-left: auto;
+}
+
+.cols {
+	border: 1px solid blue;
+	float: left;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
 /** style for droppable content **/
 .dropped {
-    width: 40px;
-    height: 21px;
-    float: left;
-    border:solid 1px gray;
-   
-}
- 
-/** style for dragable content **/
-.dragged{
-    
-    display:table-cell;
-    text-align:center;
-    vertical-align:middle;
-    font-size:12px;
-    font-weight:bold;
-    width:40px;
-    height:16px;
-    float: left;
-}
- 
-/** style when an object is moving hover **/
-.hoverClass{
-    background:#339bfb;
-    color:#444444;
-}
- 
-/** style for droppable when the moveable object is dropped **/
-.dropClass{
-    background:#55d532;
-}
- 
-/** clear the float used by other dragable and moveable objects **/
-.clear{
-    clear:both;
+	width: 40px;
+	height: 21px;
+	float: left;
+	border: solid 1px gray;
 }
 
+/** style for dragable content **/
+.dragged {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 12px;
+	font-weight: bold;
+	width: 40px;
+	height: 16px;
+	float: left;
+}
+.mouseFetch{
+	position: absolute;
+}
+/** style when an object is moving hover **/
+.hoverClass {
+	background: #339bfb;
+	color: #444444;
+}
+
+/** style for droppable when the moveable object is dropped **/
+.dropClass {
+	background: #55d532;
+}
+
+/** clear the float used by other dragable and moveable objects **/
+.clear {
+	clear: both;
+}
 
 /************** END css for the building div **************/
 #searchtxt {
@@ -664,30 +668,34 @@ box-shadow:inset 9px 10px 40px #DEB887;}
 	bottom: -20px;
 	top: auto;
 }
+
 #loginUser {
 	border: 1px solid black;
-	float :left;
+	float: left;
 	width: 100%;
 	height: 20%;
 	overflow: scroll;
 }
 
-.customHeading
-{
-	color : black;
+.customHeading {
+	color: black;
 }
-.doNotDisplay
-{
-    display : none;
+
+.doNotDisplay {
+	display: none;
 }
-.lobbySirijan
-{
-    border: 1px solid black;
-    box-shadow: 9px 10px 40px #DEB887 inset; 
-    height: 63%; 
-    float : right;
-    width: 3%;
-    letter-spacing: 0.4em;
-    padding-top: 206px;
-    word-wrap: break-word;
+
+.lobbySirijan {
+	border: 1px solid black;
+	box-shadow: 9px 10px 40px #DEB887 inset;
+	height: 63%;
+	float: right;
+	width: 3%;
+	letter-spacing: 0.4em;
+	padding-top: 206px;
+	word-wrap: break-word;
+}
+#logData {
+	text-align: left;
+	/*overflow: scroll;*/
 }

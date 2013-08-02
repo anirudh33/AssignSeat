@@ -67,7 +67,7 @@ function showLog()
 		    displayData = '';
 		    if(data != "No Data in log file"){
     			$.each(data,function(i,value){
-    		        displayData += "<label>"+(i+1)+" </label>";
+    		        /*displayData += "<label>"+(i+1)+" </label>";*/
     				displayData += value;
     				displayData += "<br/>";
     				});
