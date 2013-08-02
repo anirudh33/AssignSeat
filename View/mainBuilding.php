@@ -15,7 +15,7 @@ function dragdropevent() {
             moveid = $(this).parent('div').attr('id');
             //alert(draggedElement);
             dragdropevent();
-            // alert(parentid);
+            //alert(moveid);
         }
     });
     $( ".droppable" ).droppable({
@@ -51,6 +51,7 @@ function dragdropevent() {
             // alert(thisid);if(thisid=='trash'){
             // alert('haan');
             // }
+		//alert(thisid);
             $("#changeCommentLink").fancybox({
                 closeBtn : false,
                 afterLoad : function() {
@@ -118,8 +119,10 @@ function closeFancyBox() {
         });
 
     } else {
+	//alert(moveid);
         $.post('index.php?controller=MainController&method=assignSeat', {
             roomid : thisid,
+	    move :moveid,
             changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
