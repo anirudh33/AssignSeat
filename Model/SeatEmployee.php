@@ -278,12 +278,16 @@ class SeatEmployee extends DBConnection
 	       //$data['order_by'] = array(array('seat_employee.computer_id'));
                $result=$this->_db->select($data);
 
+                             
                $myResult=array();
                while ($row = $result->fetch(PDO::FETCH_ASSOC))
                {
                        $myResult[]=$row;
                }
-               // print_r($myResult);
+//echo "<pre/>";
+//		if($val == 2)
+//               print_r($myResult);
+//die;
 	       return  $myResult;
 
  

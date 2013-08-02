@@ -210,7 +210,7 @@ function startTooltip(){
 
 <style>
 
-.rotate{
+.rotatediv{
 width:360px;
 height:110px;
 
@@ -230,7 +230,7 @@ height:110px;
 			<div class="googol"><label class="writing"><?php echo $lang->GOOGOL;?></label>  </div>
 			<div class="srijjan_2">
 			
-		<div class="rotate">
+		
 	
 <?php
 // $count=0;
@@ -247,7 +247,7 @@ height:110px;
 $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][7] as $key => $values ) {
-	echo "<div id='rows'>";	
+	echo "<div id='rows' >";	
     //  if ($values ['room_id'] == 7) {
 	
          ?>
@@ -270,7 +270,7 @@ $i=1;
 }
 ?>			
 			
-			</div>
+			
 			</div>
 		</div>
 		<div class="div2">
@@ -485,7 +485,7 @@ $i=1;
 //echo $count;
      foreach ( $_SESSION['roomData'][35] as $key => $values ) {
 	echo "<div id='rows'>";	
-  //    if ($values ['room_id'] == 35) {
+  //   if ($values ['room_id'] == 35) {
 	
          ?>
          
@@ -775,7 +775,7 @@ $i=1;
    $i=1;  
 //echo $count;
      foreach ( $_SESSION['roomData'][3] as $key => $values ) {
-	echo "<div id='rows' style='margin-top:-10px;'>";	
+	echo "<div id='rows'>";	
   //    if ($values ['room_id'] == 3) {
 	
          ?>
