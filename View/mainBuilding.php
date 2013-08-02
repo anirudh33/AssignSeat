@@ -104,17 +104,8 @@ function closeFancyBox() {
             changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
-			if(data==1) {
-			alert("Your seat has been booked");
-			}
-			else if(data==2) {
-			alert("Your seat has been been reallocated");
-
-}
-		else {
-				//change chair icon to green here
-            alert(data);
-			}
+        	
+			alert(data);
             // window.location.href = 'index.php';
         });
 
@@ -124,7 +115,15 @@ function closeFancyBox() {
             changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
-            alert(data);
+        	if(data.trim()=="1") {
+    			alert("Your seat has been booked");
+    			}
+    			else if(data.trim()=="2") {
+    			alert("Your seat has been been reallocated");
+    			}else {
+    				//change chair icon to green here
+                alert(data);
+    			}
             // window.location.href = 'index.php';
         });
         $('#' + thisid).droppable('disable')
