@@ -1,19 +1,9 @@
-Fri - 02/Aug/2013 - 15:54:43 User " ADMIN " Logged into the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 24.0.1312., Os = Linux 
-========================= 
-
-Fri - 02/Aug/2013 - 15:54:55 User " ADMIN moved the employee "ABHIK GHOSAL " at seat number "54" in room "sirijan 2"" at row 6 , computer "2"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 24.0.1312., Os = Linux 
-========================= 
-
-Fri - 02/Aug/2013 - 16:04:47 User " USER1 " Logged into the system  
+Fri - 02/Aug/2013 - 17:29:30 User " ADMIN " Assigned the seat number "3" in room "Lab-1" of employee "ABHISHEK  ARORA" at row 3 , computer "0"
 From the IP 127.0.0.1 and browser = Firefox 
 Browser version = 18.0, Os = Linux 
 ========================= 
 
-Fri - 02/Aug/2013 - 16:05:19 User " USER1 " Assigned the seat number "1" in room "Lab-1" of employee "ABHISHEK  ARORA" at row 1 , computer "0"
+Fri - 02/Aug/2013 - 17:32:21 User " ADMIN moved the employee "ABHISHEK  ARORA From room "emp7, Row number ", From Computer Id "" To seat number "3" in room "Lab-1"" at row 3 , computer "0"
 From the IP 127.0.0.1 and browser = Firefox 
 Browser version = 18.0, Os = Linux 
 ========================= 

@@ -106,7 +106,7 @@ class Logger
 	{
 		if(!empty($logUpdateSeat))
 		{
-			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' moved the employee "'.strtoupper($logUpdateSeat['empid']).' " at seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' " moved the employee "'.strtoupper($logUpdateSeat['empid']).' " From room " '.$logUpdateSeat['frmroom'].' ", Row number "'.$logUpdateSeat['frmrow'].' ", From Computer Id "'.$logUpdateSeat['frmcomputerid'].'" To seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
 			$logData .= '" at row '.$logUpdateSeat['row'].' , computer "'.$logUpdateSeat['computerid'].'"'."\r\n";
 			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";

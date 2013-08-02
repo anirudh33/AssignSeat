@@ -142,6 +142,7 @@ class MainController extends Acontroller
 		$sid=$seatObj->getSid();
 		$ename=$seatObj->getEmpName();
 		if($inserted=="true") {
+			$log = array();
 			$log['empid']=$ename;
 			$log['uname']=$info['assignename'];
 			$log['seatid']=$sid;
@@ -160,12 +161,16 @@ class MainController extends Acontroller
 		}
 		}
 		if($inserted=="true1") {
+			$log = array();
 			$log['empid']=$ename;
 			$log['uname']=$info['assignename'];
 			$log['seatid']=$sid;
 			$log['room'] = $info['room'];
 			$log['row'] = $info['row'];
 			$log['computerid'] = $info['computerid'];
+			$log['frmroom'] = $info['frmroom'];
+			$log['frmrow'] = $info['frmrow'];
+			$log['frmcomputerid'] = $info['frmcomputerid'];
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logUpdateSeatLocationCuurentFile($log);
 			if($boolLogResult)
