@@ -121,6 +121,9 @@ class MainController extends Acontroller
 		$info['room']=$a[0][0];
 		$info['row']=$a[0][1];
 		$info['computerid']=$a[0][2];
+		$info['frmroom']=$b[0][0];
+		$info['frmrow']=$b[0][1];
+		$info['frmcomputerid']=$b[0][2];
 		$info['details']=htmlentities($_REQUEST['changeComment']);
 		$info['assigne']=$_SESSION ['userid'];
 		$info['assignename']=$_SESSION ['username'];
