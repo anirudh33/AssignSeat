@@ -120,6 +120,7 @@ class Logger
 			fwrite($fileData,$logData);
 			fclose($fileData);
 			return "true";
+			
 		}
 		else
 		{
