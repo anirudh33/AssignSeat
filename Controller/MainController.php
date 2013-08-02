@@ -198,6 +198,15 @@ class MainController extends Acontroller
 			echo $obj->array2table($error);
 		}else{
 		$trashed=$seatObj->trashSeat();
+		$log=array();
+		$a[]=explode("_", $_REQUEST['seatid']);
+		
+		$log['assignee']=$_SESSION['username'];
+		$log['employee']=$trashed;
+		$log['room']=$a[0][0];
+$log['row']=$a[0][1];
+$log['computer']=$a[0][2];
+
 		// Seat has been trashed
 		echo "1";
 		}

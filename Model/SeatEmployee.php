@@ -338,7 +338,18 @@ class SeatEmployee extends DBConnection
 		$data = array('status' => $this->getStatus(),'details'=>$this->getDetails());
 		$where = array('eid' =>$this->getEid(), 'status'=>1);
 		$result = $this->_db->update('seat_employee', $data, $where);
-		return $result;
+		$data['columns']	= array('employee.name');
+		$data['conditions']=array(array('id=\''.$this->getEid().'\''),true);
+		$data['tables']		= 'employee';
+$result = $this->_db->select($data);
+			$myResult=array();			
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			$myResult[]=$row;
+		}
+		
+		//print_r($myResult[0]['name']);die;
+		return $myResult[0]['name'];
 	}
         
 }

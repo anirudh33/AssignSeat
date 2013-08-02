@@ -43,3 +43,23 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
+Fri - 02/Aug/2013 - 15:17:24 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 15:17:41 User " ADMIN " Assigned the seat number "1" in room "Lab-1" of employee "AJAY KUMAR  SHUKLA" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 15:20:00 User " ADMIN " Assigned the seat number "4" in room "Lab-1" of employee "AJAY KUMAR  SHUKLA" at row 4 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Fri - 02/Aug/2013 - 15:21:22 User " ADMIN " Assigned the seat number "5" in room "Lab-1" of employee "AJAY KUMAR  SHUKLA" at row 5 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+

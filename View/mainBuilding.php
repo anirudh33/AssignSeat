@@ -102,7 +102,9 @@ function closeFancyBox() {
     if (thisid == 'trash') {
         // alert(moveid);
         $.post('index.php?controller=MainController&method=trashSeat', {
-            changeComment : $changeComment,
+            
+	 seatid:moveid,
+	changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
         	if(data.trim()=="1") {
