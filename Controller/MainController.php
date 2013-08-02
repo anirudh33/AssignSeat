@@ -142,7 +142,7 @@ class MainController extends Acontroller
 			$log['row'] = $info['row'];
 			$log['computerid'] = $info['computerid'];
 			$objLogger = new Logger();
-			$boolLogResult = $objLogger->logAllActivityCuurentFile($log);
+			$boolLogResult = $objLogger->logAssignSeatCuurentFile($log);
 			if($boolLogResult)
 			{
 				echo "1";

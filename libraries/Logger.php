@@ -46,7 +46,7 @@ class Logger
 	/*
 	 * function is used to log all the activities performed by the user while he/she is logged in
 	 */
-	public function logAllActivityCuurentFile($logActivity = array())
+	public function logAssignSeatCuurentFile($logActivity = array())
 	{
 		if(!empty($logActivity))
 		{
@@ -60,6 +60,62 @@ class Logger
 			fwrite($fp,$logData);
 			fclose($fp);
 			$assigneFile = './Log/Current/SeatChangeBy'.ucfirst($logActivity['uname']).'.txt';
+			$fileData = fopen($assigneFile,'a');
+			fwrite($fileData,$logData);
+			fclose($fileData);
+			return "true";
+		}
+		else
+		{
+			return "false";
+		}
+	}
+	
+	/*
+	 * function is used to log all the seat Deletion performed by the user while he/she is logged in
+	*/
+	public function logDeleteSeatCuurentFile($logDelete = array())
+	{
+		if(!empty($logDelete))
+		{
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logDelete['uname']).' " Assigned the seat number "'.$logDelete['seatid'].'" in room "'.$logDelete['room'].'"' ;
+			$logData .= ' of employee "'.strtoupper($logDelete['empid']).'" at row '.$logDelete['row'].' , computer "'.$logDelete['computerid'].'"'."\r\n";
+			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
+			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
+			$logData .= "========================= \n\n";
+			$fileName = './Log/Current/CurrentHistory.txt';
+			$fp = fopen($fileName,'a');
+			fwrite($fp,$logData);
+			fclose($fp);
+			$assigneFile = './Log/Current/SeatChangeBy'.ucfirst($logDelete['uname']).'.txt';
+			$fileData = fopen($assigneFile,'a');
+			fwrite($fileData,$logData);
+			fclose($fileData);
+			return "true";
+		}
+		else
+		{
+			return "false";
+		}
+	}
+	
+	/*
+	 * function is used to log all the seat Deletion performed by the user while he/she is logged in
+	*/
+	public function logUpdateSeatLocationCuurentFile($logUpdateSeat = array())
+	{
+		if(!empty($logUpdateSeat))
+		{
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' " Assigned the seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
+			$logData .= ' of employee "'.strtoupper($logUpdateSeat['empid']).'" at row '.$logUpdateSeat['row'].' , computer "'.$logUpdateSeat['computerid'].'"'."\r\n";
+			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
+			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
+			$logData .= "========================= \n\n";
+			$fileName = './Log/Current/CurrentHistory.txt';
+			$fp = fopen($fileName,'a');
+			fwrite($fp,$logData);
+			fclose($fp);
+			$assigneFile = './Log/Current/SeatChangeBy'.ucfirst($logUpdateSeat['uname']).'.txt';
 			$fileData = fopen($assigneFile,'a');
 			fwrite($fileData,$logData);
 			fclose($fileData);
