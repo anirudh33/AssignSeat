@@ -169,7 +169,7 @@ class validate
     	}
     
     	// Start the table
-    	$table = "<table border='1px'>";
+    	$table = "<table border='1px' class = 'customHeading'>";
     
     	// The header
     	$table .= "<tr>";

@@ -122,7 +122,7 @@ class MainController extends Acontroller
 		$info['empid']=$_REQUEST['employee'];
 		//validating changeComment field by anirudh
 		$obj = new validate();
-		$obj->validator("changeComment",$info['details'], "custom=/^[-a-z' '0-9','.']+$/#required#minlength=25#maxlength=250",'Enter alphabets,dashes and spaces only#Comment Required#Enter comment atleast 25 characters long excluding spaces#Comment should not be more than 250 characters long');
+		$obj->validator("changeComment",$info['details'], "spaceCheck=25#custom=/^[-a-z' '0-9','.']+$/#required#maxlength=250",'Enter minimum 25 chars excluding spaces#Enter alphabets,dashes and spaces only#Comment Required#Comment should not be more than 250 characters long');
 		$error=$obj->result();
 		if(!empty($error)){
 			echo $obj->array2table($error);	

@@ -204,6 +204,7 @@ class validation {
 					if(strlen($foo)> $value) {
 						$errorMsg [$this->check_vars [$i] ['controler_name']] .= $error ;
 					}
+					break;
 					}
 						
 				

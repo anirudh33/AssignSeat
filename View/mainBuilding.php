@@ -122,7 +122,8 @@ function closeFancyBox() {
     			alert("Your seat has been been reallocated");
     			}else {
     				//change chair icon to green here
-                alert(data);
+                $("#commentError").append(data);
+                $("#changeCommentLink").trigger("click");
     			}
             // window.location.href = 'index.php';
         });

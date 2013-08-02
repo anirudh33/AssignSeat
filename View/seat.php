@@ -91,6 +91,7 @@ function getLocation()
 	<textarea rows="10" cols="10" id="changeComment" name="changeComment"></textarea>
 	</section>
 	<input type="button" id="commentSubmit" onClick = "closeFancyBox()" name="commentSubmit" value="<?php echo $lang->POSTIT?>" />
+	<div id="commentError"></div>
 </div>
 </a>
 <div id="result"></div>
