@@ -78,8 +78,8 @@ class Logger
 	{
 		if(!empty($logDelete))
 		{
-			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logDelete['uname']).' " Assigned the seat number "'.$logDelete['seatid'].'" in room "'.$logDelete['room'].'"' ;
-			$logData .= ' of employee "'.strtoupper($logDelete['empid']).'" at row '.$logDelete['row'].' , computer "'.$logDelete['computerid'].'"'."\r\n";
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logDelete['uname']).' " delete the employee "'.strtoupper($logDelete['empid']).'" from room "'.$logDelete['room'].'"' ;
+			$logData .= ' from row "'.$logDelete['row'].' " , computer "'.$logDelete['computerid'].'"'."\r\n";
 			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 			$logData .= "========================= \n\n";
@@ -106,8 +106,8 @@ class Logger
 	{
 		if(!empty($logUpdateSeat))
 		{
-			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' " Assigned the seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
-			$logData .= ' of employee "'.strtoupper($logUpdateSeat['empid']).'" at row '.$logUpdateSeat['row'].' , computer "'.$logUpdateSeat['computerid'].'"'."\r\n";
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' moved the employee "'.strtoupper($logUpdateSeat['empid']).' " at seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
+			$logData .= '" at row '.$logUpdateSeat['row'].' , computer "'.$logUpdateSeat['computerid'].'"'."\r\n";
 			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 			$logData .= "========================= \n\n";

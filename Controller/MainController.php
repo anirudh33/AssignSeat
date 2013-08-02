@@ -153,9 +153,22 @@ class MainController extends Acontroller
 		}
 		}
 		if($inserted=="true1") {
-			
-			//empid,name,seatid
-		  echo "2";
+			$log['empid']=$ename;
+			$log['uname']=$info['assignename'];
+			$log['seatid']=$sid;
+			$log['room'] = $info['room'];
+			$log['row'] = $info['row'];
+			$log['computerid'] = $info['computerid'];
+			$objLogger = new Logger();
+			$boolLogResult = $objLogger->logUpdateSeatLocationCuurentFile($log);
+			if($boolLogResult)
+			{
+				echo "2";
+			}
+			else
+			{
+				echo "there is some problem during logging the file";
+			}
 		}
 		
 		}
@@ -201,14 +214,18 @@ class MainController extends Acontroller
 		$log=array();
 		$a[]=explode("_", $_REQUEST['seatid']);
 		
-		$log['assignee']=$_SESSION['username'];
-		$log['employee']=$trashed;
+		$log['uname']=$_SESSION['username'];
+		$log['empid']=$trashed;
 		$log['room']=$a[0][0];
-$log['row']=$a[0][1];
-$log['computer']=$a[0][2];
-
+		$log['row']=$a[0][1];
+		$log['computerid']=$a[0][2];
+		$objLogger = new Logger();
+		$boolLogResult = $objLogger->logDeleteSeatCuurentFile($log);
 		// Seat has been trashed
-		echo "1";
+		if($boolLogResult)
+		{
+			echo "1";
+		}
 		}
 	
 	}
