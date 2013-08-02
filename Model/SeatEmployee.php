@@ -187,7 +187,7 @@ class SeatEmployee extends DBConnection
 		//echo $Room->getName();die;
 	
 		$data['columns']	= array('room.id');
-		$data['conditions']=array(array('name="'.$roomName.'"'),true);
+		$data['conditions']=array(array('name=\''.$roomName.'\''),true);
 		$data['tables']		= 'room';
 		$result = $this->_db->select($data);
 		//var_dump($result);die;

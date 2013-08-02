@@ -112,7 +112,7 @@ class MainController extends Acontroller
 		$room=$_REQUEST['roomid'];
 	
 		$a[]=explode("_", $room);
-		//print_r($a);
+		//print_r($a);die;
 		$info['room']=$a[0][0];
 		$info['row']=$a[0][1];
 		$info['computerid']=$a[0][2];

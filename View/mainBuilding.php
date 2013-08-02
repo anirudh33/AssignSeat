@@ -13,7 +13,7 @@ function dragdropevent() {
         start : function(event, ui) {
             draggedElement = this.id;
             moveid = $(this).parent('div').attr('id');
-            alert(draggedElement);
+            //alert(draggedElement);
             dragdropevent();
             // alert(parentid);
         }
@@ -215,9 +215,9 @@ width:360px;
 height:110px;
 
 /* Rotate div */
-transform:rotate(90deg);
--ms-transform:rotate(90deg); /* IE 9 */
--webkit-transform:rotate(90deg); /* Safari and Chrome */
+/*transform:rotate(90deg);*/
+/*-ms-transform:rotate(90deg);*/ /* IE 9 */
+/*-webkit-transform:rotate(90deg);*/ /* Safari and Chrome */
 }
 
 
@@ -257,7 +257,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('7',i,val,'srijan 2');
+          status('7',i,val,'sirijan 2');
          </script>
           <?php $i++; ?>
          <div id='display7'></div>
@@ -454,7 +454,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('34',i,val,'room1');
+          status('34',i,val,'room-1');
          </script>
           <?php $i++; ?>
          <div id='display34'></div>
@@ -494,7 +494,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('35',i,val,'room2');
+          status('35',i,val,'room-2');
          </script>
           <?php $i++; ?>
          <div id='display35'></div>
