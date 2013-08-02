@@ -3,8 +3,6 @@
 #footer {
     
 	color:white;
-	 box-shadow: -13px -12px 11px #DEB887;
-   background-image:url('footer.png');	
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -23,23 +21,25 @@
 
 #footer_subtitle
 {
-font-family:Serif;font-style:italic;	
+font-family:Serif;	
 	text-align: center;
+	font-size:25px;
 }
 </style>
 
 </head>
 <body>
 <div id="footer">
-<h2 id="footer_subtitle">Team Lead:
+<label id="footer_subtitle">Team Lead:
 Chetan Sharma
-</h2>
+</label></br>
 <b>Design &amp; Developed By:</b><div id="navcontainer">
 <ul>
 <li>Amber Sharma</li>
 <li>Mohit Gupta</li>
 <li>Gaurav Kumar Sharma</li>
 <li>Kawaljeet Singh</li>
+<li>Ramandeep Singh Mann</li>
 <li>Anirudh Pandita</li>
 <li>Avni Jain</li>
 <li>
@@ -47,7 +47,7 @@ Keshi Chander Yadava</li>
 <li>Chandan Kumar</li>
 <li>Mohit Kumar Singh</li>
 <li>Prateek Saini</li>
-<li>Ramandeep Singh Mann</li>
+
 <li>Debanshu Kar</li>
 <li>Sanchit Puri</li>
 </ul>

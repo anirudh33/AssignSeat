@@ -115,6 +115,7 @@ function showLog()
                 <div id="sidebar">
                     <div id="leftbar">
                         <div id="leftsubbar">
+                        
                             <h3><?php echo $lang->EMPLOYEES?></h3>
                             <h3><?php echo $lang->SEARCHEMPLOYEE?></h3>
 							
@@ -145,7 +146,10 @@ function showLog()
                 <br class="clear" />
             </div>
         </div>
-        <div id="copyright"><?php echo $lang->COPYRIGHT?></br>
+        <div id="copyright">
+        <?php include_once 'footer.php';?>
+        
+        <?php echo $lang->COPYRIGHT?></br>
         </div>
     </div>
     <a id="logOverlayLink" class="doNotDisplay"></a>

@@ -14,14 +14,14 @@ for($i=0;$i<$_REQUEST['value2'];$i++)
             }
             
 	?>       
-			<div id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>" class="cols"><img id="<?php echo $data[$k]['eid'];?>" class="dragable dragged custom_tooltip" src="images/red_chair.png" height=20 width=30 /></div>
+			<div id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>" class="cols"><img id="<?php echo $data[$k]['eid'];?>" class="dragable dragged custom_tooltip" src="images/red_chair.gif" height=20 width=30 /></div>
 
 	<?php
 		}
 		else
 		{
 		?>
-				<div class="cols droppable dropped" id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>"><img src="images/green_chair.png" class="custom_tooltip" height="18" width="30" /></div>
+				<div class="cols droppable dropped" id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>"><img src="images/green_chair.jpeg" class="custom_tooltip" height="18" width="30" /></div>
 		<?php
 			
 		}
@@ -29,7 +29,7 @@ for($i=0;$i<$_REQUEST['value2'];$i++)
 	else
 	{
 	?>
-			<div class="cols droppable dropped" id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>"><img src="images/green_chair.png" class="custom_tooltip" height="18" width="30" /></div>
+			<div class="cols droppable dropped" id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>"><img src="images/green_chair.jpeg" class="custom_tooltip" height="18" width="30" /></div>
 	<?php
 	}
 	

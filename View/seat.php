@@ -2,6 +2,24 @@
 
 <!-- Updated By Amber Sharma -->
 <script>
+
+function searchlocation(id)
+{
+	$('img[id='+id+']').trigger("click");
+	$('img[id='+id+']').hide(1000);
+	$('img[id='+id+']').show(1000);	
+	
+// 	$('img[id='+id+']').trigger("click");
+// 	for(var i=0;i<=2000;i++) {
+// 		if(i%2){
+// 			$('img[id='+id+']').parent().css("background-color","red");
+// 		}else{
+// 			$('img[id='+id+']').parent().css("background-color","");
+// 		}
+// 		setTimeout(function(){},2000);
+// 	}
+}
+
 function getData(page) {
 //alert("hello");
 var name = document.getElementById("searchtxt").value;
@@ -22,7 +40,7 @@ page=0;
 				else
 				{
 					/* Updated By Amber Sharma */
-					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+"<span id='"+val['id']+"' style='width:20px;height:16px;' class='dragable'><img src='./assets/images/human.jpeg' width='15px' /></span></div>");
+					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+"<span id='"+val['id']+"' style='width:20px;height:16px;' class='dragable'><img src='./assets/images/human.jpeg' onClick='searchlocation("+val['id']+");' width='15px' /></span></div>");
 					//$("#result").append(val['Name']+"<br>");
 					dragdropevent();
 					/* Updated by Amber Sharma*/
@@ -52,10 +70,18 @@ page=0;
   		}); 
 }
 
+function getLocation()
+{
+
+
+	
+}
+
 /* Updated By Amber Sharma */
 
 /* Updated By Amber Sharma */
 </script>
+
 <lable><?php echo $lang->NAME?></lable> <input type="text" id="searchtxt" onkeyup="getData()"/>
 <a id="changeCommentLink" href="#detailDiv">
 <div id="detailDiv" style = "display : none">

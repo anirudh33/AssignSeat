@@ -76,7 +76,7 @@ function dragdropevent() {
                 $('#' + thisid).droppable('disable')
                 $("#" + thisid)
                         .html(
-                                '<img src="images/red_chair.png" id='
+                                '<img src="images/red_chair.gif" id='
                                         + draggedElement
                                         + ' height="30" width="30" class="dragable dragged" />');
             }
@@ -84,7 +84,7 @@ function dragdropevent() {
             if (moveid.indexOf("emp") == -1) {
                 $("#" + moveid)
                         .html(
-                                '<img src="images/green_chair.png" height="18" width="30" />');
+                                '<img src="images/green_chair.jpeg" height="18" width="30" />');
                 $("#" + moveid).addClass(
                         'droppable ui-droppable dropped');
             }
@@ -129,14 +129,14 @@ function closeFancyBox() {
         $('#' + thisid).droppable('disable')
         $("#" + thisid)
                 .html(
-                        '<img src="images/red_chair.png" id='
+                        '<img src="images/red_chair.gif" id='
                                 + draggedElement
                                 + ' height="30" width="30" class="dragable dragged" />');
         $("#" + moveid).html(' ');
         if (moveid.indexOf("emp") == -1) {
             $("#" + moveid)
                     .html(
-                            '<img src="images/green_chair.png" height="18" width="30" />');
+                            '<img src="images/green_chair.jpeg" height="18" width="30" />');
             $("#" + moveid).addClass('droppable ui-droppable dropped');
         }
         dragdropevent();
@@ -955,7 +955,7 @@ $i=1;
          
          <script>
             $.ajax( { async : false } );
-		var i = <?php echo $i ;?>;
+		var i = <?php echo $i ;?>;;
                
                 var val = <?php echo $values['computer'] ;?>;
           status('21',i,val,'cabin-5');
@@ -1518,6 +1518,7 @@ $i=1;
 			style="float: left; height: 92%; width: 19%; border: 1px solid black;box-shadow:inset 9px 10px 40px #769DCC;">washroom</div>
 		<div style="float: right; width: 80%;">
 			<div class="room3">
+			Pranab Jyoti Das 
 						 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1557,7 +1558,7 @@ $i=1;
 ?>
 			</div>
         <div class="room3">
-
+        Arinder Singh Suri
 			 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1598,7 +1599,7 @@ $i=1;
         
 </div>
         <div class="room3">
-
+Sonali Minocha
 			 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1638,6 +1639,7 @@ $i=1;
 ?>
         </div>
         <div class="room3">
+        Saurabh 
 			 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1668,7 +1670,7 @@ $i=1;
           <?php $i++; ?>
          <div id='display18' style='margin-top:20px;'></div>
 <?php      
-  //     }
+  //     };
         echo "<br style='clear:both;'/>";
          echo "</div>";  
     

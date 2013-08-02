@@ -127,7 +127,7 @@ ul {
 
 #footer ul li {
 	padding: 15px 0 15px 0;
-	border-top: dotted 1px #c6aa95;
+	/* border-top: dotted 1px #c6aa95; */
 }
 
 #footer ul li.first {
