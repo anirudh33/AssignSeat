@@ -201,7 +201,7 @@ class validation {
 				//validates for counting chrecters only, in string
 				case "spaceCheck":{
 					$foo = preg_replace( '/\s+/', '', $postVar );
-					if(strlen($foo)> $value) {
+					if(strlen($foo)< $value) {
 						$errorMsg [$this->check_vars [$i] ['controler_name']] .= $error ;
 					}
 					break;
