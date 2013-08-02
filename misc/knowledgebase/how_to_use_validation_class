@@ -57,8 +57,12 @@ $authType:  Authentication/validation Type (Currently support 26 validation type
 (15) fsize ­ validate file size e.g. fsize=500
 (16) custom   ­ custom validation e.g. custom=/^some regular exp$/ 
 (17) match     to match the two given strings e.g. $match = $value1."#" . $value2;
-                                                  $obj->validator("confirmpassword",$match, 'match','Password does not match');
+ $obj->validator("confirmpassword",$match, 'match','Password does not match');
 	$errorMsg:  Error message to be displayed upon error.
+(18) spaceCheck  validates that a string contains fixed number of charecters xcluding spaces
+		spaceCheck=4 (will check ther must be atleast 5 chars excluding spaces)
+
+
 	Other Functions
 # for internal use...
 	validateDate()                  for Date Validation
