@@ -154,12 +154,16 @@ class SeatEmployee extends DBConnection
   //    die;
      $this->setEid($assignInfo['empid']);
     $empName=$this->getEmployeeName($assignInfo['empid']);
-    $this->setEmpName($empName);
-    	//$this->setSid($assignInfo['sid']);
-    	$this->setAsignee($assignInfo['assigne']);
-    	$this->setComputer_id($assignInfo['computerid']);
-    	//$this->setUpdated_on($assignInfo['updated_on']);
-    	$this->setDetails($assignInfo['details']);
+    $isAssigned=$this->checkEmpSeat($assignInfo['empid']);
+    //var_dump($isAssigned);die;
+    //if(!empty)
+   
+	    $this->setEmpName($empName);
+	    	//$this->setSid($assignInfo['sid']);
+	    	$this->setAsignee($assignInfo['assigne']);
+	    	$this->setComputer_id($assignInfo['computerid']);
+	    	//$this->setUpdated_on($assignInfo['updated_on']);
+	    	$this->setDetails($assignInfo['details']);
 		//$this->deleteSeat();
 		$this->setStatus(1);
 		//echo $assignInfo['room'];die;
@@ -167,6 +171,8 @@ class SeatEmployee extends DBConnection
 		//echo "roommmmm id   .".$roomId;die;
 		$sid=$this->findSid($roomId, $assignInfo['row']);
 		$this->setSid($sid);
+		//$assignInfo['empid']
+		 if (empty($isAssigned)) {
 		 $data['tables'] = 'seat_employee';
 		 $insertValue = array('eid'=>$this->getEid(),
 		 		'sid'=>$this->getSid(),
@@ -177,9 +183,31 @@ class SeatEmployee extends DBConnection
 		 		'details'=>$this->getDetails()
 		 		);
 		 $result=$this->_db->insert($data['tables'],$insertValue);
+
 		 //var_dump($result);die;
 		 return "true";
-		
+	 	 }
+	else
+	{
+		//print_r($isAssigned[0]['id']);die;		
+		//echo $isAssigned[0];die;
+		$data = array('status' => '0');
+		$where = array('id' =>$isAssigned[0]['id'], 'status'=>1);
+		$result = $this->_db->update('seat_employee', $data, $where);
+		//var_dump($result);die;
+		$data['tables'] = 'seat_employee';
+		 $insertValue = array('eid'=>$this->getEid(),
+		 		'sid'=>$this->getSid(),
+		 		'asignee'=>$this->getAsignee(),
+		 		'computer_id'=>$this->getComputer_id(),
+		 		'status'=>$this->getStatus(),
+		 		'updated_on'=>$this->getUpdated_on(),
+		 		'details'=>$this->getDetails()
+		 		);
+		 $result=$this->_db->insert($data['tables'],$insertValue);
+		 return "true1";
+
+	}
 	}
 	/**
 	 * @return true after seting the status flag to 0 array
@@ -190,6 +218,14 @@ class SeatEmployee extends DBConnection
 		$data = array('status' => $this->getStatus());
 		$where = array('id' =>$this->getEid(), 'status'=>1);
 		$result = $this->_db->update('seat_employee', $data, $where);
+	}
+	public function checkEmpSeat($eid)	{		
+		$data['columns']	= array('id');
+		$data['conditions']=array(array('eid=\''.$eid.'\' AND status="1"'),true);
+		$data['tables']		= 'seat_employee';
+		$result = $this->_db->select($data);
+		//var_dump($result);die;
+		return $result->fetchAll(PDO::FETCH_ASSOC);
 	}
 	public function findRoomId($roomName)  {
 		//$Room=new Room();
@@ -231,6 +267,7 @@ class SeatEmployee extends DBConnection
 		$result = $this->_db->select($data);
 		//var_dump($result);die;
 		$myResult=array();
+		
 		while ($row = $result->fetch(PDO::FETCH_ASSOC))
 		{
 			$myResult[]=$row;
