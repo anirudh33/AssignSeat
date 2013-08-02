@@ -135,17 +135,24 @@ class MainController extends Acontroller
 			$log['empid']=$ename;
 			$log['uname']=$info['assignename'];
 			$log['seatid']=$sid;
-			
-			//empid,name,seatid
-		  echo "1";
+			$objLogger = new Logger();
+			$boolLogResult = $objLogger->logAllActivityCuurentFile($log);
+			if($boolLogResult)
+			{
+				echo "1";
+			}
+			else
+			{
+				echo "there is some problem during logging the file";
+		}
 		}
 		if($inserted=="true1") {
 			
 			//empid,name,seatid
 		  echo "2";
 		}
+		
 		}
-	
 	}
 	
 	public function searchEmployee()
