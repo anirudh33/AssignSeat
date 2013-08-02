@@ -301,6 +301,7 @@ $i=1;
 			<div class="lobby"><?php echo $lang->LOBBY;?></div>
 			<div class="loby2"><?php echo $lang->LOBBY;?></div>
 			<div class="aer">
+<?php echo $lang->AER;?>
 			<?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -395,6 +396,7 @@ $i=1;
 		<div class="room"><?php echo $lang->ROOM;?></div>
 		<div class="room1"><?php echo $lang->ROOM;?></div>
 		<div class="conference">
+<?php echo $lang->CONFERENCE;?>
 		<?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1400,8 +1402,7 @@ $i=1;
 	<!-- Updated By Amber Sharma -->
 			<div id="cabinrony"
 				style="border: 1px solid black; width: 100%; height: 15%; margin-top: 94%">
-				<div
-					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC;width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;">
+				<div style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC;width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;"><?php echo $lang->CHANDERMOHAN;?>
 
 					<?php
 // $count=0;
@@ -1440,8 +1441,7 @@ $i=1;
     
 }
 ?></div>
-				<div
-					style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
+				<div style="border: 1px solid black; box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;"><?php echo $lang->PRINCE;?>
 					<?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1479,8 +1479,7 @@ $i=1;
     
 }
 ?></div>
-				<div
-					style="border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
+				<div style="border: 1px solid black;box-shadow:inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;"><?php echo $lang->RONY;?>
 
 					<?php
 // $count=0;
@@ -1526,10 +1525,10 @@ $i=1;
 	<div class="lastdiv"
 		style="float: left; height: 10%; width: 100%; border: 1px solid black;">
 		<div
-			style="float: left; height: 92%; width: 19%; border: 1px solid black;box-shadow:inset 9px 10px 40px #769DCC;">washroom</div>
+			style="float: left; height: 92%; width: 19%; border: 1px solid black;box-shadow:inset 9px 10px 40px #769DCC;"><?php echo $lang->WASHROOM;?></div>
 		<div style="float: right; width: 80%;">
 			<div class="room3">
-			Pranab Jyoti Das 
+			<?php echo $lang->PRANABJYOTIDAS;?>
 						 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1538,8 +1537,6 @@ $i=1;
 
 // $count = $key;
 // }
-
-
          
 // }    
    $i=1;  
@@ -1569,7 +1566,7 @@ $i=1;
 ?>
 			</div>
         <div class="room3">
-        Arinder Singh Suri
+        <?php echo $lang->ARINDERSINGHSURI;?>
 			 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1610,7 +1607,7 @@ $i=1;
         
 </div>
         <div class="room3">
-Sonali Minocha
+<?php echo $lang->SONALIMINOCHA;?>
 			 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
@@ -1650,7 +1647,7 @@ Sonali Minocha
 ?>
         </div>
         <div class="room3">
-        Saurabh 
+        <?php echo $lang->SAURABH;?> 
 			 <?php
 // $count=0;
 // foreach ( $_SESSION ['variable'] as $key => $values ) {
