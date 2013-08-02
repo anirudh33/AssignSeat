@@ -314,7 +314,7 @@ class SeatEmployee extends DBConnection
                
                $data['conditions']=array(array('room.id='.$val.' AND room_row.room_id='.$val.' AND room_row.row_number='.$val1 .' AND 
                		seat_employee.status = "1" '),true);
-	       //$data['order_by'] = array(array('seat_employee.computer_id'));
+	       $data['order'] = 'seat_employee.computer_id';
                $result=$this->_db->select($data);
 
                              
@@ -323,12 +323,12 @@ class SeatEmployee extends DBConnection
                {
                        $myResult[]=$row;
                }
-//echo "<pre/>";
-//		if($val == 2)
-//               print_r($myResult);
-//die;
-	       return  $myResult;
-
+	 if(!empty($myResult[0]['status']))
+           return  $myResult;
+        else
+        {
+            return  $a = array();
+        }
  
 
                 

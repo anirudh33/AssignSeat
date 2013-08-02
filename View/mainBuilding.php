@@ -114,7 +114,7 @@ function closeFancyBox() {
     			$("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
-            window.location.href = 'index.php';
+            //window.location.href = 'index.php';
         });
 
     } else {
@@ -135,7 +135,7 @@ function closeFancyBox() {
                 $("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
-             window.location.href = 'index.php';
+             //window.location.href = 'index.php';
         });
         $('#' + thisid).droppable('disable')
         $("#" + thisid)
@@ -278,7 +278,7 @@ $i=1;
 		var i = <?php echo $i ;?>;
                
                 var val = <?php echo $values['computer'] ;?>;
-          status('7',i,val,'sirijan 2');
+          status('7',i,val,'sirijan2');
          </script>
           <?php $i++; ?>
          <div id='display7'></div>
