@@ -171,6 +171,7 @@ class SeatEmployee extends DBConnection
 		$sid=$this->findSid($roomId, $assignInfo['row']);
 		$this->setSid($sid);
 		//$assignInfo['empid']
+		/****** seat is not assigned to employee before************/
 		 if (empty($isAssigned)) {
 		 $data['tables'] = 'seat_employee';
 		 $insertValue = array('eid'=>$this->getEid(),
@@ -184,24 +185,29 @@ class SeatEmployee extends DBConnection
 		 $result=$this->_db->insert($data['tables'],$insertValue);
 		 return "true";
 	 	 }
+		 /****** seat is reallocated ************/
 	else
 	{
 		//print_r($isAssigned[0]['id']);die;		
 		//echo $isAssigned[0];die;
-		$data = array('status' => '0');
+		$data = array('sid'=>$this->getSid(),'computer_id'=>$this->getComputer_id(),'details'=>$this->getDetails());
 		$where = array('id' =>$isAssigned[0]['id'], 'status'=>1);
 		$result = $this->_db->update('seat_employee', $data, $where);
 		//var_dump($result);die;
+		/*$data = array('status' => '0');
+		$where = array('id' =>$isAssigned[0]['id'], 'status'=>1);
+		$result = $this->_db->update('seat_employee', $data, $where);
+		var_dump($result);die;
 		$data['tables'] = 'seat_employee';
 		 $insertValue = array('eid'=>$this->getEid(),
-		 		'sid'=>$this->getSid(),
-		 		'asignee'=>$this->getAsignee(),
-		 		'computer_id'=>$this->getComputer_id(),
+		 		/'sid'=>$this->getSid(),
+		 		/'asignee'=>$this->getAsignee(),
+		 		/'computer_id'=>$this->getComputer_id(),
 		 		'status'=>$this->getStatus(),
 		 		'updated_on'=>$this->getUpdated_on(),
-		 		'details'=>$this->getDetails()
+		 		/'details'=>$this->getDetails()
 		 		);
-		 $result=$this->_db->insert($data['tables'],$insertValue);
+		 $result=$this->_db->insert($data['tables'],$insertValue);*/
 		 return "true1";
 
 	}
@@ -216,6 +222,12 @@ class SeatEmployee extends DBConnection
 		$where = array('id' =>$this->getEid(), 'status'=>1);
 		$result = $this->_db->update('seat_employee', $data, $where);
 	}
+	/* 	@author     : Avni Jain
+		called from : MainController.php.
+		description: This function is to check whether a seat is already assigned to employee or not
+		request params: employee id		
+		returns: array of result
+	*/
 	public function checkEmpSeat($eid)	{		
 		$data['columns']	= array('id');
 		$data['conditions']=array(array('eid=\''.$eid.'\' AND status="1"'),true);
@@ -242,7 +254,12 @@ class SeatEmployee extends DBConnection
 	    //echo $myResult[0]['id'];die;
 		return $myResult[0]['id'];
 	}
-	/*author:avnijain*/
+	/* 	@author     : Avni Jain
+		called from : MainController.php.
+		description: This function is to get employee name from employee id
+		request params: employee id		
+		returns: employee name 
+	*/
 	public function getEmployeeName($eid) {
 		$data['columns']	= array('name');
 		$data['conditions']=array(array('id=\''.$eid.'\''),true);

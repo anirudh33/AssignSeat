@@ -343,3 +343,23 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
+Sat - 03/Aug/2013 - 05:32:29 User " ADMIN " Logged into the system  
+From the IP ::1 and browser = Google Chrome 
+Browser version = 28.0.1500., Os = Windows 
+========================= 
+
+Sat - 03/Aug/2013 - 05:33:27 User " ADMIN " Assigned the seat number "1" in room "Lab-1" of employee "AVNI JAIN" at row 1 , computer "1"
+From the IP ::1 and browser = Google Chrome 
+Browser version = 28.0.1500., Os = Windows 
+========================= 
+
+Sat - 03/Aug/2013 - 05:34:13 User " ADMIN " moved the employee "AVNI JAIN " From room " Lab-1 ", Row number "1 ", From Computer Id "1" To seat number "28" in room "aqua"" at row 1 , computer "0"
+From the IP ::1 and browser = Google Chrome 
+Browser version = 28.0.1500., Os = Windows 
+========================= 
+
+Sat - 03/Aug/2013 - 05:49:54 User " ADMIN " moved the employee "AVNI JAIN " From room " jugrajsinghbedi ", Row number "1 ", From Computer Id "0" To seat number "46" in room "room-1"" at row 1 , computer "2"
+From the IP ::1 and browser = Google Chrome 
+Browser version = 28.0.1500., Os = Windows 
+========================= 
+

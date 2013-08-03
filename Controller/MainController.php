@@ -23,7 +23,8 @@ class MainController extends Acontroller
 		//$this->_objInitiateUser= new InitiateUser();
 	}
 	
-	/* 	called from : main.php.
+	/* 	@author     : Avni Jain
+		called from : main.php.
 		description: This function is to handle login will redirect to mainpage.php in case
 					of sucessfull login and in case of unsucessful login redirect to index 
 		request params: username and password			
@@ -106,7 +107,8 @@ class MainController extends Acontroller
 // 	    print_r($roomData);
 // 	    die;
 	}
-	/******called from:  Mainbuilding.php()
+	/*******@author    :  Avni Jain
+			called from:  Mainbuilding.php()
 			description: handle assiging of the seats,call assignseat function of seatemployee model
 					   passes an array to assignseat function as paramaeter.Array contains room,
 					   row no,computerid,reson to change and assigne id 	*****************/
@@ -141,6 +143,7 @@ class MainController extends Acontroller
 		$inserted=$seatObj->assignSeat($info);
 		$sid=$seatObj->getSid();
 		$ename=$seatObj->getEmpName();
+		/******* first time seat assignment to the user**************/ 
 		if($inserted=="true") {
 			$log = array();
 			$log['empid']=$ename;
@@ -149,6 +152,7 @@ class MainController extends Acontroller
 			$log['room'] = $info['room'];
 			$log['row'] = $info['row'];
 			$log['computerid'] = $info['computerid'];
+			/****** for logging seat allocation*********/ 
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logAssignSeatCuurentFile($log);
 			if($boolLogResult)
@@ -160,6 +164,7 @@ class MainController extends Acontroller
 				echo "there is some problem during logging the file";
 		}
 		}
+		/***********if a seat is reassigned***************************/
 		if($inserted=="true1") {
 			$log = array();
 			$log['empid']=$ename;
@@ -171,6 +176,7 @@ class MainController extends Acontroller
 			$log['frmroom'] = $info['frmroom'];
 			$log['frmrow'] = $info['frmrow'];
 			$log['frmcomputerid'] = $info['frmcomputerid'];
+			/****** for logging seat reallocation*********/ 
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logUpdateSeatLocationCuurentFile($log);
 			if($boolLogResult)
@@ -186,6 +192,12 @@ class MainController extends Acontroller
 		}
 	}
 	
+	
+	public function deleteSeat()
+	{
+		
+	
+	}
 	public function searchEmployee()
 	{
 		$employeeObj = $this->loadModel('Employee');
