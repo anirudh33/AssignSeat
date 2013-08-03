@@ -4,11 +4,14 @@
 <script>
 
 function searchlocation(id)
-{
-	$('img[id='+id+']').trigger("click");
+{	
 	$('img[id='+id+']').hide(1000);
+	$('img[id='+id+']').trigger("click");
 	$('img[id='+id+']').show(1000);	
-	$('img[id='+id+']').trigger("mouseover").delay(1);
+    $(window).mouseover(function() {
+        $('img[id='+id+']').tooltip("close");
+     });
+
 // 	$('img[id='+id+']').trigger("click");
 // 	for(var i=0;i<=2000;i++) {
 // 		if(i%2){
