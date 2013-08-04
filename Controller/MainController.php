@@ -74,6 +74,7 @@ class MainController extends Acontroller
 			    $roomData[$value['room_id']][] = $value;
 			}
 			$_SESSION['roomData'] = $roomData;
+			$_SESSION['roomId'] = implode(", ",array_keys($roomData));
 			unset($_SESSION['totalRooms']);
 			unset($_SESSION['variable']);
 			//echo "<pre>";
@@ -82,7 +83,7 @@ class MainController extends Acontroller
 			$objSecurity->logSessionId( $_SESSION['username']);
 			$objLogger = new Logger();
 			$objLogger->logLoginEntryCuurentFile();
-			header("Location:index.php?controller=MainController&method=mainPage");                  
+			header("Location:index.php");                  
 		}
 		else {
 			echo " unsucessfull login";
@@ -211,11 +212,12 @@ class MainController extends Acontroller
 		$objLogger = new Logger();
 		$objLogger->logHistoryFile();
 	}
-	public function dataFetch()
+	public function dataFetch($roomId)
 	{
 	    $obj = $this->loadModel('SeatEmployee');
-	    $value = $obj->seatStatus($_REQUEST['value'],$_REQUEST['value1']);
-	    $this->loadView('status',$value); 
+	    $value = $obj->seatStatus($roomId);
+	    return $value; 
+	    //$this->loadView('status',$value); 
 	}
 	
 	

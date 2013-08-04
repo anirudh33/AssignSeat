@@ -18,10 +18,12 @@ session_start();
 require_once getcwd().'/libraries/constants.php';
 require_once getcwd().'/libraries/Security.php';
 require_once getcwd().'/libraries/Logger.php';
-require_once(SITE_PATH."/libraries/validate.php");
+require_once(__DIR__."/libraries/validate.php");
 /* Requiring all essential files */
+
 function __autoload($controller) {
-	include SITE_PATH .'/Controller/'.$controller . '.php';
+
+	include __DIR__ .'/Controller/'.$controller . '.php';
 }
 
 /* Method calls from views handled here */
@@ -62,8 +64,11 @@ if (isset ( $_REQUEST ['controller'] )) {
 else if (isset($_SESSION ["username"]))
 {
 	$objSecurity= new Security();
-        $objSecurity->secureMultiLogin( $_SESSION['username']);
+    $objSecurity->secureMultiLogin( $_SESSION['username']);
 	$objMainController = new MainController();
+	if(!isset($_SESSION['mainController'])) {
+        $_SESSION['mainController'] = $objMainController;
+	}
 	$objMainController->loadView("mainPage");
 }
 else
