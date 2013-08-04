@@ -190,6 +190,7 @@ function closeFancyBox() {
         }, function(data, status) {
         	if(data.trim()=="1") {
         		alert("Your seat has been booked");
+        		reLoadMainBuilding();
         		$("#commentError").html("");
     			}
     			else if(data.trim()=="2") {
@@ -216,8 +217,19 @@ function closeFancyBox() {
             $("#" + moveid).addClass('droppable ui-droppable dropped');
         }
         dragdropevent();
-    }
-    
+    }    
+}
+function reLoadMainBuilding() {
+    $.ajax({
+        url : 'index.php?controller=mainController&method=reLoadMainBuilding',
+        type : 'post',
+        dataType : 'html',
+        success : function(data){
+            $("#rightbar").html("");
+            $("#rightbar").append(data);
+            startTooltip();
+            },
+        });
 }
 /* Updated By Amber Sharma */
 </script>

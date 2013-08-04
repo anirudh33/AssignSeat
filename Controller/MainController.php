@@ -293,6 +293,11 @@ class MainController extends Acontroller
 	        echo json_encode("No Data in log file");
 	    }
 	}
+	
+	public function reLoadMainBuilding()
+	{
+	    $this->loadView('mainBuilding');
+	}
 }
 
 ?>
