@@ -112,23 +112,6 @@ function submitComputerChange(rowId)
 
 
 <style>
-#newRowEntry {
-	margin: 2%;
-}
-#newRowEntry label {
-	font-size: 20px;
-	
-}
-.editComputer {
-	cursor: pointer;
-}
-#roomRowTable td{
-	border: 1px solid black;
-	width: 130px;
-	text-align: center;
-}
-#roomDetail {
-	margin-left: 20%;
-}
+
 
 </style>

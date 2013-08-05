@@ -10,11 +10,11 @@ $totalRooms = count ( $_SESSION ['roomData'] );
 
 $seatAllocatedInfoData = array ();
 for($i = 0; $i < $totalRooms; $i ++) {
-    $seatAllocatedInfoData [] = array ();
+	$seatAllocatedInfoData [] = array ();
 }
 
 foreach ( $seatAllocatedInfo as $key => $value ) {
-    $seatAllocatedInfoData [$value ['room_id']] [] = $value;
+	$seatAllocatedInfoData [$value ['room_id']] [] = $value;
 }
 
 /*
@@ -134,13 +134,13 @@ function dragdropevent() {
                         .html(
                                 '<img src="images/red_chair.gif" id='
                                         + draggedElement
-                                        + ' height="30" width="30" class="dragable dragged" />');
+                                        + ' height="18" width="20" class="dragable dragged" />');
             }
             $("#" + moveid).html(' ');
             if (moveid.indexOf("emp") == -1) {
                 $("#" + moveid)
                         .html(
-                                '<img src="images/green_chair.jpeg" height="18" width="30" />');
+                                '<img src="images/green_chair.jpeg" height="18" width="20" />');
                 $("#" + moveid).addClass(
                         'droppable ui-droppable dropped');
             }
@@ -204,12 +204,12 @@ function closeFancyBox() {
                 .html(
                         '<img src="images/red_chair.gif" id='
                                 + draggedElement
-                                + ' height="30" width="30" class="dragable dragged" />');
+                                + ' height="18" width="20" class="dragable dragged" />');
         $("#" + moveid).html(' ');
         if (moveid.indexOf("emp") == -1) {
             $("#" + moveid)
                     .html(
-                            '<img src="images/green_chair.jpeg" height="18" width="30" />');
+                            '<img src="images/green_chair.jpeg" height="18" width="25" />');
             $("#" + moveid).addClass('droppable ui-droppable dropped');
         }
         dragdropevent();
@@ -319,10 +319,10 @@ function startTooltip(){
 /*     width: 230px; */
 /*     height: 168px; */
 
-    /* Rotate div */
-    /*transform:rotate(90deg);*/
-    /*-ms-transform:rotate(90deg);*/ /* IE 9 */
-    /*-webkit-transform:rotate(90deg);*/ /* Safari and Chrome */
+	/* Rotate div */
+	/*transform:rotate(90deg);*/
+	/*-ms-transform:rotate(90deg);*/ /* IE 9 */
+	/*-webkit-transform:rotate(90deg);*/ /* Safari and Chrome */
 }
 </style>
 <!-- Updated By Prateek Saini -->
@@ -558,6 +558,6 @@ function startTooltip(){
                 <div class="roomTitle"><?php echo $lang->SAURABH;?></div>
                 <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[18],$_SESSION['roomData'][18]); ?></div>
             </div>
-        </div>
-    </div>
+		</div>
+	</div>
 </div>

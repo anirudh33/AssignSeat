@@ -8,7 +8,7 @@
 <div id='leftAdminMenu'>
  <h3>Employees</h3>
 	<div id="allEmployee">
-	<input type="button" value="Add Employee" onclick=""><br/><br/>
+	<input type="button" value="Add Employee" onclick="showEmpDetails(0)"><br/><br/>
 	<?php include_once 'allEmployee.php';?>
 	</div>
 	<h3>Rooms</h3>
@@ -43,7 +43,15 @@ function showRoomDetails(id) {
 				'roomId':id
 			},
 			function(data){
-				$("#adminPanal").html(data);
+				if(data.search('password') == -1)
+				{
+					$("#adminPanal").html(data);
+				}
+				else
+				{
+			        location.reload();
+				}
+				
 			}
 		);
 	
@@ -53,8 +61,23 @@ function showRoomDetails(id) {
 
 
 <style>
-div {
-	/*border: 1px solid black;*/
+#newRowEntry {
+	margin: 2%;
+}
+#newRowEntry label {
+	font-size: 20px;
+	
+}
+.editComputer {
+	cursor: pointer;
+}
+#roomRowTable td{
+	border: 1px solid black;
+	width: 130px;
+	text-align: center;
+}
+#roomDetail ,#empDetails {
+	margin-left: 20%;
 }
 #allEmployee {
 	height:auto;

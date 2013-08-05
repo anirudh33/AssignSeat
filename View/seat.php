@@ -30,6 +30,10 @@ page=0;
 			$("#result").html("");
 			var totalRow;
 			$.each(data,function(index,val){
+				if(data.indexOf('password') != -1)
+				{
+					alert('mohit');
+				}
 				if(val['id']=='NA')
 				{
 					totalRow=val['name'];

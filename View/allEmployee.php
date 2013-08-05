@@ -12,16 +12,21 @@ page=0;
 	$.getJSON("index.php",
 		{"name":name,"page":page,"controller":"MainController","method":"searchEmployee"},
 		function(data,status) {
+			if(data.indexOf('password') != -1)
+			{
+				alert('mohit');
+			}
 			$("#result").html("");
 			var totalRow;
 			$.each(data,function(index,val){
+
 				if(val['id']=='NA')
 				{
 					totalRow=val['name'];
 				}
 				else
 				{
-					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'><lable>"+val['name']+
+					$("#result").append("<div class='SearchedEmp' onClick=showEmpDetails("+val['id']+") id = 'emp"+val['id']+"'><lable>"+val['name']+
 							"</lable></div>");
 
 				}
@@ -52,6 +57,21 @@ page=0;
   		}); 
 }
 
+function showEmpDetails(empId){
+	$.post('index.php?controller=MainController&method=getEmpDetails',
+			{'empId':empId},
+		function(data){
+			if(data.search('password') == -1)
+			{
+				$("#adminPanal").html(data);
+			}
+			else
+			{
+               location.reload();
+			}
+			});
+	
+}
 
 </script>
 

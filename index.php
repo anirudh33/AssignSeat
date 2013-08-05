@@ -35,6 +35,7 @@ if(!empty($options))
 	$_REQUEST ['controller']=$options['C'];
 	$_REQUEST ["method"]=$options['M'];
 }
+
 if (isset ( $_REQUEST ['controller'] )) {
 		
 		if (isset ( $_REQUEST ["method"] )) {

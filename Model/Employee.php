@@ -1,5 +1,4 @@
 <?php
-require_once SITE_PATH .'/libraries/DBconnect.php';
 class Employee extends DBConnection
 {
 	private $_id;
@@ -54,7 +53,7 @@ class Employee extends DBConnection
 	{
 	    $data = array();
 	    $data['tables'] = array("employee");
-	    $data['conditions'] = array(array('id ='.$this->getId()), true);
+	    $data['conditions'] = array(array('id ='.$this->getId().' AND status="1"'), true);
 	    $result = $this->_db->select($data);
 
 	    $myResult = $result->fetchAll(PDO::FETCH_ASSOC);

@@ -328,6 +328,22 @@ class MainController extends Acontroller
 		$roomDetails=$roomObj->fetchRoomDetails($_POST['roomId']);
 		$this->loadView('adminRoomDetails',$roomDetails);
 	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will get a employee
+	* full details
+	*/
+	public function getEmpDetails()
+	{
+		$empObj=$this->loadModel('Employee');
+		$empObj->setId($_POST['empId']);
+		$empDetails=$empObj->getEmployeeProfile();
+		$this->loadView('adminEmpDetails',$empDetails);
+	}
+	public function empImageUpload(){
+		echo 'here';
+	}
 }
 
 ?>
