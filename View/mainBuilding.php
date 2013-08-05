@@ -334,7 +334,7 @@ function startTooltip(){
                     <label class="writing roundedBorder"><?php echo $lang->GOOGOL;?></label>
                 </div>
                 <div class="srijjan_2 roundedBorder">
-                    <div class="roomTitle">Sirijan 2</div>
+                    <div class="roomTitle">Srijan 2</div>
                     <div class="roomContent">
                     <?php echo createRow($seatAllocatedInfoData[7],$_SESSION['roomData'][7]); ?>
                     </div>
@@ -412,7 +412,7 @@ function startTooltip(){
 			</div>
             <div class="roundedBorder"
                 style="float: left; height: 22%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;">
-                <div class="roomTitle"><?php echo $lang->SIRIJAN;?></div>
+                <div class="roomTitle"><?php echo $lang->SRIJAN;?></div>
 				<div class="roomContent"><?php echo createRow($seatAllocatedInfoData[20],$_SESSION['roomData'][20]); ?></div>
 			</div>
             <div class="roundedBorder"
