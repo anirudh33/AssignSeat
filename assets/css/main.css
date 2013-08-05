@@ -314,7 +314,7 @@ input[type=file] {
 #leftsubbar {
 	float: left;
 	width: 100%;
-	height: 60%;
+/* 	height: 60%; */
 	border: 1px solid black;
 }
 
@@ -365,8 +365,34 @@ input[type=file] {
 	color: #ffffff;
 }
 /************** css for the building div **************/
-div {
+.alignCenter {
 	text-align: center;
+}
+
+.roundedBorder {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+    
+}
+
+.design {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;  
+  opacity: 1;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  line-height: 18px;
+  box-shadow: 0px 0px 7px #FFFFFF inset, 0px -0px 7px #000000 inset,0px 0px 10px 3px #000000,0px 0px 8px 0px #000000 inset;
+  -webkit-box-shadow: 0px 0px 7px #FFFFFF inset, 0px -0px 7px #000000 inset,0px 0px 10px 3px #000000,0px 0px 8px 0px #000000 inset;
+  -moz-box-shadow: 0px 0px 7px #FFFFFF inset, 0px -0px 7px #000000 inset,0px 0px 10px 3px #000000,0px 0px 8px 0px #000000 inset;
+  -ms-box-shadow: 0px 0px 7px #FFFFFF inset, 0px -0px 7px #000000 inset,0px 0px 10px 3px #000000,0px 0px 8px 0px #000000 inset;
+  -o-box-shadow: 0px 0px 7px #FFFFFF inset, 0px -0px 7px #000000 inset,0px 0px 10px 3px #000000,0px 0px 8px 0px #000000 inset;
 }
 
 .mainContainer {
@@ -521,7 +547,7 @@ div {
 .div3 {
 	float: left;
 	width: 100%;
-	height: 60%;
+	height: 77%;
 	border: 1px solid black;
 }
 
@@ -530,11 +556,7 @@ div {
 }
 
 .cabin {
-	border: 1px solid green;
-	height: 6%;
-}
 
-.cabin {
 	border: 1px solid green;
 /* 	height: 6%; */
     width : 100%;
@@ -606,16 +628,29 @@ div {
 }
 
 /************** END css for the building div **************/
+#result {
+/*     height : 30%; */
+}
 #searchtxt {
 	width: 80%;
 }
 
+.searchTitle {
+    float : left;
+    width : 90%;
+}
+.searchImage {
+    float : left;
+    width : 5%;
+}
 .SearchedEmp {
 	border: 1px solid black;
 	background: #ad8667 url('../images/bg.jpg');
 	margin-top: 2px;
 	margin-left: 3px;
 	margin-right: 10px;
+    width: 100%;
+    height: 30px;
 }
 
 #pager {
@@ -652,7 +687,15 @@ div {
 	margin-left: -35px;
 	bottom: -16px;
 }
-
+.arrow {
+	width: 70px;
+	height: 16px;
+	overflow: hidden;
+	position: absolute;
+	left: 60%;
+	margin-left: -35px;
+	bottom: -16px;
+}
 .arrow.top {
 	top: -16px;
 	bottom: auto;

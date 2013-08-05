@@ -107,13 +107,13 @@ function showLog()
                         <li class="first active"><a href="#"><?php echo $lang->HOME?></a></li>
                         <li ><a href="index.php?controller=MainController&method=adminView" >Admin</a></li>
                         <li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
-                        <li><a href="#" id="logout" onClick="showLog()"><?php echo $lang->SHOWUSER?></a></li>
+                        <li><a href="#" id="logout" onClick="showLog()"><?php echo $lang->SHOWLOG?></a></li>
                     </ul>
                     <br class="clear" />
                 </div>
             </div>
             <div id="main">
-                <div id="sidebar">
+                <div id="sidebar" class="roundedBorder">
                     <div id="leftbar">
                         <div id="leftsubbar">
                         
@@ -133,7 +133,7 @@ function showLog()
                     </div>
                     <br class="clear" />
                 </div>
-                <div id="content">
+                <div id="content" class="roundedBorder alignCenter">
                     <h2><?php echo $lang->BLUEPRINT?></h2>
                     <div id="box1">
                         <div id="rightbar">

@@ -6,6 +6,8 @@
 function searchlocation(id)
 {
     if($('img[id='+id+']').length > 0){
+        $scrollId = $('img[id='+id+']').parent().attr("id");
+        document.getElementById($scrollId).scrollIntoView();
     	$('img[id='+id+']').hide(1000);
     	$('img[id='+id+']').trigger("click");
     	$('img[id='+id+']').show(1000);	
@@ -35,10 +37,15 @@ page=0;
 				else
 				{
 					/* Updated By Amber Sharma */
-					$("#result").append("<div class='SearchedEmp' id = 'emp"+val['id']+"'>"+val['name']+
-							"   <span id='"+val['id']+"' style='width:20px;height:16px;' class='dragable mouseFetch'>"+
-							"<img src='./assets/images/human.jpeg' onClick='searchlocation("+val['id']+
-							");' width='15px' /></span></div>");
+					$("#result").append("<div class='SearchedEmp' id = 'emp"
+	                        + val['id']
+	                        + "'>"
+	                        + val['name']
+	                        + "   <span id='"
+	                        + val['id']
+	                        + "' style='width:20px;height:16px;' class='dragable mouseFetch'>"
+	                        + "<img src='./assets/images/human.jpeg' onClick='searchlocation("
+	                        + val['id'] + ");' width='15px' /></span></div>");
 					//$("#result").append(val['Name']+"<br>");
 					dragdropevent();
 					/* Updated by Amber Sharma*/
@@ -91,7 +98,7 @@ function getLocation()
 		<h3 class="customHeading"><?php echo $lang->CHANGEREASON?></h3>
 		<section>
 			<label><?php echo $lang->COMMENT?></label><br>
-			<textarea rows="10" cols="10" id="changeComment" name="changeComment"></textarea>
+			<textarea rows="10" cols="15" id="changeComment" style = "width : 100%" name="changeComment"></textarea>
 		</section>
 		<input type="button" id="commentSubmit" onClick="closeFancyBox()"
 			name="commentSubmit" value="<?php echo $lang->POSTIT?>" />
