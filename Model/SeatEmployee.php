@@ -206,6 +206,12 @@ class SeatEmployee extends DBConnection {
         else {
             // print_r($isAssigned[0]['id']);die;
             // echo $isAssigned[0];die;
+			//$frmComputerId=$this->getComputerId($isAssigned[0]['id']);
+			$frmRoom=$this->getfrmRoom($isAssigned[0]['id']);
+			$frmRoom[]=$this->getComputerId($isAssigned[0]['id']);
+			$_SESSION ["frmrow"]=$frmRoom[0];
+			$_SESSION ["frmroom"]=$frmRoom[1];
+			$_SESSION ["frmcomp"]=$frmRoom[2];
             $data = array (
                     'sid' => $this->getSid (), 
                     'computer_id' => $this->getComputer_id (), 
@@ -230,6 +236,55 @@ class SeatEmployee extends DBConnection {
         
         }
     }
+	/**@ author Avni jain*****/
+	public function getComputerId($id)
+	{
+		$data ['columns'] = array ('computer_id');
+        $data ['conditions'] = array (
+                array ('id=\'' . $id . '\' AND status="1"' ), 
+                true );
+        $data ['tables'] = 'seat_employee';
+        $result = $this->_db->select ( $data );
+        //var_dump($result);die;
+		  while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+            $myResult [] = $row;
+        }
+		//$from[0]=$myResult[0]['row_number'];
+        // echo $myResult[0]['id'];die;
+        return $myResult[0]['computer_id'];
+	
+	}
+	/**@ author Avni jain*****/
+	public function getfrmRoom($sid)
+	{
+		$data ['columns'] = array ('id','row_number');
+        $data ['conditions'] = array (
+                array ('id=\'' . $sid . '\' AND status="1"' ), 
+                true );
+        $data ['tables'] = 'room_row';
+        $result = $this->_db->select ( $data );
+        //var_dump($result);die;
+		  while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+            $myResult [] = $row;
+        }
+		$from[0]=$myResult[0]['row_number'];
+        // echo $myResult[0]['id'];die;
+        //return $myResult [0] ['id'];
+		//$data ['columns'] = array ('name');
+		$data ['columns'] = array ('name');
+        $data ['conditions'] = array (
+                array ('id=\'' . $myResult[0]['id']. '\' AND status="1"' ), 
+                true );
+        $data ['tables'] = 'room';
+        $result = $this->_db->select ( $data );
+		//var_dump($result);die;
+		  while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+            $room [] = $row;
+        }
+		//print_r( $myResult);die;
+		$from[1]=$room[0]['name'];
+		return($from);
+	}
     /**
      *
      * @return true after seting the status flag to 0 array

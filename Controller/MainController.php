@@ -129,6 +129,11 @@ class MainController extends Acontroller
 		$info['frmrow']=$b[0][1];
 		$info['frmcomputerid']=$b[0][2];
 		}
+		else {
+			$info['frmroom']="employee search box";
+			$info['frmrow']=" ";
+			$info['frmcomputerid']=" ";
+		}
 		$info['details']=htmlentities($_REQUEST['changeComment']);
 		$info['assigne']=$_SESSION ['userid'];
 		$info['assignename']=$_SESSION ['username'];
@@ -174,9 +179,9 @@ class MainController extends Acontroller
 			$log['room'] = $info['room'];
 			$log['row'] = $info['row'];
 			$log['computerid'] = $info['computerid'];
-			$log['frmroom'] = $info['frmroom'];
-			$log['frmrow'] = $info['frmrow'];
-			$log['frmcomputerid'] = $info['frmcomputerid'];
+			$log['frmroom'] = $_SESSION ["frmroom"];
+			$log['frmrow'] = $_SESSION ["frmrow"];
+			$log['frmcomputerid'] = $_SESSION ["frmcomp"];
 			/****** for logging seat reallocation*********/ 
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logUpdateSeatLocationCuurentFile($log);
