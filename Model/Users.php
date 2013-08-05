@@ -68,6 +68,7 @@ class Users extends DBConnection {
 
 	$_SESSION ["username"] = $this->getUsername ();
 	$_SESSION ["userid"] = $this->getUserId ();
+	$_SESSION ['isAdmin'] = "1";
 	}
 
 	/**

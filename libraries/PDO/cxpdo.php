@@ -106,7 +106,7 @@ class cxpdo extends PDO {
 
  	    
 		//Return the results -or a query string?
-//	echo $query;
+// 	echo $query;
 // 		die;
 		return $return ? $this->query($query) : $query;
 	}
@@ -329,7 +329,6 @@ class cxpdo extends PDO {
 	function join($joins=array()) {
 
 		$output = '';
-
 		if($joins && is_array($joins)) {
 			foreach($joins as $join) {
 				//The type of join
@@ -338,9 +337,9 @@ class cxpdo extends PDO {
 				foreach($join['conditions'] as $field1 => $field2) {
 					$output .= $this->quoteIdentifier($field1). ' = '
 					. $this->quoteIdentifier($field2);
-
 				}
 			}
+
 			return $output;
 		}
 

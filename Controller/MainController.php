@@ -298,6 +298,31 @@ class MainController extends Acontroller
 	{
 	    $this->loadView('mainBuilding');
 	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will load Admin	View
+	*
+	* */
+	public function adminView()
+	{
+		$roomObj=$this->loadModel('Room');
+		$roomData=$roomObj->fetchAllRooms();
+		$this->loadView('adminView',$roomData);
+	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will get a room
+	* full details
+	*
+	* */
+	public function getRoomDetails()
+	{
+		$roomObj=$this->loadModel('Room');
+		$roomDetails=$roomObj->fetchRoomDetails($_POST['roomId']);
+		$this->loadView('adminRoomDetails',$roomDetails);
+	}
 }
 
 ?>
