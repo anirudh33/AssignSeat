@@ -1,9 +1,7 @@
 <?php
-/*@author Prateek Saini
- * 
- * Below Code block will fetch all the allocated seats
+/*
+ * @author Prateek Saini Below Code block will fetch all the allocated seats
  * then it will arrange the data in array index on room
- * 
  */
 
 $objMainController = $_SESSION ['mainController'];
@@ -19,19 +17,13 @@ foreach ( $seatAllocatedInfo as $key => $value ) {
     $seatAllocatedInfoData [$value ['room_id']] [] = $value;
 }
 
-/*@author Prateek Saini
-*
-* This function will called for each room individually
-* 
-* @arg1 Data allocated for the room
-* @arg2 Room structure i.e. total rows and number
-* of computer in them.
-* 
-* Data is broken for ease of access
-*
-*/
+/*
+ * @author Prateek Saini This function will called for each room individually
+ * @arg1 Data allocated for the room @arg2 Room structure i.e. total rows and
+ * number of computer in them. Data is broken for ease of access
+ */
 function createRow($allocatedData, $roomData) {
-
+    
     $totalRows = count ( $roomData );
     $tempAllocated = array ();
     for($i = 0; $i < $totalRows; $i ++) {
@@ -56,7 +48,7 @@ function createRow($allocatedData, $roomData) {
         }
         $displayData .= '<br style="clear:both">';
     }
-    unset($tempAllocated);
+    unset ( $tempAllocated );
     return $displayData;
 }
 ?>
@@ -300,32 +292,41 @@ function startTooltip(){
 <!-- Updated By Prateek Saini -->
 <div class="mainContainer">
     <div style="border: 1px solid black; height: 30%; width: 100%;">
-        <div class="div1">
-            <div class="googol">
-                <label class="writing"><?php echo $lang->GOOGOL;?></label>
+        <div class="upperLeftContainer">
+            <div class="div1">
+                <div class="googol">
+                    <label class="writing"><?php echo $lang->GOOGOL;?></label>
+                </div>
+                <div class="srijjan_2">
+                    <div class="roomTitle">Sirijan 2</div>
+                    <div class="roomContent">
+                    <?php echo createRow($seatAllocatedInfoData[7],$_SESSION['roomData'][7]); ?>
+                    </div>
+                </div>
             </div>
-            <div class="srijjan_2">
-            <?php echo createRow($seatAllocatedInfoData[7],$_SESSION['roomData'][7]); ?>
-			</div>
-        </div>
-        <div class="div2">
-            <div class="sofa_reception">
-                <img alt="" src="images/sofa.jpg"
-                    style="float: left; height: 50%; width: 30%; margin-top: 6%;">
-				<?php echo $lang->SOFARECEPTION;?><img alt=""
-                    src="images/reception.jpeg"
-                    style="height: 80%; width: 45%; float: right;">
-            </div>
-            <div class="lobby"><?php echo $lang->LOBBY;?></div>
-            <div class="loby2"><?php echo $lang->LOBBY;?></div>
+            <div class="div2">
+                <div class="sofa_reception">
+                    <img alt="" src="images/sofa.jpg"
+                        style="float: left; height: 50%; width: 30%; margin-top: 6%;">
+				<div class="roomTitle"><?php echo $lang->SOFARECEPTION;?></div>
+				<img alt="" src="images/reception.jpeg" 
+				    style="height: 80%; width: 45%; float: right;">
+                </div>
+                <div class="lobby">
+                    <div class="roomTitle"><?php echo $lang->LOBBY;?></div>
+                </div>
+                <div class="loby2">
+                    <div class="roomTitle"><?php echo $lang->LOBBY;?></div>
+                </div>
             <div class="aer">
-                <?php echo $lang->AER;?>
-                <?php echo createRow($seatAllocatedInfoData[8],$_SESSION['roomData'][8]); ?>
+                <div class="roomTitle"><?php echo $lang->AER;?></div>
+                <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[8],$_SESSION['roomData'][8]); ?></div>
 			</div>
             <div class="aqua">
-			<?php echo $lang->AQUA;?>
-			<?php echo createRow($seatAllocatedInfoData[9],$_SESSION['roomData'][9]); ?>
-			</div>
+			    <div class="roomTitle"><?php echo $lang->AQUA;?></div>
+			    <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[9],$_SESSION['roomData'][9]); ?></div>
+		    </div>
+            </div>
         </div>
         <div class="sofachess">
             <img alt="" src="images/chess.jpeg"
@@ -337,43 +338,63 @@ function startTooltip(){
                 style="border: 1px solid black; height: 13%; margin-top: 10%; width: 90%;">
             </div>
         </div>
-        <div class="room"><?php echo $lang->ROOM;?></div>
-        <div class="room1"><?php echo $lang->ROOM;?></div>
+        <div class="room">
+            <div class="roomTitle"><?php echo $lang->ROOM;?></div>
+        </div>
+        <div class="room1">
+            <div class="roomTitle"><?php echo $lang->ROOM;?></div>
+        </div>
         <div class="conference">
-        <?php echo $lang->CONFERENCE;?>
-        <?php echo createRow($seatAllocatedInfoData[10],$_SESSION['roomData'][10]); ?>
+            <div class="roomTitle"><?php echo $lang->CONFERENCE;?></div>
+            <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[10],$_SESSION['roomData'][10]); ?></div>
         </div>
     </div>
     <div class="div3">
         <div
             style="float: left; height: 100%; width: 20%; border: 1px solid black;">
             <div
-                style="border: 1px solid black; float: left; height: 5%; width: 100%; box-shadow: inset 9px 10px 40px #769DCC;"><?php echo $lang->WASHROOM;?></div>
+                style="border: 1px solid black; float: left; height: 5%; width: 100%; box-shadow: inset 9px 10px 40px #769DCC;">
+                <div class="roomTitle"><?php echo $lang->WASHROOM;?></div>
+            </div>
             <div
-                style="border: 1px solid black; float: left; height: 4%; width: 100%; box-shadow: inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
+                style="border: 1px solid black; float: left; height: 4%; width: 100%; box-shadow: inset 9px 10px 40px #DEB887;">
+                <div class="roomTitle"><?php echo $lang->LOBBY;?></div>
+            </div>
             <div
-                style="float: left; height: 5%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 40px #F4FFB5;"><?php echo $lang->CAFETERIA;?></div>
+                style="float: left; height: 5%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 40px #F4FFB5;">
+                <div class="roomTitle"><?php echo $lang->CAFETERIA;?></div>
+            </div>
             <div
-                style="float: left; height: 20%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM1;?>
+                style="float: left; height: 20%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC;">
+                <div class="roomTitle"><?php echo $lang->ROOM1;?></div>
 				<?php echo createRow($seatAllocatedInfoData[34],$_SESSION['roomData'][34]); ?>
 			</div>
             <div
-                style="float: left; height: 20%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC;"><?php echo $lang->ROOM2;?>
+                style="float: left; height: 20%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC;">
+                <div class="roomTitle"><?php echo $lang->ROOM2;?></div>
 				<?php echo createRow($seatAllocatedInfoData[35],$_SESSION['roomData'][35]); ?>
 			</div>
             <div
-                style="float: left; height: 22%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->SIRIJAN;?>
+                style="float: left; height: 22%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;">
+                <div class="roomTitle"><?php echo $lang->SIRIJAN;?></div>
 				<?php echo createRow($seatAllocatedInfoData[20],$_SESSION['roomData'][20]); ?>
 			</div>
             <div
-                style="float: left; height: 15%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;"><?php echo $lang->ACCOUNTS;?>
+                style="float: left; height: 15%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;">
+                <div class="roomTitle"><?php echo $lang->ACCOUNTS;?></div>
             <?php echo createRow($seatAllocatedInfoData[19],$_SESSION['roomData'][19]); ?>
 			</div>
             <div
-                style="float: left; height: 6.7%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
+                style="float: left; height: 6.7%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 40px #DEB887;">
+                <div class="roomTitle"><?php echo $lang->LOBBY;?></div>
+            </div>                
         </div>
         <div
-            style="letter-spacing: 0.7em; padding-top: 206px; word-wrap: break-word; border: 1px solid black; float: left; height: 74.5%; width: 4%; box-shadow: inset 9px 10px 40px #DEB887;"><?php echo $lang->LOBBY;?></div>
+            style="letter-spacing: 0.7em; word-wrap: break-word; border: 1px solid black; float: left; height: 100%; width: 4%; box-shadow: inset 9px 10px 40px #DEB887;">
+            <div class="roomContent" style="padding-top: 206px;">
+            <div class="roomTitle"><?php echo $lang->LOBBY;?></div>
+            </div>
+        </div>
         <div style="float: right; width: 75%; border: 1px solid black">
             <div class="room2">
             <?php echo createRow($seatAllocatedInfoData[11],$_SESSION['roomData'][11]); ?>
@@ -388,92 +409,103 @@ function startTooltip(){
             <?php echo createRow($seatAllocatedInfoData[14],$_SESSION['roomData'][14]); ?>
             </div>
         </div>
+        <div style = "float : right; width : 75%; height : 88%">
+            <div
+                style="border: 1px solid black; float: right; height: 100%; width: 9.5%;">
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[3],$_SESSION['roomData'][3]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[4],$_SESSION['roomData'][4]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[5],$_SESSION['roomData'][5]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[6],$_SESSION['roomData'][6]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[21],$_SESSION['roomData'][21]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[22],$_SESSION['roomData'][22]); ?>
+    			</div>
+                <div class="cabin">
+                <?php echo createRow($seatAllocatedInfoData[23],$_SESSION['roomData'][23]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[24],$_SESSION['roomData'][24]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[25],$_SESSION['roomData'][25]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[26],$_SESSION['roomData'][26]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[27],$_SESSION['roomData'][27]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[28],$_SESSION['roomData'][28]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[29],$_SESSION['roomData'][29]); ?>
+    			</div>
+                <div class="cabin">
+    			<?php echo createRow($seatAllocatedInfoData[30],$_SESSION['roomData'][30]); ?>
+    			</div>
+            </div>
+            <div class="lobbySirijan">
+                <div class="roomContent" style="padding-top: 206px;">
+                <div class="roomTitle"><?php echo $lang->LOBBY;?></div>
+                </div>
+            </div>
         <div
-            style="border: 1px solid black; float: right; height: 88%; width: 9.5%;">
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[3],$_SESSION['roomData'][3]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[4],$_SESSION['roomData'][4]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[5],$_SESSION['roomData'][5]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[6],$_SESSION['roomData'][6]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[21],$_SESSION['roomData'][21]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[22],$_SESSION['roomData'][22]); ?>
-			</div>
-            <div class="cabin">
-            <?php echo createRow($seatAllocatedInfoData[23],$_SESSION['roomData'][23]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[24],$_SESSION['roomData'][24]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[25],$_SESSION['roomData'][25]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[26],$_SESSION['roomData'][26]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[27],$_SESSION['roomData'][27]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[28],$_SESSION['roomData'][28]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[29],$_SESSION['roomData'][29]); ?>
-			</div>
-            <div class="cabin">
-			<?php echo createRow($seatAllocatedInfoData[30],$_SESSION['roomData'][30]); ?>
-			</div>
-        </div>
-        <div class="lobbySirijan"><?php echo $lang->LOBBY;?></div>
-        <div
-            style="border: 1px solid black; float: right; height: 88%; width: 62%; box-shadow: 9px 10px 75px #FFF8DC inset;">
+            style="border: 1px solid black; float: right; height: 100%; width: 86%; box-shadow: 9px 10px 75px #FFF8DC inset;">
             Main Lab
 			<?php echo createRow($seatAllocatedInfoData[2],$_SESSION['roomData'][2]); ?>
             <div id="cabinrony"
-                style="border: 1px solid black; width: 100%; height: 15%; margin-top: -63%">
+                style="border: 1px solid black; width: 100%; height: 15%; ">
                 <div
-                    style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;"><?php echo $lang->CHANDERMOHAN;?>
+                    style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;">
+                    <div class="roomTitle"><?php echo $lang->CHANDERMOHAN;?></div>
                 <?php echo createRow($seatAllocatedInfoData[31],$_SESSION['roomData'][31]); ?>
                 </div>
                 <div
-                    style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;"><?php echo $lang->PRINCE;?>
+                    style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
+                    <div class="roomTitle"><?php echo $lang->PRINCE;?></div>
 				<?php echo createRow($seatAllocatedInfoData[32],$_SESSION['roomData'][32]); ?>
                 </div>
                 <div
-                    style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;"><?php echo $lang->RONY;?>
+                    style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
+                    <div class="roomTitle"><?php echo $lang->RONY;?></div>
 				<?php echo createRow($seatAllocatedInfoData[33],$_SESSION['roomData'][33]); ?>
 				</div>
             </div>
+        </div>
         </div>
     </div>
     <div class="lastdiv"
         style="float: left; height: 10%; width: 100%; border: 1px solid black;">
         <div
-            style="float: left; height: 92%; width: 19%; border: 1px solid black; box-shadow: inset 9px 10px 40px #769DCC;"><?php echo $lang->WASHROOM;?></div>
+            style="float: left; height: 100%; width: 19.7%; border: 1px solid black; box-shadow: inset 9px 10px 40px #769DCC;">
+            <div class="roomTitle"><?php echo $lang->WASHROOM;?></div>
+        </div>
         <div style="float: right; width: 80%;">
             <div class="room3">
-    			<?php echo $lang->PRANABJYOTIDAS;?>
+    			<div class="roomTitle"><?php echo $lang->PRANABJYOTIDAS;?></div>
     			<?php echo createRow($seatAllocatedInfoData[15],$_SESSION['roomData'][15]); ?>
 			</div>
             <div class="room3">
-                <?php echo $lang->ARINDERSINGHSURI;?>
+                <div class="roomTitle"><?php echo $lang->ARINDERSINGHSURI;?></div>
                 <?php echo createRow($seatAllocatedInfoData[16],$_SESSION['roomData'][16]); ?>
             </div>
             <div class="room3">
-                <?php echo $lang->SONALIMINOCHA;?>
+                <div class="roomTitle"><?php echo $lang->SONALIMINOCHA;?></div>
                 <?php echo createRow($seatAllocatedInfoData[17],$_SESSION['roomData'][17]); ?>
             </div>
             <div class="room3">
-                <?php echo $lang->SAURABH;?>
+                <div class="roomTitle"><?php echo $lang->SAURABH;?></div>
                 <?php echo createRow($seatAllocatedInfoData[18],$_SESSION['roomData'][18]); ?>
             </div>
         </div>
