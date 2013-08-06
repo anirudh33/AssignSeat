@@ -68,6 +68,15 @@ function saveNewRow(roomId,rowCount)
 	*
 	*add to database
 	*/
+	$.post('index.php?controller=MainController&method=addNewRoomRow',
+			{'roomId':roomId,'rowNo':rowCount,'computer':computer},function(data){
+				if(data.indexOf('password') != -1)
+				{
+					location.reload();
+				}
+				alert(data);
+				});
+	
 	showRoomDetails(roomId);
 }
 function DeleteRow(rowId,roomId)
@@ -79,6 +88,14 @@ function DeleteRow(rowId,roomId)
 		/*
 		*Data base entry here
 		*/
+		$.post('index.php?controller=MainController&method=delRoomRow',
+				{'roomId':roomId,'rowId':rowId},function(data){
+					if(data.indexOf('password') != -1)
+					{
+						location.reload();
+					}
+					alert(data);
+					});
 		showRoomDetails(roomId);
 	}
 }
@@ -106,6 +123,14 @@ function submitComputerChange(rowId)
 	/*
 	*change in database
 	*/
+	$.post('index.php?controller=MainController&method=computerUpdate',
+			{'computer':computer,'rowId':rowId},function(data){
+				if(data.indexOf('password') != -1)
+				{
+					location.reload();
+				}
+				alert(data);
+				});
 	$("#row"+rowId).html(computer);
 }
 </script>

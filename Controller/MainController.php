@@ -62,23 +62,9 @@ class MainController extends Acontroller
 		/********** in case of authentic user********/
 		if($result==1) {
 		//echo $result;
-			$obj = $this->loadModel('SeatEmployee'); 
-			$value = $obj->allSeat();
-			$totalRooms = $obj->totalRooms();			
-			$_SESSION['variable'] = $value;
-			$roomData = array();
-			for($i = 0 ; $i < $totalRooms[0]['total_room'] ; $i++) {
-			    $roomData[] = array();
-			}
-			foreach($_SESSION['variable'] as $key => $value){
-			    $roomData[$value['room_id']][] = $value;
-			}
-			$_SESSION['roomData'] = $roomData;
-			$_SESSION['roomId'] = implode(", ",array_keys($roomData));
-			unset($_SESSION['totalRooms']);
-			unset($_SESSION['variable']);
 			//echo "<pre>";
 			//print_r($_SESSION);
+			$this->fetchRoomData();
 			$objSecurity= new Security();
 			$objSecurity->logSessionId( $_SESSION['username']);
 			$objLogger = new Logger();
@@ -302,6 +288,25 @@ class MainController extends Acontroller
 	{
 	    $this->loadView('mainBuilding');
 	}
+	
+	private function fetchRoomData()
+	{
+		$obj = $this->loadModel('SeatEmployee');
+		$value = $obj->allSeat();
+		$totalRooms = $obj->totalRooms();
+		$_SESSION['variable'] = $value;
+		$roomData = array();
+		for($i = 0 ; $i < $totalRooms[0]['total_room'] ; $i++) {
+			$roomData[] = array();
+		}
+		foreach($_SESSION['variable'] as $key => $value){
+			$roomData[$value['room_id']][] = $value;
+		}
+		$_SESSION['roomData'] = $roomData;
+		$_SESSION['roomId'] = implode(", ",array_keys($roomData));
+		unset($_SESSION['totalRooms']);
+		unset($_SESSION['variable']);		
+	}
 	/*
 	 * @author Mohit K.Singh
 	*
@@ -340,8 +345,44 @@ class MainController extends Acontroller
 		$empDetails=$empObj->getEmployeeProfile();
 		$this->loadView('adminEmpDetails',$empDetails);
 	}
-	public function empImageUpload(){
-		echo 'here';
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will delete a row 
+	* from a room
+	*/
+	public function delRoomRow(){
+		$roomObj=$this->loadModel('Room');
+		$roomObj->deleteRow($_POST['roomId'],$_POST['rowId']);
+		$this->fetchRoomData();
+		echo "Row Deleted";
+	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will add a row
+	* in a room
+	*/
+	public function addNewRoomRow()
+	{
+		$roomObj=$this->loadModel('Room');
+		$roomObj->addRow($_POST['roomId'],$_POST['rowNo'],$_POST['computer']);
+		$this->fetchRoomData();
+		echo "Row Added";		
+	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will update computer
+	* in a row of a room
+	*/
+	public function computerUpdate()
+	{
+		
+		$roomObj=$this->loadModel('Room');
+		$roomObj->updateComp($_POST['rowId'],$_POST['computer']);
+		$this->fetchRoomData();
+		echo "Computer Updated";
 	}
 }
 

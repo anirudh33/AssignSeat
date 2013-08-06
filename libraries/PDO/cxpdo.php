@@ -81,7 +81,8 @@ class cxpdo extends PDO {
 		. $this->update_value_list($data)
 		.($conditions ? $this->where_list($conditions) : '');
 			
-		//echo $query;
+// 		echo $query;
+// 		die;
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 
@@ -327,7 +328,7 @@ class cxpdo extends PDO {
 	 * Only allows one table at a time (but infinite column conditions).
 	 */
 	function join($joins=array()) {
-
+		$count=0;
 		$output = '';
 		if($joins && is_array($joins)) {
 			foreach($joins as $join) {
@@ -335,11 +336,16 @@ class cxpdo extends PDO {
 				$output .= ' '. (!empty($join['type']) ? strtoupper($join['type']) : 'LEFT');
 				$output .= ' JOIN '. $this->quoteIdentifier($join['table']). ' ON ';
 				foreach($join['conditions'] as $field1 => $field2) {
-					$output .= $this->quoteIdentifier($field1). ' = '
-					. $this->quoteIdentifier($field2);
+					if($count !=0) {
+						$output .= ' AND ';
+					}
+					$count++;
+					$output .= $field1. ' = ';
+					$output .= (is_int($field2))? '"'.$field2.'"' : $field2;
 				}
+				$count=0;
 			}
-
+		
 			return $output;
 		}
 

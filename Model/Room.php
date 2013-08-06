@@ -93,12 +93,13 @@ class Room extends RoomRow
 	
 	public function fetchRoomDetails($roomId)
 	{
+		
 		$data['columns']=array('room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
 		$data['tables']='room';
 		$data['joins']=array(array('table' => 'room_row',
                              'type'  => 'left',
-                             'conditions' => array('room.id' => 'room_row.room_id')));
-		$data['conditions']=array(array('room.id = '.$roomId.' AND room.status = "1"'),true);
+                             'conditions' => array('room.id' => 'room_row.room_id','room_row.status' => 1)));
+		$data['conditions']=array(array('room.id = '.$roomId.' AND room.status = "1" '),true);
 		$result=$this->_db->select($data);
 		$myResult=array();
 		while ($row = $result->fetch(PDO::FETCH_ASSOC))
@@ -107,7 +108,32 @@ class Room extends RoomRow
 		}
 		return $myResult;
 	}
-
+   public function deleteRow($roomId,$rowId) 
+   {
+   		$this->setStatus ( 0 );
+   		$data = array ('status' => $this->getStatus () );
+   		$where = array ('id' => $rowId, 'room_id' => $roomId );
+   		$result = $this->_db->update ( 'room_row', $data, $where );
+   }
+   public function addRow($roomId,$rowNo,$computer)
+   {
+   	$data ['tables'] = 'room_row';
+   	$insertValue = array (
+   			'room_id' => $roomId,
+   			'row_number' => $rowNo,
+   			'computer' => $computer,
+   			'status' => '1',
+   			'updated_on' => time(),
+   			'created_on' => time());
+   	$result = $this->_db->insert ( $data ['tables'], $insertValue );
+   }
+   public function updateComp($rowId,$computer)
+   {
+   	
+   		$data = array ('computer' => $computer );
+   		$where = array ('id' => $rowId);
+   		$result = $this->_db->update ( 'room_row', $data, $where );
+   }
 	
 }
 //  $y=new Room();

@@ -8,11 +8,9 @@
 <div id='leftAdminMenu'>
  <h3>Employees</h3>
 	<div id="allEmployee">
-	<input type="button" value="Add Employee" onclick="showEmpDetails(0)"><br/><br/>
 	<?php include_once 'allEmployee.php';?>
 	</div>
 	<h3>Rooms</h3>
-	<input type="button" value="Add Room" onclick="" ><br/><br/>
 	<div id="allRooms">           
                 <ul class="ca-menu">
                 <?php foreach($data as $key=>$val) {?>
@@ -43,7 +41,7 @@ function showRoomDetails(id) {
 				'roomId':id
 			},
 			function(data){
-				if(data.search('password') == -1)
+				if(data.search('roomDetail') != -1)
 				{
 					$("#adminPanal").html(data);
 				}

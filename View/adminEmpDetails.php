@@ -10,7 +10,7 @@
 		<table>
 			<tr>
 				<td>Name :</td>
-				<td><input type="text" name='name' value='<?php echo isset($data[0]['name'])?$data[0]['name']:''?>'  class='empData'/></td>
+				<td><input type="text" name='name' value="<?php echo isset($data[0]['name'])?$data[0]['name']:''?>"  class='empData'/></td>
 			</tr>	
 			<tr>
 				<td>Designation :</td>
@@ -26,7 +26,6 @@
 			</tr>					
 		</table>
 	</form>
-	<input type="button" id="empEditutton" value="Edit" onclick="editEmp(<?php echo isset($data[0]['id'])?$data[0]['id']:'0' ?>)">
 	</div>
 	<div id="empImageDetails">
 		<?php if(isset($data[0]['name'])) if($data[0]['user_image']== NULL ) { ?>
@@ -44,24 +43,6 @@
 
 <script type="text/javascript">
 $('.empData').attr("disabled", "disabled"); 
-function editEmp(empId)
-{
-	$("#empEditutton").remove();
-	$(".empData").removeAttr("disabled");
-	$("#empDataForm").append('<input type="button" value="Save" onclick="saveEmp('+empId+')">');
-}
-function saveEmp(empId) {
-	if(empId==0) 
-	{
-		alert("add New");
-	}
-	else
-	{
-		alert("update Emp");
-	}
-	showEmpDetails(empId);
-}
-
 </script>
 	
 <style>
