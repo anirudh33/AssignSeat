@@ -158,6 +158,10 @@ function closeFancyBox() {
 	changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
+			if(data.indexOf('password') != -1)
+			{
+				location.reload();
+			}		
         	if(data.trim()=="1") {
         		alert("Seat has been trashed");
         		reLoadMainBuilding();
@@ -178,6 +182,10 @@ function closeFancyBox() {
             changeComment : $changeComment,
             employee : draggedElement
         }, function(data, status) {
+		if(data.indexOf('password') != -1)
+			{
+				location.reload();
+			}
         	if(data.trim()=="1") {
         		alert("Your seat has been booked");
         		reLoadMainBuilding();
@@ -230,6 +238,10 @@ function reLoadMainBuilding() {
             $('#rightbar').fadeTo('slow',0.2);
         },
         success : function(data){
+	   if(data.indexOf('password') != -1)
+			{
+				location.reload();
+			}
             $("#rightbar").html("");
             $("#rightbar").append(data);
             startTooltip();
