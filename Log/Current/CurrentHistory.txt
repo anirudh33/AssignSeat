@@ -228,3 +228,18 @@ From the IP 127.0.0.1 and browser = Google Chrome
 Browser version = 25.0.1364., Os = Linux 
 ========================= 
 
+Tue - 06/Aug/2013 - 10:10:43 User " ADMIN " moved the employee "AJAY KUMAR  SHUKLA " From room " googol ", Row number "1 ", From Computer Id "0" To seat number "48" in room "sirijan3"" at row 1 , computer "6"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:17:10 User " ADMIN " moved the employee "AJAY KUMAR  SHUKLA " From room " googol ", Row number "1 ", From Computer Id "6" To seat number "5" in room "Lab-1"" at row 5 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:17:55 User " ADMIN " delete the employee "ABBAS Y. DHULIAWALA" from room "accounts" from row "1 " , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+

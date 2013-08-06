@@ -215,7 +215,10 @@ function closeFancyBox() {
     }    
 }
 function reLoadMainBuilding() {
-    $.ajax({
+
+    location.reload();
+	/* Use when Ajax call is required */
+    /*$.ajax({
         url : 'index.php?controller=MainController&method=reLoadMainBuilding',
         type : 'post',
         dataType : 'html',
@@ -230,7 +233,7 @@ function reLoadMainBuilding() {
         stop : function() {
             $('#rightbar').fadeIn(100);
         }
-        });
+        });*/
 }
 /* Updated By Amber Sharma */
 </script>
