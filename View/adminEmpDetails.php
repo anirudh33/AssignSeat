@@ -28,11 +28,12 @@
 	</form>
 	</div>
 	<div id="empImageDetails">
-		<?php if(isset($data[0]['name'])) if($data[0]['user_image']== NULL ) { ?>
+		<?php if(isset($data[0]['user_image'])) if($data[0]['user_image']== NULL ) { ?>
 		<img alt="User Image" src="assets/images/human.jpeg" />
 		<?php }
 		else {?>
 		<!-- 		code here -->
+		<img alt="User Image" src="data:image/png;base64,<?php echo base64_encode( $data[0]['user_image']);?>" width='250px'>
 		<?php }?>
 		<form>
 <!-- 		<input id="file_upload" name="file_upload" type="file" /> -->
