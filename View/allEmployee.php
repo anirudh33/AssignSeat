@@ -14,7 +14,7 @@ page=0;
 		function(data,status) {
 			if(data.indexOf('password') != -1)
 			{
-				alert('mohit');
+				location.reload();
 			}
 			$("#result").html("");
 			var totalRow;

@@ -216,7 +216,7 @@ function closeFancyBox() {
 }
 function reLoadMainBuilding() {
     $.ajax({
-        url : 'index.php?controller=mainController&method=reLoadMainBuilding',
+        url : 'index.php?controller=MainController&method=reLoadMainBuilding',
         type : 'post',
         dataType : 'html',
         start : function() {

@@ -32,7 +32,7 @@ page=0;
 			$.each(data,function(index,val){
 				if(data.indexOf('password') != -1)
 				{
-					alert('mohit');
+					location.reload();
 				}
 				if(val['id']=='NA')
 				{
