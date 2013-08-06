@@ -4,8 +4,7 @@
  * then it will arrange the data in array index on room
  */
 
-$objMainController = $_SESSION ['mainController'];
-$seatAllocatedInfo = $objMainController->dataFetch ( $_SESSION ['roomId'] );
+$seatAllocatedInfo = $this->dataFetch ( $_SESSION ['roomId'] );
 $totalRooms = count ( $_SESSION ['roomData'] );
 
 $seatAllocatedInfoData = array ();

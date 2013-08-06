@@ -168,3 +168,33 @@ From the IP 127.0.0.1 and browser = Google Chrome
 Browser version = 25.0.1364., Os = Linux 
 ========================= 
 
+Tue - 06/Aug/2013 - 08:29:44 User " ADMIN " Assigned the seat number "22" in room "Egnis" of employee "ADARSH KUMAR SRIVASTAVA" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 08:30:10 User " ADMIN " Assigned the seat number "4" in room "Lab-1" of employee "ABHINAV PRAKASH  TIWARI" at row 4 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 08:31:12 User " ADMIN " Assigned the seat number "5" in room "Lab-1" of employee "ABHISHEK KUMAR" at row 5 , computer "4"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 08:31:35 User " ADMIN " Assigned the seat number "50" in room "sirijan2" of employee "ABBAS Y. DHULIAWALA" at row 2 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 08:33:26 User " ADMIN " delete the employee "ABHINAV PRAKASH  TIWARI" from room "Lab-1" from row "4 " , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 08:39:56 User " ADMIN " Assigned the seat number "53" in room "sirijan2" of employee "ABHINAV PRAKASH  TIWARI" at row 5 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+

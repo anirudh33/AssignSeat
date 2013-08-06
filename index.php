@@ -66,9 +66,6 @@ else if (isset($_SESSION ["username"]))
 	$objSecurity= new Security();
     $objSecurity->secureMultiLogin( $_SESSION['username']);
 	$objMainController = new MainController();
-	if(!isset($_SESSION['mainController'])) {
-        $_SESSION['mainController'] = $objMainController;
-	}
 	$objMainController->loadView("mainPage");
 }
 else
