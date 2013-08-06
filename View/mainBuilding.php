@@ -53,6 +53,7 @@ function createRow($allocatedData, $roomData) {
 ?>
 <script>
 $changeComment = '';
+$tooltipFlag = 1;
 var didConfirm = false;
 /* Updated By Amber Sharma */
 function dragdropevent() {
@@ -123,10 +124,11 @@ function dragdropevent() {
                 // fancybox
                 }
             });
-	
+           	
 	didConfirm = confirm("Are you sure?");
+	$tooltipFlag = 0;
        	if (didConfirm == true) 
-	{
+	{	
 		$("#changeCommentLink").trigger("click"); 
 	}
 	else
@@ -284,7 +286,9 @@ function startTooltip(){
 	})
 	.off( "mouseover" )
   	.on( "click", function(){
-      $( this ).tooltip( "open" );
+  	  	if($tooltipFlag == 1){
+    	      $( this ).tooltip( "open" );
+  	  	}
       return false;
     })
     .attr( "title", "" ).css({ cursor: "pointer" });

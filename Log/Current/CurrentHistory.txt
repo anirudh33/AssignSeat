@@ -293,3 +293,13 @@ From the IP 127.0.0.1 and browser = Google Chrome
 Browser version = 26.0.1410., Os = Linux 
 ========================= 
 
+Tue - 06/Aug/2013 - 11:37:12 User " ADMIN " moved the employee "ABHISHEK KUMAR " From room " cabin-2 ", Row number "4 ", From Computer Id "1" To seat number "52" in room "sirijan2"" at row 4 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 11:37:26 User " ADMIN " moved the employee "ABHISHEK KUMAR " From room " cabin-2 ", Row number "4 ", From Computer Id "1" To seat number "51" in room "sirijan2"" at row 3 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+

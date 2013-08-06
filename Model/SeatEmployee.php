@@ -390,6 +390,7 @@ class SeatEmployee extends DBConnection {
     public function totalRooms() {
         $data ['tables'] = 'room';
         $data ['columns'] = array ('count(*) total_room' );
+        $data ['conditions'] = array (array ('status = "1"' ),true );
         $result = $this->_db->select ( $data );
         return $result->fetchAll ( PDO::FETCH_ASSOC );
     }
