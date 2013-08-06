@@ -3,7 +3,53 @@ class Employee extends DBConnection
 {
 	private $_id;
 	private $_name;
+	private $_email_id;
+	private $_designation;
+	private $_department;
+	private $_details;
+	private $_status;
 	
+	
+	public function getStatus() {
+		return $this->_status;
+	}
+
+	public function setStatus($_status) {
+		$this->_status = $_status;
+	}
+
+	public function getEmail_id() {
+		return $this->_email_id;
+	}
+
+	public function getDesignation() {
+		return $this->_designation;
+	}
+
+	public function getDepartment() {
+		return $this->_department;
+	}
+
+	public function getDetails() {
+		return $this->_details;
+	}
+
+	public function setEmail_id($_email_id) {
+		$this->_email_id = $_email_id;
+	}
+
+	public function setDesignation($_designation) {
+		$this->_designation = $_designation;
+	}
+
+	public function setDepartment($_department) {
+		$this->_department = $_department;
+	}
+
+	public function setDetails($_details) {
+		$this->_details = $_details;
+	}
+
 	/**
      * @return the $_id
      */
@@ -75,5 +121,23 @@ class Employee extends DBConnection
 		$data = array ('user_image' => $imageData );
 		$where = array ('status' => '1');
 		$result = $this->_db->update ( 'employee', $data, $where );
+	}
+	
+	public function getEmployeeEmail()
+	{
+		$data = array();
+		$data['columns']=array('email_id');
+		$data['tables'] = array("employee");
+		$data['conditions'] = array(array('status="1"'), true);
+		$result = $this->_db->select($data);
+		$myResult=array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			array_push($myResult,$row['email_id']);
+		}
+		return  $myResult;
+	}
+	public function setEmployeeProfile()
+	{
 	}
 }

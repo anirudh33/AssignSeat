@@ -6,6 +6,7 @@
 
 <div id="adminHeader"></div>
 <div id='leftAdminMenu'>
+<h3><a href="#" onclick="uploadcsv()">Upload CSV File</a></h3>
  <h3>Employees</h3>
 	<div id="allEmployee">
 	<?php include_once 'allEmployee.php';?>
@@ -54,7 +55,16 @@ function showRoomDetails(id) {
 		);
 	
 }
-
+function uploadcsv() {
+	$.post('View/uploadcsv.php',
+			{
+				
+			},
+			function(data){
+				$("#adminPanal").html(data);
+			}	);
+	
+}
 </script>
 
 

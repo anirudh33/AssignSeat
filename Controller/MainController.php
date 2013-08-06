@@ -249,6 +249,8 @@ class MainController extends Acontroller
 		}
 	
 	}
+	
+	
 	/*
 	* @author Prateek Saini
 	*
@@ -397,6 +399,56 @@ class MainController extends Acontroller
 		$empObj->upImage();
 		echo "Pic Uploaded";
 	}
+	/*
+	 * @author Mohit Gupta
+	*
+	* This function will read the csv file and insert/update employee detail as per csv file
+	*/
+	public function csvUpload()
+	{
+		if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" and $_FILES['vasPhoto_uploads']['type'] == "text/csv")
+		{
+			$fileName = $_FILES['vasPhoto_uploads']['name'];
+			$tmpName  = $_FILES['vasPhoto_uploads']['tmp_name'];
+			$fileType = $_FILES['vasPhoto_uploads']['type'];
+			$chk_ext = explode(",",$fileName);
+			$handle = fopen($tmpName, "r");
+			if(!$handle){
+				die ('Cannot open file for reading');
+			}
+			$employeeObj1=$this->loadModel('Employee');
+			$empEmailArr =$this->employeeEmail($employeeObj1);
+			
+			while (($data = fgetcsv($handle, 10000, ",")) !== FALSE)
+			{
+				$employeeObj1->setName($data[0]);
+				$employeeObj1->setDesignation($data[1]);
+				$employeeObj1->setDepartment($data[2]);
+				$employeeObj1->setDetails($data[3]);
+				$employeeObj1->setEmail_id($data[4]);
+				$employeeObj1->setStatus("1");
+				
+				$employeeObj1->setEmployeeProfile();
+					
+			}
+		}
+		else {
+			die('Please upload a csv format file.');
+		}
+	}
+		
+	/*
+	 * @author Mohit Gupta
+	*
+	* This function will return all employees emailid from database
+	*/
+	public function employeeEmail($employeeObj)
+	{
+		$result=$employeeObj->getEmployeeEmail();
+		unset($employeeObj);
+		return $result;
+	}
 }
+
 
 ?>
