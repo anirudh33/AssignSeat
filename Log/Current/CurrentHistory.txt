@@ -233,3 +233,23 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
+Tue - 06/Aug/2013 - 12:46:34 User " ADMIN " Assigned the seat number "49" in room "sirijan2" of employee "ABBAS Y. DHULIAWALA" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 12:46:46 User " ADMIN " delete the employee "ABBAS Y. DHULIAWALA" from room "sirijan2" from row "1 " , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 12:46:58 User " ADMIN " Assigned the seat number "49" in room "sirijan2" of employee "ABBAS Y. DHULIAWALA" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 12:47:08 User " ADMIN " Assigned the seat number "51" in room "sirijan2" of employee "ABDUL MANAF" at row 3 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+

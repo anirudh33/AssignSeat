@@ -151,6 +151,7 @@ function closeFancyBox() {
     // alert(thisid+'1');
     if (thisid == 'trash') {
         // alert(moveid);
+       
         $.post('index.php?controller=MainController&method=trashSeat', {
             
 	 seatid:moveid,

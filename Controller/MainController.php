@@ -225,6 +225,12 @@ class MainController extends Acontroller
 			echo $obj->array2table($error);
 		}else{
 		$trashed=$seatObj->trashSeat();
+		
+		if(substr($_REQUEST['seatid'],0,3)=='emp'){
+			
+			$boolLogResult=true;
+			
+		}else {
 		$log=array();
 		$a[]=explode("_", $_REQUEST['seatid']);
 		$log['uname']=$_SESSION['username'];
@@ -234,6 +240,7 @@ class MainController extends Acontroller
 		$log['computerid']=$a[0][2];
 		$objLogger = new Logger();
 		$boolLogResult = $objLogger->logDeleteSeatCuurentFile($log);
+		}
 		// Seat has been trashed
 		if($boolLogResult)
 		{
