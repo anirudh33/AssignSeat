@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css"
     media="screen" />
 <link href="<?php echo SITE_URL;?>assets/css/style.css" rel="stylesheet"
+    type="text/css" />   
+<link href="<?php echo SITE_URL;?>assets/css/jquery.contextMenu.css" rel="stylesheet" 
     type="text/css" />
 <script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js"></script>
 <script
@@ -35,6 +37,8 @@
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
 <script
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js"></script>
+<script
+    src="<?php echo SITE_URL;?>/assets/js/contextmenu/jquery.contextMenu.js"></script>    
 <script type="text/javascript"
     src="assets/js/fancybox/jquery.fancybox.js"></script>
 <script>
@@ -43,6 +47,7 @@
 $(function(){
 	getData();
 	startTooltip();// -- this will be enabled after seat drag testing
+	startContextMenu();
 
 $("#logout").click(function(){
 	$.post('index.php?controller=MainController&method=logout',function(data,status){

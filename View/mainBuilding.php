@@ -40,9 +40,9 @@ function createRow($allocatedData, $roomData) {
     foreach ( $roomData as $key => $value ) {
         for($i = 0; $i < $value ['computer']; $i ++) {
             if ((isset ( $tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] )) && ($tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] == $i)) {
-                $displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip" src="images/red_chair.gif" height=20 width=30 /></div>';
+                $displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub" src="images/red_chair.gif" height=20 width=30 /></div>';
             } else {
-                $displayData .= '<div class="cols droppable dropped positionTooltip" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_chair.jpeg" class="custom_tooltip" height="18" width="30" /></div>';
+                $displayData .= '<div class="cols droppable dropped positionTooltip" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_chair.jpeg" class="custom_tooltip context-menu-sub" height="18" width="30" /></div>';
             }
         }
         $displayData .= '<br style="clear:both">';
@@ -274,6 +274,8 @@ function startTooltip(){
     					//$.each(data,function(i,value){    				    
 	                        displayData += "<img src=\""+data['uri']+"\" alt =\"User Image\" width='100px'/>";
 	                        displayData += "<br/>";
+    				        displayData += "<label>User Image:</label>";
+    				        displayData += "<img src=\""+data['user_image']+"\" alt =\"User Image\" />";
     				        displayData += "<label>Name : </label>";
         					displayData += data['name'];
         					displayData += "<br/>";
@@ -334,6 +336,62 @@ function startTooltip(){
 //	}
 	});
     
+}
+$elementDrag = "";
+draggedElement = "";
+moveid = "";
+thisid= "";
+function startContextMenu() {
+	$(function(){
+	    $.contextMenu({
+	        selector: '.context-menu-sub', 
+	        callback: function(key, options) {
+
+		        if(key == "cut") {
+			        //alert($(this).attr("id"));
+			        if($(this).attr("id") > 0 ) {	
+			            draggedElement = $(this).attr("id");
+			            moveid = $(this).parent('div').attr('id');
+			        }
+		        }
+		        if(key == "paste") {
+			        //alert($(this).attr("id"));
+			        //if($(this).attr("id") > 0 ) {
+			        	//$(this).parent().trigger("drop");
+		        	thisid = $(this).parent().attr("id");
+// 			        	$(this).parent().droppable($elementDrag);
+			        	$(".positionTooltip").tooltip("close");
+			            $("#changeCommentLink").fancybox({
+			                closeBtn : false,
+			                afterLoad : function() {
+			                    $("#changeComment").val('');
+			                    return;
+			                },
+			                closeClick : false, // prevents closing when
+			                                    // clicking INSIDE fancybox
+			                helpers : {
+			                    overlay : {
+			                        closeClick : false
+			                    }
+			                // prevents closing when clicking OUTSIDE
+			                // fancybox
+			                }
+			            });
+			    		$("#changeCommentLink").trigger("click"); 
+			        //}
+		        }
+// 	            var m = "clicked: " + key;
+// 	            window.console && console.log(m) || alert(m); 
+	        },
+	        items: {
+	            "paste": {"name": "Paste", "icon": "paste"},
+	            "cut": {"name": "Cut", "icon": "cut"},
+	            "sep1": "---------",
+	            "quit": {"name": "Quit", "icon": "quit"},
+	            "sep2": "---------",
+	        }
+	    });
+	});
 }
 </script>
 <style>

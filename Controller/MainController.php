@@ -292,12 +292,23 @@ class MainController extends Acontroller
 	        echo json_encode("No Data in log file");
 	    }
 	}
-	
+	/*
+	 * @author Prateek Saini
+	*
+	* This function will be used to reload the
+	* mainBuilding Page.
+	*
+	* */
 	public function reLoadMainBuilding()
 	{
 	    $this->loadView('mainBuilding');
 	}
-	
+	/*
+	 * @author Prateek Saini
+	*
+	* This will fetch Room data from Database  
+	*
+	* */
 	private function fetchRoomData()
 	{
 		$obj = $this->loadModel('SeatEmployee');
