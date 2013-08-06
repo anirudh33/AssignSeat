@@ -122,7 +122,10 @@ function dragdropevent() {
                 // fancybox
                 }
             });
-            $("#changeCommentLink").trigger("click");
+	var didConfirm = confirm("Are you sure?");
+       if (didConfirm == true) {
+    
+            $("#changeCommentLink").trigger("click"); }
             // alert(thisid);
             // $("#"+thisid).removeClass('droppable ui-droppable
             // dropped');
