@@ -243,3 +243,23 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
+Tue - 06/Aug/2013 - 10:40:16 User " ADMIN " delete the employee "ADIL RAUF KHAN" from room "emp9" from row " " , computer ""
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:42:11 User " ADMIN " delete the employee "ABHISHEK  ARORA" from room "emp7" from row " " , computer ""
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:42:54 User " ADMIN " delete the employee "ABHISHEK KUMAR" from room "emp6" from row " " , computer ""
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:49:08 User " ADMIN " delete the employee "ABBAS Y. DHULIAWALA" from room "Lab-1" from row "2 " , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+

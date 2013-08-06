@@ -241,7 +241,6 @@ class MainController extends Acontroller
 		$trashed=$seatObj->trashSeat();
 		$log=array();
 		$a[]=explode("_", $_REQUEST['seatid']);
-		
 		$log['uname']=$_SESSION['username'];
 		$log['empid']=$trashed;
 		$log['room']=$a[0][0];

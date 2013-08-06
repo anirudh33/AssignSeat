@@ -53,6 +53,7 @@ function createRow($allocatedData, $roomData) {
 ?>
 <script>
 $changeComment = '';
+var didConfirm = false;
 /* Updated By Amber Sharma */
 function dragdropevent() {
     /**
@@ -122,31 +123,19 @@ function dragdropevent() {
                 // fancybox
                 }
             });
-	var didConfirm = confirm("Are you sure?");
-       if (didConfirm == true) {
-    
-            $("#changeCommentLink").trigger("click"); }
-            // alert(thisid);
-            // $("#"+thisid).removeClass('droppable ui-droppable
-            // dropped');
-            if (thisid == 'trash') {
-            } else {
-                $('#' + thisid).droppable('disable')
-                $("#" + thisid)
-                        .html(
-                                '<img src="images/red_chair.gif" id='
-                                        + draggedElement
-                                        + ' height="18" width="20" class="dragable dragged" />');
-            }
-            $("#" + moveid).html(' ');
-            if (moveid.indexOf("emp") == -1) {
-                $("#" + moveid)
-                        .html(
-                                '<img src="images/green_chair.jpeg" height="18" width="20" />');
-                $("#" + moveid).addClass(
-                        'droppable ui-droppable dropped');
-            }
-            dragdropevent();
+	
+	didConfirm = confirm("Are you sure?");
+       	if (didConfirm == true) 
+	{
+		$("#changeCommentLink").trigger("click"); 
+	}
+	else
+	{
+		reLoadMainBuilding();
+	}
+	
+        
+	
         }
     });
 }
@@ -201,20 +190,27 @@ function closeFancyBox() {
     			}
              //window.location.href = 'index.php';
         });
-        $('#' + thisid).droppable('disable')
-        $("#" + thisid)
-                .html(
-                        '<img src="images/red_chair.gif" id='
-                                + draggedElement
-                                + ' height="18" width="20" class="dragable dragged" />');
-        $("#" + moveid).html(' ');
-        if (moveid.indexOf("emp") == -1) {
-            $("#" + moveid)
-                    .html(
-                            '<img src="images/green_chair.jpeg" height="18" width="25" />');
-            $("#" + moveid).addClass('droppable ui-droppable dropped');
+	if (thisid == 'trash') 
+	{
+		
         }
-        dragdropevent();
+	else
+	{
+		$('#' + thisid).droppable('disable')
+		$("#" + thisid)
+		        .html(
+		                '<img src="images/red_chair.gif" id='
+		                        + draggedElement
+		                        + ' height="18" width="20" class="dragable dragged" />');
+		$("#" + moveid).html(' ');
+		if (moveid.indexOf("emp") == -1) {
+		    $("#" + moveid)
+		            .html(
+		                    '<img src="images/green_chair.jpeg" height="18" width="25" />');
+		    $("#" + moveid).addClass('droppable ui-droppable dropped');
+		}
+		dragdropevent();
+	}
     }    
 }
 function reLoadMainBuilding() {
