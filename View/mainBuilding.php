@@ -145,7 +145,7 @@ function closeFancyBox() {
 	//$("#commentError").replace("");
     $changeComment = $("#changeComment").val();
     $.fancybox.close();
-    
+    $("#commentError").html("");
     // alert(draggedElement);
     // alert(moveid);
     // alert(thisid+'1');
@@ -162,6 +162,7 @@ function closeFancyBox() {
         		reLoadMainBuilding();
         		$("#commentError").html("");
     			}else {
+    			$("#commentError").html("");
     			$("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
@@ -187,6 +188,7 @@ function closeFancyBox() {
     			$("#commentError").html("");
     			}else {
     				//change chair icon to green here
+    			$("#commentError").html("");
                 $("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
