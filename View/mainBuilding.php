@@ -270,17 +270,17 @@ function startTooltip(){
     			});
     			return displayData;
 			}
-		},
-		position: {
-			my: "center-25 bottom-20",
-			at: "center top",
-			using: function( position, feedback ) {
-				$( this ).css( position );
-				$( "<div>" )
-					.addClass( "arrow" )
-					.appendTo( this );
-			}
-		}
+ 		},
+// 		position: {
+// 			my: "center-25 bottom-20",
+// 			at: "center top",
+// 			using: function( position, feedback ) {
+// 				$( this ).css( position );
+// 				$( "<div>" )
+// 					.addClass( "arrow" )
+// 					.appendTo( this );
+// 			}
+// 		}
 	})
 	.off( "mouseover" )
   	.on( "click", function(){
@@ -301,16 +301,16 @@ function startTooltip(){
     		",<br>"+"Row Number: "+$rowNumber+
     	    ",<br>"+"Computer Number: "+(parseInt($computer)+1);
 		},
-		position: {
-			my: "center-25 bottom-20",
-			at: "center top",
-			using: function( position, feedback ) {
-				$( this ).css( position );
-				$( "<div>" )
-					.addClass( "arrow" )
-					.appendTo( this );
-			}
-		}
+// 		position: {
+//		my: "center-25 bottom-20",
+//		at: "center top",
+//		using: function( position, feedback ) {
+//			$( this ).css( position );
+//			$( "<div>" )
+//				.addClass( "arrow" )
+//				.appendTo( this );
+//		}
+//	}
 	});
     
 }
