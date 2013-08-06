@@ -261,7 +261,7 @@ class MainController extends Acontroller
 	    $empObj = $this->loadModel('Employee');
 	    $empObj->setId($_POST['eid']);
 	    $result = $empObj->getEmployeeProfile();
-	    echo json_encode($result[0]);
+	    echo json_encode($result);
 	}
 	
 	/*
@@ -390,6 +390,12 @@ class MainController extends Acontroller
 		$roomObj->updateComp($_POST['rowId'],$_POST['computer']);
 		$this->fetchRoomData();
 		echo "Computer Updated";
+	}
+	public function picUpload()
+	{
+		$empObj=$this->loadModel('Employee');
+		$empObj->upImage();
+		echo "Pic Uploaded";
 	}
 }
 

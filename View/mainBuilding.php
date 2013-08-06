@@ -271,7 +271,9 @@ function startTooltip(){
     				    $(".positionTooltip").tooltip("close");
     					//alert(data);
     				    displayData = '';
-    					//$.each(data,function(i,value){
+    					//$.each(data,function(i,value){    				    
+	                        displayData += "<img src=\""+data['uri']+"\" alt =\"User Image\" width='100px'/>";
+	                        displayData += "<br/>";
     				        displayData += "<label>Name : </label>";
         					displayData += data['name'];
         					displayData += "<br/>";

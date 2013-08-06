@@ -56,7 +56,24 @@ class Employee extends DBConnection
 	    $data['conditions'] = array(array('id ='.$this->getId().' AND status="1"'), true);
 	    $result = $this->_db->select($data);
 
-	    $myResult = $result->fetchAll(PDO::FETCH_ASSOC);
+	    $myResult = array();
+	    while ($row = $result->fetch(PDO::FETCH_ASSOC))
+	    {
+	    	$myResult[]=$row;
+	    	$myResult['uri']='data:image/png;base64,' .base64_encode ( $row['user_image']);
+	    }
 	    return  $myResult;	    
+	}
+	public function upImage()
+	{
+		
+		$tmpName="./assets/images/User.png";
+		$fp = fopen($tmpName, 'r');
+		$imageData = fread($fp, filesize($tmpName));
+		
+		fclose($fp);
+		$data = array ('user_image' => $imageData );
+		$where = array ('status' => '1');
+		$result = $this->_db->update ( 'employee', $data, $where );
 	}
 }

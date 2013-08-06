@@ -116,7 +116,7 @@ function showLog()
                 <div id="sidebar" class="roundedBorder">
                     <div id="leftbar">
                         <div id="leftsubbar">
-                        
+                        <a href='index.php?controller=MainController&method=picUpload'>User Pic</a>  
                             <h3><?php echo $lang->EMPLOYEES?></h3>
                             <h3><?php echo $lang->SEARCHEMPLOYEE?></h3>
 							
