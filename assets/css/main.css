@@ -412,6 +412,11 @@ input[type=file] {
 }
 
 .googol {
+	background-image :url("../images/googol.jpg") ;
+	background-size:100% 100%;
+	background-repeat: no-repeat;
+	
+/* 	background: url('../images/googol.jpg'); */
 	box-shadow: inset 9px 10px 75px #DEB887;
 	width: 19%;
 	border: 1px solid black;
@@ -500,6 +505,8 @@ input[type=file] {
 }
 
 .aer {
+		background-image :url("../images/acer_aqua.jpg") ;
+	background-size:100% 100%;
 	border: 1px solid black;
 	box-shadow: inset 9px 10px 40px #FFF8DC;
 	float: left;
@@ -507,7 +514,22 @@ input[type=file] {
 	width: 54%;
 }
 
+#meeting
+{
+	background-image :url("../images/meeting.jpeg") ;
+	background-size:100% 100%;
+	
+}
+#meeting1
+{
+	background-image :url("../images/meeting.jpeg") ;
+	background-size:100% 100%;
+	
+}
+
 .aqua {
+		background-image :url("../images/acer_aqua.jpg") ;
+	background-size:100% 100%;
 	border: 1px solid black;
 	float: left;
 	height: 39%;
@@ -515,6 +537,8 @@ input[type=file] {
 }
 
 .conference {
+	background-image :url("../images/conference.jpg") ;
+	background-size:100% 100%;
 	border: 1px solid black;
 	float: left;
 	height: 44%;

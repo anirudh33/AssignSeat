@@ -376,11 +376,11 @@ function startTooltip(){
                 </div>
             <div class="aer roundedBorder">
                 <div class="roomTitle"><?php echo $lang->AER;?></div>
-                <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[8],$_SESSION['roomData'][8]); ?></div>
+                <div class="roomContent"><?php //echo createRow($seatAllocatedInfoData[8],$_SESSION['roomData'][8]); ?></div>
 			</div>
             <div class="aqua roundedBorder">
 			    <div class="roomTitle"><?php echo $lang->AQUA;?></div>
-			    <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[9],$_SESSION['roomData'][9]); ?></div>
+			    <div class="roomContent"><?php //echo createRow($seatAllocatedInfoData[9],$_SESSION['roomData'][9]); ?></div>
 		    </div>
             </div>
         </div>
@@ -402,7 +402,7 @@ function startTooltip(){
         </div>
         <div class="conference roundedBorder">
             <div class="roomTitle"><?php echo $lang->CONFERENCE;?></div>
-            <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[10],$_SESSION['roomData'][10]); ?></div>
+            <div class="roomContent"><?php //echo createRow($seatAllocatedInfoData[10],$_SESSION['roomData'][10]); ?></div>
         </div>
     </div>
     <div class="div3 roundedBorder">
@@ -450,9 +450,9 @@ function startTooltip(){
             <div class="roomTitle" style="padding-top: 206px;"><?php echo $lang->LOBBY;?></div>
         </div>
         <div class="roundedBorder" style="float: right; width: 75%; border: 1px solid black">
-            <div class="room2 roundedBorder">
-            <div class="roomTitle"><?php echo $lang->MEETING;?></div>
-            <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[11],$_SESSION['roomData'][11]); ?></div>
+            <div class="room2 roundedBorder" id="meeting">
+            <div class="roomTitle" ><?php echo $lang->MEETING;?></div>
+            <div class="roomContent"><?php //echo createRow($seatAllocatedInfoData[11],$_SESSION['roomData'][11]); ?></div>
             </div>
             <div class="room2 roundedBorder">
             <div class="roomTitle"><?php echo $lang->ROOM;?></div>
@@ -462,9 +462,9 @@ function startTooltip(){
             <div class="roomTitle"><?php echo $lang->SACHINKHURANA;?></div>
             <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[13],$_SESSION['roomData'][13]); ?></div>
             </div>
-            <div class="room2 roundedBorder">
-            <div class="roomTitle"><?php echo $lang->MEETING;?></div>
-            <div class="roomContent"><?php echo createRow($seatAllocatedInfoData[14],$_SESSION['roomData'][14]); ?></div>
+            <div class="room2 roundedBorder" id="meeting1">
+            <div class="roomTitle" ><?php echo $lang->MEETING;?></div>
+            <div class="roomContent"><?php //echo createRow($seatAllocatedInfoData[14],$_SESSION['roomData'][14]); ?></div>
             </div>
         </div>
         <div style = "float : right; width : 75%; height : 88%">
