@@ -253,3 +253,73 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
+Tue - 06/Aug/2013 - 10:32:58 User " ADMIN " moved the employee "AJAY KUMAR  SHUKLA " From room " googol ", Row number "1 ", From Computer Id "0" To seat number "17" in room "Pranabdas"" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:34:03 User " ADMIN " Assigned the seat number "47" in room "room-2" of employee "ADIL RAUF KHAN" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:34:17 User " ADMIN " Assigned the seat number "47" in room "room-2" of employee "ABHISHEK  ARORA" at row 1 , computer "3"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:34:36 User " ADMIN " Assigned the seat number "46" in room "room-1" of employee "ABHIK GHOSAL" at row 1 , computer "4"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:36:41 User " ADMIN " Assigned the seat number "26" in room "conference" of employee "ANIRUDH PANDITA" at row 1 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:36:59 User " ADMIN " Assigned the seat number "33" in room "cabin-5" of employee "ANSHUL  SRIVASTAVA" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:37:43 User " USER3 " Logged into the system  
+From the IP 127.0.0.1 and browser = Google Chrome 
+Browser version = 26.0.1410., Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 10:38:13 User " USER3 " Logged into the system  
+From the IP 127.0.0.1 and browser = Google Chrome 
+Browser version = 26.0.1410., Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 11:37:12 User " ADMIN " moved the employee "ABHISHEK KUMAR " From room " cabin-2 ", Row number "4 ", From Computer Id "1" To seat number "52" in room "sirijan2"" at row 4 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 11:37:26 User " ADMIN " moved the employee "ABHISHEK KUMAR " From room " cabin-2 ", Row number "4 ", From Computer Id "1" To seat number "51" in room "sirijan2"" at row 3 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 11:48:16 User " ADMIN " moved the employee "ABHISHEK KUMAR " From room " cabin-2 ", Row number "4 ", From Computer Id "2" To seat number "51" in room "sirijan2"" at row 3 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 11:54:06 User " ADMIN " delete the employee "ABHISHEK  ARORA" from room "room-2" from row "1 " , computer "3"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 11:54:22 User " ADMIN " delete the employee "ABHIK GHOSAL" from room "room-1" from row "1 " , computer "4"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Tue - 06/Aug/2013 - 11:54:45 User " ADMIN " moved the employee "ADIL RAUF KHAN " From room " cabin-3 ", Row number "5 ", From Computer Id "0" To seat number "47" in room "room-2"" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
