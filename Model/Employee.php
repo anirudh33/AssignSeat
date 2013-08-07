@@ -105,10 +105,10 @@ class Employee extends DBConnection
 	    $myResult = array();
 	    while ($row = $result->fetch(PDO::FETCH_ASSOC))
 	    {
-	    	$myResult[]=$row;
-	    	$myResult['uri']='data:image/png;base64,' .base64_encode ( $row['user_image']);
+	    	$myResult = $row;
+	    	$myResult['uri'] = 'data:image/png;base64,' .base64_encode ( $row['user_image']);
 	    }
-	    return  $myResult;	    
+	    return  $myResult;
 	}
 	public function upImage()
 	{

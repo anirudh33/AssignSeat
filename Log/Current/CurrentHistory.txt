@@ -608,3 +608,8 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 21.0, Os = Linux 
 ========================= 
 
+Wed - 07/Aug/2013 - 12:49:41 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+

@@ -274,8 +274,6 @@ function startTooltip(){
     					//$.each(data,function(i,value){    				    
 	                        displayData += "<img src=\""+data['uri']+"\" alt =\"User Image\" width='100px'/>";
 	                        displayData += "<br/>";
-    				        displayData += "<label>User Image:</label>";
-    				        displayData += "<img src=\""+data['user_image']+"\" alt =\"User Image\" />";
     				        displayData += "<label>Name : </label>";
         					displayData += data['name'];
         					displayData += "<br/>";
