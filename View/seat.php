@@ -8,12 +8,8 @@ function searchlocation(id)
     if($('img[id='+id+']').length > 0){
         $scrollId = $('img[id='+id+']').parent().attr("id");
         document.getElementById($scrollId).scrollIntoView();
-    	$('img[id='+id+']').hide(1000);
+        window.scrollBy(0, -50);
     	$('img[id='+id+']').trigger("click");
-    	$('img[id='+id+']').show(1000);	
-        $(window).mouseover(function() {
-            $('img[id='+id+']').tooltip("close");
-         });
     }
 }
 

@@ -613,3 +613,78 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 21.0, Os = Linux 
 ========================= 
 
+Wed - 07/Aug/2013 - 14:59:55 User " ADMIN " moved the employee "ABHISHEK  ARORA " From room " aqua ", Row number "9 ", From Computer Id "2" To seat number "23" in room "jugrajsinghbedi"" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 15:13:10 User " ADMIN " moved the employee "AJAY KUMAR  SHUKLA " From room " Aer ", Row number "8 ", From Computer Id "0" To seat number "36" in room "cabin-8"" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 15:13:47 User " ADMIN " moved the employee "AJAY KUMAR  SHUKLA " From room " Aer ", Row number "8 ", From Computer Id "0" To seat number "18" in room "arindersinghsuri"" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 16:36:42 User " ADMIN " moved the employee "AMIT  RANJAN " From room " cabin-5 ", Row number "1 ", From Computer Id "4" To seat number "19" in room "sonaliminocha"" at row 1 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 16:52:07 User " ADMIN " moved the employee "AMOL  SALVI " From room " sourabh ", Row number "1 ", From Computer Id "1" To seat number "48" in room "sirijan3"" at row 1 , computer "8"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 17:36:40 User " ADMIN " Assigned the seat number "52" in room "sirijan2" of employee "VARUN  SHARMA" at row 4 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 17:54:07 User " ADMIN " moved the employee "ABHINAV PRAKASH  TIWARI " From room " cabin-3 ", Row number "5 ", From Computer Id "2" To seat number "51" in room "sirijan2"" at row 3 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 17:54:29 User " ADMIN " moved the employee "AMIYA MADHAB  MAJUMDAR " From room " sachinkhurana ", Row number "13 ", From Computer Id "1" To seat number "17" in room "Pranabdas"" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 17:55:07 User " ADMIN " moved the employee "AJAY KUMAR  SHUKLA " From room " Aer ", Row number "8 ", From Computer Id "0" To seat number "41" in room "cabin-13"" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 18:03:34 User " ADMIN " Assigned the seat number "6" in room "Lab-1" of employee "ANIL KUMAR" at row 6 , computer "4"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 18:20:36 User " ADMIN " moved the employee "ABBAS Y. DHULIAWALA " From room " Lab-1 ", Row number "2 ", From Computer Id "0" To seat number "49" in room "sirijan2"" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 18:24:31 User " ADMIN " moved the employee "VARUN  SHARMA " From room " cabin-6 ", Row number "1 ", From Computer Id "1" To seat number "4" in room "Lab-1"" at row 4 , computer "3"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 18:24:53 User " ADMIN " moved the employee "ADARSH KUMAR SRIVASTAVA " From room " cabin-4 ", Row number "6 ", From Computer Id "1" To seat number "1" in room "Lab-1"" at row 1 , computer "8"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 18:25:15 User " ADMIN " moved the employee "AMOL  SALVI " From room " sourabh ", Row number "1 ", From Computer Id "8" To seat number "38" in room "cabin-10"" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+
+Wed - 07/Aug/2013 - 18:30:27 User " ADMIN " moved the employee "AMIYA MADHAB  MAJUMDAR " From room " sachinkhurana ", Row number "13 ", From Computer Id "0" To seat number "21" in room "accounts"" at row 1 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 21.0, Os = Linux 
+========================= 
+

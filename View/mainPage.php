@@ -15,7 +15,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><?php echo $lang->ASSIGNSEAT?></title>
 <link rel="stylesheet"
-    href="<?php echo SITE_URL;?>assets/css/jqueryui/jquery.ui.tooltip.css" />
+    href="<?php echo SITE_URL;?>assets/css/tooltipster.css" />
 <link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css"
     media="screen" />
 <link href="<?php echo SITE_URL;?>assets/css/style.css" rel="stylesheet"
@@ -36,7 +36,7 @@
 <script
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
 <script
-    src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.tooltip.min.js"></script>
+    src="<?php echo SITE_URL;?>/assets/js/jquery.tooltipster.min.js"></script>
 <script
     src="<?php echo SITE_URL;?>/assets/js/contextmenu/jquery.contextMenu.js"></script>    
 <script type="text/javascript"

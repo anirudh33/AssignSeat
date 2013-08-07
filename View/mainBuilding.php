@@ -42,7 +42,7 @@ function createRow($allocatedData, $roomData) {
             if ((isset ( $tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] )) && ($tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] == $i)) {
                 $displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip seatDiv"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
             } else {
-                $displayData .= '<div class="cols droppable dropped positionTooltip seatDiv" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_seat.jpeg" class="custom_tooltip context-menu-sub" /></div>';
+                $displayData .= '<div class="cols droppable dropped positionTooltip seatDiv" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
             }
         }
         $displayData .= '<br style="clear:both">';
@@ -54,8 +54,11 @@ function createRow($allocatedData, $roomData) {
 <script>
 $changeComment = '';
 $tooltipFlag = 1;
+draggedElement = "";
+moveid = "";
+thisid= "";
 var didConfirm = false;
-/* Updated By Amber Sharma */
+/* Updated By Amber Sharma and Prateek Saini */
 function dragdropevent() {
     /**
      * we set the dragable class to be dragable, we add the containment which
@@ -64,7 +67,10 @@ function dragdropevent() {
      *
      */
     $(".dragable").draggable({
-        revert : "invalid",
+        revert : true,
+        helper: "clone",
+        cursor: "move", 
+        cursorAt: { top: 3, left: 3 },
         start : function(event, ui) {
             draggedElement = this.id;
             moveid = $(this).parent('div').attr('id');
@@ -107,7 +113,7 @@ function dragdropevent() {
             // alert('haan');
             // }
 		//alert(thisid);
-            $(".positionTooltip").tooltip("close");
+           // $(".positionTooltip").tooltip("close");
             $("#changeCommentLink").fancybox({
                 closeBtn : false,
                 afterLoad : function() {
@@ -224,7 +230,8 @@ function closeFancyBox() {
 		}
 		dragdropevent();
 	}
-    }    
+    }
+    clearVariables();
 }
 function reLoadMainBuilding() {
 
@@ -251,114 +258,144 @@ function reLoadMainBuilding() {
         }
         });*/
 }
-/* Updated By Amber Sharma */
-</script>
-<script>
-function startTooltip(){
-	$( ".custom_tooltip" ).tooltip({
-		items: "img",
-		content : function() {
-			displayData = "";
-			$id = $(this).attr("id");
-			if($(this).attr("id") > 0 && $(this).attr("id") != '') {
-    			$.ajax({
-    				async : false,
-    				url : 'index.php?controller=MainController&method=fetchUserProfile',
-    				type :'post',
-    				data : 'eid='+$id,
-    				dataType : "json",
-    				success : function (data) {
-    				    $(".positionTooltip").tooltip("close");
-    					//alert(data);
-    				    displayData = '';
-    					//$.each(data,function(i,value){    				    
-	                        displayData += "<img src=\""+data['uri']+"\" alt =\"User Image\" width='100px'/>";
-	                        displayData += "<br/>";
-    				        displayData += "<label>Name : </label>";
-        					displayData += data['name'];
-        					displayData += "<br/>";
-        					displayData += "<label>Designation : </label>";
-        					displayData += data['designation'];
-        					displayData += "<br/>";
-        					displayData += "<label>Details : </label>";
-        					displayData += data['details'];
-//        				alert(i+"_"+value);	
-        				//	});
-    					//displayData = data;
-    				}
-    			});
-    			return displayData;
-			}
- 		},
-// 		position: {
-// 			my: "center-25 bottom-20",
-// 			at: "center top",
-// 			using: function( position, feedback ) {
-// 				$( this ).css( position );
-// 				$( "<div>" )
-// 					.addClass( "arrow" )
-// 					.appendTo( this );
-// 			}
-// 		}
-	})
-	.off( "mouseover" )
-  	.on( "click", function(){
-  	  	if($tooltipFlag == 1){
-    	      $( this ).tooltip( "open" );
-  	  	}
-      return false;
-    })
-    .attr( "title", "" ).css({ cursor: "pointer" });
+/* Updated By Amber Sharma and Prateek Saini */
 
-	$( ".positionTooltip" ).tooltip({
-		items: "div",
-		content : function() {
-			displayData = "";
-			$id = $(this).attr("id");
-			$roomName = $(this).parent().prev().html();
+function startTooltip(){
+
+    /*
+    @author Prateek Saini
+    This tooltip will display the user details from database
+    after user click on the allocated Seat.
+    */
+    $('.custom_tooltip').tooltipster({
+        timer: 6000,
+        trigger: 'click',
+        content: 'Loading...',
+        functionBefore: function(origin, continueTooltip) {
+        
+           // we'll make this function asynchronous and allow the tooltip to go ahead and show the loading notification while fetching our data
+           continueTooltip();
+             
+           // next, we want to check if our data has already been cached
+           if (origin.data('ajax') !== 'cached') {
+    			displayData = "";
+    			$id = $(origin).attr("id");
+    			if($id > 0 && $id != '') {
+        			$.ajax({
+        				async : false,
+        				url : 'index.php?controller=MainController&method=fetchUserProfile',
+        				type :'post',
+        				data : 'eid='+$id,
+        				dataType : "json",
+        				success : function (data) {
+        				    //$(".positionTooltip").tooltip("close");
+        					//alert(data);
+        				    displayData = '';
+        					//$.each(data,function(i,value){    				    
+    	                        displayData += "<img src=\""+data['uri']+"\" alt =\"User Image\" width='100px'/>";
+    	                        displayData += "<br/>";
+        				        displayData += "<label>Name : </label>";
+            					displayData += data['name'];
+            					displayData += "<br/>";
+            					displayData += "<label>Designation : </label>";
+            					displayData += data['designation'];
+            					displayData += "<br/>";
+            					displayData += "<label>Details : </label>";
+            					displayData += data['details'];
+//            				alert(i+"_"+value);	
+            				//	});
+        					//displayData = data;
+        				}
+        			});
+        			origin.tooltipster('update', displayData).data('ajax', 'cached');
+    			}
+           }
+        }
+     })
+     .on( "mouseover", function(){
+    	  	if($tooltipFlag == 1){
+    	  	      $( this ).tooltipster( "hide" );
+    		  	}
+    	    return false;
+	  })
+	  .on( "drag", function(){
+	      //alert("dragging");
+	      $( this ).tooltipster( "hide" );
+    	    //return false;
+	  })
+     .attr( "title", "" ).css({ cursor: "pointer" });
+
+    /* 
+    @author Prateek Saini
+    This tooltip will display the Room name,
+    Row Number and Column Number for any Seat.
+     */
+    
+    $('.positionTooltip').tooltipster({
+        delay: 300,
+        timer: 6000,
+        content: 'Loading...',
+        functionBefore: function(origin, continueTooltip) {
+        
+           // we'll make this function asynchronous and allow the tooltip to go ahead and show the loading notification while fetching our data
+           continueTooltip();             
+           // next, we want to check if our data has already been cached
+  			displayData = "";
+			$id = $(origin).attr("id");
+			$roomName = $(origin).parent().prev().html();
 			$rowNumber = $id.substring($id.indexOf("_")+1,$id.lastIndexOf("_"));
 			$computer = $id.substring($id.lastIndexOf("_")+1);
-    		return "Room Name: "+$roomName+
+			displayData = "Room Name: "+$roomName+
     		",<br>"+"Row Number: "+$rowNumber+
     	    ",<br>"+"Computer Number: "+(parseInt($computer)+1);
-		},
-// 		position: {
-//		my: "center-25 bottom-20",
-//		at: "center top",
-//		using: function( position, feedback ) {
-//			$( this ).css( position );
-//			$( "<div>" )
-//				.addClass( "arrow" )
-//				.appendTo( this );
-//		}
-//	}
-	});
-    
+    	    
+    		origin.tooltipster('update', displayData);
+        }
+     })
+     .on( "drag", function(){
+	  })
+     .attr( "title", "" ).css({ cursor: "pointer" });
 }
-$elementDrag = "";
-draggedElement = "";
-moveid = "";
-thisid= "";
+
+function clearVariables()
+{
+    draggedElement = "";
+    moveid = "";
+    thisid= "";
+}
+
+
 function startContextMenu() {
-	$(function(){
+
 	    $.contextMenu({
 	        selector: '.context-menu-sub', 
 	        callback: function(key, options) {
 
-		        if(key == "cut") {
-			        //alert($(this).attr("id"));
-			        if($(this).attr("id") > 0 ) {	
-			            draggedElement = $(this).attr("id");
-			            moveid = $(this).parent('div').attr('id');
-			        }
-		        }
-		        if(key == "paste") {
-			        //alert($(this).attr("id"));
-			        //if($(this).attr("id") > 0 ) {
-			        	//$(this).parent().trigger("drop");
-		        	thisid = $(this).parent().attr("id");
-// 			        	$(this).parent().droppable($elementDrag);
-			        	$(".positionTooltip").tooltip("close");
+		        switch(key) 
+		        {
+		        case "pick" : 
+			        {
+    		            clearVariables();
+    			        //alert($(this).attr("id"));
+    			        if($(this).attr("id") > 0 ) {	
+    			            draggedElement = $(this).attr("id");
+    			            moveid = $(this).parent('div').attr('id');
+    			        }
+    			        else {
+    				        alert("No Employee is allocated to this seat");
+    			        }
+		            }
+			        break;
+		        case "drop" : 
+		        {
+		            if($(this).attr("id") > 0 ) {
+		                alert("Seat is already allocated");
+		                return;
+		            }
+			        if(draggedElement != "" && moveid != ""  ) {
+				        
+			            thisid = $(this).parent().attr("id");
+			            
 			            $("#changeCommentLink").fancybox({
 			                closeBtn : false,
 			                afterLoad : function() {
@@ -370,26 +407,38 @@ function startContextMenu() {
 			                helpers : {
 			                    overlay : {
 			                        closeClick : false
-			                    }
+		                    }
 			                // prevents closing when clicking OUTSIDE
 			                // fancybox
 			                }
 			            });
-			    		$("#changeCommentLink").trigger("click"); 
-			        //}
+			    		$("#changeCommentLink").trigger("click");
+			        }
+			        else {
+			            if($(this).attr("id") > 0 ) {
+			                alert("Seat is already allocated");
+			                return;
+			            }
+				        alert("No Employee is Selected");
+			        }
+	            }
+		        break;
+		        case 'history' :
+		        {
+			        alert("No code is written!!! Work in progress :-)");
+		        }
 		        }
 // 	            var m = "clicked: " + key;
 // 	            window.console && console.log(m) || alert(m); 
 	        },
 	        items: {
-	            "paste": {"name": "Paste", "icon": "paste"},
-	            "cut": {"name": "Cut", "icon": "cut"},
+	            "drop": {"name": "Drop", "icon": "paste"},
+	            "pick": {"name": "Pick", "icon": "cut"},
 	            "sep1": "---------",
-	            "quit": {"name": "Quit", "icon": "quit"},
+	            "history": {"name": "History", "icon": "quit"},
 	            "sep2": "---------",
 	        }
 	    });
-	});
 }
 </script>
 <style>

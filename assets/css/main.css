@@ -625,8 +625,8 @@ input[type=file] {
 	font-weight: bold;
 /* 	width: 20px; */
 /* 	height: 15px; */
-	float: left;
-	margin:6% 25% 6% 25%;
+/* 	float: left; */
+/* 	margin:6% 25% 6% 25%; */
 	
 }
 .mouseFetch{
@@ -658,6 +658,9 @@ input[type=file] {
 .seatDiv {
     height: 21px;
     width: 40px;
+}
+.makeTopZero {
+    top : 0;
 }
 /************** END css for the building div **************/
 #result {
