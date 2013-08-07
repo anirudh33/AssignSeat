@@ -40,9 +40,9 @@ function createRow($allocatedData, $roomData) {
     foreach ( $roomData as $key => $value ) {
         for($i = 0; $i < $value ['computer']; $i ++) {
             if ((isset ( $tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] )) && ($tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] == $i)) {
-                $displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub" src="images/red_chair.gif" height=20 width=30 /></div>';
+                $displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip seatDiv"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
             } else {
-                $displayData .= '<div class="cols droppable dropped positionTooltip" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_chair.jpeg" class="custom_tooltip context-menu-sub" height="18" width="30" /></div>';
+                $displayData .= '<div class="cols droppable dropped positionTooltip seatDiv" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_seat.jpeg" class="custom_tooltip context-menu-sub" /></div>';
             }
         }
         $displayData .= '<br style="clear:both">';
@@ -212,14 +212,14 @@ function closeFancyBox() {
 		$('#' + thisid).droppable('disable')
 		$("#" + thisid)
 		        .html(
-		                '<img src="images/red_chair.gif" id='
+		                '<img src="images/green_chair11.png" id='
 		                        + draggedElement
-		                        + ' height="18" width="20" class="dragable dragged" />');
+		                        + ' height="16" width="16" class="dragable dragged" />');
 		$("#" + moveid).html(' ');
 		if (moveid.indexOf("emp") == -1) {
 		    $("#" + moveid)
 		            .html(
-		                    '<img src="images/green_chair.jpeg" height="18" width="25" />');
+		                    '<img src="images/green_seat.jpeg" />');
 		    $("#" + moveid).addClass('droppable ui-droppable dropped');
 		}
 		dragdropevent();
@@ -527,7 +527,7 @@ function startContextMenu() {
             <div class="roomContent"><?php //echo createRow($seatAllocatedInfoData[14],$_SESSION['roomData'][14]); ?></div>
             </div>
         </div>
-        <div style = "float : right; width : 75%; height : 88%">
+        <div style = "float : right; width : 75.4%; height : 88%">
             <div class="roundedBorder"
                 style="border: 1px solid black; float: right; height: 100%; width: 11%;">
                 <div class="cabin roundedBorder">
