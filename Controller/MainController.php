@@ -183,8 +183,20 @@ class MainController extends Acontroller
 		
 		}
 	}
-	
-	
+	/*@author: Avni jain*/
+	public function isAssignedSeat()
+	{
+		//echo $_REQUEST['employee'];
+		$seatObj = $this->loadModel('SeatEmployee');
+		$info['empid']=$_REQUEST['employee'];
+		$isAssigned=$seatObj->checkEmpSeat($info['empid']);
+		if (empty ( $isAssigned )) {
+			echo "1"; 
+			}
+			else {
+			echo "2";
+			}
+	}
 	public function deleteSeat()
 	{
 		

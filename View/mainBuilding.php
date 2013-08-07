@@ -130,10 +130,50 @@ function dragdropevent() {
                 // fancybox
                 }
             });
-           	
-	didConfirm = confirm("Are you sure?");
+    if (thisid == 'trash') {       	
+	didConfirm = confirm("Are you sure you want to delete??");
+	}
+	else {
+	$.ajax({
+        url : 'index.php?controller=MainController&method=isAssignedSeat',
+        type : 'post',
+        dataType : 'html',
+		async : false,
+		data: { employee : draggedElement },
+		
+        success : function(data){
+		//alert(data);
+	   if(data.trim()=="1") {
+			didConfirm = confirm("Are you sure you want to allocate");
+        	}
+    			
+    		else {
+    				//change chair icon to green here
+    		didConfirm = confirm("Are you sure u want to reallocate");
+    			}
+            }
+      
+        });
+	/*alert(draggedElement);
+	 $.post('index.php?controller=MainController&method=isAssignedSeat', {
+            employee : draggedElement
+			
+        }, function(data, status) {
+		//alert(data);
+        	if(data.trim()=="1") {
+			didConfirm = confirm("Are you sure u wann allocate");
+        	}
+    			
+    		else {
+    				//change chair icon to green here
+    		didConfirm = confirm("Are you sure u wann reallocate");
+    			}
+             //window.location.href = 'index.php';
+        });*/
+	}
 	$tooltipFlag = 0;
-       	if (didConfirm == true) 
+	// alert(didConfirm);
+     if (didConfirm == true) 
 	{	
 		$("#changeCommentLink").trigger("click"); 
 	}
@@ -141,8 +181,6 @@ function dragdropevent() {
 	{
 		reLoadMainBuilding();
 	}
-	
-        
 	
         }
     });
