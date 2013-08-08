@@ -272,7 +272,7 @@ function closeFancyBox() {
 		dragdropevent();
 	}
     }
-    clearVariables();
+   // clearVariables();
 }
 function reLoadMainBuilding() {
 

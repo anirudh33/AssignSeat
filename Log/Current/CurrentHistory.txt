@@ -673,3 +673,78 @@ From the IP 192.168.10.37 and browser = Opera
 Browser version = 9.80, Os = Linux 
 ========================= 
 
+Thu - 08/Aug/2013 - 13:05:08 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:05:56 User " ADMIN " moved the employee "AMARJEET KUMAR " From room " cabin-3 ", Row number "5 ", From Computer Id "6" To seat number "7" in room "Lab-1"" at row 7 , computer "4"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:06:40 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:06:52 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:06:55 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:07:25 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:08:54 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:09:55 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:09:57 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:11:52 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:30:19 User " ADMIN " Assigned the seat number "1" in room "Lab-1" of employee "ADARSH KUMAR SRIVASTAVA" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:56:52 User " ADMIN " moved the employee "ABBAS Y. DHULIAWALA " From room " cabin-1 ", Row number "3 ", From Computer Id "2" To seat number "13" in room "Lab-1"" at row 13 , computer "5"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:57:42 User " ADMIN " moved the employee "AMARJEET KUMAR " From room " cabin-3 ", Row number "5 ", From Computer Id "4" To seat number "13" in room "Lab-1"" at row 13 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:58:04 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Thu - 08/Aug/2013 - 13:58:07 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
