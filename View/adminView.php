@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/adminView.css" />
 
-<div id="adminHeader"></div>
+<div id="adminHeader"> <span id='adminMenu'><a href="index.php">Home</a></span></div>
 <div id='leftAdminMenu'>
 <h3><a href="#" onclick="uploadcsv()">Upload CSV File</a></h3>
  <h3>Employees</h3>
@@ -69,6 +69,14 @@ function uploadcsv() {
 
 
 <style>
+#adminMenu {
+	float:left;
+	margin-top: 40px;	
+}
+#adminMenu a{
+	color:black;
+	margin: 24px;
+}
 #newRowEntry {
 	margin: 2%;
 }

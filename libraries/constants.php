@@ -2,7 +2,7 @@
 /*
  * Creation Log File Name - contstants.php Description - all constants to be used Version - 1.0 Created by - Anirudh Pandita Created on - April 15, 2013 *****************************************************************
  */
-define ( 'SITE_URL', 'http://localhost/AssignSeat/trunk/' );
+define ( 'SITE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/AssignSeat/trunk/' );
 
 /*
  * Absolute directory path like /var/www/ulearn//branches/development/

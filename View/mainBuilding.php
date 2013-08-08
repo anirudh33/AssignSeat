@@ -481,13 +481,13 @@ function startContextMenu() {
 </script>
 <style>
 .rotatediv {
-/*     width: 230px; */
+     width: 230px; 
 /*     height: 168px; */
 
-	/* Rotate div */
-	/*transform:rotate(90deg);*/
-	/*-ms-transform:rotate(90deg);*/ /* IE 9 */
-	/*-webkit-transform:rotate(90deg);*/ /* Safari and Chrome */
+	padding : 20px;
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); /* IE 9 */
+	-webkit-transform:rotate(90deg);/* Safari and Chrome */
 }
 </style>
 <!-- Updated By Prateek Saini -->
@@ -500,7 +500,7 @@ function startContextMenu() {
                 </div>
                 <div class="srijjan_2 roundedBorder">
                     <div class="roomTitle">Srijan 2</div>
-                    <div class="roomContent">
+                    <div class="roomContent rotatediv">
                     <?php echo createRow($seatAllocatedInfoData[7],$_SESSION['roomData'][7]); ?>
                     </div>
                 </div>

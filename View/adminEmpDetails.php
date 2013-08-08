@@ -10,30 +10,30 @@
 		<table>
 			<tr>
 				<td>Name :</td>
-				<td><input type="text" name='name' value="<?php echo isset($data[0]['name'])?$data[0]['name']:''?>"  class='empData'/></td>
+				<td><input type="text" name='name' value="<?php echo isset($data['name'])?$data['name']:''?>"  class='empData'/></td>
 			</tr>	
 			<tr>
 				<td>Designation :</td>
-				<td><input type="text" name='designation' value='<?php echo isset($data[0]['designation'])?$data[0]['designation']:'' ?>'  class='empData'/></td>
+				<td><input type="text" name='designation' value='<?php echo isset($data['designation'])?$data['designation']:'' ?>'  class='empData'/></td>
 			</tr>	
 			<tr>
 				<td>Department :</td>
-				<td><input type="text" name='department' value='<?php echo isset($data[0]['department'])?$data[0]['department']:'' ?>'  class='empData'/></td>
+				<td><input type="text" name='department' value='<?php echo isset($data['department'])?$data['department']:'' ?>'  class='empData'/></td>
 			</tr>
 			<tr>
 				<td>Details :</td>
-				<td><textarea  name='details' class='empData' style="width:100%; height: 140%; margin-top: 8%" ><?php echo isset($data[0]['details'])?$data[0]['details']:'' ?> </textarea></td>
+				<td><textarea  name='details' class='empData' style="width:100%; height: 140%; margin-top: 8%" ><?php echo isset($data['details'])?$data['details']:'' ?> </textarea></td>
 			</tr>					
 		</table>
 	</form>
 	</div>
 	<div id="empImageDetails">
-		<?php if(isset($data[0]['user_image'])) if($data[0]['user_image']== NULL ) { ?>
+		<?php if(isset($data['user_image'])) if($data['user_image']== NULL ) { ?>
 		<img alt="User Image" src="assets/images/human.jpeg" />
 		<?php }
 		else {?>
 		<!-- 		code here -->
-		<img alt="User Image" src="data:image/png;base64,<?php echo base64_encode( $data[0]['user_image']);?>" width='250px'>
+		<img alt="User Image" src="data:image/png;base64,<?php echo base64_encode( $data['user_image']);?>" width='250px'>
 		<?php }?>
 		<form>
 <!-- 		<input id="file_upload" name="file_upload" type="file" /> -->
