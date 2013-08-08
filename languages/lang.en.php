@@ -83,7 +83,8 @@ $langArr = array (
         'CONATCTUS' => "Contact Us", 
         'HELP' => "Help",
         'SHOWLOG' => 'Log',
-        'MAINLAB' => "Main Lab",        
+        'MAINLAB' => "Main Lab",
+		'ENABLINGMANAGER' => "E M",
         'LOGOUT' => "Log Out", 
         'LOGIN' => "Login" );
 ?>

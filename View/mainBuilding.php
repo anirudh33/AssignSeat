@@ -518,11 +518,9 @@ function startContextMenu() {
 			<img alt="" src="images/chess.jpeg"
 				style="height: 20%; width: 100%; float: right; margin-top: 50%;">
 			<div
-				style="border: 1px solid black; height: 13%; margin-top: 550%; width: 90%;">
+				style="border: 1px solid black; height: 26%; margin-top: 643%; width: 90%; "><?php echo $lang->ENABLINGMANAGER;?>
 			</div>
-			<div
-				style="border: 1px solid black; height: 13%; margin-top: 10%; width: 90%;">
-			</div>
+			
 		</div>
 		<div class="room roundedBorder">
 			<div class="roomTitle"><?php echo $lang->ROOM;?></div>
