@@ -111,7 +111,8 @@ function getLocation()
 		<h3 class="customHeading"><?php echo $lang->CHANGEREASON?></h3>
 		<section>
 			<label><?php echo $lang->COMMENT?></label><br>
-			<textarea rows="10" cols="15" id="changeComment" style = "width : 100%" name="changeComment"></textarea>
+			<textarea rows="15" cols="45" id="changeComment" style = "width : 100%" name="changeComment"></textarea>
+			<div id = "commentCount" ></div>
 		</section>
 		<input type="button" id="commentSubmit" onClick="closeFancyBox()"
 			name="commentSubmit" value="<?php echo $lang->POSTIT?>" />

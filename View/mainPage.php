@@ -52,10 +52,13 @@ $(function(){
 $("#logout").click(function(){
 	$.post('index.php?controller=MainController&method=logout',function(data,status){
 				window.location.href = 'index.php';
-				});
-
-		
+				});		
 });
+ $("#changeComment").on("keyup",function(){
+	commentStr=$("#changeComment").val();
+
+    $("#commentCount").html('Word Count: '+commentStr.length);        
+    });
 });
 function showLog()
 {
