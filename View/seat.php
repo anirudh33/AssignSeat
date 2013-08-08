@@ -3,6 +3,7 @@
 <!-- Updated By Amber Sharma -->
 <script>
 
+
 function searchlocation(id)
 {
     if($('img[id='+id+']').length > 0){
@@ -119,3 +120,4 @@ function getLocation()
 </a>
 <div id="result"></div>
 <div id="pager"></div>
+

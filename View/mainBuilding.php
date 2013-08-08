@@ -1,3 +1,6 @@
+<style>
+-webkit-user-drag: auto;
+</style>
 <?php
 /*
  * @author Prateek Saini Below Code block will fetch all the allocated seats
@@ -726,3 +729,15 @@ function startContextMenu() {
 		</div>
 	</div>
 </div>
+<script>
+$( document ).ready(function() {
+
+//$(".dragable").addClass( "mouseFetch" );
+
+$(".dragable").addClass("test2 mouseFetch1");
+//alert("hello");
+  $(".test2").wrap('<span class="test1">');
+       //$(".cols").after('</span>');
+
+});
+</script>

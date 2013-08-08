@@ -8,7 +8,7 @@ body {
 	color: #111111;
 	font-family: Helvetica;
 	padding: 3px;
-	font-size: 12px
+	font-size: 12px;
 }
 
 input:not   ([type=checkbox]   ),textarea {
@@ -606,6 +606,8 @@ input[type=file] {
     border-top: 1px solid gray;	
 /* 	margin-left:4px; */
 /* 	margin-right:4px; */
+
+
 }
 
 /** style for droppable content **/
@@ -631,6 +633,16 @@ input[type=file] {
 }
 .mouseFetch{
 	position: absolute;
+}
+.test1{
+border:2px solid black;
+height:100px;
+width: 100px;
+position:relative;
+}
+.mouseFetch1{
+	position: absolute;
+left:50%;
 }
 /** style when an object is moving hover **/
 .hoverClass {
