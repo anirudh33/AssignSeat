@@ -474,17 +474,7 @@ function startContextMenu() {
 	    });
 }
 </script>
-<style>
-.rotatediv { 
-     width: 230px; 
-	/*     height: 168px; */
-	padding : 20px;
-	transform:rotate(90deg);
-	-ms-transform:rotate(90deg); /* IE 9 */
-	-webkit-transform:rotate(90deg);/* Safari and Chrome */
-	
-}
-</style>
+
 <!-- Updated By Prateek Saini -->
 <div class="mainContainer roundedBorder">
 	<div style="border: 1px solid black; height: 30%; width: 100%;">

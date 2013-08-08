@@ -430,7 +430,22 @@ input[type=file] {
 	height: 100%;
 	float: left;
 }
-
+.rotatediv { 
+    height: 218px;
+    margin-left: 124px;
+    margin-top: 11px;
+    padding: 26px;
+    transform: rotate(90deg);
+    width: 62%;
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); /* IE 9 */
+	-webkit-transform:rotate(90deg);/* Safari and Chrome */
+	
+}
+.rotatediv div{ 
+    height: 64px;
+    width: 41px;
+}
 .srijjan_2 {
 	box-shadow: inset 9px 10px 75px #FFF8DC; //
 	background-color: #FFF8DC;
