@@ -18,6 +18,7 @@ foreach ( $seatAllocatedInfo as $key => $value ) {
  * @author Prateek Saini This function will called for each room individually @arg1 Data allocated for the room @arg2 Room structure i.e. total rows and number of computer in them. Data is broken for ease of access
  */
 function createRow($allocatedData, $roomData) {
+	
 	$totalRows = count ( $roomData );
 	$tempAllocated = array ();
 	for($i = 0; $i < $totalRows; $i ++) {
@@ -45,7 +46,9 @@ function createRow($allocatedData, $roomData) {
 	unset ( $tempAllocated );
 	return $displayData;
 }
+//print_r($_SESSION['roomData'][37]);die;
 ?>
+
 <script>
 $changeComment = '';
 $tooltipFlag = 1;
@@ -518,7 +521,7 @@ function startContextMenu() {
 			<img alt="" src="images/chess.jpeg"
 				style="height: 20%; width: 100%; float: right; margin-top: 50%;">
 			<div
-				style="border: 1px solid black; height: 26%; margin-top: 643%; width: 90%; "><?php echo $lang->ENABLINGMANAGER;?>
+				style="border: 1px solid black; height: 26%; margin-top: 643%; width: 90%; "><?php echo $lang->ENABLINGMANAGER;?><?php echo createRow($seatAllocatedInfoData[36],$_SESSION['roomData'][36]); ?>
 			</div>
 			
 		</div>
