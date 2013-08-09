@@ -37,20 +37,23 @@
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.position.min.js"></script>
 <script
     src="<?php echo SITE_URL;?>/assets/js/jquery.tooltipster.min.js"></script>
-<script
-    src="<?php echo SITE_URL;?>/assets/js/contextmenu/jquery.contextMenu.js"></script>    
-<script type="text/javascript"
-    src="assets/js/fancybox/jquery.fancybox.js"></script>
+<script    src="<?php echo SITE_URL;?>/assets/js/contextmenu/jquery.contextMenu.js"></script>
+    
+<script type="text/javascript"  src="assets/js/fancybox/jquery.fancybox.js"></script>
+<script src="<?php echo SITE_URL;?>assets/js/RGraph.common.core.js" ></script>
+<script src="<?php echo SITE_URL;?>assets/js/RGraph.common.tooltips.js" ></script>
+<script src="<?php echo SITE_URL;?>assets/js/RGraph.common.dynamic.js" ></script>
+<script src="<?php echo SITE_URL;?>assets/js/RGraph.common.effects.js" ></script>
+<script src="<?php echo SITE_URL;?>assets/js/RGraph.pie.js" ></script>
+
 <script>
-
-
 $(function(){
 	getData();
 	startTooltip();// -- this will be enabled after seat drag testing
 	startContextMenu();
 
 	$("#roomFillDetails").fancybox({	    
-	    closeClick : true, // prevents closing when clicking INSIDE fancybox
+	    closeClick : false, // prevents closing when clicking INSIDE fancybox
         beforeLoad : function() {
             roomId=$("#hiddenRoomId").val();
             $.post('index.php?controller=MainController&method=roomGraph',{
@@ -60,7 +63,7 @@ $(function(){
         			{
         				location.reload();
         			}
-       			 $("#roomDetailDiv").html(data);
+       			$("#roomDetailDiv").html(data);
                     });
            
             return;

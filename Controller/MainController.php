@@ -479,7 +479,10 @@ class MainController extends Acontroller
 	*/
 	public function roomGraph()
 	{
-		$this->loadView('roomGraph');
+		$roomObj=$this->loadModel('Room');
+		$roomData['totalRow']=$roomObj->fetchRoomDetails($_POST['roomId']);
+		$roomData['seated']=$roomObj->getRoomSeatedDetails($_POST['roomId']);
+		$this->loadView('roomGraph',$roomData);
 	}
 }
 

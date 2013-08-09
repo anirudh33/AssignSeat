@@ -134,6 +134,27 @@ class Room extends RoomRow
    		$where = array ('id' => $rowId);
    		$result = $this->_db->update ( 'room_row', $data, $where );
    }
+   
+   public  function getRoomSeatedDetails($roomId)
+   {
+   	$data['columns']=array('room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
+   	$data['tables']='room';
+   	$data['joins']=array(array('table' => 'room_row',
+   			'type'  => 'left',
+   			'conditions' => array('room.id' => 'room_row.room_id','room_row.status' => 1)),
+   			array('table' => 'seat_employee',
+   			'type'  => 'inner',
+   			'conditions' => array('room_row.id' => 'seat_employee.sid')));
+   	
+   	$data['conditions']=array(array('room.id = '.$roomId.' AND room.status = "1" '),true);
+   	$result=$this->_db->select($data);
+   	$myResult=array();
+   	while ($row = $result->fetch(PDO::FETCH_ASSOC))
+   	{
+   		$myResult[]=$row;
+   	}
+   	return $myResult;
+   }
 	
 }
 //  $y=new Room();

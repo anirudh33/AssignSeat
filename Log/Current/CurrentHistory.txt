@@ -1208,3 +1208,48 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 14.0.1, Os = Linux 
 ========================= 
 
+Fri - 09/Aug/2013 - 22:26:35 User " ADMIN " Assigned the seat number "3" in room "Lab-1" of employee "ABHINAV PRAKASH  TIWARI" at row 3 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Fri - 09/Aug/2013 - 23:03:03 User " ADMIN " Assigned the seat number "2" in room "Lab-1" of employee "ABHIK GHOSAL" at row 2 , computer "5"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Fri - 09/Aug/2013 - 23:03:26 User " ADMIN " Assigned the seat number "30" in room "cabin-2" of employee "ABHISHEK  ARORA" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Fri - 09/Aug/2013 - 23:04:05 User " ADMIN " Assigned the seat number "20" in room "sourabh" of employee "AJAY KUMAR  SHUKLA" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Fri - 09/Aug/2013 - 23:52:45 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Sat - 10/Aug/2013 - 01:06:55 User " ADMIN " moved the employee "ABHINAV PRAKASH  TIWARI " From room " Lab-1 ", Row number "2 ", From Computer Id "2" To seat number "4" in room "Lab-1"" at row 4 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Sat - 10/Aug/2013 - 01:17:31 User " ADMIN " Assigned the seat number "21" in room "accounts" of employee "ABHISHEK KUMAR" at row 1 , computer "1"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Sat - 10/Aug/2013 - 01:17:56 User " ADMIN " Assigned the seat number "21" in room "accounts" of employee "ADARSH KUMAR SRIVASTAVA" at row 1 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
+Sat - 10/Aug/2013 - 01:18:51 User " ADMIN " Assigned the seat number "31" in room "cabin-3" of employee "ADIL RAUF KHAN" at row 1 , computer "0"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
