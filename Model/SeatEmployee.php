@@ -165,6 +165,9 @@ class SeatEmployee extends DBConnection {
      * @return true after assigning seat to an employee
      */
     public function assignSeat($assignInfo) {
+    	
+//     	print_r($assignInfo);
+//     	die;
         $this->setEid ( $assignInfo ['empid'] );
         $empName = $this->getEmployeeName ( $assignInfo ['empid'] );
         $isAssigned = $this->checkEmpSeat ( $assignInfo ['empid'] );
@@ -218,20 +221,6 @@ class SeatEmployee extends DBConnection {
                     'details' => $this->getDetails () );
             $where = array ('id' => $isAssigned [0] ['id'], 'status' => 1 );
             $result = $this->_db->update ( 'seat_employee', $data, $where );
-            // var_dump($result);die;
-            /*
-             * $data = array('status' => '0'); $where = array('id'
-             * =>$isAssigned[0]['id'], 'status'=>1); $result =
-             * $this->_db->update('seat_employee', $data, $where);
-             * var_dump($result);die; $data['tables'] = 'seat_employee';
-             * $insertValue = array('eid'=>$this->getEid(),
-             * /'sid'=>$this->getSid(), /'asignee'=>$this->getAsignee(),
-             * /'computer_id'=>$this->getComputer_id(),
-             * 'status'=>$this->getStatus(),
-             * 'updated_on'=>$this->getUpdated_on(),
-             * /'details'=>$this->getDetails() );
-             * $result=$this->_db->insert($data['tables'],$insertValue);
-             */
             return "true1";
         
         }

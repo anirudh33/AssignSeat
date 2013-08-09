@@ -20,6 +20,7 @@ foreach ( $seatAllocatedInfo as $key => $value ) {
 function createRow($allocatedData, $roomData) {
 	
 	$totalRows = count ( $roomData );
+	$maxComputer=0;
 	$tempAllocated = array ();
 	for($i = 0; $i < $totalRows; $i ++) {
 		$tempAllocated [] = array ();
@@ -28,25 +29,59 @@ function createRow($allocatedData, $roomData) {
 				$tempAllocated [$i] [] = array ();
 			}
 		}
+		if($maxComputer < $roomData[$i]['computer'])
+		{
+			$maxComputer = $roomData[$i]['computer'];
+		}
 	}
 	foreach ( $allocatedData as $key => $value ) {
-		$tempAllocated [($value ['row_number'] - 1)] [$value ['computer_id']] = $value;
+
+			$tempAllocated [($value ['row_number'] - 1)] [$value ['computer_id']] = $value;
 	}
 	$displayData = "";
-	foreach ( $roomData as $key => $value ) {
-		for($i = 0; $i < $value ['computer']; $i ++) {
-			if ((isset ( $tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] )) && ($tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] == $i)) {
-				$displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip seatDiv"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
-			} else {
-				$displayData .= '<div class="cols droppable dropped positionTooltip seatDiv" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
+// 	echo "<pre>";
+// 	print_r( $tempAllocated);
+	if($roomData[0]['room_id']==7)
+	{
+		$tempRow=0;	
+		for($i=$maxComputer; $i >= 1 ;$i--)
+		{
+			foreach($roomData as $key=> $value)
+			{
+				if($i > $value['computer'])
+				{
+					continue;
+				}
+				if ((isset ( $tempAllocated  [$value ['row_number']-1][$i-1]['computer_id'] )) && ($tempAllocated  [($value ['row_number'])-1] [$i-1] ['computer_id'] == ($i-1))) {
+					$displayData .= '<div style="float:right" id = "'.$value ['name'].'_'.($value ['row_number']).'_'.($i-1).'" class="cols positionTooltip seatDiv"><img id="'. $tempAllocated [($value ['row_number'])-1] [$i-1]['eid'] .'" class="dragable dragged custom_tooltip context-menu-sub customSetting1" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
+					
+				}
+				else {
+					$displayData .= '<div style="float:right" class="cols droppable dropped positionTooltip seatDiv" id="'.$value ['name'].'_'.($value ['row_number']).'_'.($i-1).'"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
+				} 
+				$tempRow++;
+			}	
+			$displayData .= '<br style="clear:both">';
+		} 
+		
+	}
+	else 
+	{
+		foreach ( $roomData as $key => $value ) {
+			for($i = 0; $i < $value ['computer']; $i ++) {
+				if ((isset ( $tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] )) && ($tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] == $i)) {
+					$displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip seatDiv"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub customSetting2" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
+				} else {
+					$displayData .= '<div class="cols droppable dropped positionTooltip seatDiv" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
+				}
 			}
+			$displayData .= '<br style="clear:both">';
 		}
-		$displayData .= '<br style="clear:both">';
 	}
 	unset ( $tempAllocated );
 	return $displayData;
 }
-//print_r($_SESSION['roomData'][37]);die;
+
 ?>
 
 <script>
@@ -152,22 +187,6 @@ function dragdropevent() {
             }
       
         });
-	/*alert(draggedElement);
-	 $.post('index.php?controller=MainController&method=isAssignedSeat', {
-            employee : draggedElement
-			
-        }, function(data, status) {
-		//alert(data);
-        	if(data.trim()=="1") {
-			didConfirm = confirm("Are you sure u wann allocate");
-        	}
-    			
-    		else {
-    				//change chair icon to green here
-    		didConfirm = confirm("Are you sure u wann reallocate");
-    			}
-             //window.location.href = 'index.php';
-        });*/
 	}
 	$tooltipFlag = 0;
 	// alert(didConfirm);
@@ -382,8 +401,8 @@ function startTooltip(){
 			$rowNumber = $id.substring($id.indexOf("_")+1,$id.lastIndexOf("_"));
 			$computer = $id.substring($id.lastIndexOf("_")+1);
 			displayData = "Room Name: "+$roomName+
-    		",<br>"+"Row Number: "+$rowNumber+
-    	    ",<br>"+"Computer Number: "+(parseInt($computer)+1);
+    		"<br>"+"Row Number: "+$rowNumber+
+    	    "<br>"+"Computer Number: "+(parseInt($computer)+1);
     	    
     		origin.tooltipster('update', displayData);
         }
@@ -476,6 +495,11 @@ function startContextMenu() {
 	        }
 	    });
 }
+function roomLink(roomId)
+{
+	$("#hiddenRoomId").val(roomId);
+	$("#roomFillDetails").trigger("click"); 
+}
 </script>
 
 <!-- Updated By Prateek Saini -->
@@ -487,7 +511,7 @@ function startContextMenu() {
 					<label class="writing roundedBorder"><?php echo $lang->GOOGOL;?></label>
 				</div>
 				<div class="srijjan_2 roundedBorder ">
-					<div class="roomTitle ">Srijan 2</div>
+					<a href='#' onclick='roomLink(7)'><div class="roomTitle ">Srijan 2</div></a>
 					<div class="rotatediv">
                     <?php echo createRow($seatAllocatedInfoData[7],$_SESSION['roomData'][7]); ?>
                     </div>
@@ -521,7 +545,7 @@ function startContextMenu() {
 			<img alt="" src="images/chess.jpeg"
 				style="height: 20%; width: 100%; float: right; margin-top: 50%;">
 			<div
-				style="border: 1px solid black; height: 26%; margin-top: 643%; width: 90%; "><?php echo $lang->ENABLINGMANAGER;?><?php echo createRow($seatAllocatedInfoData[36],$_SESSION['roomData'][36]); ?>
+				style="border: 1px solid black; height: 26%; margin-top: 643%; width: 90%; "><a href='#' onclick='roomLink(36)'><?php echo $lang->ENABLINGMANAGER;?></a><?php echo createRow($seatAllocatedInfoData[36],$_SESSION['roomData'][36]); ?>
 			</div>
 			
 		</div>
@@ -553,22 +577,22 @@ function startContextMenu() {
 			</div>
 			<div class="roundedBorder"
 				style="float: left; height: 13%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC;">
-				<div class="roomTitle"><?php echo $lang->ROOM1;?></div>
+				<a href='#' onclick='roomLink(34)'><div class="roomTitle"><?php echo $lang->ROOM1;?></div></a>
 				<div class="  newSmall"><?php echo createRow($seatAllocatedInfoData[34],$_SESSION['roomData'][34]); ?></div>
 			</div>
 			<div class="roundedBorder"
 				style="float: left; height: 13%; width: 100%; border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC;">
-				<div class="roomTitle"><?php echo $lang->ROOM2;?></div>
+				<a href='#' onclick='roomLink(35)'><div class="roomTitle"><?php echo $lang->ROOM2;?></div></a>
 				<div class="  newSmall"><?php echo createRow($seatAllocatedInfoData[35],$_SESSION['roomData'][35]); ?></div>
 			</div>
 			<div class="roundedBorder"
 				style="float: left; height: 15%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;">
-				<div class="roomTitle"><?php echo $lang->SRIJAN;?></div>
+				<a href='#' onclick='roomLink(20)'><div class="roomTitle"><?php echo $lang->SRIJAN;?></div></a>
 				<div class="  newSmall"><?php echo createRow($seatAllocatedInfoData[20],$_SESSION['roomData'][20]); ?></div>
 			</div>
 			<div class="roundedBorder"
 				style="float: left; height: 10%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;">
-				<div class="roomTitle"><?php echo $lang->ACCOUNTS;?></div>
+				<a href='#' onclick='roomLink(19)'><div class="roomTitle"><?php echo $lang->ACCOUNTS;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[19],$_SESSION['roomData'][19]); ?></div>
 			</div>
 			<div class="roundedBorder"
@@ -587,11 +611,11 @@ function startContextMenu() {
 				<div class=" "><?php //echo createRow($seatAllocatedInfoData[11],$_SESSION['roomData'][11]); ?></div>
 			</div>
 			<div class="room2 roundedBorder">
-				<div class="roomTitle"><?php echo $lang->ROOM;?></div>
+				<a href='#' onclick='roomLink(12)'><div class="roomTitle"><?php echo $lang->ROOM;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[12],$_SESSION['roomData'][12]); ?></div>
 			</div>
 			<div class="room2 roundedBorder">
-				<div class="roomTitle"><?php echo $lang->SACHINKHURANA;?></div>
+				<a href='#' onclick='roomLink(13)'><div class="roomTitle"><?php echo $lang->SACHINKHURANA;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[13],$_SESSION['roomData'][13]); ?></div>
 			</div>
 			<div class="room2 roundedBorder" id="meeting1">
@@ -603,59 +627,59 @@ function startContextMenu() {
 			<div class="roundedBorder"
 				style="border: 1px solid black; float: right; height: 100%; width: 11%;">
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN1;?></div>
+					<a href='#' onclick='roomLink(3)'><div class="roomTitle"><?php echo $lang->CABIN1;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[3],$_SESSION['roomData'][3]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN2;?></div>
+					<a href='#' onclick='roomLink(4)'><div class="roomTitle"><?php echo $lang->CABIN2;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[4],$_SESSION['roomData'][4]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN3;?></div>
+					<a href='#' onclick='roomLink(5)'><div class="roomTitle"><?php echo $lang->CABIN3;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[5],$_SESSION['roomData'][5]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN4;?></div>
+					<a href='#' onclick='roomLink(6)'><div class="roomTitle"><?php echo $lang->CABIN4;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[6],$_SESSION['roomData'][6]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN5;?></div>
+					<a href='#' onclick='roomLink(21)'><div class="roomTitle"><?php echo $lang->CABIN5;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[21],$_SESSION['roomData'][21]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN6;?></div>
+					<a href='#' onclick='roomLink(22)'><div class="roomTitle"><?php echo $lang->CABIN6;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[22],$_SESSION['roomData'][22]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN7;?></div>
+					<a href='#' onclick='roomLink(23)'><div class="roomTitle"><?php echo $lang->CABIN7;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[23],$_SESSION['roomData'][23]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN8;?></div>
+					<a href='#' onclick='roomLink(24)'><div class="roomTitle"><?php echo $lang->CABIN8;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[24],$_SESSION['roomData'][24]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN9;?></div>
+					<a href='#' onclick='roomLink(25)'><div class="roomTitle"><?php echo $lang->CABIN9;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[25],$_SESSION['roomData'][25]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN10;?></div>
+					<a href='#' onclick='roomLink(26)'><div class="roomTitle"><?php echo $lang->CABIN10;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[26],$_SESSION['roomData'][26]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN11;?></div>
+					<a href='#' onclick='roomLink(27)'><div class="roomTitle"><?php echo $lang->CABIN11;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[27],$_SESSION['roomData'][27]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN12;?></div>
+					<a href='#' onclick='roomLink(28)'><div class="roomTitle"><?php echo $lang->CABIN12;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[28],$_SESSION['roomData'][28]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN13;?></div>
+					<a href='#' onclick='roomLink(29)'><div class="roomTitle"><?php echo $lang->CABIN13;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[29],$_SESSION['roomData'][29]); ?></div>
 				</div>
 				<div class="cabin roundedBorder">
-					<div class="roomTitle"><?php echo $lang->CABIN14;?></div>
+					<a href='#' onclick='roomLink(30)'><div class="roomTitle"><?php echo $lang->CABIN14;?></div></a>
 					<div class=" "><?php echo createRow($seatAllocatedInfoData[30],$_SESSION['roomData'][30]); ?></div>
 				</div>
 			</div>
@@ -664,26 +688,25 @@ function startContextMenu() {
 			</div>
 			<div class="roundedBorder"
 				style="border: 1px solid black; float: right; height: 100%; width: 84.9%; box-shadow: 9px 10px 75px #FFF8DC inset;">
-				<div class="roomTitle"><?php echo $lang->MAINLAB;?></div>
-
 				<div class="roomContent">
+				<a href='#' onclick='roomLink(2)'><div class="roomTitle"><?php echo $lang->MAINLAB;?></div></a>
 					<div class="mainLab"><?php echo createRow($seatAllocatedInfoData[2],$_SESSION['roomData'][2]); ?></div>
 
 					<div id="cabinrony roundedBorder"
 						style="border: 1px solid black; width: 100%; height: 15%; ">
 						<div class="roundedBorder"
 							style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 30%;">
-							<div class="roomTitle"><?php echo $lang->CHANDERMOHAN;?></div>
+							<a href='#' onclick='roomLink(31)'><div class="roomTitle"><?php echo $lang->CHANDERMOHAN;?></div></a>
 							<div class=" "><?php echo createRow($seatAllocatedInfoData[31],$_SESSION['roomData'][31]); ?></div>
 						</div>
 						<div class="roundedBorder"
 							style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
-							<div class="roomTitle"><?php echo $lang->PRINCE;?></div>
+							<a href='#' onclick='roomLink(32)'><div class="roomTitle"><?php echo $lang->PRINCE;?></div></a>
 							<div class=" "><?php echo createRow($seatAllocatedInfoData[32],$_SESSION['roomData'][32]); ?></div>
 						</div>
 						<div class="roundedBorder"
 							style="border: 1px solid black; box-shadow: inset 9px 10px 75px #FFF8DC; width: 20%; height: 75%; margin-top: 1%; float: left; margin-left: 2%;">
-							<div class="roomTitle"><?php echo $lang->RONY;?></div>
+							<a href='#' onclick='roomLink(33)'><div class="roomTitle"><?php echo $lang->RONY;?></div></a>
 							<div class=" "><?php echo createRow($seatAllocatedInfoData[33],$_SESSION['roomData'][33]); ?></div>
 						</div>
 					</div>
@@ -703,19 +726,19 @@ function startContextMenu() {
 		</div>
 		<div style="float: right; width: 80%;">
 			<div class="room3 roundedBorder">
-				<div class="roomTitle"><?php echo $lang->PRANABJYOTIDAS;?></div>
+				<a href='#' onclick='roomLink(15)'><div class="roomTitle"><?php echo $lang->PRANABJYOTIDAS;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[15],$_SESSION['roomData'][15]); ?></div>
 			</div>
 			<div class="room3 roundedBorder">
-				<div class="roomTitle"><?php echo $lang->ARINDERSINGHSURI;?></div>
+				<a href='#' onclick='roomLink(16)'><div class="roomTitle"><?php echo $lang->ARINDERSINGHSURI;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[16],$_SESSION['roomData'][16]); ?></div>
 			</div>
 			<div class="room3 roundedBorder">
-				<div class="roomTitle"><?php echo $lang->SONALIMINOCHA;?></div>
+				<a href='#' onclick='roomLink(17)'><div class="roomTitle"><?php echo $lang->SONALIMINOCHA;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[17],$_SESSION['roomData'][17]); ?></div>
 			</div>
 			<div class="room3 roundedBorder">
-				<div class="roomTitle"><?php echo $lang->SAURABH;?></div>
+				<a href='#' onclick='roomLink(18)'><div class="roomTitle"><?php echo $lang->SAURABH;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[18],$_SESSION['roomData'][18]); ?></div>
 			</div>
 		</div>

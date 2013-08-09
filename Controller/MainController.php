@@ -471,6 +471,16 @@ class MainController extends Acontroller
 		unset($employeeObj);
 		return $result;
 	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will get details of a room 
+	* and call a graph view
+	*/
+	public function roomGraph()
+	{
+		$this->loadView('roomGraph');
+	}
 }
 
 

@@ -49,6 +49,26 @@ $(function(){
 	startTooltip();// -- this will be enabled after seat drag testing
 	startContextMenu();
 
+	$("#roomFillDetails").fancybox({	    
+	    closeClick : true, // prevents closing when clicking INSIDE fancybox
+        beforeLoad : function() {
+            roomId=$("#hiddenRoomId").val();
+            $.post('index.php?controller=MainController&method=roomGraph',{
+				roomId:roomId
+                },function(data){
+        			if(data.indexOf('password') != -1)
+        			{
+        				location.reload();
+        			}
+       			 $("#roomDetailDiv").html(data);
+                    });
+           
+            return;
+        },
+	    helpers : {
+	    overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
+	    }
+	    });
 $("#logout").click(function(){
 	$.post('index.php?controller=MainController&method=logout',function(data,status){
 				window.location.href = 'index.php';
@@ -90,7 +110,6 @@ function showLog()
 			//displayData = data;
 		}
 	});
-	
 	$("#logOverlayLink").fancybox({	    
 	    closeClick : false, // prevents closing when clicking INSIDE fancybox
 	    helpers : {
@@ -124,7 +143,7 @@ function showLog()
                 <div id="sidebar" class="roundedBorder">
                     <div id="leftbar">
                         <div id="leftsubbar">
-<!--                         <a href='index.php?controller=MainController&method=picUpload'>User Pic</a>   -->
+                         <a href='index.php?controller=MainController&method=picUpload'>User Pic</a>   
                             <h3><?php echo $lang->EMPLOYEES?></h3>
                             <h3><?php echo $lang->SEARCHEMPLOYEE?></h3>
 							
@@ -163,5 +182,7 @@ function showLog()
     </div>
     <a id="logOverlayLink" class="doNotDisplay"></a>
     <div id="logData" class="doNotDisplay"></div>
-
+	<a id="roomFillDetails" href="#roomDetailDiv"></a>
+	<div id="roomDetailDiv" style='display: none;'></div>
+	<input type="hidden" value='' id='hiddenRoomId'>
 </html>

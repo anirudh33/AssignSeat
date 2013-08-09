@@ -431,20 +431,27 @@ input[type=file] {
 	float: left;
 }
 .rotatediv { 
-    height: 218px;
-    margin-left: 124px;
-    margin-top: 11px;
+    height: 160px;
+    margin-left: 25px;
+    margin-top: -18px;
     padding: 26px;
     transform: rotate(90deg);
-    width: 62%;
-	transform:rotate(90deg);
-	-ms-transform:rotate(90deg); /* IE 9 */
-	-webkit-transform:rotate(90deg);/* Safari and Chrome */
+    width: 397px;
+/* 	transform:rotate(90deg); */
+/* 	-ms-transform:rotate(90deg); IE 9 */
+/* 	-webkit-transform:rotate(90deg);Safari and Chrome */
 	
 }
+.customSetting1 {
+	margin-left: 22px;
+}
+.customSetting2 {
+	margin-left: 11px;
+}
 .rotatediv div{ 
-    height: 64px;
-    width: 41px;
+    height: 27px;
+	padding-top: 12px;
+    width: 63px;
 }
 .srijjan_2 {
 	box-shadow: inset 9px 10px 75px #FFF8DC; //
