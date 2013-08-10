@@ -45,13 +45,42 @@
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.common.dynamic.js" ></script>
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.common.effects.js" ></script>
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.pie.js" ></script>
+<script src="<?php echo SITE_URL;?>assets/js/stickyfloat.js" ></script>
+
 
 <script>
+var stickDivTopMargin=0;
+var windowPosition=265;
 $(function(){
 	getData();
 	startTooltip();// -- this will be enabled after seat drag testing
 	startContextMenu();
-
+	
+	//jQuery('#sidebar').stickyfloat();
+	
+	/*$(document).ready(function() {
+  
+		$(window).scroll(function() {
+		    var sideBar = $("#sidebar").css('margin-top');
+	        var windowpos = $(window).scrollTop();
+	        //alert(windowpos);
+	        if(windowPosition < windowpos  )
+	        {
+	        	stickDivTopMargin+=5;
+	        	windowPosition=windowpos;
+	        	$("#sidebar").css('margin-top',windowPosition-200);
+	        }
+	        else if(windowPosition > windowpos && windowpos < 265 )
+	        {
+	        	stickDivTopMargin-=5;
+	        	windowPosition=windowpos;
+	        	$("#sidebar").css('margin-top',windowPosition-200);
+	        }
+	       // $("#sidebar").css('margin-top',windowpos-30);
+	        //alert($("#sidebar").css('margin-top'));
+	        });
+	});*/
+	
 	$("#roomFillDetails").fancybox({	    
 	    closeClick : false, // prevents closing when clicking INSIDE fancybox
         beforeLoad : function() {

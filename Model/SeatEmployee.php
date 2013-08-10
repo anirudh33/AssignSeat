@@ -307,7 +307,7 @@ class SeatEmployee extends DBConnection {
         
         $data ['columns'] = array ('room.id' );
         $data ['conditions'] = array (
-                array ('name=\'' . $roomName . '\'' ), 
+                array ('name=\'' . $roomName . '\' AND status="1"' ), 
                 true );
         $data ['tables'] = 'room';
         $result = $this->_db->select ( $data );
@@ -326,7 +326,7 @@ class SeatEmployee extends DBConnection {
      */
     public function getEmployeeName($eid) {
         $data ['columns'] = array ('name' );
-        $data ['conditions'] = array (array ('id=\'' . $eid . '\'' ), true );
+        $data ['conditions'] = array (array ('id=\'' . $eid . '\' AND status="1"' ), true );
         $data ['tables'] = 'employee';
         $result = $this->_db->select ( $data );
         // var_dump($result);die;
@@ -341,7 +341,7 @@ class SeatEmployee extends DBConnection {
         $data ['columns'] = array ('id' );
         $data ['conditions'] = array (
                 array (
-                        '(room_id =' . $roomId . ' AND row_number=' . $rowNumber . ')' ), 
+                        '(room_id =' . $roomId . ' AND row_number=' . $rowNumber . ') AND room_row.status="1"' ), 
                 true );
         $data ['tables'] = 'room_row';
         $result = $this->_db->select ( $data );
@@ -367,6 +367,7 @@ class SeatEmployee extends DBConnection {
                 'table' => 'room',
                 'type' => 'inner',
                 'conditions' => array ('room.id' => 'room_row.room_id' ) );
+        $data['conditions']= array(array('room_row.status="1"'),true);
         $data ['order_by'] = array (array ('row_number' ) );
         $result = $this->_db->select ( $data );
         

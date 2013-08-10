@@ -137,16 +137,19 @@ class Room extends RoomRow
    
    public  function getRoomSeatedDetails($roomId)
    {
-   	$data['columns']=array('room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
+   	$data['columns']=array('seat_employee.computer_id as seatNo','employee.name as empName','employee.designation','employee.department','employee.details','employee.user_image','room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
    	$data['tables']='room';
    	$data['joins']=array(array('table' => 'room_row',
    			'type'  => 'left',
    			'conditions' => array('room.id' => 'room_row.room_id','room_row.status' => 1)),
    			array('table' => 'seat_employee',
    			'type'  => 'inner',
-   			'conditions' => array('room_row.id' => 'seat_employee.sid')));
+   			'conditions' => array('room_row.id' => 'seat_employee.sid')),
+   			array('table' => 'employee',
+   			'type'  => 'inner',
+   			'conditions' => array('employee.id' => 'seat_employee.eid')));
    	
-   	$data['conditions']=array(array('room.id = '.$roomId.' AND room.status = "1" '),true);
+   	$data['conditions']=array(array('room.id = '.$roomId.' AND room.status = "1" AND seat_employee.status="1"'),true);
    	$result=$this->_db->select($data);
    	$myResult=array();
    	while ($row = $result->fetch(PDO::FETCH_ASSOC))
