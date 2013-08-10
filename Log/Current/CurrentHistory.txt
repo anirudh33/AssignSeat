@@ -258,3 +258,13 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 14.0.1, Os = Linux 
 ========================= 
 
+Sat - 10/Aug/2013 - 15:09:12 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Google Chrome 
+Browser version = 28.0.1500., Os = Windows 
+========================= 
+
+Sat - 10/Aug/2013 - 15:12:16 User " ADMIN " Assigned the seat number "54" in room "sirijan2" of employee "AMBER SHARMA" at row 6 , computer "1"
+From the IP 127.0.0.1 and browser = Google Chrome 
+Browser version = 28.0.1500., Os = Windows 
+========================= 
+
