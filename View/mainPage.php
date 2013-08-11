@@ -99,7 +99,9 @@ $(function(){
         },
 	    helpers : {
 	    overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
-	    }
+	    },
+	    minWidth: '600',
+	    minHeight: '550'	    	    
 	    });
 $("#logout").click(function(){
 	$.post('index.php?controller=MainController&method=logout',function(data,status){
@@ -208,8 +210,7 @@ function showLog()
         </div>
         <div id="copyright">
         <?php include_once 'footer.php';?>
-        
-        <?php echo $lang->COPYRIGHT?></br>
+        <div id = "companyCopyright"><?php echo $lang->COPYRIGHT?></div>
         </div>
     </div>
     <a id="logOverlayLink" class="doNotDisplay"></a>

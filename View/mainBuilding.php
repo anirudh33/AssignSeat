@@ -210,31 +210,8 @@ function closeFancyBox() {
     // alert(draggedElement);
 // alert(moveid);
     // alert(thisid+'1');
-    if (thisid == 'trash') {
-        // alert(moveid);
-       
-        $.post('index.php?controller=MainController&method=trashSeat', {
-            
-	 seatid:moveid,
-	changeComment : $changeComment,
-            employee : draggedElement
-        }, function(data, status) {
-			if(data.indexOf('password') != -1)
-			{
-				location.reload();
-			}		
-        	if(data.trim()=="1") {
-        		alert("Seat has been trashed");
-        		reLoadMainBuilding();
-        		$("#commentError").html("");
-    			}else {
-    			$("#commentError").html("");
-    			$("#commentError").html(data);
-                $("#changeCommentLink").trigger("click");
-    			}
-            //window.location.href = 'index.php';
-        });
-
+    if (thisid == 'trash') {               
+		removeSeat(moveid, $changeComment, draggedElement);
     } else {
 	//alert(moveid);
         $.post('index.php?controller=MainController&method=assignSeat', {
@@ -287,6 +264,29 @@ function closeFancyBox() {
 	}
     }
     //clearVariables();
+}
+function removeSeat(moveid, $changeComment, draggedElement) {
+    $.post('index.php?controller=MainController&method=trashSeat', {
+                
+				seatid: moveid,
+				changeComment : $changeComment,
+				employee : draggedElement
+           }, function(data, status) {
+   			if(data.indexOf('password') != -1)
+   			{
+   				location.reload();
+   			}		
+           	if(data.trim()=="1") {
+           		alert("Seat has been trashed");
+           		reLoadMainBuilding();
+           		$("#commentError").html("");
+       			}else {
+       			$("#commentError").html("");
+       			$("#commentError").html(data);
+                   $("#changeCommentLink").trigger("click");
+       			}
+               //window.location.href = 'index.php';
+           });
 }
 function reLoadMainBuilding() {
 
@@ -419,6 +419,26 @@ function clearVariables()
     thisid= "";
 }
 
+function openCommentBox() {
+	$("#changeCommentLink").fancybox({
+	    closeBtn : false,
+	    afterLoad : function() {
+	        $("#changeComment").val('');
+	        return;
+	    },
+	    closeClick : false, // prevents closing when
+	                        // clicking INSIDE fancybox
+	    helpers : {
+	        overlay : {
+	            closeClick : false
+	    }
+	    // prevents closing when clicking OUTSIDE
+	    // fancybox
+	    }
+	});
+	$("#changeCommentLink").trigger("click");
+}
+
 
 function startContextMenu() {
 
@@ -450,24 +470,8 @@ function startContextMenu() {
 			        if(draggedElement != "" && moveid != ""  ) {
 				        
 			            thisid = $(this).parent().attr("id");
+			            openCommentBox();
 			            
-			            $("#changeCommentLink").fancybox({
-			                closeBtn : false,
-			                afterLoad : function() {
-			                    $("#changeComment").val('');
-			                    return;
-			                },
-			                closeClick : false, // prevents closing when
-			                                    // clicking INSIDE fancybox
-			                helpers : {
-			                    overlay : {
-			                        closeClick : false
-		                    }
-			                // prevents closing when clicking OUTSIDE
-			                // fancybox
-			                }
-			            });
-			    		$("#changeCommentLink").trigger("click");
 			        }
 			        else {
 			            if($(this).attr("id") > 0 ) {
@@ -477,6 +481,19 @@ function startContextMenu() {
 				        alert("No Employee is Selected");
 			        }
 	            }
+		        break;
+		        case 'remove': 
+		        {
+		        	clearVariables();
+			        if($(this).attr("id") > 0 ) {	
+			            draggedElement = $(this).attr("id");
+			            moveid = $(this).parent('div').attr('id');
+			            thisid = "trash";
+			            openCommentBox();
+			        } else {
+				        alert("No Employee is allocated to this seat");
+			        }
+		        }
 		        break;
 		        case 'history' :
 		        {
@@ -489,6 +506,7 @@ function startContextMenu() {
 	        items: {
 	            "drop": {"name": "Drop", "icon": "paste"},
 	            "pick": {"name": "Pick", "icon": "cut"},
+	            "remove": {"name": "Remove", "icon": "page_white_delete"},	            
 	            "sep1": "---------",
 	            "history": {"name": "History", "icon": "quit"},
 	            "sep2": "---------",

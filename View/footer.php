@@ -1,12 +1,5 @@
 <head>
 <style>
-#footer {
-    
-	color:white;
-	background-size: 100%;
-	background-repeat: no-repeat;
-}
-
 #navcontainer li:before{
     content:" * ";
 }
@@ -14,8 +7,6 @@
 	display: inline;
 	margin: 3px;
 	list-style-type: circle;
-	
-
 
 }
 
@@ -24,6 +15,10 @@
 font-family:Serif;	
 	text-align: center;
 	font-size:25px;
+}
+#companyCopyright {
+    float: left;
+    width: 100%;
 }
 </style>
 

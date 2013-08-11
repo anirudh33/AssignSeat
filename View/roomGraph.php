@@ -115,7 +115,7 @@ $emptySeat=$totalSeat - count($data['seated']);
 	
 }
 .roomDetails table{
-	padding: 70px 0px 0px 70px;
+	padding: 30px 0px 0px 30px;
 }
 .roomDetails table td{
 	color: black;
