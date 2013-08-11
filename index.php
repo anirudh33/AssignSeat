@@ -29,6 +29,7 @@ function __autoload($controller) {
 /* Method calls from views handled here */
 
 //header ,left,right 
+
 $options = getopt("C:M:");
 if(!empty($options))
 {

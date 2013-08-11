@@ -484,6 +484,21 @@ class MainController extends Acontroller
 		$roomData['seated']=$roomObj->getRoomSeatedDetails($_POST['roomId']);
 		$this->loadView('roomGraph',$roomData);
 	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will delete multiple seats
+	* 
+	*/
+	public function multiDelEmp()
+	{
+		$objSeatEmployee=$this->loadModel('SeatEmployee');
+		$objSeatEmployee->mulitDelete($_POST['multiDel'],$_POST['reason']);
+		
+		echo "Seat Deleted";
+// 		print_r($_POST);
+// 		die;
+	}
 }
 
 

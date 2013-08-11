@@ -137,7 +137,7 @@ class Room extends RoomRow
    
    public  function getRoomSeatedDetails($roomId)
    {
-   	$data['columns']=array('seat_employee.computer_id as seatNo','employee.name as empName','employee.designation','employee.department','employee.details','employee.user_image','room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
+   	$data['columns']=array('seat_employee.id as seatedEmpId','seat_employee.computer_id as seatNo','employee.name as empName','employee.designation','employee.department','employee.details','employee.user_image','room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
    	$data['tables']='room';
    	$data['joins']=array(array('table' => 'room_row',
    			'type'  => 'left',

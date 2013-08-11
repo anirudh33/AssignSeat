@@ -40,8 +40,11 @@ $emptySeat=$totalSeat - count($data['seated']);
 <div id="graph" class="roomDetails"><canvas id="cvs" width="368" height="250" !style="border:1px solid #ccc">[No canvas support]</canvas></div>
 <div id='seatedEmpDetails' class="allSeatedemp">
 	<center><h4 class="seatedEmpTableHead">Seated Team Member Details</h4></center>
+	<div id='delImage' class='multiDelImag'></div>
+	<form id="multiDelForm">
 	<table>
 		<tr>
+			<td><input type="checkbox" id="masterChk" onchange='masterChkBox()' value='0' style="display: block; margin: 10px"></td>
 			<td>Image</td>
 			<td>Name</td>
 			<td>Designation</td>
@@ -51,7 +54,8 @@ $emptySeat=$totalSeat - count($data['seated']);
 		</tr>
 	<?php foreach($data['seated'] as $key => $val) {?>
 		<tr>
-			<td><img alt="Image" src="data:image/png;base64,<?php echo base64_encode ( $val['user_image'])?>" width='50px'></td>
+			<td><input type="checkbox" onchange='childChkBox(this)'  style="display: block; margin: 10px" name='multiDel[]' class='empIdMultiDel' value='<?php echo $val['seatedEmpId'];?>'></td>
+			<td><img alt="Image" src="data:image/png;base64,<?php echo base64_encode ( $val['user_image'])?>" width='42px' height='39px'></td>
 			<td><?php echo $val['empName']?></td>
 			<td><?php echo $val['designation']?></td>
 			<td><?php echo $val['department']?></td>
@@ -60,8 +64,110 @@ $emptySeat=$totalSeat - count($data['seated']);
 		</tr>
 	<?php }?>
 	</table>
+	</form>
 </div>
 <script>
+			function masterChkBox()
+			{
+				arrChkBox=$('.empIdMultiDel');
+				getVal=$("#masterChk").val();
+				if(getVal==0 && arrChkBox.length > 0)
+				{
+					
+					$("#masterChk").val('1');
+					for(i=0; i < arrChkBox.length ; i++)
+					{
+						arrChkBox[i].checked=1;
+					}
+					$('.masterChk').attr('Checked','Checked');
+					$('#delImage').html('<img src="assets/images/bin.png" width="45px" height="45px" onclick="delMultipleEmp()" style="cursor: pointer;">');
+				}
+				else
+				{
+					$("#masterChk").val('0');
+					for(i=0; i < arrChkBox.length ; i++)
+					{
+						arrChkBox[i].checked=0;
+					}
+					$('.masterChk').removeAttr('Checked'); 	
+					$('#delImage').html('');				
+				}
+					
+			}
+
+			function delMultipleEmp()
+			{
+				var multiChk=confirm('Are Sure to delete');
+				if(multiChk)
+				{
+					var msg=prompt("Please give some valid reason:","")
+					if((msg.trim()).length >25 && (msg.trim()).length < 250)
+					{
+						var validReason=htmlEscape(msg);
+						
+						$.ajax( {
+					        type: "POST",
+					        url: 'index.php?controller=MainController&method=multiDelEmp',
+					        data: $("#multiDelForm").find(":input").serialize()+"&reason="+validReason,
+					        success: function( data ) {
+				      			if(data.indexOf('Reset') != -1)
+			        			{
+			        				location.reload();
+			        			}
+					          alert(data);
+					          location.reload();
+					        }
+					      } );
+					}
+					else
+					{
+						alert('Error in Reason Words grater than 25 and less than 250');
+					}
+				}
+			    
+			}
+
+			function htmlEscape(str) {
+			    return String(str)
+			            .replace(/&/g, '&amp;')
+			            .replace(/"/g, '&quot;')
+			            .replace(/'/g, '&#39;')
+			            .replace(/</g, '&lt;')
+			            .replace(/>/g, '&gt;');
+			}
+
+			function childChkBox(obj)
+			{
+				var i=0;
+				arrChkBox=$('.empIdMultiDel');
+				for(i=0; i < arrChkBox.length ; i++)
+				{
+					if(arrChkBox[i].checked)
+					{
+						break;
+					}
+				}
+				
+				if(i < arrChkBox.length) 
+				{
+					$('#delImage').html('<img src="assets/images/bin.png" width="45px" height="45px" onclick="delMultipleEmp()" style="cursor: pointer;">');
+				}
+				else
+				{
+					$('#delImage').html('');
+				}
+				if(!(obj.checked))
+				{
+					$(obj).removeAttr('Checked');
+					$("#masterChk").val('0');
+					masertChkBox=document.getElementById("masterChk");
+					masertChkBox.checked=0;
+				}
+			}
+		 
+
+
+		
 		function CreateGradient (obj, color)
 		{
 		    return RGraph.RadialGradient(obj, 200, 150, 95, 200, 150, 125, color, 'white')
@@ -114,8 +220,11 @@ $emptySeat=$totalSeat - count($data['seated']);
 	float: left;
 	
 }
+.multiDelImag {
+	padding-left: 50px;
+}
 .roomDetails table{
-	padding: 30px 0px 0px 30px;
+	padding: 50px 0px 0px 50px;
 }
 .roomDetails table td{
 	color: black;

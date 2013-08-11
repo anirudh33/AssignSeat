@@ -483,5 +483,12 @@ class SeatEmployee extends DBConnection {
         // print_r($myResult[0]['name']);die;
         return $myResult [0] ['name'];
     }
+    
+    public function mulitDelete($Ids=array(),$reason)
+    {
+    	$data=array('status' => "0",'details' => $reason);
+    	$where =array('id' => $Ids);
+    	$this->_db->update ( 'seat_employee', $data, $where );
+    }
 
 }
