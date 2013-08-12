@@ -74,8 +74,11 @@ function uploadcsv() {
 	margin-top: 40px;	
 }
 #adminMenu a{
-	color:black;
-	margin: 24px;
+	color: #F4EEEA;
+    font-size: 1.2em;
+    text-decoration: none;
+    text-shadow: 0 1px 1px #32251B;
+	
 }
 #newRowEntry {
 	margin: 2%;
@@ -101,18 +104,23 @@ function uploadcsv() {
 	
 }
 #adminHeader {
+	box-shadow: -17px -12px 11px #DEB887;
+	background: url("assets/images/shadow.png") repeat-x scroll left top transparent;
 	width: 100%;
-	height: 10%;
-	border: 2px solid black;
+	height: 63%;
+	
 }
 #leftAdminMenu {
+	background: none repeat scroll 0 0 #32251B;
+	box-shadow: -17px -12px 11px #DEB887;
 	float:left;
 	border: 2px solid black;
 	padding-left: 2%;
 	padding-right: 2%;
-	margin-top: 2%;
+	margin-top: -30%;
 	width: 16%;
 	height : auto;
+	color:white;
 	
 }
 #allRooms {
@@ -120,10 +128,11 @@ function uploadcsv() {
 	overflow : scroll ;
 }
 #adminPanal {
+	box-shadow: -17px -12px 11px #DEB887;
 	width: 75%;
 	height : 100%;
 	margin-left: 2%;
-	margin-top: 2%;
+	margin-top: -30%;
 	border: 2px solid black;
 	float: left;
 }
@@ -137,6 +146,7 @@ function uploadcsv() {
 	font-family: 'Terminal Dosis',Arial,sans-serif;
 	padding: 1%;
 	padding-left: 5%;
+ 	color: black;
 }
 .SearchedEmp lable:hover {
 
@@ -158,7 +168,6 @@ function uploadcsv() {
 	clear: both;
 	width: 100%;
 	height: 10%;
-	border: 2px solid black;
 	margin-top: 61%
 }
 </style>

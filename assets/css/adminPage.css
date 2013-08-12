@@ -1,7 +1,7 @@
 @import url('reset.css');
 /* General Demo Style */
 body{
-    background:#e6eecc url(../images/beige_paper.png) repeat top left;
+    background:#e6eecc url(../images/bg.jpg) repeat top left;
 	color: #333;
 	font-family: 'Terminal Dosis', Arial, sans-serif;
 	font-size: 13px;
