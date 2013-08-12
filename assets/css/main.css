@@ -429,7 +429,7 @@ input[type=file] {
     margin-left: 25px;
     margin-top: -18px;
     padding: 26px;
-    transform: rotate(90deg);
+    /*transform: rotate(90deg);*/
     width: 397px;
 /* 	transform:rotate(90deg); */
 /* 	-ms-transform:rotate(90deg); IE 9 */

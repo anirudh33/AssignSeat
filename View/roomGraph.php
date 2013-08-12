@@ -138,7 +138,7 @@ $emptySeat=$totalSeat - count($data['seated']);
 
 			function childChkBox(obj)
 			{
-				var i=0;
+				var i=0,j=0;
 				arrChkBox=$('.empIdMultiDel');
 				for(i=0; i < arrChkBox.length ; i++)
 				{
@@ -147,10 +147,24 @@ $emptySeat=$totalSeat - count($data['seated']);
 						break;
 					}
 				}
+
+				for(j=0; j < arrChkBox.length ; j++)
+				{
+					if(!(arrChkBox[j].checked))
+					{
+						break;
+					}
+				}
 				
 				if(i < arrChkBox.length) 
 				{
 					$('#delImage').html('<img src="assets/images/bin.png" width="45px" height="45px" onclick="delMultipleEmp()" style="cursor: pointer;">');
+					if( j == arrChkBox.length)
+					{
+						$("#masterChk").val('1');
+						masertChkBox=document.getElementById("masterChk");
+						masertChkBox.checked=1;						
+					}
 				}
 				else
 				{

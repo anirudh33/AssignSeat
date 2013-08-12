@@ -529,7 +529,7 @@ function roomLink(roomId)
 					<label class="writing roundedBorder"><?php echo $lang->GOOGOL;?></label>
 				</div>
 				<div class="srijjan_2 roundedBorder ">
-					<a href='#' onclick='roomLink(7)'><div class="roomTitle ">Srijan 2</div></a>
+					<a href='#' onclick='roomLink(7)'><div class="roomTitle "><?php echo $lang->SRIJJANII;?></div></a>
 					<div class="rotatediv">
                     <?php echo createRow($seatAllocatedInfoData[7],$_SESSION['roomData'][7]); ?>
                     </div>
@@ -605,7 +605,7 @@ function roomLink(roomId)
 			</div>
 			<div class="roundedBorder"
 				style="float: left; height: 15%; width: 100%; box-shadow: inset 9px 10px 75px #FFF8DC; border: 1px solid black;">
-				<a href='#' onclick='roomLink(20)'><div class="roomTitle"><?php echo $lang->SRIJAN;?></div></a>
+				<a href='#' onclick='roomLink(20)'><div class="roomTitle"><?php echo $lang->SRIJANI;?></div></a>
 				<div class="  newSmall"><?php echo createRow($seatAllocatedInfoData[20],$_SESSION['roomData'][20]); ?></div>
 			</div>
 			<div class="roundedBorder"
@@ -629,7 +629,7 @@ function roomLink(roomId)
 				<div class=" "><?php //echo createRow($seatAllocatedInfoData[11],$_SESSION['roomData'][11]); ?></div>
 			</div>
 			<div class="room2 roundedBorder">
-				<a href='#' onclick='roomLink(12)'><div class="roomTitle"><?php echo $lang->ROOM;?></div></a>
+				<a href='#' onclick='roomLink(12)'><div class="roomTitle"><?php echo $lang->ROOM3;?></div></a>
 				<div class=" "><?php echo createRow($seatAllocatedInfoData[12],$_SESSION['roomData'][12]); ?></div>
 			</div>
 			<div class="room2 roundedBorder">
