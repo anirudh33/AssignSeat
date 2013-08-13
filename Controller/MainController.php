@@ -527,8 +527,7 @@ class MainController extends Acontroller
 		$allData['rooms']=$roomObj->fetchAllRoomDetails();
 		$empObj=$this->loadModel('Employee');
 		$allData['employee']=$empObj->getAllEmployee();
-		echo "<pre>";
-		print_r($allData);
+		$this->loadView('Report',$allData);
 	}
 }
 

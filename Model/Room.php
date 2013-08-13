@@ -108,6 +108,7 @@ class Room extends RoomRow
 		}
 		return $myResult;
 	}
+	
 	public function fetchAllRoomDetails()
 	{
 	
@@ -125,6 +126,7 @@ class Room extends RoomRow
 		}
 		return $myResult;
 	}
+	
    public function deleteRow($roomId,$rowId) 
    {
    		$this->setStatus ( 0 );

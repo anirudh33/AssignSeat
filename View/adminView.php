@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/adminView.css" />
 
+
 <div id="adminHeader"> 
 
 	<span id='adminMenu'>

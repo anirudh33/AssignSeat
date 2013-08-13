@@ -46,6 +46,11 @@
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.common.effects.js" ></script>
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.pie.js" ></script>
 
+<link rel="stylesheet" href="assets/css/jquery.treeview.css" />
+<link rel="stylesheet" href="assets/css/screen.css" />
+<script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="assets/js/jquery.treeview.js" type="text/javascript"></script>
+
 
 <script>
 var stickDivTopMargin=0;
