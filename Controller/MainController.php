@@ -499,11 +499,36 @@ class MainController extends Acontroller
 // 		print_r($_POST);
 // 		die;
 	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will get
+	* users panal page 
+	*
+	*/
 	public function getUsersView()
 	{
 		$userObj=$this->loadModel('Users');
 		$result=$userObj->fetchAllAdminUser();
 		$this->loadView('UsersPanal',$result);
+	}
+	/*
+	 * @author Mohit K.Singh
+	*
+	* This function will get report page
+	* with all data
+	*/
+	public function reportFetch()
+	{
+		//echo "report will be here";
+		$userObj=$this->loadModel('Users');
+		$allData['users']=$userObj->fetchAllAdminUser();
+		$roomObj=$this->loadModel('Room');
+		$allData['rooms']=$roomObj->fetchAllRoomDetails();
+		$empObj=$this->loadModel('Employee');
+		$allData['employee']=$empObj->getAllEmployee();
+		echo "<pre>";
+		print_r($allData);
 	}
 }
 

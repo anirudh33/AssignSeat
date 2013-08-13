@@ -140,4 +140,17 @@ class Employee extends DBConnection
 	public function setEmployeeProfile()
 	{
 	}
+	public function getAllEmployee()
+	{
+		$data['columns']=array('id','name');
+		$data['tables'] = array("employee");
+		$data['conditions'] = array(array('status="1"'), true);
+		$result = $this->_db->select($data);
+		$myResult=array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			$myResult[]=$row;
+		}
+		return  $myResult;
+	}
 }

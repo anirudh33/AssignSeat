@@ -45,7 +45,6 @@
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.common.dynamic.js" ></script>
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.common.effects.js" ></script>
 <script src="<?php echo SITE_URL;?>assets/js/RGraph.pie.js" ></script>
-<script src="<?php echo SITE_URL;?>assets/js/stickyfloat.js" ></script>
 
 
 <script>
@@ -103,6 +102,29 @@ $(function(){
 	    minWidth: '600',
 	    minHeight: '550'	    	    
 	    });
+	    
+		$("#report").fancybox({	    
+		    closeClick : false, // prevents closing when clicking INSIDE fancybox
+		    beforeLoad : function() {
+	            $.post('index.php?controller=MainController&method=reportFetch',
+	    	            function(data){
+	        			if(data.indexOf('password') != -1)
+	        			{
+	        				location.reload();
+	        			}
+	        			$("#reportData").html(data);
+	                    });
+	           
+	            return;			    
+		    
+		    },
+		    helpers : {
+		    overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
+		    },
+		    minWidth: '1000',
+		    minHeight: '550'		      	    
+		    });	    
+    
 $("#logout").click(function(){
 	$.post('index.php?controller=MainController&method=logout',function(data,status){
 				window.location.href = 'index.php';
@@ -153,6 +175,10 @@ function showLog()
 	$("#logOverlayLink").attr("href","#logData");
 	$("#logOverlayLink").trigger("click");
 }
+/*$("#report").click(function(){
+
+	$("#reportOverlayLink").trigger("click");
+})*/
 </script>
 <body>
     <div id="bg">
@@ -167,6 +193,7 @@ function showLog()
                     <ul>
                         <li class="first active"><a href="index.php"><?php echo $lang->HOME?></a></li>
                         <li ><a href="index.php?controller=MainController&method=adminView" >Admin</a></li>
+                        <li ><a href="#reportData" id="report" >Report</a></li>
                         <li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
                         <li><a href="#" id="logout" onClick="showLog()"><?php echo $lang->SHOWLOG?></a></li>
                     </ul>
@@ -215,6 +242,7 @@ function showLog()
     </div>
     <a id="logOverlayLink" class="doNotDisplay"></a>
     <div id="logData" class="doNotDisplay"></div>
+    <div id="reportData" class="doNotDisplay"></div>
 	<a id="roomFillDetails" href="#roomDetailDiv"></a>
 	<div id="roomDetailDiv" style='display: none;'></div>
 	<input type="hidden" value='' id='hiddenRoomId'>

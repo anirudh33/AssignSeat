@@ -108,6 +108,23 @@ class Room extends RoomRow
 		}
 		return $myResult;
 	}
+	public function fetchAllRoomDetails()
+	{
+	
+		$data['columns']=array('room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
+		$data['tables']='room';
+		$data['joins']=array(array('table' => 'room_row',
+				'type'  => 'left',
+				'conditions' => array('room.id' => 'room_row.room_id','room_row.status' => 1)));
+		$data['conditions']=array(array('room.status = "1" '),true);
+		$result=$this->_db->select($data);
+		$myResult=array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC))
+		{
+			$myResult[]=$row;
+		}
+		return $myResult;
+	}
    public function deleteRow($roomId,$rowId) 
    {
    		$this->setStatus ( 0 );
