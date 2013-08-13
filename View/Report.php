@@ -1,10 +1,27 @@
-<?php //echo "<pre>";/
-//print_r($data);die;
+<?php 
+//echo "<pre>";
+
+$last_id=0;
+foreach($data['rooms'] as $key => $value)
+{
+	if ($last_id!=$value['id'])
+	{
+	$i=0;
+	$last_id=$value['id'];
+	$room[$value['name']][$i]=$value;
+	}
+	else
+	{
+	$room[$value['name']][++$i]=$value;
+	}
+}
+//print_r($room);die;
+
 ?>
 <style>
 #side2, #side1
 {
-	height:400px;
+	height:532px;
 }
 #side1{
 	margin-left: 2%;
@@ -58,27 +75,57 @@ overflow:scroll;
 	<ul id="rooms">
 	<?php
 	$last_id=0; 
-	foreach($data['rooms'] as $key => $value)
+	foreach($room as $key => $value)
 	{
-		if($last_id == 0)
+		//echo "<ul>";
+		echo "<li>".$key;
+		if($value[0]['row_number'] != NULL)
 		{
-			echo "<li>".$value['name']."</li>";
-			if($value['row_number']==NULL)
+			echo "<ul>";
+			foreach($value as $key2 => $val2)
 			{
-				$last_id=1;
-				echo "<ul>";
+				echo "<li>Row ".$val2['row_number'];
+				if($val2['computer'] > 0)
+				{
+					echo "<ul>";
+					for($i=0;$i < $val2['computer']; $i++)
+					{
+						echo "<li>Computer ".($i+1)."</li>";
+					}
+					echo "<li></li></ul>";
+				}
+				echo "</li>";
+				
 			}
+			echo "<li></li></ul>";
 		}
-		else 
-		{
-			
-		}
+		echo "</li>";
+	}
+	?>
+	<li></li>	
+	</ul>
+	</li>
+	<li><a href="#" ><strong>Team Members</strong></a>
+	<ul id="team">
+	<?php 
+	foreach($data['employee'] as $key => $value)
+	{
+	?>
+		<li><a href="#"><?php echo $value['name'];?></a></li>
+	<?php 
 	}
 	?>	
 	</ul>
 	</li>
-	<li>
+	<li><a href="#" ><strong>Systems</strong></a>
+	<ul id="system">
+		<li><a href="#">Login</a></li><li><a href="#">Logout</a></li><li><a href="#">Allocation</a></li>
+		<li><a href="#">Reallocation</a></li><li><a href="#">Trash</a></li><li><a href="#">Row Add</a></li>
+		<li><a href="#">Row Delete</a></li><li><a href="#">Seat Add</a></li><li><a href="#">Seat Delete</a></li>
+		<li><a href="#">User Add</a></li><li><a href="#">User Edit</a></li><li><a href="#">User Delete</a></li>
+	</ul>
 	</li>
+<li></li>
 </ul>
 </div>
 <div id="side2">

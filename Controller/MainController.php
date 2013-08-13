@@ -106,7 +106,7 @@ class MainController extends Acontroller
 		//print_r($_REQUEST);die;
 		$a[]=explode("_",$room);
 		$b[]=explode("_",$moveto);
-		//print_r($b);die;
+		//print_r($a);die;
 		$info['room']=$a[0][0];
 		$info['row']=$a[0][1];
 		$info['computerid']=$a[0][2];
@@ -124,6 +124,7 @@ class MainController extends Acontroller
 		$info['assigne']=$_SESSION ['userid'];
 		$info['assignename']=$_SESSION ['username'];
 		$info['empid']=$_REQUEST['employee'];
+		//print_r($info); die;
 		//validating changeComment field by anirudh
 		$obj = new validate();
 		$obj->validator("changeComment",$info['details'], "spaceCheck=25#required#maxlength=250",'Enter minimum 25 chars excluding spaces#Comment Required#Comment should not be more than 250 characters long');
@@ -144,6 +145,9 @@ class MainController extends Acontroller
 			$log['room'] = $info['room'];
 			$log['row'] = $info['row'];
 			$log['computerid'] = $info['computerid'];
+//echo"<pre>";
+//			print_r($log);
+//die;
 			/****** for logging seat allocation*********/ 
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logAssignSeatCuurentFile($log);
@@ -165,9 +169,12 @@ class MainController extends Acontroller
 			$log['room'] = $info['room'];
 			$log['row'] = $info['row'];
 			$log['computerid'] = $info['computerid'];
-			$log['frmroom'] = $_SESSION ["frmroom"];
-			$log['frmrow'] = $_SESSION ["frmrow"];
-			$log['frmcomputerid'] = $_SESSION ["frmcomp"];
+			$log['frmroom'] = $info ["frmroom"];
+			$log['frmrow'] = $info ["frmrow"];
+			$log['frmcomputerid'] = $info ["frmcomp"];
+			echo"<pre>";
+			print_r($log);
+die;
 			/****** for logging seat reallocation*********/ 
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logUpdateSeatLocationCuurentFile($log);

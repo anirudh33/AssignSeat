@@ -113,7 +113,7 @@ $(function(){
 		    beforeLoad : function() {
 	            $.post('index.php?controller=MainController&method=reportFetch',
 	    	            function(data){
-	        			if(data.indexOf('password') != -1)
+	        			if(data.indexOf('Reset') != -1)
 	        			{
 	        				location.reload();
 	        			}
