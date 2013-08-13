@@ -176,10 +176,12 @@ class Users extends DBConnection {
 
         public function deleteAdminUser(){
          $id = $_REQUEST['value'];
-         $sql = "delete from login where id=" .$id;
-         $result = mysql_query($sql);
+         $data = array('status' => "0");
+         $where = array('id' => $id);
+
+         $result = $this->_db->update('login',$data, $where);
          return $result;
-         
+
         }
 
 }
