@@ -46,10 +46,9 @@ overflow:scroll;
 <script type="text/javascript">
 		$(function() {
 			$("#tree").treeview({
-				collapsed: true,
 				animated: "medium",
 				control:"#sidetreecontrol",
-				persist: "location"
+				collapsed:true
 			});
 		})
 		
@@ -74,6 +73,7 @@ overflow:scroll;
 	<li><span><strong>Rooms</strong></span>
 	<ul id="rooms">
 	<?php
+	$flag=0;
 	$last_id=0; 
 	foreach($room as $key => $value)
 	{
@@ -95,7 +95,7 @@ overflow:scroll;
 					echo "<li></li></ul>";
 				}
 				echo "</li>";
-				
+
 			}
 			echo "<li></li></ul>";
 		}
@@ -115,7 +115,8 @@ overflow:scroll;
 	<?php 
 	}
 	?>	
-	</ul>
+	<li></li>
+	</ul></li>
 	</li>
 	<li><a href="#" ><strong>Systems</strong></a>
 	<ul id="system">

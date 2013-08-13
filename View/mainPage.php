@@ -8,7 +8,7 @@
 ?>
 <html lang="">
 <head>
-<title></title>
+<title>Assign Seat</title>
 <link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/css/main.css"
     type="text/css" media="all">
 </head>

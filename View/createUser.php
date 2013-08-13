@@ -1,9 +1,29 @@
+<script type="text/javascript">
+function createUser()
+{
+	$.ajax( {
+	    type: "POST",
+	    url: 'index.php?controller=MainController&method=createUser',
+	    data: $("#userCreateForm").find(":input").serialize(),
+	    success: function( data ) {
+				if(data.indexOf('Reset') != -1)
+			{
+				location.reload();
+			}
+	      alert(data);
+	      getUsersPanal();
+	    }
+	  } );
+}
+  
+</script>
+
 <html>
 <head>
 </head>
 
 <body>
- <form action="index.php?controller=MainController&method=createUser" method="Post">
+ <form action="" id="userCreateForm" method="Post">
   <table>
    <tr>
     <td>User Login Id : </td> <td><input type="text" name="user" required="required"></td>
@@ -15,7 +35,7 @@
     <td>Confirm Password : </td> <td><input type="password" name="c_password" required="required"></td>
    </tr>
    <tr>
-    <td></td> <td><input type="submit" value="Create User"></td>
+    <td></td> <td><input type="button" value="Create User" onclick="createUser()"></td>
    </tr>
   </table>
 </form>

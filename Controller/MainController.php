@@ -163,6 +163,8 @@ class MainController extends Acontroller
 		/***********if a seat is reassigned***************************/
 		if($inserted=="true1") {
 			$log = array();
+// 						print_r($info);
+// 			die;
 			$log['empid']=$ename;
 			$log['uname']=$info['assignename'];
 			$log['seatid']=$sid;
@@ -171,10 +173,10 @@ class MainController extends Acontroller
 			$log['computerid'] = $info['computerid'];
 			$log['frmroom'] = $info ["frmroom"];
 			$log['frmrow'] = $info ["frmrow"];
-			$log['frmcomputerid'] = $info ["frmcomp"];
+			$log['frmcomputerid'] = $info ["frmcomputerid"];
 			echo"<pre>";
-			print_r($log);
-die;
+// 			print_r($log);
+// die;
 			/****** for logging seat reallocation*********/ 
 			$objLogger = new Logger();
 			$boolLogResult = $objLogger->logUpdateSeatLocationCuurentFile($log);
@@ -537,21 +539,20 @@ die;
 		$this->loadView('Report',$allData);
 	}
 
-        public function deleteUser()
+     public function deleteUser()
 	{
-                $userObj=$this->loadModel('Users');
+        $userObj=$this->loadModel('Users');
 		$del = $userObj->deleteAdminUser();
-                header("Location:index.php?controller=MainController&method=getUsersView");
+        header("Location:index.php?controller=MainController&method=getUsersView");
 		
-        }
+    }
        
        public function createUser()
 	{
-                $userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
-                header("Location:index.php?controller=MainController&method=getUsersView");
-		
-        }
+		echo "User Created";
+               // header("Location:index.php?controller=MainController&method=getUsersView")	
+     }
         
          
 }
