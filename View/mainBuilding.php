@@ -148,7 +148,7 @@ function dragdropevent() {
 		//alert(thisid);
            // $(".positionTooltip").tooltip("close");
             $("#changeCommentLink").fancybox({
-                closeBtn : false,
+                closeBtn : true,
                 afterLoad : function() {
                     $("#changeComment").val('');
                     return;

@@ -160,6 +160,19 @@ class Users extends DBConnection {
 	private function encryptPassword($password) {	
 	return md5($password);	
 	}	
+	
+	public function fetchAllAdminUser()
+	{
+		$data['tables']		= 'login';
+		$data['columns']	= array('id','username','is_admin');
+		$data['conditions']=array(array('status="1"'),true);
+		$result=$this->_db->select($data);
+		$myResult=array();
+		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[]=$row;
+		}	
+		return $myResult;	
+	}
 
 }
 ?>

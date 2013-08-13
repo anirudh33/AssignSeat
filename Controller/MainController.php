@@ -499,6 +499,12 @@ class MainController extends Acontroller
 // 		print_r($_POST);
 // 		die;
 	}
+	public function getUsersView()
+	{
+		$userObj=$this->loadModel('Users');
+		$result=$userObj->fetchAllAdminUser();
+		$this->loadView('UsersPanal',$result);
+	}
 }
 
 

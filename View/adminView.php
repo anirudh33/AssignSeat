@@ -4,7 +4,17 @@
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/adminView.css" />
 
-<div id="adminHeader"> <span id='adminMenu'><a href="index.php">Home</a></span></div>
+<div id="adminHeader"> 
+
+	<span id='adminMenu'>
+	
+	<ul class="adminallMenues">
+	<li><a href="index.php">Home</a></li>
+	<li><a href="#" onclick="getUsersPanal()">Users</a></li>
+	</ul>
+	</span>
+</div>
+
 <div id='leftAdminMenu'>
 <h3><a href="#" onclick="uploadcsv()">Upload CSV File</a></h3>
  <h3>Employees</h3>
@@ -32,6 +42,18 @@
 <div id="adminPanal"></div>
 <div id="adminFooter"></div>
 <script>
+
+function getUsersPanal()
+{
+	$.post('index.php?controller=MainController&method=getUsersView',function(data){
+		if(data.indexOf('Reset') != -1)
+		{
+			location.reload();
+		}
+		$('#adminPanal').html(data);
+		})
+}
+
 $(function(){
 	getData();
 });
@@ -69,6 +91,18 @@ function uploadcsv() {
 
 
 <style>
+.adminallMenues {
+	list-style-type:none;
+}
+.adminallMenues li{
+	display: inline;
+}
+.adminallMenues  a
+{
+	width:60px;
+	font-size: 20px !important;
+	padding: 5px;
+}
 #adminMenu {
 	float:left;
 	margin-top: 40px;	
@@ -107,7 +141,7 @@ function uploadcsv() {
 	box-shadow: -17px -12px 11px #DEB887;
 	background: url("assets/images/shadow.png") repeat-x scroll left top transparent;
 	width: 100%;
-	height: 63%;
+	height: 163px;
 	
 }
 #leftAdminMenu {
@@ -117,7 +151,7 @@ function uploadcsv() {
 	border: 2px solid black;
 	padding-left: 2%;
 	padding-right: 2%;
-	margin-top: -30%;
+	margin-top: 2%;
 	width: 16%;
 	height : auto;
 	color:white;
@@ -132,7 +166,7 @@ function uploadcsv() {
 	width: 75%;
 	height : 100%;
 	margin-left: 2%;
-	margin-top: -30%;
+	margin-top: 2%;
 	border: 2px solid black;
 	float: left;
 }
