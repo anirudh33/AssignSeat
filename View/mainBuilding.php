@@ -104,13 +104,18 @@ function dragdropevent() {
         helper: "clone",
         cursor: "move", 
         cursorAt: { top: 3, left: 3 },
+	scroll: true, 
+	scrollSensitivity: 100,
         start : function(event, ui) {
             draggedElement = this.id;
             moveid = $(this).parent('div').attr('id');
+		
             //alert(draggedElement);
             dragdropevent();
+		
             //alert(moveid);
-        }
+        },
+	
     });
     $( ".droppable" ).droppable({
         /**
@@ -119,6 +124,7 @@ function dragdropevent() {
          * object area *
          */
         tolerance : 'intersect',
+	
         over : function(event, ui) {
             thisid = this.id;
             /**

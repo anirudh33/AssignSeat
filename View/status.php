@@ -1,7 +1,7 @@
 <?php
 $k = 0;
 $count = count($data);
-echo "<div id='rows'>";
+echo "<div class='rows'>";
 if($_REQUEST['area'] == 'Lab-1')
 echo $_REQUEST['value1'];
 for($i=0;$i<$_REQUEST['value2'];$i++)
@@ -18,7 +18,7 @@ for($i=0;$i<$_REQUEST['value2'];$i++)
             
 	?>       
 	
-			<div id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>" class="cols"><img id="<?php echo $data[$k]['eid'];?>" class="dragable dragged custom_tooltip" src="images/red_chair.gif" height=20 width=30 /></div>
+			<div id="<?php echo $_REQUEST['area'].'_'.$_REQUEST['value1'].'_'.$i;?>" class="cols"><img id="<?php echo $data[$k]['eid'];?>" class="dragable dragged custom_tooltip" src="images/red_chair.gif" height=16 width=10 /></div>
 
 	<?php
 		}

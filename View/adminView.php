@@ -1,9 +1,11 @@
 <title>Assign Seat</title>
-<script type="text/javascript" src="assets/js/jquery-1.9.1.min.js"></script>  
+
+
+
+<script src="assets/js/jquery.tools.min.js"></script>
 <link rel="shortcut icon" href="../favicon.ico"> 
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/adminView.css" />
-
 
 <div id="adminHeader"> 
 
@@ -18,6 +20,7 @@
 
 <div id='leftAdminMenu'>
 <h3><a href="#" onclick="uploadcsv()">Upload CSV File</a></h3>
+<h3><a href="javascript:void(0);" onclick="deptcolor()">Dept Color</a></h3>
  <h3>Employees</h3>
 	<div id="allEmployee">
 	<?php include_once 'allEmployee.php';?>
@@ -87,6 +90,18 @@ function uploadcsv() {
 				$("#adminPanal").html(data);
 			}	);
 	
+}
+
+function deptcolor()
+{
+	$.post('View/deptcolor.php',
+	{
+				
+	},
+	function(data)
+	{
+		$("#adminPanal").html(data);
+	});
 }
 </script>
 
