@@ -529,6 +529,15 @@ class MainController extends Acontroller
 		$allData['employee']=$empObj->getAllEmployee();
 		$this->loadView('Report',$allData);
 	}
+
+        public function deleteUser()
+	{
+                $userObj=$this->loadModel('Users');
+		$del = $userObj->deleteAdminUser();
+                header("Location:index.php?controller=MainController&method=getUsersView");
+		
+        }
+         
 }
 
 

@@ -164,7 +164,7 @@ class Users extends DBConnection {
 	public function fetchAllAdminUser()
 	{
 		$data['tables']		= 'login';
-		$data['columns']	= array('id','username','is_admin');
+		$data['columns']	= array('id','username','is_admin','password');
 		$data['conditions']=array(array('status="1"'),true);
 		$result=$this->_db->select($data);
 		$myResult=array();
@@ -173,6 +173,14 @@ class Users extends DBConnection {
 		}	
 		return $myResult;	
 	}
+
+        public function deleteAdminUser(){
+         $id = $_REQUEST['value'];
+         $sql = "delete from login where id=" .$id;
+         $result = mysql_query($sql);
+         return $result;
+         
+        }
 
 }
 ?>
