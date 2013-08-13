@@ -537,6 +537,15 @@ class MainController extends Acontroller
                 header("Location:index.php?controller=MainController&method=getUsersView");
 		
         }
+       
+       public function createUser()
+	{
+                $userObj=$this->loadModel('Users');
+		$createUser = $userObj->createAdminUser();
+                header("Location:index.php?controller=MainController&method=getUsersView");
+		
+        }
+        
          
 }
 

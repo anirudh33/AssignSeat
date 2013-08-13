@@ -23,6 +23,12 @@
   }
   });
   }
+  function editUser(fetch)
+  {
+  $("#open").html("Change Password");
+  $("#show_"+fetch).html("<input type='password' name='password' required='required'>");
+  
+  }
 </script>
 
 </head>
@@ -39,12 +45,14 @@
   <table border="1" cellpadding="10">
    <tr>
     <th>User Name</th>
+    <th id="open"></th>
     <th>Options</th>
    </tr>
 <?php for($i=0; $i<count($data);$i++){?>
   <tr>
     <td><?php print_r($data[$i]['username']); ?></td>
-    <td><a href="#">Edit</a> | <a href="#" onclick="deleteuser('<?php echo $data[$i]['id']; ?>')">Delete</a></td>
+    <td id="show_<?php echo $data[$i]['id']; ?>"></td>
+    <td><a href="#" onclick="editUser('<?php echo $data[$i]['id']; ?>')">Edit</a> | <a href="#" onclick="deleteuser('<?php echo $data[$i]['id']; ?>')">Delete</a></td>
   </tr>
 <?php } ?>
   </table>

@@ -184,6 +184,14 @@ class Users extends DBConnection {
 
         }
 
+        public function createAdminUser(){
+         $userid = $_REQUEST['user'];
+         $password = md5($_REQUEST['password']);
+   
+         $result = $this->_db->insert('login', array('username' => $userid, 'password' => $password, 'status' => "1", 'is_admin' => NULL, 'created_on' => 'now()', 'updated_on' => NULL));
+         return $result;
+        }
+
 }
 ?>
 
