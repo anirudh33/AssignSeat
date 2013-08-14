@@ -551,8 +551,12 @@ class MainController extends Acontroller
 	{
 		$userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
+                if($createUser){
 		echo "User Created";
-               
+                }
+                else{
+                echo "Password & Confirm Password Does Not Match";
+                }
      }
 
      public function changePassword(){

@@ -187,9 +187,16 @@ class Users extends DBConnection {
         public function createAdminUser(){
          $userid = $_REQUEST['user'];
          $password = md5($_REQUEST['password']);
+         $c_password = md5($_REQUEST['c_password']);
+      
+         if($password == $c_password){
    
          $result = $this->_db->insert('login', array('username' => $userid, 'password' => $password, 'status' => "1", 'is_admin' => NULL, 'created_on' => 'now()', 'updated_on' => NULL));
          return $result;
+         }
+        else{
+        return 0;
+         }
         }
 
         public function changeAdminPassword(){
@@ -199,7 +206,7 @@ class Users extends DBConnection {
         
         $data['tables']		= 'login';
 	$data['columns']	= array('password');
-	$data['conditions'] = array(array('id='. print_r($userid)),true);
+	$data['conditions'] = array(array('id='. $userid),true);
 	$result=$this->_db->select($data);
         $myResult=array();
 		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
