@@ -31,6 +31,7 @@ width: 30%;
 border:1px solid black;
 float:left;
 overflow:scroll;
+	margin-left:20px;
 }
 #side2{
 	margin-left: 2%;
@@ -39,10 +40,20 @@ width: 60%;
 border:1px solid black;
 float:left;
 overflow:scroll;
+	margin-left:20px;
+}
+#datepicker{
+	
+	border: 1px solid red;
+	height:200px;
+	margin-left: 20px;
+    width: 100%;
+	
 }
 
 </style>
 
+    
 <script type="text/javascript">
 		$(function() {
 			$("#tree").treeview({
@@ -51,11 +62,32 @@ overflow:scroll;
 				collapsed:true
 			});
 		})
-		
+	
 
 </script>
+<div id="datepicker">
 
+<div class="wrapper">
+        <div class="tabsContent">
+            <div class="tab">
+                <div id="widget">
+					<div id="widgetField">
+						<span>28 July, 2008 &divide; 31 July, 2008</span>
+						<a id ="dd" href="#" > Select date range </a>
+					</div>
+					<div id="widgetCalendar">
+					</div>
+				</div>
+				<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+				
+            </div>
+        </div>
+
+
+</div>
+</div>
 <div id="main">
+
 <div id="side1" >
 <ul id="tree">
 	<li><a href="#" ><strong>Admin</strong></a>

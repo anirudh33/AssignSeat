@@ -22,6 +22,8 @@
     type="text/css" />   
 <link href="<?php echo SITE_URL;?>assets/css/jquery.contextMenu.css" rel="stylesheet" 
     type="text/css" />
+                            <script src="<?php echo SITE_URL;?>assets/js/js1/jquery1.js" ></script>
+    
 <script src="<?php echo SITE_URL;?>/assets/js/jquery-1.9.1.min.js"></script>
 <script
     src="<?php echo SITE_URL;?>/assets/js/jquery ui/jquery.ui.core.min.js"></script>
@@ -51,6 +53,17 @@
 <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
 <script src="assets/js/jquery.treeview.js" type="text/javascript"></script>
 
+<link rel="stylesheet"
+    href="<?php echo SITE_URL;?>assets/css/datepicker.css" />
+<link rel="stylesheet"
+    href="<?php echo SITE_URL;?>assets/css/layout.css" />
+    <script src="<?php echo SITE_URL;?>assets/js/js1/datepicker.js" ></script>
+        <script src="<?php echo SITE_URL;?>assets/js/js1/eye.js" ></script>
+    
+        <script src="<?php echo SITE_URL;?>assets/js/js1/layout.js" ></script>
+    
+            <script src="<?php echo SITE_URL;?>assets/js/js1/utils.js" ></script>
+            
 
 <script>
 var stickDivTopMargin=0;
