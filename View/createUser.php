@@ -26,7 +26,7 @@ function createUser()
  <form action="" id="userCreateForm" method="Post">
   <table>
    <tr>
-    <td>User Login Id : </td> <td><input type="text" name="user" required="required"></td>
+    <td>Login Id : </td> <td><input type="text" name="user" required="required"></td>
    </tr>
    <tr>
     <td>Password : </td> <td><input type="password" name="password" required="required"></td>

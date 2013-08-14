@@ -1,6 +1,7 @@
 <html>
 <head>
 <script>
+var prev = "";
  function deleteuser(fetch)
   {
   $.ajax({
@@ -29,6 +30,14 @@
   }
   function editUser(fetch)
   {
+  if(prev != ""){
+  alert("#show_"+prev);
+  $("#show_"+prev).html("");
+  prev = fetch; 
+  }
+  else{
+  prev = fetch;
+  }
   $("#open").html("Change Password");
   $("#show_"+fetch).html("<input type='password' name='password' required='required'>");
   
@@ -46,7 +55,7 @@
 </div>
 <div style="margin:70px 280px;">
 
-  <table border="1" cellpadding="10">
+  <table border="1" cellpadding="5">
    <tr>
     <th>User Name</th>
     <th id="open"></th>
