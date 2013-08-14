@@ -577,6 +577,42 @@ class MainController extends Acontroller
       }
      }
         
+	/*
+	 * @author Amber Sharma
+	*
+	* This function will load Department Seat Color Select Panel
+	*
+	* */
+	public function deptColor()
+	{
+		$roomObj=$this->loadModel('Departments');
+		$departments=$roomObj->deptColor();
+		$this->loadView('deptcolor',$departments);
+	}
+        
+	/*
+	 * @author Amber Sharma
+	*
+	* This function will save Department Colors in a Constant File
+	*
+	* */
+	public function saveDeptColor()
+	{
+		
+		foreach($_REQUEST as $key => $value)
+		{
+			if($key !== "controller" && $key !== "method")
+			{
+				$departments[$key] = $value;
+			}
+		}
+		$roomObj=$this->loadModel('Departments');
+		$departments=$roomObj->saveDeptColor($departments);
+                if($departments){
+                 echo "Colour Updated !!!!!";
+                }
+		
+	}
          
 }
 

@@ -3,6 +3,7 @@
 
 
 <script src="assets/js/jquery.tools.min.js"></script>
+
 <link rel="shortcut icon" href="../favicon.ico"> 
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/adminView.css" />
@@ -91,7 +92,7 @@ function uploadcsv() {
 			}	);
 	
 }
-
+/*
 function deptcolor()
 {
 	$.post('View/deptcolor.php',
@@ -101,6 +102,21 @@ function deptcolor()
 	function(data)
 	{
 		$("#adminPanal").html(data);
+	});
+}
+*/
+
+function deptcolor()
+{
+	$.ajax
+	({
+		type: "POST",
+		url: 'index.php?controller=MainController&method=deptColor',
+		success: function(data)
+		{
+			$("#adminPanal").html(data);
+		}
+		
 	});
 }
 </script>

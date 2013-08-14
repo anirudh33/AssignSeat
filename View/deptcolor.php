@@ -10,7 +10,7 @@
 }
 span
 {
-	color:#ffffff;
+	color:#000000;
 	margin:5px;
 }
 .form-item
@@ -19,11 +19,26 @@ span
 	padding:10px;
 	border:1px;
 }
+
+.vpb_main_wrapper
+{
+	
+	margin: 200px;
+	border: solid 1px #cbcbcb;
+	 background-color: #FFF;
+	 box-shadow: 0 0 15px #cbcbcb;
+	-moz-box-shadow: 0 0 15px #cbcbcb;
+	-webkit-box-shadow: 0 0 15px #cbcbcb;
+	-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;
+	padding:10px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+}
 </style>
 <script type="text/javascript" charset="utf-8">
 var dept;
 var deptvalue;
-var deptarr = new Array("corephp");
+var deptarr = new Array();
 var deptvaluearr = new Array();
 var k = 0;
 $(document).ready(function()
@@ -61,24 +76,67 @@ $(document).ready(function()
         	p.css('opacity', 1);
         	$(selected = this).css('opacity', 1).addClass('colorwell-selected');
       	});
- });
- </script>
+});
+function saveDeptColor()
+{
+	$.ajax
+	({
+		type: "POST",
+		data: $('#frmid').serialize(),
+		url: 'index.php?controller=MainController&method=saveDeptColor',
+		success: function(data)
+		{
+			alert(data);
+		}
+	});
+}
+</script>
 </head>
-<div style="width: 500px;">
-  <div id="picker" style="float: right;"></div>
+<form  action="#" id="frmid" class="vpb_main_wrapper">
+<table cellpadding="15">
 <?php
-$departments = array("drupal" , "sugarcrm" , "zend" , "corephp");
-for($i = 0 ; $i < count($departments) ; $i ++)
+$count =1;
+for($i = 0 ; $i < count($data) ; $i ++)
 {
 ?>
-	<div class="form-item">
-		<span> <?php echo $departments[$i] ; ?></span>
-		<input type="text" id="<?php echo $departments[$i] ; ?>" class="colorwell" value="#123456" />
-	</div>
-	
+	<tr class="form-item">
+		<td>
+			<span> <?php echo ucfirst($data[$i]['department']) ; ?></span>
+		</td>
+		<td>
+		<?php if(defined(strtoupper($data[$i]['department']))) 
+		{		
+		?>
+		
+			<input type="text" id="<?php echo $data[$i]['department']; ?>" class="colorwell" value="<?php echo constant(strtoupper($data[$i]['department'])) ; ?>" name="<?php echo $data[$i]['department']; ?>"/>
+		<?php
+		}
+		else
+		{
+		?>
+			<input type="text" id="<?php echo $data[$i]['department']; ?>" class="colorwell" value="#000000" name="<?php echo $data[$i]['department']; ?>"/>
+		<?php
+		}
+		?>
+		</td>
+		<?php
+		if($count == 1)
+		{
+		?>
+			<td id="picker" rowspan="<?php echo count($data) + 1; ?>">
+			</td>
+		<?php
+		$count = 0;
+		}
+		?>
+	</tr>
 <?php
 }
 ?>
-  
-</div>
-
+<tr>
+<td colspan="2" align="center">
+<input type="button"  onclick="saveDeptColor()" value="save"/>
+</td>
+</tr>
+</table> 
+</form>
