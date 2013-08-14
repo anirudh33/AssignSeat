@@ -554,6 +554,8 @@ class MainController extends Acontroller
 		$userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
                 if($createUser){
+                    $objLogger = new Logger();
+                    $boolLogResult = $objLogger->logAdminUserCreation();
 		echo "User Created";
                 }
                 else{
@@ -566,6 +568,8 @@ class MainController extends Acontroller
       $createUser = $userObj->changeAdminPassword();
       
       if($createUser){
+          $objLogger = new Logger();
+          $boolLogResult = $objLogger->logAdminUserPasswordChange();
       echo "Password Changed";
       }
       else{

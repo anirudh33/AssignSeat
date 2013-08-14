@@ -204,6 +204,26 @@ $data['tables'] = "log";
 		return;
 	}
 	
+	public function logAdminUserCreation()
+	{
+	    $logData = $_SESSION['username']." Created A New Admin User Named ".$_REQUEST['user'];
+	    $data['tables'] = "log";
+	    $insertedValues = array (
+	        "user_id"	=> $_SESSION['userid'],
+	        "action_performed"	=> "UA",
+	        "date_of_log"		=> date("d/m/y H:i:s",time()),
+	        "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+	    );
+	    $result = $this->_db->insert($data['tables'],$insertedValues);
+	    return "true";
+	    
+	}
+	
+	public function logAdminUserPasswordChange()
+	{
+	    
+	}
+	
 	public function getBrowser(){
 		$browser = array("Navigator"            => "/Navigator(.*)/i",
 				"Firefox"              => "/Firefox(.*)/i",
