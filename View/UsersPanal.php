@@ -1,5 +1,6 @@
 <html>
 <head>
+
 <script>
 var prev = "";
  function deleteuser(fetch)
@@ -28,10 +29,27 @@ var prev = "";
   }
   });
   }
+
+  function changePassword(fetch)
+  {
+  var pass = document.getElementById(fetch).value;
+  $.ajax({
+  
+  type: "POST",
+  url: 'index.php?controller=MainController&method=changePassword&value='+fetch+'&passwd='+pass,
+  success: function(data){
+if(data.indexOf('Login') != -1)
+			{
+				location.reload();
+			}
+	      alert(data);
+	      getUsersPanal();  }
+  });
+  }
+
   function editUser(fetch)
   {
   if(prev != ""){
-  alert("#show_"+prev);
   $("#show_"+prev).html("");
   prev = fetch; 
   }
@@ -39,7 +57,7 @@ var prev = "";
   prev = fetch;
   }
   $("#open").html("Change Password");
-  $("#show_"+fetch).html("<input type='password' name='password' required='required'>");
+  $("#show_"+fetch).html("<input type='password' name='password' required='required' id='"+fetch+"'><span style='float:right;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span>");
   
   }
 </script>
@@ -53,9 +71,9 @@ var prev = "";
   <div id="formpanel">
   </div>
 </div>
-<div style="margin:70px 280px;">
+<div style="margin:70px 180px;">
 
-  <table border="1" cellpadding="5">
+  <table border="1" cellpadding="5" style="width:580px;">
    <tr>
     <th>User Name</th>
     <th id="open"></th>
@@ -63,9 +81,9 @@ var prev = "";
    </tr>
 <?php for($i=0; $i<count($data);$i++){?>
   <tr>
-    <td><?php print_r($data[$i]['username']); ?></td>
+    <td style="text-align:center;"><?php print_r($data[$i]['username']); ?></td>
     <td id="show_<?php echo $data[$i]['id']; ?>"></td>
-    <td><a href="#" onclick="editUser('<?php echo $data[$i]['id']; ?>')">Edit</a> | <a href="#" onclick="deleteuser('<?php echo $data[$i]['id']; ?>')">Delete</a></td>
+    <td style="text-align:center;"><a href="#" onclick="editUser('<?php echo $data[$i]['id']; ?>')">Edit</a> | <a href="#" onclick="deleteuser('<?php echo $data[$i]['id']; ?>')">Delete</a></td>
   </tr>
 <?php } ?>
   </table>

@@ -192,6 +192,17 @@ class Users extends DBConnection {
          return $result;
         }
 
+        public function changeAdminPassword(){
+        $userid = $_REQUEST['value'];
+        $password = md5($_REQUEST['passwd']);
+        
+        $data = array('password' => $password);
+        $where = array('id' => $userid);
+
+         $result = $this->_db->update('login',$data, $where);
+         return $result;
+        }
+
 }
 ?>
 

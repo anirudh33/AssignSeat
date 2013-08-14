@@ -542,7 +542,7 @@ class MainController extends Acontroller
      public function deleteUser()
 	{
         $userObj=$this->loadModel('Users');
-		$del = $userObj->deleteAdminUser();
+	$del = $userObj->deleteAdminUser();
         echo "User Deleted";
 		
     }
@@ -552,7 +552,14 @@ class MainController extends Acontroller
 		$userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
 		echo "User Created";
-               // header("Location:index.php?controller=MainController&method=getUsersView")	
+               
+     }
+
+     public function changePassword(){
+      $userObj=$this->loadModel('Users');
+      $createUser = $userObj->changeAdminPassword();
+      echo "Password Changed";
+
      }
         
          
