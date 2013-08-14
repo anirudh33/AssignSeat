@@ -139,12 +139,13 @@ class MainController extends Acontroller
 		/******* first time seat assignment to the user**************/ 
 		if($inserted=="true") {
 			$log = array();
-			$log['empid']=$ename;
+			$log['empid']=$info['empid'];
+			$log['ename']=$ename;
 			$log['uname']=$info['assignename'];
 			$log['seatid']=$sid;
 			$log['room'] = $info['room'];
 			$log['row'] = $info['row'];
-			$log['computerid'] = $info['computerid'];
+			$log['computerid'] = $info['computerid']+1;
 //echo"<pre>";
 //			print_r($log);
 //die;
@@ -165,15 +166,16 @@ class MainController extends Acontroller
 			$log = array();
 // 						print_r($info);
 // 			die;
-			$log['empid']=$ename;
+			$log['empid']=$info['empid'];
+			$log['ename']=$ename;
 			$log['uname']=$info['assignename'];
 			$log['seatid']=$sid;
 			$log['room'] = $info['room'];
 			$log['row'] = $info['row'];
-			$log['computerid'] = $info['computerid'];
+			$log['computerid'] = $info['computerid']+1;
 			$log['frmroom'] = $info ["frmroom"];
 			$log['frmrow'] = $info ["frmrow"];
-			$log['frmcomputerid'] = $info ["frmcomputerid"];
+			$log['frmcomputerid'] = $info ["frmcomputerid"]+1;
 			echo"<pre>";
 // 			print_r($log);
 // die;

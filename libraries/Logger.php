@@ -1,10 +1,12 @@
 <?php
-class Logger
+include_once('DBconnect.php');
+class Logger extends DBConnection
 {
 	private $agent = "";
 	private $info = array();
 	
 	function __construct(){
+		parent::__construct();
 		$this->agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : NULL;
 		$this->getBrowser();
 		$this->getOS();
@@ -24,6 +26,17 @@ class Logger
 		fwrite($fp,$logData);
 		fclose($fp);
 		//die ($logData);
+		
+		//code to enter the log in the database table Log
+
+		$data['tables'] = "log";
+		$insertedValues = array (
+				"user_id"	=> $_SESSION['userid'],
+				"action_performed"	=> "LI",
+				"date_of_log"		=> date("d/m/y H:i:s",time()),
+				"details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+				);
+		$result = $this->_db->insert($data['tables'],$insertedValues);
 		return;		
 	}
 	
@@ -32,7 +45,7 @@ class Logger
 	 */
 	public function logLogoutEntryCuurentFile()
 	{
-		$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($_SESSION['username']).' " Logged into the system '." \r\n";
+		$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($_SESSION['username']).' " Logged out the system '." \r\n";
 		$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 		$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 		$logData .= "========================= \n\n";
@@ -40,6 +53,14 @@ class Logger
 		$fp = fopen($fileName,'a');
 		fwrite($fp,$logData);
 		fclose($fp);
+$data['tables'] = "log";
+		$insertedValues = array (
+				"user_id"	=> $_SESSION['userid'],
+				"action_performed"	=> "LO",
+				"date_of_log"		=> date("d/m/y H:i:s",time()),
+				"details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+				);
+		$result = $this->_db->insert($data['tables'],$insertedValues);
 		return;
 	}
 	
@@ -51,7 +72,7 @@ class Logger
 		if(!empty($logActivity))
 		{
 			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logActivity['uname']).' " Assigned the seat number "'.$logActivity['seatid'].'" in room "'.$logActivity['room'].'"' ;
-			$logData .= ' of employee "'.strtoupper($logActivity['empid']).'" at row '.$logActivity['row'].' , computer "'.$logActivity['computerid'].'"'."\r\n";
+			$logData .= ' of employee "'.strtoupper($logActivity['ename']).'" at row '.$logActivity['row'].' , computer "'.$logActivity['computerid'].'"'."\r\n";
 			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 			$logData .= "========================= \n\n";
@@ -63,6 +84,19 @@ class Logger
 			$fileData = fopen($assigneFile,'a');
 			fwrite($fileData,$logData);
 			fclose($fileData);
+// code to log the entry in database
+		$data['tables'] = "log";
+		$insertedValues = array (
+				"user_id"	=> $_SESSION['userid'],
+				"emp_id"	=> $logActivity['empid'],
+				"room_name"	=> $logActivity['room'],
+				"row_id"	=> $logActivity['row'],
+				"computer_id"	=> $logActivity['computerid'],
+				"action_performed"	=> "SA",
+				"date_of_log"		=> date("d/m/y H:i:s",time()),
+				"details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+				);
+		$result = $this->_db->insert($data['tables'],$insertedValues);
 			return "true";
 		}
 		else
@@ -78,7 +112,7 @@ class Logger
 	{
 		if(!empty($logDelete))
 		{
-			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logDelete['uname']).' " delete the employee "'.strtoupper($logDelete['empid']).'" from room "'.$logDelete['room'].'"' ;
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logDelete['uname']).' " delete the employee "'.strtoupper($logDelete['ename']).'" from room "'.$logDelete['room'].'"' ;
 			$logData .= ' from row "'.$logDelete['row'].' " , computer "'.$logDelete['computerid'].'"'."\r\n";
 			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
@@ -91,6 +125,19 @@ class Logger
 			$fileData = fopen($assigneFile,'a');
 			fwrite($fileData,$logData);
 			fclose($fileData);
+			// code to log the delete seat
+			$data['tables'] = "log";
+			$insertedValues = array (
+			    "user_id"	=> $_SESSION['userid'],
+			    "emp_id"	=> $logDelete['empid'],
+			    "room_name"	=> $logDelete['room'],
+			    "row_id"	=> $logDelete['row'],
+			    "computer_id"	=> $logDelete['computerid'],
+			    "action_performed"	=> "SD",
+			    "date_of_log"		=> date("d/m/y H:i:s",time()),
+			    "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+			);
+			$result = $this->_db->insert($data['tables'],$insertedValues);
 			return "true";
 		}
 		else
@@ -106,7 +153,7 @@ class Logger
 	{
 		if(!empty($logUpdateSeat))
 		{
-			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' " moved the employee "'.strtoupper($logUpdateSeat['empid']).' " From room " '.$logUpdateSeat['frmroom'].' ", Row number "'.$logUpdateSeat['frmrow'].' ", From Computer Id "'.$logUpdateSeat['frmcomputerid'].'" To seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
+			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' " moved the employee "'.strtoupper($logUpdateSeat['ename']).' " From room " '.$logUpdateSeat['frmroom'].' ", Row number "'.$logUpdateSeat['frmrow'].' ", From Computer Id "'.$logUpdateSeat['frmcomputerid'].'" To seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
 			$logData .= '" at row '.$logUpdateSeat['row'].' , computer "'.$logUpdateSeat['computerid'].'"'."\r\n";
 			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
@@ -119,6 +166,20 @@ class Logger
 			$fileData = fopen($assigneFile,'a');
 			fwrite($fileData,$logData);
 			fclose($fileData);
+			// code to reallocate the seat
+			
+			$data['tables'] = "log";
+			$insertedValues = array (
+			    "user_id"	=> $_SESSION['userid'],
+			    "emp_id"	=> $logUpdateSeat['empid'],
+			    "room_name"	=> $logUpdateSeat['room'],
+			    "row_id"	=> $logUpdateSeat['row'],
+			    "computer_id"	=> $logUpdateSeat['computerid'],
+			    "action_performed"	=> "SR",
+			    "date_of_log"		=> date("d/m/y H:i:s",time()),
+			    "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+			);
+			$result = $this->_db->insert($data['tables'],$insertedValues);
 			return "true";
 			
 		}
