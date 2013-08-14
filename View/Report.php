@@ -44,8 +44,7 @@ overflow:scroll;
 }
 #datepicker{
 	
-	border: 1px solid red;
-	height:200px;
+	height:30px;
 	margin-left: 20px;
     width: 100%;
 	
@@ -61,30 +60,41 @@ overflow:scroll;
 				control:"#sidetreecontrol",
 				collapsed:true
 			});
+
+			 $( "#from" ).datepicker({
+				 defaultDate: "+1w",
+				 changeMonth: true,
+				 numberOfMonths: 3,
+				 onClose: function( selectedDate ) {
+				 $( "#to" ).datepicker( "option", "minDate", selectedDate );
+				 }
+				 });
+				 $( "#to" ).datepicker({
+				 defaultDate: "+1w",
+				 changeMonth: true,
+				 numberOfMonths: 3,
+				 onClose: function( selectedDate ) {
+				 $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+				 }
+				 });
+			
 		})
+	
+	
+	
+	
 	
 
 </script>
+
+
+<!-- Updated for datepicker  -->
+<!-- kawaljeet -->
 <div id="datepicker">
-
-<div class="wrapper">
-        <div class="tabsContent">
-            <div class="tab">
-                <div id="widget">
-					<div id="widgetField">
-						<span>28 July, 2008 &divide; 31 July, 2008</span>
-						<a id ="dd" href="#" > Select date range </a>
-					</div>
-					<div id="widgetCalendar">
-					</div>
-				</div>
-				<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-				
-            </div>
-        </div>
-
-
-</div>
+<label for="from">From</label>
+<input type="text" id="from" name="from" />
+<label for="to">to</label>
+<input type="text" id="to" name="to" />
 </div>
 <div id="main">
 
