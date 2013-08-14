@@ -194,13 +194,29 @@ class Users extends DBConnection {
 
         public function changeAdminPassword(){
         $userid = $_REQUEST['value'];
+        $old_password = md5($_REQUEST['old_passwd']);
         $password = md5($_REQUEST['passwd']);
         
+        $data['tables']		= 'login';
+	$data['columns']	= array('password');
+	$data['conditions'] = array(array('id='. print_r($userid)),true);
+	$result=$this->_db->select($data);
+        $myResult=array();
+		while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[]=$row;
+		}	
+        if($myResult[0]['password'] == $old_password){
+        
+
         $data = array('password' => $password);
         $where = array('id' => $userid);
 
          $result = $this->_db->update('login',$data, $where);
          return $result;
+        }
+        else{
+        return 0;
+        }
         }
 
 }

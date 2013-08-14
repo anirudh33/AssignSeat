@@ -33,10 +33,11 @@ var prev = "";
   function changePassword(fetch)
   {
   var pass = document.getElementById(fetch).value;
+  var oldpass = document.getElementById(prev).value;
   $.ajax({
   
   type: "POST",
-  url: 'index.php?controller=MainController&method=changePassword&value='+fetch+'&passwd='+pass,
+  url: 'index.php?controller=MainController&method=changePassword&value='+fetch+'&passwd='+pass+'&old_passwd='+oldpass,
   success: function(data){
 if(data.indexOf('Login') != -1)
 			{
@@ -57,7 +58,7 @@ if(data.indexOf('Login') != -1)
   prev = fetch;
   }
   $("#open").html("Change Password");
-  $("#show_"+fetch).html("<input type='password' name='password' required='required' id='"+fetch+"'><span style='float:right;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span>");
+  $("#show_"+fetch).html("<p>Old Password: <input type='password' name='old_password' required='required' id='"+prev+"'></p><p> New Password: <input type='password' name='password' required='required' id='"+fetch+"'></p><span style='float:center;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span>");
   
   }
 </script>

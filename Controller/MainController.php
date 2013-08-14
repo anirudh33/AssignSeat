@@ -558,8 +558,13 @@ class MainController extends Acontroller
      public function changePassword(){
       $userObj=$this->loadModel('Users');
       $createUser = $userObj->changeAdminPassword();
+      
+      if($createUser){
       echo "Password Changed";
-
+      }
+      else{
+       echo "Old Password Does Not Match";
+      }
      }
         
          
