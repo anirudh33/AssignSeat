@@ -107,7 +107,7 @@ class cxpdo extends PDO {
 
  	    
 		//Return the results -or a query string?
-// 	echo $query;
+		//echo "<h1>".$query."</h1>";
 // 		die;
 		return $return ? $this->query($query) : $query;
 	}
@@ -138,7 +138,14 @@ class cxpdo extends PDO {
 		return $return ? $this->query($query) : $query;
 
 	}
-
+	/**
+	 *  Truncate a file for csv upload
+	 */
+	function truncate($table="" , $return=true)
+	{
+		$query="truncate ".$table;
+		return $return ? $this->query($query) : $query;
+	}
 
 	/*
 	 * SUPPORT FUNCTIONS

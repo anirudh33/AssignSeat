@@ -40,6 +40,7 @@ class MainController extends Acontroller
 		$obj->validator("username",$this->_username, 'required#alphanumeric#minlength=4#maxlength=25','Username Required#alphanumeric Required#Enter Username atleast 4 characters long#Username should not be more than 25 characters long');
 		$obj->validator("password",$this->_password, 'minlength=4#maxlength=25','Enter password atleast 4 characters long#Password should not be more than 25 characters long');
 		$error=$obj->result();
+		//print_r($error);die;
 			
 		if(!empty($error)){
 			
@@ -446,21 +447,32 @@ class MainController extends Acontroller
 			$tmpName  = $_FILES['vasPhoto_uploads']['tmp_name'];
 			$fileType = $_FILES['vasPhoto_uploads']['type'];
 			$chk_ext = explode(",",$fileName);
+			//print_r($chk_ext);die;
 			$handle = fopen($tmpName, "r");
 			if(!$handle){
 				die ('Cannot open file for reading');
 			}
 			$employeeObj1=$this->loadModel('Employee');
-			$empEmailArr =$this->employeeEmail($employeeObj1);
+ 			$empEmailArr =$this->employeeEmail($employeeObj1);
+ 			//print_r($empEmailArr);die;
 			
-			while (($data = fgetcsv($handle, 10000, ",")) !== FALSE)
+			while (!feof($handle))
 			{
-				$employeeObj1->setName($data[0]);
-				$employeeObj1->setDesignation($data[1]);
-				$employeeObj1->setDepartment($data[2]);
-				$employeeObj1->setDetails($data[3]);
-				$employeeObj1->setEmail_id($data[4]);
-				$employeeObj1->setStatus("1");
+				$data=fgets($handle);
+				//print_r($data);die;
+				
+				$csv_array = explode(",", $data);
+			//print_r($csv_array);
+				$employeeObj1->setName($csv_array[0]);
+				$employeeObj1->setOsscube_member_id($csv_array[1]);
+				$employeeObj1->setOfficial_email_id($csv_array[2]);
+				$employeeObj1->setDesignation($csv_array[3]);
+				$employeeObj1->setDepartment($csv_array[4]);
+				$employeeObj1->setTeam($csv_array[5]);
+				$employeeObj1->setCell($csv_array[6]);
+				$employeeObj1->setLocation($csv_array[7]);
+				$employeeObj1->setTerritory($csv_array[8]);
+				//$employeeObj1->setStatus("1");
 				
 				$employeeObj1->setEmployeeProfile();
 					

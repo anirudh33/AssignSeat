@@ -173,13 +173,43 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
-Wed - 14/Aug/2013 - 11:36:08 User " ADMIN " Logged into the system  
+Wed - 14/Aug/2013 - 11:17:41 User " ADMIN " Logged into the system  
 From the IP 127.0.0.1 and browser = Firefox 
-Browser version = 18.0, Os = Linux 
+Browser version = 23.0, Os = Linux 
 ========================= 
 
-Wed - 14/Aug/2013 - 11:36:45 User " ADMIN " Logged into the system  
+Wed - 14/Aug/2013 - 14:53:11 User " ADMIN " Logged into the system  
 From the IP 127.0.0.1 and browser = Firefox 
-Browser version = 18.0, Os = Linux 
+Browser version = 23.0, Os = Linux 
+========================= 
+
+Wed - 14/Aug/2013 - 15:01:42 User " ADMIN " Assigned the seat number "54" in room "sirijan2" of employee "ABHIJEET KALSI" at row 6 , computer "3"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
+========================= 
+
+Wed - 14/Aug/2013 - 15:12:02 User " ADMIN " Logged out the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
+========================= 
+
+Wed - 14/Aug/2013 - 15:12:08 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
+========================= 
+
+Wed - 14/Aug/2013 - 15:13:47 User " ADMIN " Logged out the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
+========================= 
+
+Wed - 14/Aug/2013 - 15:13:56 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
+========================= 
+
+Wed - 14/Aug/2013 - 17:10:07 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
 ========================= 
 
