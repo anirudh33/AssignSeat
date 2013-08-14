@@ -7,8 +7,12 @@
   type: "POST",
   url: 'index.php?controller=MainController&method=deleteUser&value='+fetch,
   success: function(data){
-
-  $("#adminpanel").html(data);
+	if(data.indexOf('Password') != -1)
+			{
+				location.reload();
+			}
+	      alert(data);
+	      getUsersPanal();
   }
   });
   }

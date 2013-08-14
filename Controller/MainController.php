@@ -543,12 +543,13 @@ class MainController extends Acontroller
 	{
         $userObj=$this->loadModel('Users');
 		$del = $userObj->deleteAdminUser();
-        header("Location:index.php?controller=MainController&method=getUsersView");
+        echo "User Deleted";
 		
     }
        
        public function createUser()
 	{
+		$userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
 		echo "User Created";
                // header("Location:index.php?controller=MainController&method=getUsersView")	
