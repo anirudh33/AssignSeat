@@ -271,21 +271,46 @@ class Employee extends DBConnection
 		}
 		return  $myResult;
 	}
+	
+	public function truncateTable(){
+		$this->_db->truncate('employee1');
+	}
 	public function setEmployeeProfile()
 	{
+		
 		$obj = new validate();
-		echo $this->getName();die;
-		$obj->validator("user_name",$this->getName(), 'custom=/^[a-z ]+[a-zA-Z]*$/','Name Contains Only alphabets');
-		$obj->validator("Member_id",$this->getOsscube_member_id(), 'custom=/^OSS\/IN\/[0-9]*$/','Name Contains Only alphabets');
-		$obj->validator("Cell", $this->getCell(), 'alphabets','Cell name should be in alphabets');
-		$obj->validator("Designation",$this->getDesignation(),'alphabets','Designation should be in alphabets');
-		$obj->validator("email",$this->getOfficial_email_id(), "email", "Email Id is not valid");
-		$obj->validator("Department", $this->getDepartment(),'alphabets','Department name should be in alphabets');
-		$obj->validator("Location", $this->getLocation(),'alphabets','Location name should be in alphabets');
-		$obj->validator("Team", $this->getTeam(),'alphabets','Team name should be in alphabets');
-		$obj->validator("Territory", $this->getTerritory(),'alphabets','Territory name should be in alphabets');
+		//echo $this->getName();die;
+		//$name='"'.$this->getName().'"';
+		//echo $name.$this->getName();die;
+		$obj->validator("user_name",$this->getName(), 'custom=/^[a-zA-Z ]+[a-zA-Z]*$/','Name Contains Only alphabets');
+ 		$obj->validator("Member_id",$this->getOsscube_member_id(), 'custom=/^OSS\/IN\/[0-9]*$/','Name Contains should not contain special character');
+		$obj->validator("Cell", $this->getCell(), 'custom=/^[a-zA-Z ]+[-.&a-zA-Z ]+[a-zA-Z]*$/','Cell name should be in alphabets');
+ 		$obj->validator("Designation",$this->getDesignation(),'custom=/^[a-zA-Z ]+[-.&a-zA-Z ]+[a-zA-Z]*$/','Designation should not contain special character');
+ 		$obj->validator("email",$this->getOfficial_email_id(), "email", "Email ID is not valid");
+ 		$obj->validator("Department", $this->getDepartment(),'custom=/^[a-zA-Z ]+[a-zA-Z]*$/','Department name should be in alphabets');
+ 		$obj->validator("Location", $this->getLocation(),'custom=/^[a-zA-Z ]+[a-zA-Z]*$/','Location name should be in alphabets');
+ 		$obj->validator("Team", $this->getTeam(),'custom=/^[a-zA-Z ]+[-.&a-zA-Z ]+[a-zA-Z]*$/','Team name should be in alphabets');
+ 		$obj->validator("Territory", $this->getTerritory(),'alphabets','Territory name should be in alphabets');
 		$error=$obj->result();
-		print_r($error);die;
+		//print_r($error);die;
+		if(empty($error))
+		{
+			$data ['tables'] = 'employee1';
+			$insertValue = array (
+					'name' => $this->getName(),
+					'osscubememberid' => $this->getOsscube_member_id(),
+					'cell' => $this->getCell(),
+					'designation' => $this->getDesignation(),
+					'department' => $this->getDepartment(),
+					'officialemailid' => $this->getOfficial_email_id(),
+					'teams' => $this->getTeam(),
+					'location'=>$this->getLocation(),
+					  'territory'=>$this->getTerritory() );
+			$this->_db->insert ( $data ['tables'], $insertValue );
+		}
+		else{
+			return $this->getOsscube_member_id();
+		}
 	}
 	public function getAllEmployee()
 	{

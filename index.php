@@ -22,7 +22,6 @@ require_once(__DIR__."/libraries/validate.php");
 /* Requiring all essential files */
 
 function __autoload($controller) {
-
 	include __DIR__ .'/Controller/'.$controller . '.php';
 }
 

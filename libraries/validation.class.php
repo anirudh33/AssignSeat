@@ -95,12 +95,31 @@ class validation {
 						}
 						break;
 					}
+					//validate for name
+				case "csvname":
+					{
+						
+						$regexp = '/^[a-zA-Z ]+[a-zA-Z]*$/';
+						
+						if (! preg_match ( $regexp, trim ( $postVar ) )) {
+                         $length = strlen ( trim ( $postVar ) );
+								
+							if ($length)
+								$errorMsg [$this->check_vars [$i] ['controler_name']] .= $error;
+						}
+						break;
+						
+						
+					}
 				
 				//validate field only contains alpha characters only
 				case "alphabets" :
 					{
 						$regexp = '/^[A-za-z]*$/';
+						//echo trim ( $postVar );die;
+						//echo "hello";die;
 						if (! preg_match ( $regexp, trim ( $postVar ) )) {
+							
 							$length = strlen ( trim ( $postVar ) );
 							
 							if ($length)

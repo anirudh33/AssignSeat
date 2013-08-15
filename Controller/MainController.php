@@ -441,21 +441,25 @@ class MainController extends Acontroller
 	*/
 	public function csvUpload()
 	{
+	$errorMessage=array();
 		if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST" and $_FILES['vasPhoto_uploads']['type'] == "text/csv")
 		{
 			$fileName = $_FILES['vasPhoto_uploads']['name'];
 			$tmpName  = $_FILES['vasPhoto_uploads']['tmp_name'];
 			$fileType = $_FILES['vasPhoto_uploads']['type'];
 			$chk_ext = explode(",",$fileName);
+			$value=0;
 			//print_r($chk_ext);die;
 			$handle = fopen($tmpName, "r");
 			if(!$handle){
 				die ('Cannot open file for reading');
 			}
 			$employeeObj1=$this->loadModel('Employee');
- 			$empEmailArr =$this->employeeEmail($employeeObj1);
+			$employeeObj1->truncateTable();
+			//$empEmailArr =$this->employeeEmail($employeeObj1);
  			//print_r($empEmailArr);die;
-			
+ 			$data=fgets($handle);
+ 			
 			while (!feof($handle))
 			{
 				$data=fgets($handle);
@@ -463,6 +467,8 @@ class MainController extends Acontroller
 				
 				$csv_array = explode(",", $data);
 			//print_r($csv_array);
+			if(isset($csv_array[0],$csv_array[1],$csv_array[2],$csv_array[3],$csv_array[4],$csv_array[5],$csv_array[6],$csv_array[7],$csv_array[8]))
+			{
 				$employeeObj1->setName($csv_array[0]);
 				$employeeObj1->setOsscube_member_id($csv_array[1]);
 				$employeeObj1->setOfficial_email_id($csv_array[2]);
@@ -474,13 +480,29 @@ class MainController extends Acontroller
 				$employeeObj1->setTerritory($csv_array[8]);
 				//$employeeObj1->setStatus("1");
 				
-				$employeeObj1->setEmployeeProfile();
+				$result=$employeeObj1->setEmployeeProfile();
+				if(!empty($result))
+				{
+					$errorMessage[$value++]=$result;
+				}
 					
+			}
 			}
 		}
 		else {
 			die('Please upload a csv format file.');
 		}
+		if(!empty($errorMessage))
+		{
+			//print_r($errorMessa
+	
+			$str= "Due to some error(having special character in coloumn) ".count($errorMessage)." row could not be inserted";
+			
+			$tableObj=$this->loadModel('MessageTable');
+			$table=$tableObj->createTable($errorMessage,"Data is not inserted having following Employee-id");
+		echo $table;die;
+		}
+		
 	}
 		
 	/*
