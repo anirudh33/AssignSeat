@@ -41,7 +41,7 @@ define ( 'VERSION', "1.0" );
 /*
 *department Identification Code
 */
-define ('DEPARTMENT',"#94e029" );
+define ('DEPARTMENT',"#e0292b" );
 
 /*
 *sugarCRM Identification Code

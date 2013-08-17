@@ -235,10 +235,10 @@ $emptySeat=$totalSeat - count($data['seated']);
 	
 }
 .multiDelImag {
-	padding-left: 50px;
+	padding-left: 30px;
 }
 .roomDetails table{
-	padding: 50px 0px 0px 50px;
+	padding: 30px 0px 0px 30px;
 }
 .roomDetails table td{
 	color: black;
