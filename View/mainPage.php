@@ -225,6 +225,9 @@ function showLog()
                         <div id="loginUser">
 					<?php include_once 'loggedInusers.php';?>	
 					</div>
+			<div id="deptColorList">
+					<?php include_once 'departmentColorList.php';?>	
+					</div>
                     </div>
                     <br class="clear" />
                     <div class="droppable" id="trash">

@@ -37,33 +37,26 @@ define ( 'VERSION', "1.0" );
 
 
 
+
 /*
 *department Identification Code
 */
-define ('DEPARTMENT',"#c3418e" );
-
-
-/*
-*corephp Identification Code
-*/
-define ('COREPHP',"#000000" );
-
+define ('DEPARTMENT',"#94e029" );
 
 /*
-*drupal Identification Code
+*sugarCRM Identification Code
 */
-define ('DRUPAL',"#b89032" );
-
+define ('SUGARCRM',"#943029" );
 
 /*
-*zend Identification Code
+*Drupal Identification Code
 */
-define ('ZEND',"#d548c3" );
-
+define ('DRUPAL',"#A49029" );
 
 /*
-*sugarcrm Identification Code
+*Zend Identification Code
 */
-define ('SUGARCRM',"#25adb6" );
+define ('ZEND',"#b49029" );
+
 
 

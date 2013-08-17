@@ -848,3 +848,14 @@ left:50%;
 	text-align: left;
 	/*overflow: scroll;*/
 }
+
+/* Department Color List Style */
+#deptColorList
+{
+	border:1px solid black;
+	float: left;
+	width: 100%;
+	height: 10%;
+	overflow: auto;
+	
+}

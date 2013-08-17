@@ -65,7 +65,7 @@ class Departments extends DBConnection {
 				$logData .= "*/". "\r\n";
 				$logData .= "define ('" . strtoupper($key) . "',";
 				$logData .= '"' . $value . '" );' . "\r\n\n\n";
-				$fp = fopen($fileName,'a');
+				$fp = fopen($filename,'a');
 				fwrite($fp,$logData);
 			}
 				

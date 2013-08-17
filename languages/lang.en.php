@@ -87,6 +87,7 @@ $langArr = array (
         'MAINLAB' => "Main Lab",
 		'ENABLINGMANAGER' => "E M",
         'LOGOUT' => "Log Out", 
-        'LOGIN' => "Login" );
+        'LOGIN' => "Login",
+	'DEPARTMENTCOLOR' => "Department Color" );
 ?>
 
