@@ -177,7 +177,7 @@ class MainController extends Acontroller
 			$log['frmroom'] = $info ["frmroom"];
 			$log['frmrow'] = $info ["frmrow"];
 			$log['frmcomputerid'] = $info ["frmcomputerid"]+1;
-			echo"<pre>";
+			//echo"<pre>";
 // 			print_r($log);
 // die;
 			/****** for logging seat reallocation*********/ 
