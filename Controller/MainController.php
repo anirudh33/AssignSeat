@@ -587,28 +587,35 @@ class MainController extends Acontroller
 	{
 		$userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
-                if($createUser){
+                if($createUser == 1){
+                 echo "New Password Cannot Be Null"; 
+                }
+                elseif($createUser == 0){
+                 echo "Password & Confirm Password Does Not Match";
+                }
+                else{
                     $objLogger = new Logger();
                     $boolLogResult = $objLogger->logAdminUserCreation();
 		echo "User Created";
                 }
-                else{
-                echo "Password & Confirm Password Does Not Match";
-                }
+                
      }
 
      public function changePassword(){
       $userObj=$this->loadModel('Users');
       $createUser = $userObj->changeAdminPassword();
-      
-      if($createUser){
+      if($createUser == 1){
+       echo "New Password Cannot Be Null";
+      }
+      elseif($createUser == 0){
+       echo "Old Password Does Not Match";
+      }
+      else{
           $objLogger = new Logger();
           $boolLogResult = $objLogger->logAdminUserPasswordChange();
       echo "Password Changed";
       }
-      else{
-       echo "Sorry Try Again !!!!";
-      }
+      
      }
         
 	/*

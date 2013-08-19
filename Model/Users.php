@@ -214,7 +214,7 @@ class Users extends DBConnection {
 		}	
         if($myResult[0]['password'] == $old_password){
         if($_REQUEST['passwd'] == "" || (md5($_REQUEST['passwd']) == md5($_REQUEST['old_passwd']))){
-         return 0;
+         return 1;
         }
         else{
         $password = md5($_REQUEST['passwd']);
@@ -222,7 +222,7 @@ class Users extends DBConnection {
         $where = array('id' => $userid);
 
          $result = $this->_db->update('login',$data, $where);
-         return $result;
+         return 2;
         }
         }
         else{

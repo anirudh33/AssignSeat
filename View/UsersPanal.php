@@ -48,6 +48,11 @@ if(data.indexOf('Login') != -1)
 	      getUsersPanal();  }
   });
   }
+  function hideDiv(fetch)
+  {
+  $("#open").html("");
+  $("#show_"+fetch).html("");
+  }
 
   function editUser(fetch)
   {
@@ -59,7 +64,7 @@ if(data.indexOf('Login') != -1)
   prev = fetch;
   }
   $("#open").html("Change Password");
-  $("#show_"+fetch).html("<p>Old Password: <input type='password' name='old_passd' required='required' id='old'></p><p> New Password: <input type='password' name='new_passd' required='required' id='new'></p><span style='float:center;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span>");
+  $("#show_"+fetch).html("<p>Old Password: <input type='password' name='old_passd' required='required' id='old'></p><p> New Password: <input type='password' name='new_passd' required='required' id='new'></p><span style='margin:60px;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span><input type='button' value='Cancel' onclick=hideDiv('"+fetch+"')>");
   
   }
 </script>
