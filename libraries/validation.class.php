@@ -225,8 +225,17 @@ class validation {
 					}
 					break;
 					}
-						
 				
+				//validates for colorcodes
+				/*
+				case "colorCode":{
+					$foo = preg_replace( '/\s+/', '', $postVar );
+					if(strlen($foo)< $value) {
+						$errorMsg [$this->check_vars [$i] ['controler_name']] .= $error ;
+					}
+					break;
+					}		
+				*/
 				//validates phone field
 				case "phone" :
 					{

@@ -585,6 +585,14 @@ class MainController extends Acontroller
        
        public function createUser()
 	{
+
+                $validate = new validate();
+                $validate->validator("UserName",$_REQUEST['user'], 'required#alphanumeric#minlength=4#maxlength=25','UserName Required#UserName must be alphanumeric Required#Enter UserName atleast 4 characters long#UserName should not be more than 25 characters long');
+                $validate->validator("Password",$_REQUEST['password'], 'required#alphanumeric#minlength=4#maxlength=25','Password Required#Password must be alphanumeric Required#Enter Password atleast 4 characters long#Password should not be more than 25 characters long');
+                $error=$validate->result();
+
+   
+                if(empty($error)){          
 		$userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
                 if($createUser){
@@ -595,10 +603,23 @@ class MainController extends Acontroller
                 else{
                  echo "Sorry Try Again!!!!";
                 }
-                
+                }
+               else{
+                if($error['UserName']){
+                 echo $error['UserName'];
+                }
+                if($error['Password']){
+                 echo $error['Password'];
+                }
+               }
      }
 
      public function changePassword(){
+       $validate = new validate();
+       $validate->validator("Password",$_REQUEST['passwd'], 'required#alphanumeric#minlength=4#maxlength=25','Password Required#alphanumeric Required#Enter Password atleast 4 characters long#Password should not be more than 25 characters long');
+       $error=$validate->result();
+       
+     if(empty($error)){
       $userObj=$this->loadModel('Users');
       $createUser = $userObj->changeAdminPassword();
       if($createUser == 1){
@@ -612,7 +633,10 @@ class MainController extends Acontroller
           $boolLogResult = $objLogger->logAdminUserPasswordChange();
       echo "Password Changed";
       }
-      
+      }
+      else{
+       echo $error['Password'];
+      }
      }
         
 	/*
