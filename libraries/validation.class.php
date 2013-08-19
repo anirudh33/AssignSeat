@@ -229,7 +229,7 @@ class validation {
 				//validates for colorcodes
 				
 				case "colorCode":{
-					$regexp = "/#[abcdef 0-9]{6}/";
+					$regexp = "/^#[abcdef 0-9]{6}/";
 					if (! preg_match ( $regexp, trim ( $postVar ) )) {
 						$length = strlen ( trim ( $postVar ) );
 						

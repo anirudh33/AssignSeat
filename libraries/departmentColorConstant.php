@@ -13,19 +13,19 @@ define ('ENGINEERING',"#000000" );
 /*
 *HumanCapitalManagement Identification Code
 */
-define ('HUMANCAPITALMANAGEMENT',"vcdsgfd" );
+define ('HUMANCAPITALMANAGEMENT',"#cc64dd" );
 
 
 /*
 *Technology Identification Code
 */
-define ('TECHNOLOGY',"gfnjhgh" );
+define ('TECHNOLOGY',"#50c22e" );
 
 
 /*
 *Finance Identification Code
 */
-define ('FINANCE',"#000000" );
+define ('FINANCE',"#e6c1c1" );
 
 
 /*
@@ -37,6 +37,6 @@ define ('BUSINESSDEVELOPMENT',"#000000" );
 /*
 *QMS Identification Code
 */
-define ('QMS',"#000000" );
+define ('QMS',"#dc6a6a" );
 
 
