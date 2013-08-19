@@ -206,7 +206,9 @@ $data['tables'] = "log";
 	
 	public function logAdminUserCreation()
 	{
-	    $logData = $_SESSION['username']." Created A New Admin User Named ".$_REQUEST['user'];
+		$logData = $_SESSION['username']." Created A New Admin User Named ".$_REQUEST['user'];
+		$this->logAdminUserAction('UA',$logData);
+	   /* 
 	    $data['tables'] = "log";
 	    $insertedValues = array (
 	        "user_id"	=> $_SESSION['userid'],
@@ -215,14 +217,54 @@ $data['tables'] = "log";
 	        "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
 	    );
 	    $result = $this->_db->insert($data['tables'],$insertedValues);
-	    return "true";
+	    return "true";*/
 	    
 	}
 	
 	public function logAdminUserPasswordChange()
 	{
-	    
+	    $logData = $_SESSION['username']." Changed his/her password ";
+	    $this->logAdminUserAction('PC',$logData);
+	    /*
+	    $data['tables'] = "log";
+	    $insertedValues = array (
+	        "user_id"	=> $_SESSION['userid'],
+	        "action_performed"	=> "PC",
+	        "date_of_log"		=> date("d/m/y H:i:s",time()),
+	        "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+	    );
+	    $result = $this->_db->insert($data['tables'],$insertedValues);
+	    return "true";*/
 	}
+	
+	public function logAdminUserDelete()
+	{
+		$logData = $_SESSION['username']." Deleted the user ";
+	    $this->logAdminUserAction('UD',$logData);
+/*		$data['tables'] = "log";
+	    $insertedValues = array (
+	        "user_id"	=> $_SESSION['userid'],
+	        "action_performed"	=> "PC",
+	        "date_of_log"		=> date("d/m/y H:i:s",time()),
+	        "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
+	    );
+	    $result = $this->_db->insert($data['tables'],$insertedValues);
+	    return "true";*/
+	}
+	// this function is used to make an entry into the database that describes which action is performed by admin
+	public function logAdminUserAction($action,$logMessage)
+	{
+		$data['tables'] = "log";
+	    $insertedValues = array (
+	        "user_id"	=> $_SESSION['userid'],
+	        "action_performed"	=> $action,
+	        "date_of_log"		=> date("d/m/y H:i:s",time()),
+	        "details"	=> str_replace(array("\r\n","\n","="),"",$logMessage),
+	    );
+	    $result = $this->_db->insert($data['tables'],$insertedValues);
+	    return "true";
+	}
+	
 	
 	public function getBrowser(){
 		$browser = array("Navigator"            => "/Navigator(.*)/i",

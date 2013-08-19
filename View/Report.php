@@ -231,5 +231,6 @@ overflow:scroll;
 </ul>
 </div>
 <div id="side2">
+	
 </div>
 </div>
