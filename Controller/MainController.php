@@ -454,8 +454,13 @@ class MainController extends Acontroller
 			if(!$handle){
 				die ('Cannot open file for reading');
 			}
+ 			$employeeDataObj1 = $this->loadModel ( 'CsvUpdate' );
+ 			$oldData = $employeeDataObj1->employeeDataTable ();
+//  			print_r ( $olddata );
+// 			die ();
 			$employeeObj1=$this->loadModel('Employee');
-			$employeeObj1->truncateTable();
+			
+		    $employeeObj1->truncateTable();
 			//$empEmailArr =$this->employeeEmail($employeeObj1);
  			//print_r($empEmailArr);die;
  			$data=fgets($handle);
@@ -494,13 +499,21 @@ class MainController extends Acontroller
 		}
 		if(!empty($errorMessage))
 		{
-			//print_r($errorMessa
+			$newData = $employeeDataObj1->employeeDataTable ();
+// 			echo "<pre>";
+// 			print_r($oldData);
+// 			print_r($newData);die;
+			
+			$employeeDataObj1->deletedData($oldData,$newData);
+			
 	
 			//$str= "Due to some error(having special character in coloumn) ".count($errorMessage)." row could not be inserted";
 			
 			$tableObj=$this->loadModel('MessageTable');
 			$table=$tableObj->createTable($errorMessage,"Data is not inserted having following Employee-id");
 		echo $table;die;
+		}else{
+			echo "Data inserted sucessfully";die;
 		}
 		
 	}
