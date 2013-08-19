@@ -3,9 +3,8 @@
  * **************************** Creation Log *******************************
  * File Name                   -  Validate.php
  * Project Name                -  AssignSeat
- * Description                 -  Model class from RoomRow Table
  * @Version                   -  1.0
- * Created by                  -  Keshi Chander Yadav
+ * Created by                  -  Chetan Sharma
  * Created on                  -  August 10, 2013
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description

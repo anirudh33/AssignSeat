@@ -5,7 +5,7 @@
  * Project Name                -  AssignSeat
  * Description                 -  Model class from Room Table
  * @Version                   -  1.0
- * Created by                  -  Keshi
+ * Created by                  -  Chetan Sharma
  * Created on                  -  August 03, 2013
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description

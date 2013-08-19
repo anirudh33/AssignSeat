@@ -1,23 +1,26 @@
 <?php
-/*
- **************************** Creation Log *******************************
-File Name                   -  Security.php
-Project Name                -  SkillSeeker
-Description                 -  Class file for Security
-Version                     -  1.0
-Created by                  -  Mohit K. Singh
-Created on                  -  May 03, 2013
-***************************** Update Log ********************************
-Sr.NO.		Version		Updated by           Updated on          Description
--------------------------------------------------------------------------
-
-*************************************************************************
-
-*/
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  Security.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class from RoomRow Table
+ * @Version                   -  1.0
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ *
+ * *************************************************************************
+ */
 
 class Security
 {
 
+    /**
+     * 
+     * @param unknown $userLoginId
+     * 
+     * This function will secure multiple login
+     */
     public function secureMultiLogin($userLoginId)
     {
         $SID=$_COOKIE['PHPSESSID'];
@@ -40,7 +43,12 @@ class Security
 				die ();
 			}
     }
-    
+    /**
+     * 
+     * @param unknown $userLoginId
+     * 
+     * This function will log the session ID
+     */
     public function logSessionId($userLoginId)
     {
     	$SID=$_COOKIE['PHPSESSID'];
@@ -53,13 +61,9 @@ class Security
     	fclose($file);
     }
     
-	
-    public function secureMultipleRegister()
-    {
-    	
-    }
-    
-    
+    /**
+     * This function will get new errors from file  
+     */
     public function getNewSystemError()
     {
         $file=fopen('../temp/PHP_errors_temp.log',"a");	
@@ -81,8 +85,4 @@ class Security
 
         }
     }
-    
-    
-    
 }
-?>

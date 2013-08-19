@@ -5,7 +5,7 @@
  * Project Name                -  AssignSeat
  * Description                 -  Model Class file for User
  * @Version                   -  1.0
- * Created by                  -  Mohit K. Singh
+ * Created by                  -  Chetan Sharma
  * Created on                  -  August 03, 2013
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description
@@ -320,4 +320,3 @@ class Users extends DBConnection
         }
     }
 }
-?>

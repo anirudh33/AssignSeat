@@ -6,7 +6,7 @@
  * Description                 -  Model class holding functionalities
  *                                to insert in database for seat allotment
  * @Version                   -  1.0
- * Created by                  -  Keshi
+ * Created by                  -  Chetan Sharma
  * Created on                  -  August 03, 2013
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description
@@ -221,7 +221,7 @@ class SeatEmployee extends DBConnection {
     }
 	/**
 	 * 
-	 * @author Avni jain 
+	 * @author Chetan Sharma
 	 * @return Integer This will return the Computer ID of
 	 * particular seat.
 	 * */
@@ -240,7 +240,7 @@ class SeatEmployee extends DBConnection {
 	
 	}
 	/**
-	 * @author Avni jain
+	 * @author Chetan Sharma
 	 * @param Integer $sid
 	 * @return Array
 	 * 
@@ -281,7 +281,7 @@ class SeatEmployee extends DBConnection {
     }
     /**
      * 
-     * @author : Avni Jain 
+     * @author : Chetan Sharma
      * called from : MainController.php.
      * description: This function is to check whether a seat is already 
      * assigned to employee or not request 
@@ -316,7 +316,7 @@ class SeatEmployee extends DBConnection {
     }
     /**
      * 
-     * @author : Avni Jain called from : MainController.php. 
+     * @author : Chetan Sharma, called from : MainController.php. 
      * description: This function is to get employee name 
      * from employee id request
      *  

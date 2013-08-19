@@ -14,7 +14,7 @@
 class Departments extends DBConnection {
     
 	/**
-	* @author Amber Sharma
+	* @author Chetan Sharma
 	*
 	* This function will fetch distinct departments from Database
 	*
@@ -36,7 +36,7 @@ class Departments extends DBConnection {
 	
 
 	/**
-	* @author Amber Sharma
+	* @author Chetan Sharma
 	*
 	* This function will save color codes in a Constant file
 	*
