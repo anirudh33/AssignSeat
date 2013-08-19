@@ -5,18 +5,24 @@
 var prev = "";
  function deleteuser(fetch)
   {
-  $.ajax({
-  type: "POST",
-  url: 'index.php?controller=MainController&method=deleteUser&value='+fetch,
-  success: function(data){
-	if(data.indexOf('Password') != -1)
-			{
-				location.reload();
-			}
-	      alert(data);
-	      getUsersPanal();
-  }
-  });
+	var r=confirm("Are u Sure???");
+	if (r == true)
+	  {
+		$.ajax({
+			  type: "POST",
+			  url: 'index.php?controller=MainController&method=deleteUser&value='+fetch,
+			  success: function(data){
+				if(data.indexOf('Password') != -1)
+						{
+							location.reload();
+						}
+				      alert(data);
+				      getUsersPanal();
+			  }
+			  });
+	  }
+	
+  
   }
  function loadForm(fetch)
   {
