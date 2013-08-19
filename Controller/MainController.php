@@ -32,7 +32,7 @@ class MainController extends Acontroller {
 	
 	/**
 	 *
-	 * @author : Avni Jain
+	 * @author : Chetan Sharma
 	 *         description: This function is to handle login will redirect to mainpage.php in case
 	 *         of sucessfull login and in case of unsucessful login redirect to index
 	 *         request params: username and password
@@ -95,7 +95,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author : Avni Jain
+	 * @author : Chetan Sharma
 	 *         called from: Mainbuilding.php()
 	 *         description: handle assiging of the seats,call assignseat function of seatemployee model
 	 *         passes an array to assignseat function as paramaeter.Array contains room,
@@ -272,7 +272,7 @@ class MainController extends Acontroller {
 	
 	/**
 	 *
-	 * @author Prateek Saini This function will fetch data
+	 * @author Chetan Sharma This function will fetch data
 	 *         from Employee table result will be display in tooltip
 	 * @return JSON user data
 	 */
@@ -285,7 +285,7 @@ class MainController extends Acontroller {
 	
 	/**
 	 *
-	 * @author Prateek Saini This function will fetch data from log
+	 * @author Chetan Sharma This function will fetch data from log
 	 *         file convert it into array then sort them on the key so we can have
 	 *         last data as first element then slice the array for top 10 elements
 	 * @return string
@@ -306,7 +306,7 @@ class MainController extends Acontroller {
 	/**
 	 * Function to render Main Builging page
 	 *
-	 * @author Prateek Saini This function
+	 * @author Chetan Sharma This function
 	 *         will be used to reload the mainBuilding Page.
 	 *        
 	 */
@@ -317,7 +317,7 @@ class MainController extends Acontroller {
 	 * Function to get all room data and set it to
 	 * session
 	 *
-	 * @author Prateek Saini This will fetch
+	 * @author Chetan Sharma This will fetch
 	 *         Room data from Database
 	 */
 	private function fetchRoomData() {
@@ -339,7 +339,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will load Admin View
 	 */
 	public function adminView() {
@@ -349,7 +349,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will get a
 	 *         room full details
 	 */
@@ -360,7 +360,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will get a employee full details
 	 */
 	public function getEmpDetails() {
@@ -371,7 +371,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will delete a row from a room
 	 */
 	public function delRoomRow() {
@@ -382,7 +382,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will add a row in a room
 	 */
 	public function addNewRoomRow() {
@@ -393,7 +393,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will update computer in a row of a room
 	 */
 	public function computerUpdate() {
@@ -412,7 +412,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit Gupta
+	 * @author Chetan Sharma
 	 *         This function will read the csv file and insert/update employee detail as per csv file
 	 */
 	public function csvUpload() {
@@ -465,7 +465,7 @@ class MainController extends Acontroller {
 	
 	/**
 	 *
-	 * @author Mohit Gupta
+	 * @author Chetan Sharma
 	 *         This function will return all employees emailid from database
 	 */
 	public function employeeEmail($employeeObj) {
@@ -475,7 +475,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will get details of a room and call a graph view
 	 */
 	public function roomGraph() {
@@ -486,7 +486,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will delete multiple seats
 	 */
 	public function multiDelEmp() {
@@ -496,7 +496,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will get users panal page
 	 */
 	public function getUsersView() {
@@ -506,7 +506,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Mohit K.Singh
+	 * @author Chetan Sharma
 	 *         This function will get report page with all data
 	 */
 	public function reportFetch() {
@@ -580,7 +580,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Amber Sharma
+	 * @author Chetan Sharma
 	 *         This function will load Department Seat Color Select Panel
 	 */
 	public function deptColor() {
@@ -590,7 +590,7 @@ class MainController extends Acontroller {
 	}
 	/**
 	 *
-	 * @author Amber Sharma
+	 * @author Chetan Sharma
 	 * @return string This function will save Department Colors in a Constant File
 	 */
 	public function saveDeptColor() {

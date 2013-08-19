@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Prateek Saini 
+ * @author Chetan Sharma
  * Below Code block will fetch all the allocated seats 
  * then it will arrange the data in array index on room
  */
