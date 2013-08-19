@@ -13,13 +13,13 @@ define ('ENGINEERING',"#000000" );
 /*
 *HumanCapitalManagement Identification Code
 */
-define ('HUMANCAPITALMANAGEMENT',"#000000" );
+define ('HUMANCAPITALMANAGEMENT',"vcdsgfd" );
 
 
 /*
 *Technology Identification Code
 */
-define ('TECHNOLOGY',"#e74b4b" );
+define ('TECHNOLOGY',"gfnjhgh" );
 
 
 /*

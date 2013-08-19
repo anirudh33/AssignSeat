@@ -673,18 +673,32 @@ class MainController extends Acontroller
 	* */
 	public function saveDeptColor()
 	{
+		$validate = new validate();
 		foreach($_REQUEST as $key => $value)
 		{
-			if($key !== "controller" && $key !== "method")
-			{
-				$departments[$key] = $value;
-			}
+			$validate->validator("colorCode",$value, 'colorCode','Not A Valid Color Code');
+       
 		}
-		$roomObj=$this->loadModel('Departments');
-		$departments=$roomObj->saveDeptColor($departments);
-                if($departments){
-                 echo "Colour Updated !!!!!";
-                }
+		$error=$validate->result();
+		if(empty($error))
+		{
+			foreach($_REQUEST as $key => $value)
+			{
+				if($key !== "controller" && $key !== "method")
+				{
+					$departments[$key] = $value;
+				}
+			}
+			$roomObj=$this->loadModel('Departments');
+			$departments=$roomObj->saveDeptColor($departments);
+		        if($departments){
+		         echo "Colour Updated !!!!!";
+		        }
+		}
+		else
+		{
+			echo $error['colorCode'];
+		}
 		
 	}
          
