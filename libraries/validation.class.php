@@ -1,35 +1,35 @@
 <?php
-
-/*
- * FileName: Validation.class.php 
- * Version: 1.0 
- * Author: Keshi Chander Yadav
- * Date: May 03, 2013
- * Description: Validation class to server side validation
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  Validate.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class from RoomRow Table
+ * @Version                   -  1.0
+ * Created by                  -  Keshi Chander Yadav
+ * Created on                  -  August 10, 2013
  * ***************************** Update Log ********************************
-  Sr.NO.		Version		Updated by           Updated on          Description
-  -------------------------------------------------------------------------
-  1			1.1			Keshi				08/05/2013			correction of pregmatch
-  2			1.1			Keshi				08/05/2013			used lang and added comments
- * ************************************************************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ *
+ * *************************************************************************
  */
-
 class validation {
 
-    // class constructor
+    /**
+     * class Constructor
+     */
     function __construct() {
         $this->id = 0;
     }
 
-    /*
+    /**
      * Description: function to validate fields has to first add their fields data
      * to this function
-     * Param $controler_name field control name goes here
-     * Param $postVar field data to be validated
-     * Param $authType Type of validation required for control
-     * Param $error error message for in case of validation failed
+     * @Param $controler_name field control name goes here
+     * @Param $postVar field data to be validated
+     * @Param $authType Type of validation required for control
+     * @Param $error error message for in case of validation failed
      */
-
     function addFields($controler_name, $postVar, $authType, $error) {
         $index = $this->id++;
 
@@ -39,10 +39,10 @@ class validation {
         $this->check_vars [$index] ['controler_name'] = $controler_name; //store error message for in case of validation failed
     }
 
-    /*
+    /**
      * Description: function to validate fields common for all
+     * @return Ambigous <string, multitype:string unknown Ambigous <string, string> >
      */
-
     function validate() {
         $errorMsg = array(); //variable store error messages
         $result = 1;

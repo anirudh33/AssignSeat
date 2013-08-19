@@ -3,7 +3,7 @@
  * **************************** Creation Log *******************************
  * File Name                   -  Employee.php
  * Project Name                -  AssignSeat
- * Description                 -  Model class from RoomRow Table
+ * Description                 -  Model class from Employee Table
  * @Version                   -  1.0
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description
@@ -172,44 +172,68 @@ class Employee extends DBConnection {
 	}
 	
 	/**
-	 * @return Character 
+	 * @return Character status
 	 */
 	public function getStatus() {
 		return $this->_status;
 	}
 	
+	/**
+	 * 
+	 * @param Character $_status
+	 */
 	public function setStatus($_status) {
 		$this->_status = $_status;
 	}
-	
+	/**
+	 * @return string
+	 */
 	public function getEmail_id() {
 		return $this->_email_id;
 	}
-	
+	/**
+	 * @return string
+	 */
 	public function getDesignation() {
 		return $this->_designation;
 	}
-	
+	/**
+	 * 
+	 */
 	public function getDepartment() {
 		return $this->_department;
 	}
-	
+	/**
+	 * @return string
+	 */
 	public function getDetails() {
 		return $this->_details;
 	}
-	
+	/**
+	 * 
+	 * @param string $_email_id
+	 */
 	public function setEmail_id($_email_id) {
 		$this->_email_id = $_email_id;
 	}
-	
+	/**
+	 * 
+	 * @param string $_designation
+	 */
 	public function setDesignation($_designation) {
 		$this->_designation = $_designation;
 	}
-	
+	/**
+	 * 
+	 * @param string $_department
+	 */
 	public function setDepartment($_department) {
 		$this->_department = $_department;
 	}
-	
+	/**
+	 * 
+	 * @param string $_details
+	 */
 	public function setDetails($_details) {
 		$this->_details = $_details;
 	}

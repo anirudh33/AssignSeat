@@ -3,7 +3,7 @@
  * **************************** Creation Log *******************************
  * File Name                   -  MessageTable.php
  * Project Name                -  AssignSeat
- * Description                 -  Model class from RoomRow Table
+ * Description                 -  Class for creating table
  * @Version                   -  1.0
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description

@@ -1,9 +1,9 @@
 <?php
 /**
  * **************************** Creation Log *******************************
- * File Name                   -  Departments.php
+ * File Name                   -  CsvUpdate.php
  * Project Name                -  AssignSeat
- * Description                 -  Model class from RoomRow Table
+ * Description                 -  Model class from CSV file
  * @Version                   -  1.0
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description
@@ -64,6 +64,7 @@ class CsvUpdate extends DBConnection
     			$myResult[] = $row['osscubememberid'];
     		
     		}
-    	print_r($result);die;
+    	print_r($result);
+    	die;
     }	
 }

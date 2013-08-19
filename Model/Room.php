@@ -3,7 +3,7 @@
  * **************************** Creation Log *******************************
  * File Name                   -  Room.php
  * Project Name                -  AssignSeat
- * Description                 -  Model class from RoomRow Table
+ * Description                 -  Model class from Room Table
  * @Version                   -  1.0
  * Created by                  -  Keshi
  * Created on                  -  August 03, 2013
