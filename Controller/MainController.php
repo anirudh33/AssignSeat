@@ -587,16 +587,13 @@ class MainController extends Acontroller
 	{
 		$userObj=$this->loadModel('Users');
 		$createUser = $userObj->createAdminUser();
-                if($createUser == 1){
-                 echo "New Password Cannot Be Null"; 
-                }
-                elseif($createUser == 0){
-                 echo "Password & Confirm Password Does Not Match";
-                }
-                else{
+                if($createUser){
                     $objLogger = new Logger();
                     $boolLogResult = $objLogger->logAdminUserCreation();
 		echo "User Created";
+                }
+                else{
+                 echo "Sorry Try Again!!!!";
                 }
                 
      }

@@ -188,7 +188,7 @@ class Users extends DBConnection {
          $userid = $_REQUEST['user'];
          $password = md5($_REQUEST['password']);
          $c_password = md5($_REQUEST['c_password']);
-      
+         if($userid != NULL || $_REQUEST['password'] != NULL){
          if($password == $c_password){
    
          $result = $this->_db->insert('login', array('username' => $userid, 'password' => $password, 'status' => "1", 'is_admin' => NULL, 'created_on' => 'now()', 'updated_on' => NULL));
@@ -197,6 +197,10 @@ class Users extends DBConnection {
         else{
         return 0;
          }
+        }
+        else{
+          return 0;
+        }
         }
 
         public function changeAdminPassword(){
