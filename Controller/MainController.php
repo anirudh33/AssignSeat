@@ -632,12 +632,10 @@ class MainController extends Acontroller
 	* */
 	public function saveDeptColor()
 	{
-		
 		foreach($_REQUEST as $key => $value)
 		{
 			if($key !== "controller" && $key !== "method")
 			{
-				$key = str_replace("_", " ", $key);
 				$departments[$key] = $value;
 			}
 		}

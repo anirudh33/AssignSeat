@@ -5,7 +5,7 @@
 <table cellpadding="5" cellspacing="5">
 <?php
 	$fileName = getcwd ();
-	$fileName .= "/libraries/constants.php";
+	$fileName .= "/libraries/departmentColorConstant.php";
 	$searchfor = strtoupper('"#');
 	$contents = file_get_contents($fileName);
 	$pattern = preg_quote($searchfor, '/');

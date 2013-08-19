@@ -16,6 +16,7 @@ session_start();
 
 /* Including all constants to be used */
 require_once getcwd().'/libraries/constants.php';
+require_once getcwd().'/libraries/departmentColorConstant.php';
 require_once getcwd().'/libraries/Security.php';
 require_once getcwd().'/libraries/Logger.php';
 require_once(__DIR__."/libraries/validate.php");

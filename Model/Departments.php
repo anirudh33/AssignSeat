@@ -35,7 +35,14 @@ class Departments extends DBConnection {
 	{
 		
 		$fileName = getcwd ();
-		$fileName .= "/libraries/constants.php";
+		$fileName .= "/libraries/departmentColorConstant.php";
+		$fp = fopen($fileName,'w+');
+		$logData = "<?php";
+		$logData .= "\r\n";
+		$logData .= "/*". "\r\n";
+		$logData .= "* @Author : Amber Sharma \r\n";
+		$logData .= "*/". "\r\n\n\n";
+		fwrite($fp,$logData);
 		foreach($data as $key => $value)
 		{
 			$searchfor = strtoupper($key);
@@ -66,7 +73,6 @@ class Departments extends DBConnection {
 				$logData .= "*/". "\r\n";
 				$logData .= "define ('" . strtoupper($key) . "',";
 				$logData .= '"' . $value . '" );' . "\r\n\n\n";
-				$fp = fopen($fileName,'a');
 				fwrite($fp,$logData);
 			}
 				

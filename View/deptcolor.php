@@ -63,11 +63,7 @@ $(document).ready(function()
 			deptvaluearr[k] = deptvalue;
 			k ++;			
 		}
-		else
-		{
-			if(deptvalue != deptvaluearr[jQuery.inArray(dept, deptarr)])
-			alert(deptvaluearr[jQuery.inArray(dept, deptarr)]);
-		}
+		
 		if (selected) 
 		{
 			$(selected).css('opacity', 0.75).removeClass('colorwell-selected');
@@ -104,17 +100,17 @@ for($i = 0 ; $i < count($data) ; $i ++)
 			<span> <?php echo ucfirst($data[$i]['department']) ; ?></span>
 		</td>
 		<td>
-		<?php if(defined(strtoupper($data[$i]['department']))) 
+		<?php if(defined(strtoupper(str_replace(' ', '',$data[$i]['department'])))) 
 		{		
 		?>
 		
-			<input type="text" id="<?php echo $data[$i]['department']; ?>" class="colorwell" value="<?php echo constant(strtoupper($data[$i]['department'])) ; ?>" name="<?php echo $data[$i]['department']; ?>"/>
+			<input type="text" id="<?php echo $data[$i]['department']; ?>" class="colorwell" value="<?php echo constant(strtoupper(str_replace(' ', '',$data[$i]['department']))) ; ?>" name="<?php echo str_replace(' ', '',$data[$i]['department']); ?>" maxlength="7"/>
 		<?php
 		}
 		else
 		{
 		?>
-			<input type="text" id="<?php echo $data[$i]['department']; ?>" class="colorwell" value="#000000" name="<?php echo $data[$i]['department']; ?>"/>
+			<input type="text" id="<?php echo $data[$i]['department']; ?>" class="colorwell" value="#000000" name="<?php echo str_replace(' ', '',$data[$i]['department']); ?>" size="7"/>
 		<?php
 		}
 		?>
