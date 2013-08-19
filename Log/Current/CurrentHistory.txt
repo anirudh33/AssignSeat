@@ -293,3 +293,13 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 14.0.1, Os = Linux 
 ========================= 
 
+Mon - 19/Aug/2013 - 10:25:24 User " ADMIN " Assigned the seat number "3" in room "Lab-1" of employee "ANKUR KUMAR AERAN" at row 3 , computer "2"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
+========================= 
+
+Mon - 19/Aug/2013 - 11:14:11 User " ADMIN " Assigned the seat number "2" in room "Lab-1" of employee "AVDHESH  KUMAR KHARE" at row 2 , computer "8"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 23.0, Os = Linux 
+========================= 
+

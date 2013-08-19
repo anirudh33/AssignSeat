@@ -20,6 +20,7 @@ class Departments extends DBConnection {
 		{
 			$myResult[]=$row;
 		}
+		
 		return  $myResult;
 	}
 	
@@ -50,7 +51,7 @@ class Departments extends DBConnection {
 				$matches[0][0] = str_replace("'", "", $matches[0][0]);
 				$matches[0][0] = str_replace('"', '', $matches[0][0]);
 				$arr[] = explode("," , $matches[0][0]);
-				if(strcmp($value,trim($arr[0][1])) != 0)
+				if(strcmp($value,ltrim($arr[0][1])) != 0)
 				{
 					$logData = "define ('" . strtoupper($key) . "',";
 					$logData .= '"' . $value . '" );' ;
@@ -65,7 +66,7 @@ class Departments extends DBConnection {
 				$logData .= "*/". "\r\n";
 				$logData .= "define ('" . strtoupper($key) . "',";
 				$logData .= '"' . $value . '" );' . "\r\n\n\n";
-				$fp = fopen($filename,'a');
+				$fp = fopen($fileName,'a');
 				fwrite($fp,$logData);
 			}
 				

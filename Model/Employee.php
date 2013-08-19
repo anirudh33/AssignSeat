@@ -313,7 +313,7 @@ class Employee extends DBConnection {
 	}
 	
 	public function truncateTable() {
-		$this->_db->truncate ( 'employee1' );
+		$this->_db->truncate ( 'employee' );
 	}
 	public function setEmployeeProfile() {
 		static $statusrun = 0;
@@ -335,7 +335,7 @@ class Employee extends DBConnection {
 		// print_r($error);die;
 		if (empty ( $error )) {
 			if ($statusrun == 0) {
-				$data ['tables'] = 'employee1';
+				$data ['tables'] = 'employee';
 				$insertValue = array (
 						'name' => $this->getName (),
 						'osscubememberid' => $this->getOsscube_member_id (),
@@ -355,7 +355,7 @@ class Employee extends DBConnection {
 						'id' 
 				);
 				$data1 ['tables'] = array (
-						"employee1" 
+						"employee" 
 				);
 				$data1 ['conditions'] = array (
 						array (
@@ -372,7 +372,7 @@ class Employee extends DBConnection {
 				
 				if (empty ( $myResult )) {
 					
-					$data ['tables'] = 'employee1';
+					$data ['tables'] = 'employee';
 					$insertValue = array (
 							'name' => $this->getName (),
 							'osscubememberid' => $this->getOsscube_member_id (),

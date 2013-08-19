@@ -496,7 +496,7 @@ class MainController extends Acontroller
 		{
 			//print_r($errorMessa
 	
-			$str= "Due to some error(having special character in coloumn) ".count($errorMessage)." row could not be inserted";
+			//$str= "Due to some error(having special character in coloumn) ".count($errorMessage)." row could not be inserted";
 			
 			$tableObj=$this->loadModel('MessageTable');
 			$table=$tableObj->createTable($errorMessage,"Data is not inserted having following Employee-id");
@@ -637,6 +637,7 @@ class MainController extends Acontroller
 		{
 			if($key !== "controller" && $key !== "method")
 			{
+				$key = str_replace("_", " ", $key);
 				$departments[$key] = $value;
 			}
 		}

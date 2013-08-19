@@ -37,26 +37,39 @@ define ( 'VERSION', "1.0" );
 
 
 
+/*
+*Engineering Identification Code
+*/
+define ('ENGINEERING',"#000000" );
+
 
 /*
-*department Identification Code
+*Human Capital Management Identification Code
 */
-define ('DEPARTMENT',"#e0292b" );
+define ('HUMAN CAPITAL MANAGEMENT',"#e455ec" );
+
 
 /*
-*sugarCRM Identification Code
+*Technology Identification Code
 */
-define ('SUGARCRM',"#943029" );
+define ('TECHNOLOGY',"#000000" );
+
 
 /*
-*Drupal Identification Code
+*Finance Identification Code
 */
-define ('DRUPAL',"#A49029" );
+define ('FINANCE',"#000000" );
+
 
 /*
-*Zend Identification Code
+*Business Development Identification Code
 */
-define ('ZEND',"#b49029" );
+define ('BUSINESS DEVELOPMENT',"#000000" );
 
+
+/*
+*QMS Identification Code
+*/
+define ('QMS',"#000000" );
 
 
