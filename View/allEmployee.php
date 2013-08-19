@@ -1,7 +1,4 @@
-
 <script>
-
-
 function getData(page) {
 
 var name = document.getElementById("searchtxt").value;

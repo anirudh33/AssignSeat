@@ -1,6 +1,3 @@
-<html>
-<head>
-
 <script>
 var prev = "";
  function deleteuser(fetch)
@@ -74,11 +71,6 @@ if(data.indexOf('Login') != -1)
   
   }
 </script>
-
-</head>
-
-<body>
-
 <div style="margin:70px 280px;boder=1px solid red;">
   <a href="#" onclick="loadForm()"><h3>Create New User</h3></a>
   <div id="formpanel">
@@ -107,6 +99,4 @@ if(data.indexOf('Login') != -1)
   </tr>
 <?php } ?>
   </table>
-</div>
-</body>
-</html>
+</div>>

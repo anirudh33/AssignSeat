@@ -1,15 +1,3 @@
-<?php 
-/*
- * Creation Log File Name - main.php
-* Description - Main view file
-* Version - 1.0
-* Created by - Avni jain
-* Created on - july 29, 2013
-* *************************************************
-*/
-
-
-?>
 <html lang="">
 <head>  
 <title></title>
@@ -58,5 +46,4 @@ window.location.reload();
 </center>
 </div>
 </body>
-
 </html>

@@ -1,6 +1,3 @@
-<!--
-@Author Amber Sharma
--->
 <h3><u><?php echo $lang->DEPARTMENTCOLOR;?></u></h3>
 <table cellpadding="5" cellspacing="5">
 <?php

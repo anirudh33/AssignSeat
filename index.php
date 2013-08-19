@@ -1,34 +1,48 @@
 <?php
-/*
+/**
  * Creation Log File Name - index.php 
  * Description - AssignSeat index file
- * Version - 1.0 
+ * @Version - 1.0 
  * Created by - Anirudh Pandita 
  * Created on - July 29, 2013 
  * *************************************************
  */
 
-/* Show php errors as in development stage */
+/** 
+ * Show php errors as in development stage 
+ * /
+
 ini_set("display_errors","1");
 
-/* Starting session  */
+/** Starting session  
+ */
 session_start();
 
-/* Including all constants to be used */
+/**
+ *  Including all constants to be used 
+ */
+
 require_once getcwd().'/libraries/constants.php';
 require_once getcwd().'/libraries/departmentColorConstant.php';
 require_once getcwd().'/libraries/Security.php';
 require_once getcwd().'/libraries/Logger.php';
 require_once(__DIR__."/libraries/validate.php");
-/* Requiring all essential files */
+
+/**
+ *  Requiring all essential files 
+ */
 
 function __autoload($controller) {
 	include __DIR__ .'/Controller/'.$controller . '.php';
 }
 
-/* Method calls from views handled here */
+/**
+ * Method calls from views handled here 
+ */
 
-//header ,left,right 
+/**
+ * Code to handle command line request 
+ */
 
 $options = getopt("C:M:");
 if(!empty($options))
@@ -41,7 +55,9 @@ if (isset ( $_REQUEST ['controller'] )) {
 		
 		if (isset ( $_REQUEST ["method"] )) {
 	
-			// Creating object of controller to initiate the process
+			/**
+			 *  Creating object of controller to initiate the process
+			 */
 			$object = new $_REQUEST ["controller"] ();
 			
 			if (method_exists ( $object, $_REQUEST ["method"] )) {
@@ -72,12 +88,16 @@ else if (isset($_SESSION ["username"]))
 else
 {
 
-	/* Showing the main Login view */
+	/** 
+	 * Showing the main Login view 
+	 */
     $objMainController = new MainController();    
     $objMainController->loadView("main");
 }
 
-/* clear error messages */
+/** 
+ * clear error messages 
+ */
 unset($_SESSION['msg']);
 //footer..
 ?>

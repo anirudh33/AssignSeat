@@ -1,7 +1,3 @@
-<?php
-// echo "<pre>";
-// print_r($data);
-?>
 <center><h2>Employee Details</h2></center>
 
 <div id="roomDetail">

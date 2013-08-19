@@ -1,11 +1,3 @@
-<?php
-/*
- * Creation Log File Name - main.php Description - Main view file Version - 1.0 Created by - Avni jain Created on - july 29, 2013 *************************************************
- */
-// echo $_SESSION ["username"];
-// echo $_SESSION ["userid"];
-//echo "hi";die;
-?>
 <html lang="">
 <head>
 <title>Assign Seat</title>
@@ -65,33 +57,7 @@ var windowPosition=265;
 $(function(){
 	getData();
 	startTooltip();// -- this will be enabled after seat drag testing
-	startContextMenu();
-	
-	//jQuery('#sidebar').stickyfloat();
-	
-	/*$(document).ready(function() {
-  
-		$(window).scroll(function() {
-		    var sideBar = $("#sidebar").css('margin-top');
-	        var windowpos = $(window).scrollTop();
-	        //alert(windowpos);
-	        if(windowPosition < windowpos  )
-	        {
-	        	stickDivTopMargin+=5;
-	        	windowPosition=windowpos;
-	        	$("#sidebar").css('margin-top',windowPosition-200);
-	        }
-	        else if(windowPosition > windowpos && windowpos < 265 )
-	        {
-	        	stickDivTopMargin-=5;
-	        	windowPosition=windowpos;
-	        	$("#sidebar").css('margin-top',windowPosition-200);
-	        }
-	       // $("#sidebar").css('margin-top',windowpos-30);
-	        //alert($("#sidebar").css('margin-top'));
-	        });
-	});*/
-	
+	startContextMenu();	
 	$("#roomFillDetails").fancybox({	    
 	    closeClick : false, // prevents closing when clicking INSIDE fancybox
         beforeLoad : function() {
@@ -163,11 +129,9 @@ function showLog()
 		    displayData = '';
 		    if(data != "No Data in log file"){
     			$.each(data,function(i,value){
-    		        /*displayData += "<label>"+(i+1)+" </label>";*/
     				displayData += value;
     				displayData += "<br/>";
     				});
-    			//alert(displayData);
     			$("#logData").html('');
     			$("#logData").append(displayData);
 		    }
@@ -175,7 +139,6 @@ function showLog()
     			$("#logData").html('');
     			$("#logData").append(data);		        
 		    }
-			//displayData = data;
 		}
 	});
 	$("#logOverlayLink").fancybox({	    
@@ -187,10 +150,6 @@ function showLog()
 	$("#logOverlayLink").attr("href","#logData");
 	$("#logOverlayLink").trigger("click");
 }
-/*$("#report").click(function(){
-
-	$("#reportOverlayLink").trigger("click");
-})*/
 </script>
 <body>
     <div id="bg">

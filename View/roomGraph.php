@@ -1,7 +1,4 @@
 <?php 
-// echo "<pre>";
-// print_r($data['totalRow']);
-//print count($data['totalRow']);
 $totalSeat=0;
 $emptySeat=0;
 foreach($data['totalRow'] as $key=> $value)
@@ -9,9 +6,6 @@ foreach($data['totalRow'] as $key=> $value)
 	$totalSeat +=$value['computer'];
 }
 $emptySeat=$totalSeat - count($data['seated']);
-// print $totalSeat;
-// print count($data['seated']);
-
 ?>
 <div id="rommFullDetails" class="roomDetails">
 	<table>

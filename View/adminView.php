@@ -1,7 +1,4 @@
 <title>Assign Seat</title>
-
-
-
 <script src="assets/js/jquery.tools.min.js"></script>
 
 <link rel="shortcut icon" href="../favicon.ico"> 

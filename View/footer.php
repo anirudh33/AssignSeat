@@ -46,7 +46,6 @@ Keshi Chander Yadava</li>
 <li>Debanshu Kar</li>
 <li>Sanchit Puri</li>
 </ul>
-
 </div>
 </div>
 </body>

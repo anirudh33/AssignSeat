@@ -13,6 +13,7 @@
  *
  * *************************************************************************
  */
+include 'RoomRow.php';
 class Room extends RoomRow
 {
 	private $_name;

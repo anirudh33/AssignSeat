@@ -1,9 +1,4 @@
-<!-- Updated By Amber Sharma -->
-
-<!-- Updated By Amber Sharma -->
 <script>
-
-
 function searchlocation(id)
 {
     if($('img[id='+id+']').length > 0){
@@ -13,9 +8,7 @@ function searchlocation(id)
     	$('img[id='+id+']').trigger("click");
     }
 }
-
 function getData(page) {
-//alert("hello");
 var name = document.getElementById("searchtxt").value;
 if(page == undefined)
 {
@@ -37,10 +30,7 @@ page=0;
 				}
 				else
 				{
-					/* Updated By Amber Sharma */
-					$tickDiv = "";
-
-					
+					$tickDiv = "";				
 					$tickDiv += "<div class='SearchedEmp' id = 'emp"
                         + val['id']
                     + "'>"
@@ -52,16 +42,9 @@ page=0;
                     + val['id']
                     + "' style='width:20px;height:16px;' class='dragable mouseFetch'>"
                     + "<img src='./assets/images/human.jpeg' onClick='searchlocation("
-                    + val['id'] + ");' width='15px' /></span></div>";
-                    
-
-						
-					
-					
+                    + val['id'] + ");' width='15px' /></span></div>";				
 					$("#result").append($tickDiv);
-					//$("#result").append(val['Name']+"<br>");
 					dragdropevent();
-					/* Updated by Amber Sharma*/
 				}
 
 				});
@@ -71,7 +54,6 @@ page=0;
 			}
 			else if(page==0 && totalRow >= 11)
 			{
-				//alert(totalRow);
 			   $("#pager").html("");
 			   $("#pager").append("<a href=# onClick=getData("+(page+1)+
 					   ")>Next</a> <a href=# onClick=getData("+Math.floor((totalRow-1)/10)+")>Last</a>");
@@ -90,17 +72,6 @@ page=0;
 			}
   		}); 
 }
-
-function getLocation()
-{
-
-
-	
-}
-
-/* Updated By Amber Sharma */
-
-/* Updated By Amber Sharma */
 </script>
 
 <label><?php echo $lang->NAME?></label>
@@ -121,4 +92,3 @@ function getLocation()
 </a>
 <div id="result"></div>
 <div id="pager"></div>
-

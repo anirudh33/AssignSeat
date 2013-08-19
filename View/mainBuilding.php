@@ -1,6 +1,8 @@
 <?php
-/*
- * @author Prateek Saini Below Code block will fetch all the allocated seats then it will arrange the data in array index on room
+/**
+ * @author Prateek Saini 
+ * Below Code block will fetch all the allocated seats 
+ * then it will arrange the data in array index on room
  */
 $seatAllocatedInfo = $this->dataFetch ( $_SESSION ['roomId'] );
 $totalRooms = count ( $_SESSION ['roomData'] );
@@ -14,8 +16,12 @@ foreach ( $seatAllocatedInfo as $key => $value ) {
 	$seatAllocatedInfoData [$value ['room_id']] [] = $value;
 }
 
-/*
- * @author Prateek Saini This function will called for each room individually @arg1 Data allocated for the room @arg2 Room structure i.e. total rows and number of computer in them. Data is broken for ease of access
+/**
+ * @author Prateek Saini 
+ * This function will called for each room 
+ * individually @arg1 Data allocated for the 
+ * room @arg2 Room structure i.e. total rows and 
+ * number of computer in them. Data is broken for ease of access
  */
 function createRow($allocatedData, $roomData) {
 	
@@ -295,34 +301,11 @@ function removeSeat(moveid, $changeComment, draggedElement) {
            });
 }
 function reLoadMainBuilding() {
-
     location.reload();
-	/* Use when Ajax call is required */
-    /*$.ajax({
-        url : 'index.php?controller=MainController&method=reLoadMainBuilding',
-        type : 'post',
-        dataType : 'html',
-        start : function() {
-            $('#rightbar').fadeTo('slow',0.2);
-        },
-        success : function(data){
-	   if(data.indexOf('password') != -1)
-			{
-				location.reload();
-			}
-            $("#rightbar").html("");
-            $("#rightbar").append(data);
-            startTooltip();
-            },
-        stop : function() {
-            $('#rightbar').fadeIn(100);
-        }
-        });*/
 }
 /* Updated By Amber Sharma and Prateek Saini */
 
 function startTooltip(){
-
     /*
     @author Prateek Saini
     This tooltip will display the user details from database
@@ -334,7 +317,8 @@ function startTooltip(){
         content: 'Loading...',
         functionBefore: function(origin, continueTooltip) {
         
-           // we'll make this function asynchronous and allow the tooltip to go ahead and show the loading notification while fetching our data
+           // we'll make this function asynchronous and allow the 
+            //tooltip to go ahead and show the loading notification while fetching our data
            continueTooltip();
              
            // next, we want to check if our data has already been cached
@@ -349,10 +333,7 @@ function startTooltip(){
         				data : 'eid='+$id,
         				dataType : "json",
         				success : function (data) {
-        				    //$(".positionTooltip").tooltip("close");
-        					//alert(data);
-        				    displayData = '';
-        					//$.each(data,function(i,value){    				    
+        				    displayData = '';				    
     	                        displayData += "<img src=\""+data['uri']+"\" alt =\"User Image\" width='100px'/>";
     	                        displayData += "<br/>";
         				        displayData += "<label>Name : </label>";
@@ -363,10 +344,7 @@ function startTooltip(){
             					displayData += "<br/>";
             					displayData += "<label>Details : </label>";
             					displayData += data['details'];
-//            				alert(i+"_"+value);	
-            				//	});
-        					//displayData = data;
-        				}
+            				}
         			});
         			origin.tooltipster('update', displayData).data('ajax', 'cached');
     			}
@@ -380,16 +358,14 @@ function startTooltip(){
     	    return false;
 	  })
 	  .on( "drag", function(){
-	      //alert("dragging");
 	      $( this ).tooltipster( "hide" );
-    	    //return false;
 	  })
      .attr( "title", "" ).css({ cursor: "pointer" });
 
-    /* 
-    @author Prateek Saini
-    This tooltip will display the Room name,
-    Row Number and Column Number for any Seat.
+    /** 
+     * @author Prateek Saini
+     * This tooltip will display the Room name,
+     * Row Number and Column Number for any Seat.
      */
     
     $('.positionTooltip').tooltipster({
@@ -457,8 +433,7 @@ function startContextMenu() {
 		        case "pick" : 
 			        {
     		            clearVariables();
-    			        //alert($(this).attr("id"));
-    			        if($(this).attr("id") > 0 ) {	
+    			            if($(this).attr("id") > 0 ) {	
     			            draggedElement = $(this).attr("id");
     			            moveid = $(this).parent('div').attr('id');
     			        }
@@ -506,8 +481,6 @@ function startContextMenu() {
 			        alert("No code is written!!! Work in progress :-)");
 		        }
 		        }
-// 	            var m = "clicked: " + key;
-// 	            window.console && console.log(m) || alert(m); 
 	        },
 	        items: {
 	            "drop": {"name": "Drop", "icon": "paste"},

@@ -1,42 +1,43 @@
 <?php
-/*
-* @Author : Amber Sharma 
-*/
+/**
+ * @Author : Amber Sharma 
+ * This file is auto generated
+ */
 
 
-/*
-*Engineering Identification Code
-*/
+/**
+ *Engineering Identification Code
+ */
 define ('ENGINEERING',"#000000" );
 
 
-/*
-*HumanCapitalManagement Identification Code
-*/
+/**
+ *HumanCapitalManagement Identification Code
+ */
 define ('HUMANCAPITALMANAGEMENT',"#cc64dd" );
 
 
-/*
-*Technology Identification Code
-*/
+/**
+ *Technology Identification Code
+ */
 define ('TECHNOLOGY',"#50c22e" );
 
 
-/*
-*Finance Identification Code
-*/
+/**
+ *Finance Identification Code
+ */
 define ('FINANCE',"#e6c1c1" );
 
 
-/*
-*BusinessDevelopment Identification Code
-*/
+/**
+ *BusinessDevelopment Identification Code
+ */
 define ('BUSINESSDEVELOPMENT',"#000000" );
 
 
-/*
-*QMS Identification Code
-*/
+/**
+ * QMS Identification Code
+ */
 define ('QMS',"#dc6a6a" );
 
 

@@ -1,19 +1,31 @@
 <?php
+/**
+ * @author Sanchit Puri
+ * class to log all history in database 
+ * 
+ */
 include_once('DBconnect.php');
 class Logger extends DBConnection
 {
+	/**
+	 * 
+	 * @var string
+	 */
 	private $agent = "";
+	/**
+	 * 
+	 * @var array of logs 
+	 */
 	private $info = array();
 	
 	function __construct(){
 		parent::__construct();
 		$this->agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : NULL;
-		$this->getBrowser();
-		$this->getOS();
-		//return($this->showInfo("all"));
+		$this->getBrowser(); // get user browser
+		$this->getOS(); // get user OS
 	}
-	/*
-	 * function is used to log the entry into Log/Current folder when user logs in to the systen 
+	/**
+	 * Function is used to log the entry into Log/Current folder when user logs in to the systen 
 	 */
 	public function logLoginEntryCuurentFile()
 	{
@@ -22,10 +34,9 @@ class Logger extends DBConnection
 		$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 		$logData .= "========================= \n\n";
 		$fileName = './Log/Current/CurrentHistory.txt';
-		$fp = fopen($fileName,'a');
+		$fp = fopen($fileName,'a'); // Log Data in text file
 		fwrite($fp,$logData);
 		fclose($fp);
-		//die ($logData);
 		
 		//code to enter the log in the database table Log
 
@@ -40,8 +51,8 @@ class Logger extends DBConnection
 		return;		
 	}
 	
-	/*
-	 * function is used to log the entry into Log/Current Folder when user logs out from the systen
+	/**
+	 * Function is used to log the entry into Log/Current Folder when user logs out from the systen
 	 */
 	public function logLogoutEntryCuurentFile()
 	{
@@ -50,7 +61,7 @@ class Logger extends DBConnection
 		$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 		$logData .= "========================= \n\n";
 		$fileName = './Log/Current/CurrentHistory.txt';
-		$fp = fopen($fileName,'a');
+		$fp = fopen($fileName,'a'); // Log Data in text file
 		fwrite($fp,$logData);
 		fclose($fp);
 $data['tables'] = "log";
@@ -60,12 +71,13 @@ $data['tables'] = "log";
 				"date_of_log"		=> date("d/m/y H:i:s",time()),
 				"details"	=> str_replace(array("\r\n","\n","="),"",$logData),
 				);
+		// Insert logs in database
 		$result = $this->_db->insert($data['tables'],$insertedValues);
 		return;
 	}
 	
-	/*
-	 * function is used to log all the activities performed by the user while he/she is logged in
+	/**
+	 * Function is used to log all the activities performed by the user while he/she is logged in
 	 */
 	public function logAssignSeatCuurentFile($logActivity = array())
 	{
@@ -77,14 +89,14 @@ $data['tables'] = "log";
 			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
 			$logData .= "========================= \n\n";
 			$fileName = './Log/Current/CurrentHistory.txt';
-			$fp = fopen($fileName,'a');
+			$fp = fopen($fileName,'a'); // Log data in text file
 			fwrite($fp,$logData);
 			fclose($fp);
 			$assigneFile = './Log/Current/SeatChangeBy'.ucfirst($logActivity['uname']).'.txt';
 			$fileData = fopen($assigneFile,'a');
 			fwrite($fileData,$logData);
 			fclose($fileData);
-// code to log the entry in database
+		// code to log the entry in database
 		$data['tables'] = "log";
 		$insertedValues = array (
 				"user_id"	=> $_SESSION['userid'],
@@ -105,8 +117,8 @@ $data['tables'] = "log";
 		}
 	}
 	
-	/*
-	 * function is used to log all the seat Deletion performed by the user while he/she is logged in
+	/**
+	* function is used to log all the seat Deletion performed by the user while he/she is logged in
 	*/
 	public function logDeleteSeatCuurentFile($logDelete = array())
 	{
@@ -146,8 +158,8 @@ $data['tables'] = "log";
 		}
 	}
 	
-	/*
-	 * function is used to log all the seat Deletion performed by the user while he/she is logged in
+	/**
+	* function is used to log all the seat Deletion performed by the user while he/she is logged in
 	*/
 	public function logUpdateSeatLocationCuurentFile($logUpdateSeat = array())
 	{
@@ -189,7 +201,7 @@ $data['tables'] = "log";
 		}
 	}
 	
-	/*
+	/**
 	 * A Cron job is run by the system to call this function
 	 */
 	public function logHistoryFile()
@@ -198,60 +210,38 @@ $data['tables'] = "log";
 		$logData = file_get_contents('./Log/Current/CurrentHistory.txt');
 		$historyFile = './Log/History/'.date('d-M-y').'.txt';
 		$fp = fopen($historyFile,'a');
-		fwrite($fp,$logData);
-		//file_put_contents($fileName, "");
+		fwrite($fp,$logData);		
 		fclose($fp);
 		return;
 	}
-	
+	/**
+	 * Function to log Admin user creation log
+	 */
 	public function logAdminUserCreation()
 	{
 		$logData = $_SESSION['username']." Created A New Admin User Named ".$_REQUEST['user'];
-		$this->logAdminUserAction('UA',$logData);
-	   /* 
-	    $data['tables'] = "log";
-	    $insertedValues = array (
-	        "user_id"	=> $_SESSION['userid'],
-	        "action_performed"	=> "UA",
-	        "date_of_log"		=> date("d/m/y H:i:s",time()),
-	        "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
-	    );
-	    $result = $this->_db->insert($data['tables'],$insertedValues);
-	    return "true";*/
-	    
+		$this->logAdminUserAction('UA',$logData);   
 	}
-	
+	/**
+	 * Function to log Admin user password change
+	 */
 	public function logAdminUserPasswordChange()
 	{
 	    $logData = $_SESSION['username']." Changed his/her password ";
 	    $this->logAdminUserAction('PC',$logData);
-	    /*
-	    $data['tables'] = "log";
-	    $insertedValues = array (
-	        "user_id"	=> $_SESSION['userid'],
-	        "action_performed"	=> "PC",
-	        "date_of_log"		=> date("d/m/y H:i:s",time()),
-	        "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
-	    );
-	    $result = $this->_db->insert($data['tables'],$insertedValues);
-	    return "true";*/
 	}
-	
+	/**
+	 * Function to log Admin user delete
+	 */
 	public function logAdminUserDelete()
 	{
 		$logData = $_SESSION['username']." Deleted the user ";
 	    $this->logAdminUserAction('UD',$logData);
-/*		$data['tables'] = "log";
-	    $insertedValues = array (
-	        "user_id"	=> $_SESSION['userid'],
-	        "action_performed"	=> "PC",
-	        "date_of_log"		=> date("d/m/y H:i:s",time()),
-	        "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
-	    );
-	    $result = $this->_db->insert($data['tables'],$insertedValues);
-	    return "true";*/
 	}
-	// this function is used to make an entry into the database that describes which action is performed by admin
+	/**
+	 *  This function is used to make an entry into the 
+	 *  database that describes which action is performed by admin
+	 */
 	public function logAdminUserAction($action,$logMessage)
 	{
 		$data['tables'] = "log";
@@ -265,7 +255,10 @@ $data['tables'] = "log";
 	    return "true";
 	}
 	
-	
+	/**
+	 * Function to get user browser details
+	 * @return multitype:
+	 */
 	public function getBrowser(){
 		$browser = array("Navigator"            => "/Navigator(.*)/i",
 				"Firefox"              => "/Firefox(.*)/i",
@@ -286,7 +279,10 @@ $data['tables'] = "log";
 		}
 		return $this->info['Browser'];
 	}
-	
+	/**
+	 * Function to get user OS details
+	 * @return multitype:
+	 */
 	public function getOS(){
 		$OS = array("Windows"   =>   "/Windows/i",
 				"Linux"     =>   "/Linux/i",
@@ -302,7 +298,13 @@ $data['tables'] = "log";
 		}
 		return $this->info['Operating System'];
 	}
-	
+	/**
+	 * Function to get user browser version
+	 * @param string $browser
+	 * @param string $search
+	 * @param string $string
+	 * @return string
+	 */
 	public function getVersion($browser, $search, $string){
 		$browser = $this->info['Browser'];
 		$version = "";
@@ -328,7 +330,11 @@ $data['tables'] = "log";
 		}
 		return $version;
 	}
-	
+	/**
+	 * Function to create Browser information
+	 * @param string $switch
+	 * @return multitype:|multitype:multitype: |string
+	 */
 	public function showInfo($switch){
 		$switch = strtolower($switch);
 		switch($switch){

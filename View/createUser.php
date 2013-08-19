@@ -17,7 +17,6 @@ function createUser()
 }
   
 </script>
-
 <html>
 <head>
 </head>

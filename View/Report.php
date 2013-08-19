@@ -1,6 +1,4 @@
 <?php 
-//echo "<pre>";
-
 $last_id=0;
 foreach($data['rooms'] as $key => $value)
 {
@@ -15,8 +13,6 @@ foreach($data['rooms'] as $key => $value)
 	$room[$value['name']][++$i]=$value;
 	}
 }
-//print_r($room);die;
-
 ?>
 <style>
 #side2, #side1
@@ -53,10 +49,7 @@ overflow:scroll;
 
 	cursor: pointer;
 }
-
 </style>
-
-    
 <script type="text/javascript">
 		$(function() {
 			$("#tree").treeview({
@@ -133,12 +126,7 @@ overflow:scroll;
 	{
 		alert(id);
 	}
-
-	
-
 </script>
-
-
 <!-- Updated for datepicker  -->
 <!-- kawaljeet -->
 <div id="datepicker">
@@ -230,7 +218,6 @@ overflow:scroll;
 <li></li>
 </ul>
 </div>
-<div id="side2">
-	
+<div id="side2">	
 </div>
 </div>
