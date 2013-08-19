@@ -348,3 +348,23 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
+Mon - 19/Aug/2013 - 22:40:29 User " ADMIN " Logged out the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Mon - 19/Aug/2013 - 22:40:31 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Mon - 19/Aug/2013 - 22:40:47 User " ADMIN " Assigned the seat number "54" in room "sirijan2" of employee "ANKUR KUMAR AERAN" at row 6 , computer "3"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Mon - 19/Aug/2013 - 22:40:58 User " ADMIN " moved the employee "ANKUR KUMAR AERAN " From room " sirijan2 ", Row number "6 ", From Computer Id "3" To seat number "53" in room "sirijan2"" at row 5 , computer "3"
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+

@@ -1,7 +1,17 @@
 <?php
-/*
-* Creation Log File Name - contstants.php Description - all constants to be used Version - 1.0 Created by - Anirudh Pandita Created on - April 15, 2013 *****************************************************************
-*/
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  constant.php
+ * Project Name                -  AssignSeat
+ * @Version                   -  1.0
+ * Created by                  -  Chetan Sharma
+ * Created on                  -  July 29, 2013
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ * 
+ * *************************************************************************
+ */
 define ( 'SITE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/AssignSeat/trunk/' );
 
 /*
