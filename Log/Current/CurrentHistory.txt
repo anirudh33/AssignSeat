@@ -303,12 +303,12 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 18.0, Os = Linux 
 ========================= 
 
-Mon - 19/Aug/2013 - 12:58:44 User " ADMIN " Logged out the system  
+Mon - 19/Aug/2013 - 13:16:46 User " ADMIN " moved the employee "ANIMESH KUMAR " From room " sirijan2 ", Row number "4 ", From Computer Id "2" To seat number "51" in room "sirijan2"" at row 3 , computer "1"
 From the IP 127.0.0.1 and browser = Firefox 
 Browser version = 18.0, Os = Linux 
 ========================= 
 
-Mon - 19/Aug/2013 - 12:58:48 User " ADMIN " Logged into the system  
+Mon - 19/Aug/2013 - 13:18:52 User " ADMIN " moved the employee "ANIMESH KUMAR " From room " sirijan2 ", Row number "3 ", From Computer Id "1" To seat number "57" in room "em"" at row 1 , computer "1"
 From the IP 127.0.0.1 and browser = Firefox 
 Browser version = 18.0, Os = Linux 
 ========================= 
@@ -329,6 +329,11 @@ Browser version = 18.0, Os = Linux
 ========================= 
 
 Mon - 19/Aug/2013 - 14:51:08 User " ADMIN " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 18.0, Os = Linux 
+========================= 
+
+Mon - 19/Aug/2013 - 16:49:36 User " ADMIN " moved the employee "ANJU DUBEY " From room " Lab-1 ", Row number "5 ", From Computer Id "3" To seat number "3" in room "Lab-1"" at row 3 , computer "3"
 From the IP 127.0.0.1 and browser = Firefox 
 Browser version = 18.0, Os = Linux 
 ========================= 

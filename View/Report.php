@@ -49,6 +49,10 @@ overflow:scroll;
     width: 100%;
 	
 }
+.myHover {
+
+	cursor: pointer;
+}
 
 </style>
 
@@ -81,8 +85,55 @@ overflow:scroll;
 		})
 	
 	
-	
-	
+	/**
+	*
+	* Function to handle adminLogs
+	*/
+	function adminLogs(id)
+	{
+		alert(id);
+	}
+	/**
+	*
+	* Function to handle roomLogs
+	*/
+	function roomLogs(name)
+	{
+		alert(name);
+	}
+	/**
+	*
+	* Function to handle rowLogs
+	*/
+	function rowLogs(name,rowId)
+	{
+		alert(name+' '+rowId);
+	}
+	/**
+	*
+	* Function to handle computerLogs
+	*/
+	function computerLogs(name,rowId,computerId)
+	{
+		alert(name+" "+rowId+" "+computerId );
+	}
+	/**
+	*
+	* Function to handle empLogs
+	*/
+	function empLogs(id)
+	{
+		alert(id);
+	}
+	/**
+	*
+	* Function to handle systemLogs
+	*/
+	function systemLogs(id)
+	{
+		alert(id);
+	}
+
 	
 
 </script>
@@ -106,7 +157,7 @@ overflow:scroll;
 	foreach($data['users'] as $key => $value)
 	{
 	?>
-		<li><a href="#"><?php echo $value['username'];?></a></li>
+		<li><span onclick='adminLogs(<?php echo $value['id']?>)' class='myHover'><?php echo $value['username'];?></span></li>
 	<?php 
 	}
 	?>	
@@ -120,19 +171,19 @@ overflow:scroll;
 	foreach($room as $key => $value)
 	{
 		//echo "<ul>";
-		echo "<li>".$key;
+		echo "<li> <span onclick=roomLogs('".$key."') class='myHover'>".$key."</span>";
 		if($value[0]['row_number'] != NULL)
 		{
 			echo "<ul>";
 			foreach($value as $key2 => $val2)
 			{
-				echo "<li>Row ".$val2['row_number'];
+				echo "<li><span onclick=rowLogs('".$key."',".$val2['row_id'].") class='myHover'>Row ".$val2['row_number']."</span>";
 				if($val2['computer'] > 0)
 				{
 					echo "<ul>";
 					for($i=0;$i < $val2['computer']; $i++)
 					{
-						echo "<li>Computer ".($i+1)."</li>";
+						echo "<li><span class='myHover' onclick=computerLogs('".$key."',".$val2['row_id'].",".$i.")>Computer ".($i+1)."</span></li>";
 					}
 					echo "<li></li></ul>";
 				}
@@ -153,7 +204,7 @@ overflow:scroll;
 	foreach($data['employee'] as $key => $value)
 	{
 	?>
-		<li><a href="#"><?php echo $value['name'];?></a></li>
+		<li><span class='myHover' onclick="empLogs(<?php echo $value['id'] ?>)"><?php echo $value['name'];?></span></li>
 	<?php 
 	}
 	?>	
@@ -162,10 +213,18 @@ overflow:scroll;
 	</li>
 	<li><a href="#" ><strong>Systems</strong></a>
 	<ul id="system">
-		<li><a href="#">Login</a></li><li><a href="#">Logout</a></li><li><a href="#">Allocation</a></li>
-		<li><a href="#">Reallocation</a></li><li><a href="#">Trash</a></li><li><a href="#">Row Add</a></li>
-		<li><a href="#">Row Delete</a></li><li><a href="#">Seat Add</a></li><li><a href="#">Seat Delete</a></li>
-		<li><a href="#">User Add</a></li><li><a href="#">User Edit</a></li><li><a href="#">User Delete</a></li>
+		<li><span class='myHover' onclick="systemLogs('LI')">Login</span></li>
+		<li><span class='myHover' onclick="systemLogs('LO')">Logout</span></li>
+		<li><span class='myHover' onclick="systemLogs('SA')">Allocation</span></li>
+		<li><span class='myHover' onclick="systemLogs('SR')">Reallocation</span></li>
+		<li><span class='myHover' onclick="systemLogs('SD')">Trash</span></li>
+		<li><span class='myHover' onclick="systemLogs('IR')">Row Add</span></li>
+		<li><span class='myHover' onclick="systemLogs('DR')">Row Delete</span></li>
+		<li><span class='myHover' onclick="systemLogs('SA')">Seat Add</span></li>
+		<li><span class='myHover' onclick="systemLogs('DS')">Seat Delete</span></li>
+		<li><span class='myHover' onclick="systemLogs('UA')">User Add</span></li>
+		<li><span class='myHover' onclick="systemLogs('PC')"> Edit</span></li>
+		<li><span class='myHover' onclick="systemLogs('UD')">User Delete</span></li>
 	</ul>
 	</li>
 <li></li>
