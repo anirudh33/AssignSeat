@@ -25,27 +25,11 @@ font-family:Serif;
 </head>
 <body>
 <div id="footer">
-<label id="footer_subtitle">Team Lead:
+<label id="footer_subtitle">
 Chetan Sharma
 </label></br>
 <b>Design &amp; Developed By:</b><div id="navcontainer">
-<ul>
-<li>Amber Sharma</li>
-<li>Mohit Gupta</li>
-<li>Gaurav Kumar Sharma</li>
-<li>Kawaljeet Singh</li>
-<li>Ramandeep Singh Mann</li>
-<li>Anirudh Pandita</li>
-<li>Avni Jain</li>
-<li>
-Keshi Chander Yadava</li>
-<li>Chandan Kumar</li>
-<li>Mohit Kumar Singh</li>
-<li>Prateek Saini</li>
 
-<li>Debanshu Kar</li>
-<li>Sanchit Puri</li>
-</ul>
 </div>
 </div>
 </body>

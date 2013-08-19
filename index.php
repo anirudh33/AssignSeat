@@ -3,7 +3,7 @@
  * Creation Log File Name - index.php 
  * Description - AssignSeat index file
  * @Version - 1.0 
- * Created by - Anirudh Pandita 
+ * Created by - Chetan Sharma
  * Created on - July 29, 2013 
  * *************************************************
  */

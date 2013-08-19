@@ -45,8 +45,6 @@ function createRow($allocatedData, $roomData) {
 			$tempAllocated [($value ['row_number'] - 1)] [$value ['computer_id']] = $value;
 	}
 	$displayData = "";
-// 	echo "<pre>";
-// 	print_r( $tempAllocated);
 	if($roomData[0]['room_id']==7)
 	{
 		$tempRow=0;	
@@ -97,7 +95,6 @@ draggedElement = "";
 moveid = "";
 thisid= "";
 var didConfirm = false;
-/* Updated By Amber Sharma and Prateek Saini */
 function dragdropevent() {
     /**
      * we set the dragable class to be dragable, we add the containment which
@@ -116,10 +113,8 @@ function dragdropevent() {
             draggedElement = this.id;
             moveid = $(this).parent('div').attr('id');
 		
-            //alert(draggedElement);
+           
             dragdropevent();
-		
-            //alert(moveid);
         },
 	
     });
@@ -201,7 +196,7 @@ function dragdropevent() {
         });
 	}
 	$tooltipFlag = 0;
-	// alert(didConfirm);
+
      if (didConfirm == true) 
 	{	
 		$("#changeCommentLink").trigger("click"); 
@@ -215,17 +210,14 @@ function dragdropevent() {
     });
 }
 function closeFancyBox() {
-	//$("#commentError").replace("");
     $changeComment = $("#changeComment").val();
     $.fancybox.close();
     $("#commentError").html("");
-    // alert(draggedElement);
-// alert(moveid);
-    // alert(thisid+'1');
+
     if (thisid == 'trash') {               
 		removeSeat(moveid, $changeComment, draggedElement);
     } else {
-	//alert(moveid);
+
         $.post('index.php?controller=MainController&method=assignSeat', {
             roomid : thisid,
 	    move :moveid,
@@ -251,7 +243,6 @@ function closeFancyBox() {
                 $("#commentError").html(data);
                 $("#changeCommentLink").trigger("click");
     			}
-             //window.location.href = 'index.php';
         });
 	if (thisid == 'trash') 
 	{
@@ -275,7 +266,6 @@ function closeFancyBox() {
 		dragdropevent();
 	}
     }
-    //clearVariables();
 }
 function removeSeat(moveid, $changeComment, draggedElement) {
     $.post('index.php?controller=MainController&method=trashSeat', {
@@ -303,11 +293,9 @@ function removeSeat(moveid, $changeComment, draggedElement) {
 function reLoadMainBuilding() {
     location.reload();
 }
-/* Updated By Amber Sharma and Prateek Saini */
 
 function startTooltip(){
     /*
-    @author Prateek Saini
     This tooltip will display the user details from database
     after user click on the allocated Seat.
     */
@@ -363,7 +351,6 @@ function startTooltip(){
      .attr( "title", "" ).css({ cursor: "pointer" });
 
     /** 
-     * @author Prateek Saini
      * This tooltip will display the Room name,
      * Row Number and Column Number for any Seat.
      */
