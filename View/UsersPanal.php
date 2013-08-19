@@ -32,8 +32,9 @@ var prev = "";
 
   function changePassword(fetch)
   {
-  var pass = document.getElementById(fetch).value;
-  var oldpass = document.getElementById(prev).value;
+  var pass = document.getElementById("new").value;
+  var oldpass = document.getElementById("old").value;
+  
   $.ajax({
   
   type: "POST",
@@ -58,7 +59,7 @@ if(data.indexOf('Login') != -1)
   prev = fetch;
   }
   $("#open").html("Change Password");
-  $("#show_"+fetch).html("<p>Old Password: <input type='password' name='old_password' required='required' id='"+prev+"'></p><p> New Password: <input type='password' name='password' required='required' id='"+fetch+"'></p><span style='float:center;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span>");
+  $("#show_"+fetch).html("<p>Old Password: <input type='password' name='old_passd' required='required' id='old'></p><p> New Password: <input type='password' name='new_passd' required='required' id='new'></p><span style='float:center;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span>");
   
   }
 </script>
@@ -81,10 +82,17 @@ if(data.indexOf('Login') != -1)
     <th>Options</th>
    </tr>
 <?php for($i=0; $i<count($data);$i++){?>
+  <?php $val = $data[$i]['username'];?>
+  
   <tr>
     <td style="text-align:center;"><?php print_r($data[$i]['username']); ?></td>
     <td id="show_<?php echo $data[$i]['id']; ?>"></td>
+    <?php if($_SESSION ["username"] !=  $val ){?>
     <td style="text-align:center;"><a href="#" onclick="editUser('<?php echo $data[$i]['id']; ?>')">Edit</a> | <a href="#" onclick="deleteuser('<?php echo $data[$i]['id']; ?>')">Delete</a></td>
+    <?php } 
+   else{?>
+   <td style="text-align:center;"><a href="#" onclick="editUser('<?php echo $data[$i]['id']; ?>')">Edit</a></td>
+  <?php } ?>
   </tr>
 <?php } ?>
   </table>

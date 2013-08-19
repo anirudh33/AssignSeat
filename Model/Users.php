@@ -202,7 +202,7 @@ class Users extends DBConnection {
         public function changeAdminPassword(){
         $userid = $_REQUEST['value'];
         $old_password = md5($_REQUEST['old_passwd']);
-        $password = md5($_REQUEST['passwd']);
+        
         
         $data['tables']		= 'login';
 	$data['columns']	= array('password');
@@ -213,13 +213,17 @@ class Users extends DBConnection {
 			$myResult[]=$row;
 		}	
         if($myResult[0]['password'] == $old_password){
-        
-
+        if($_REQUEST['passwd'] == "" || (md5($_REQUEST['passwd']) == md5($_REQUEST['old_passwd']))){
+         return 0;
+        }
+        else{
+        $password = md5($_REQUEST['passwd']);
         $data = array('password' => $password);
         $where = array('id' => $userid);
 
          $result = $this->_db->update('login',$data, $where);
          return $result;
+        }
         }
         else{
         return 0;

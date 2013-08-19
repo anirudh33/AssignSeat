@@ -607,7 +607,7 @@ class MainController extends Acontroller
       echo "Password Changed";
       }
       else{
-       echo "Old Password Does Not Match";
+       echo "Sorry Try Again !!!!";
       }
      }
         
