@@ -1,11 +1,11 @@
 <?php
 /**
  * **************************** Creation Log *******************************
- * File Name                   -  lang.php
+ * File Name                   -  Language.php
  * Project Name                -  AssignSeat
  * Description                 -  Class file for start
  * @Version                   -  1.0
- * Created by                  -  Mohit K. Singh
+ * Created by                  -  Chetan Sharma
  * Created on                  -  August 03, 2013
  * ***************************** Update Log ********************************
  * Sr.NO.		Version		Updated by           Updated on          Description

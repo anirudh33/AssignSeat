@@ -1,4 +1,17 @@
 <?php
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  DBconnect.php
+ * Project Name                -  AssignSeat
+ * @Version                   -  1.0
+ * Created by                  -  Chetan Sharma
+ * Created on                  -  July 29, 2013
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ * 
+ * *************************************************************************
+ */
 include('PDO/cxpdo.php');
 abstract class DBConnection
 {
@@ -18,5 +31,4 @@ abstract class DBConnection
         $this->_config['DATABASE_PERSISTENT'] = true;
         $this->_db = db::instance($this->_config);
     }
-
 }

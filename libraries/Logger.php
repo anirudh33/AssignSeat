@@ -1,8 +1,17 @@
 <?php
 /**
- * @author Sanchit Puri
- * class to log all history in database 
+ * **************************** Creation Log *******************************
+ * File Name                   -  Logger.php
+ * Project Name                -  AssignSeat
+ * Description                 -  class to log all history in database 
+ * @Version                   -  1.0
+ * Created by                  -  Chetan Sharma
+ * Created on                  -  August 03, 2013
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
  * 
+ * *************************************************************************
  */
 include_once('DBconnect.php');
 class Logger extends DBConnection
