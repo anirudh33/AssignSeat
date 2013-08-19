@@ -1,9 +1,19 @@
-
 <?php
-
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  Departments.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class from RoomRow Table
+ * @Version                   -  1.0
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ *
+ * *************************************************************************
+ */
 class Departments extends DBConnection {
     
-	/*
+	/**
 	* @author Amber Sharma
 	*
 	* This function will fetch distinct departments from Database
@@ -25,7 +35,7 @@ class Departments extends DBConnection {
 	}
 	
 
-	/*
+	/**
 	* @author Amber Sharma
 	*
 	* This function will save color codes in a Constant file
@@ -81,9 +91,4 @@ class Departments extends DBConnection {
 
 	}
 }
-		
-		
-		
 ?>
-
-

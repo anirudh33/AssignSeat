@@ -1,69 +1,70 @@
 <?php
 /**
- *@author Keshi
- **************************** Creation Log *******************************
- * File Name 	- Seat.php
- * Description 	- Model class holding functionalities
- * 				  for insertion in database for seat alootment
- * Version		- 1.0
- * Created by	- Keshi Chander Yadava
- * Created on 	- Jul 30 2013
- * **********************Update Log ***************************************
- * Sr.NO. Version Updated by 		Updated on	 	Description
+ * **************************** Creation Log *******************************
+ * File Name                   -  Room.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class from RoomRow Table
+ * @Version                   -  1.0
+ * Created by                  -  Keshi
+ * Created on                  -  August 03, 2013
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
  * -------------------------------------------------------------------------
  *
- * ************************************************************************
+ * *************************************************************************
  */
-include 'RoomRow.php';
 class Room extends RoomRow
 {
 	private $_name;
 	private $_id;
 	private $_status;
 	/**
-	 * @return the $_id
+	 * @return $_id
 	 */
 	public function getId() {
 		return $this->_id;
 	}
 
 	/**
-	 * @return the $_status
+	 * @return $_status
 	 */
 	public function getStatus() {
 		return $this->_status;
 	}
 
 	/**
-	 * @param field_type $_id
+	 * @param Integer $_id
 	 */
 	public function setId($_id) {
 		$this->_id = $_id;
 	}
 
 	/**
-	 * @param field_type $_status
+	 * @param Character $_status
 	 */
 	public function setStatus($_status) {
 		$this->_status = $_status;
 	}
 
 	/**
-	 * @return the $_name
+	 * @return $_name
 	 */
 	public function getName() {
 		return $this->_name;
 	}
 
 	/**
-	 * @param field_type $_name
+	 * @param String $_name
 	 */
 	public function setName($_name) {
 		$this->_name = $_name;
 	}
+	/**
+	 * 
+	 * @param String $name
+	 */
 	public function roomDetail($name) {
-		echo "here";
-		$this->setName($name);//($_POST['name']);
+		$this->setName($name);
 		$data['columns']	= array('room.name');
 		$data['conditions']=array(array('status = 1'),true);
 		$data['tables']		= 'room';
@@ -73,11 +74,13 @@ class Room extends RoomRow
 		{
 			$myResult[]=$row;
 		}
-		echo "<pre>";
-		print_r($myResult);
-		die;
 	}
-	
+	/**
+	 * 
+	 * @return Array ResultSet
+	 * 
+	 * This method will fetch data for all rooms
+	 */
 	public function fetchAllRooms()
 	{
 		$data['conditions']=array(array('status = "1"'),true);
@@ -90,7 +93,13 @@ class Room extends RoomRow
 		}
 		return $myResult;
 	}
-	
+	/**
+	 * 
+	 * @param Integer $roomId
+	 * @return Array ResultSet
+	 * 
+	 * This method will fetch data in detail for particular room from multiple tables
+	 */
 	public function fetchRoomDetails($roomId)
 	{
 		
@@ -108,7 +117,12 @@ class Room extends RoomRow
 		}
 		return $myResult;
 	}
-	
+	/**
+	 * 
+	 * @return Array ResultSet
+	 * 
+	 * This will fetch all the details for every room
+	 */
 	public function fetchAllRoomDetails()
 	{
 	
@@ -126,7 +140,13 @@ class Room extends RoomRow
 		}
 		return $myResult;
 	}
-	
+    /**
+     * 
+     * @param Integer $roomId
+     * @param Integer $rowId
+     * 
+     * Delete a Row from Room
+     */	
    public function deleteRow($roomId,$rowId) 
    {
    		$this->setStatus ( 0 );
@@ -134,6 +154,14 @@ class Room extends RoomRow
    		$where = array ('id' => $rowId, 'room_id' => $roomId );
    		$result = $this->_db->update ( 'room_row', $data, $where );
    }
+   /**
+    * 
+    * @param Integer $roomId
+    * @param Integer $rowNo
+    * @param Integer $computer
+    * 
+    * This will add a new row with specified computer in room 
+    */
    public function addRow($roomId,$rowNo,$computer)
    {
    	$data ['tables'] = 'room_row';
@@ -146,6 +174,13 @@ class Room extends RoomRow
    			'created_on' => time());
    	$result = $this->_db->insert ( $data ['tables'], $insertValue );
    }
+   /**
+    * 
+    * @param Integer $rowId
+    * @param Integer $computer
+    * 
+    * This will update the computer in Row
+    */
    public function updateComp($rowId,$computer)
    {
    	
@@ -154,6 +189,13 @@ class Room extends RoomRow
    		$result = $this->_db->update ( 'room_row', $data, $where );
    }
    
+   /**
+    * 
+    * @param Integer $roomId
+    * @return Array ResultSet
+    * 
+    * This will fetch all the  details regarding all the seated employee
+    */
    public  function getRoomSeatedDetails($roomId)
    {
    	$data['columns']=array('seat_employee.id as seatedEmpId','seat_employee.computer_id as seatNo','employee.name as empName','employee.designation','employee.department','employee.details','employee.user_image','room.id','room_row.id as row_id','room.name','room_row.row_number','room_row.computer');
@@ -176,8 +218,5 @@ class Room extends RoomRow
    		$myResult[]=$row;
    	}
    	return $myResult;
-   }
-	
+   }	
 }
-//  $y=new Room();
-//  $y->roomDetail('googol');

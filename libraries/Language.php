@@ -1,20 +1,26 @@
 <?php
-/*
- **************************** Creation Log *******************************
-File Name                   -  lang.php
-Project Name                -  SkillSeeker
-Description                 -  Class file for start
-Version                     -  1.0
-Created by                  -  Mohit K. Singh
-Created on                  -  May 03, 2013
-***************************** Update Log ********************************
-Sr.NO.		Version		Updated by           Updated on          Description
--------------------------------------------------------------------------
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  lang.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Class file for start
+ * @Version                   -  1.0
+ * Created by                  -  Mohit K. Singh
+ * Created on                  -  August 03, 2013
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ * 
+ * *************************************************************************
+ */
 
-*************************************************************************
 
-*/
-
+/**
+ * This class will load the language file from language folder, using the 
+ * @var $language variable to fetch the current language code
+ * 
+ * @example en
+ * */
 class Language {
 
 	private $_lang;          //store user selected language array
@@ -44,7 +50,5 @@ else
 }
 require_once SITE_PATH .'/languages/lang.'.$langType.".php";
 
-
-//include_once './languages/lang.'.$langType.".php";
 $lang = new Language($langArr);
 ?>

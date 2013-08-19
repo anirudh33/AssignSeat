@@ -1,18 +1,17 @@
 <?php
 /**
- *@author Keshi
- **************************** Creation Log *******************************
- * File Name 	- Seat.php
- * Description 	- Model class holding functionalities
- * 				  for insertion in database for seat alootment	
- * Version		- 1.0
- * Created by	- Keshi Chander Yadava
- * Created on 	- Jul 30 2013
- * **********************Update Log ***************************************
- * Sr.NO. Version Updated by 		Updated on	 	Description
+ * **************************** Creation Log *******************************
+ * File Name                   -  RoomRow.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class from RoomRow Table
+ * @Version                   -  1.0
+ * Created by                  -  Keshi
+ * Created on                  -  August 03, 2013
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
  * -------------------------------------------------------------------------
  *
- * ************************************************************************
+ * *************************************************************************
  */
 class RoomRow extends DBConnection
 {
@@ -52,54 +51,51 @@ class RoomRow extends DBConnection
 	}
 
 	/**
-	 * @param field_type $_id
+	 * @param Integer $_id
 	 */
 	public function setId($_id) {
 		$this->_id = $_id;
 	}
 
 	/**
-	 * @param field_type $_room_name
+	 * @param String $_room_name
 	 */
 	public function setRoom_name($_room_name) {
 		$this->_room_name = $_room_name;
 	}
 
 	/**
-	 * @param field_type $_room_status
+	 * @param Character $_room_status
 	 */
 	public function setRoom_status($_room_status) {
 		$this->_room_status = $_room_status;
 	}
 
 	/**
-	 * @param field_type $_room_id
+	 * @param Integer $_room_id
 	 */
 	public function setRoom_id($_room_id) {
 		$this->_room_id = $_room_id;
 	}
 
 	/**
-	 * @param field_type $_row_number
+	 * @param Integer $_row_number
 	 */
 	public function setRow_number($_row_number) {
 		$this->_row_number = $_row_number;
 	}
 
 	/**
-	 * @param field_type $_computer
+	 * @param Integer $_computer
 	 */
 	public function setComputer($_computer) {
 		$this->_computer = $_computer;
 	}
 
 	/**
-	 * @param field_type $_status
+	 * @param Character $_status
 	 */
 	public function setStatus($_status) {
 		$this->_status = $_status;
-	}
-	
-
-	
+	}	
 }

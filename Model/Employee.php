@@ -1,8 +1,20 @@
 <?php
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  Employee.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class from RoomRow Table
+ * @Version                   -  1.0
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ *
+ * *************************************************************************
+ */
 class Employee extends DBConnection {
-	private $_osscube_member_id; // $_id;
+	private $_osscube_member_id;
 	private $_name;
-	private $_official_email_id; // $_email_id;
+	private $_official_email_id;
 	private $_designation;
 	private $_department;
 	private $_details;
@@ -17,7 +29,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_osscube_member_id
+	 * @return $_osscube_member_id
 	 */
 	public function getOsscube_member_id() {
 		return $this->_osscube_member_id;
@@ -25,7 +37,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_official_email_id
+	 * @return $_official_email_id
 	 */
 	public function getOfficial_email_id() {
 		return $this->_official_email_id;
@@ -33,7 +45,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_cell
+	 * @return $_cell
 	 */
 	public function getCell() {
 		return $this->_cell;
@@ -41,7 +53,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_location
+	 * @return $_location
 	 */
 	public function getLocation() {
 		return $this->_location;
@@ -49,7 +61,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_territory
+	 * @return $_territory
 	 */
 	public function getTerritory() {
 		return $this->_territory;
@@ -57,7 +69,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_team
+	 * @return $_team
 	 */
 	public function getTeam() {
 		return $this->_team;
@@ -65,7 +77,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_osscube_member_id        	
+	 * @param Integer $_osscube_member_id        	
 	 */
 	public function setOsscube_member_id($_osscube_member_id) {
 		$this->_osscube_member_id = $_osscube_member_id;
@@ -73,7 +85,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_official_email_id        	
+	 * @param string $_official_email_id        	
 	 */
 	public function setOfficial_email_id($_official_email_id) {
 		$this->_official_email_id = $_official_email_id;
@@ -81,7 +93,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_cell        	
+	 * @param number $_cell        	
 	 */
 	public function setCell($_cell) {
 		$this->_cell = $_cell;
@@ -89,7 +101,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_location        	
+	 * @param string $_location        	
 	 */
 	public function setLocation($_location) {
 		$this->_location = $_location;
@@ -97,7 +109,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_territory        	
+	 * @param string $_territory        	
 	 */
 	public function setTerritory($_territory) {
 		$this->_territory = $_territory;
@@ -105,7 +117,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_team        	
+	 * @param string $_team        	
 	 */
 	public function setTeam($_team) {
 		$this->_team = $_team;
@@ -113,7 +125,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_create_on
+	 * @return  $_create_on
 	 */
 	public function getCreate_on() {
 		return $this->_create_on;
@@ -121,7 +133,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_update_on
+	 * @return $_update_on
 	 */
 	public function getUpdate_on() {
 		return $this->_update_on;
@@ -129,7 +141,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_user_image
+	 * @return $_user_image
 	 */
 	public function getUser_image() {
 		return $this->_user_image;
@@ -137,7 +149,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_create_on        	
+	 * @param DateTime $_create_on        	
 	 */
 	public function setCreate_on($_create_on) {
 		$this->_create_on = $_create_on;
@@ -145,7 +157,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_update_on        	
+	 * @param DateTime $_update_on        	
 	 */
 	public function setUpdate_on($_update_on) {
 		$this->_update_on = $_update_on;
@@ -153,12 +165,15 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_user_image        	
+	 * @param Blob $_user_image        	
 	 */
 	public function setUser_image($_user_image) {
 		$this->_user_image = $_user_image;
 	}
 	
+	/**
+	 * @return Character 
+	 */
 	public function getStatus() {
 		return $this->_status;
 	}
@@ -201,7 +216,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_id
+	 * @return $_id
 	 */
 	public function getId() {
 		return $this->_id;
@@ -209,7 +224,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @return the $_name
+	 * @return $_name
 	 */
 	public function getName() {
 		return $this->_name;
@@ -217,7 +232,7 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_id        	
+	 * @param Integer $_id        	
 	 */
 	public function setId($_id) {
 		$this->_id = $_id;
@@ -225,12 +240,22 @@ class Employee extends DBConnection {
 	
 	/**
 	 *
-	 * @param field_type $_name        	
+	 * @param String $_name        	
 	 */
 	public function setName($_name) {
 		$this->_name = $_name;
 	}
 	
+	/**
+	 * 
+	 * @param String $name
+	 * @param Number $page
+	 * @return Array ResultSet
+	 * 
+	 * This method is used to fetch all the employee name used for search
+	 * and create the pagination
+	 * 
+	 */
 	public function searchEmp($name, $page) {
 		$data = array ();
 		$data ['tables'] = array (
@@ -254,6 +279,12 @@ class Employee extends DBConnection {
 		}
 		return $myResult;
 	}
+	/**
+	 * 
+	 * @return Array ResultSet
+	 * 
+	 * This will fetch the profile data of employee  
+	 */
 	public function getEmployeeProfile() {
 		$data = array ();
 		$data ['tables'] = array (
@@ -274,8 +305,11 @@ class Employee extends DBConnection {
 		}
 		return $myResult;
 	}
+	
+	/**
+	 * This will upload image in employee database
+	 */
 	public function upImage() {
-		// $this->_db->truncate('seat_employee');
 		$tmpName = "./assets/images/User.png";
 		$fp = fopen ( $tmpName, 'r' );
 		$imageData = fread ( $fp, filesize ( $tmpName ) );
@@ -290,6 +324,12 @@ class Employee extends DBConnection {
 		$result = $this->_db->update ( 'employee', $data, $where );
 	}
 	
+	/**
+	 * 
+	 * @return Array ResultSet
+	 * 
+	 * This will fetch email id of all the employees
+	 */
 	public function getEmployeeEmail() {
 		$data = array ();
 		$data ['columns'] = array (
@@ -312,16 +352,21 @@ class Employee extends DBConnection {
 		return $myResult;
 	}
 	
+	/**
+	 * This method is used to truncate data programatically
+	 * 
+	 */
 	public function truncateTable() {
 		$this->_db->truncate ( 'employee' );
 	}
+	/**
+	 * 
+	 * @return  Integer $_osscube_member_id
+	 */
 	public function setEmployeeProfile() {
 		static $statusrun = 0;
 		
 		$obj = new validate ();
-		// echo $this->getName();die;
-		// $name='"'.$this->getName().'"';
-		// echo $name.$this->getName();die;
 		$obj->validator ( "user_name", $this->getName (), 'custom=/^[a-zA-Z ]+[a-zA-Z]*$/', 'Name Contains Only alphabets' );
 		$obj->validator ( "Member_id", $this->getOsscube_member_id (), 'custom=/^OSS\/IN\/[0-9]*$/', 'Name Contains should not contain special character' );
 		$obj->validator ( "Cell", $this->getCell (), 'custom=/^[a-zA-Z ]+[-.&a-zA-Z ]+[a-zA-Z]*$/', 'Cell name should be in alphabets' );
@@ -332,7 +377,6 @@ class Employee extends DBConnection {
 		$obj->validator ( "Team", $this->getTeam (), 'custom=/^[a-zA-Z ]+[-.&a-zA-Z ]+[a-zA-Z]*$/', 'Team name should be in alphabets' );
 		$obj->validator ( "Territory", $this->getTerritory (), 'alphabets', 'Territory name should be in alphabets' );
 		$error = $obj->result ();
-		// print_r($error);die;
 		if (empty ( $error )) {
 			if ($statusrun == 0) {
 				$data ['tables'] = 'employee';
@@ -364,7 +408,6 @@ class Employee extends DBConnection {
 						true 
 				);
 				$result1 = $this->_db->select ( $data1 );
-				// print_r($result1);
 				$myResult = array ();
 				while ( $row = $result1->fetch ( PDO::FETCH_ASSOC ) ) {
 					$myResult [] = $row;
@@ -393,6 +436,12 @@ class Employee extends DBConnection {
 		}
 	
 	}
+	/**
+	 * 
+	 * @return Array ResultSet
+	 * 
+	 * This will fetch all the employee data
+	 */
 	public function getAllEmployee() {
 		$data ['columns'] = array (
 				'id',
@@ -414,7 +463,4 @@ class Employee extends DBConnection {
 		}
 		return $myResult;
 	}
-
-
 }
-

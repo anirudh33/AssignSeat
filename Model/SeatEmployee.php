@@ -1,21 +1,19 @@
 <?php
 /**
- *@author Keshi
- **************************** Creation Log *******************************
- * File Name 	- Seat.php
- * Description 	- Model class holding functionalities
- * 				  for insertion in database for seat alootment	
- * Version		- 1.0
- * Created by	- Keshi Chander Yadava
- * Created on 	- Jul 29 2013
- * **********************Update Log ***************************************
- * Sr.NO. Version Updated by 		Updated on	 	Description
+ * **************************** Creation Log *******************************
+ * File Name                   -  SeatEmployee.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class holding functionalities
+ *                                to insert in database for seat allotment
+ * @Version                   -  1.0
+ * Created by                  -  Keshi
+ * Created on                  -  August 03, 2013
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
  * -------------------------------------------------------------------------
- *	1.		1.0		Avni Jain		July 30,2013	added functions assignSeat,
- *													checkEmpSeat,findSid,setEmpName,getEmpName
- * ************************************************************************
+ * 
+ * *************************************************************************
  */
-// include 'Room.php';
 class SeatEmployee extends DBConnection {
     private $_eid;
     private $_sid;
@@ -28,7 +26,7 @@ class SeatEmployee extends DBConnection {
     private $_emp_name;
     /**
      *
-     * @return the $_eid
+     * @return $_eid
      */
     public function getEid() {
         return $this->_eid;
@@ -36,7 +34,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @return the $_sid
+     * @return $_sid
      */
     public function getSid() {
         return $this->_sid;
@@ -44,7 +42,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @return the $_computer_id
+     * @return $_computer_id
      */
     public function getComputer_id() {
         return $this->_computer_id;
@@ -52,7 +50,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @return the $_asignee
+     * @return $_asignee
      */
     public function getAsignee() {
         return $this->_asignee;
@@ -60,7 +58,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @return the $_details
+     * @return $_details
      */
     public function getDetails() {
         return $this->_details;
@@ -68,7 +66,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @return the $_status
+     * @return $_status
      */
     public function getStatus() {
         return $this->_status;
@@ -76,7 +74,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @return the $_created_on
+     * @return $_created_on
      */
     public function getCreated_on() {
         return $this->_created_on;
@@ -84,7 +82,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @return the $_updated_on
+     * @return $_updated_on
      */
     public function getUpdated_on() {
         return $this->_updated_on;
@@ -92,7 +90,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_eid field_type           
+     * @param Integer $_eid It will store the employee ID
      */
     public function setEid($_eid) {
         $this->_eid = $_eid;
@@ -100,7 +98,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_sid field_type           
+     * @param Integer $_sid It will store the seats ID
      */
     public function setSid($_sid) {
         $this->_sid = $_sid;
@@ -108,7 +106,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_computer_id field_type           
+     * @param Integer $_computer_id It will store the Computer ID
      */
     public function setComputer_id($_computer_id) {
         $this->_computer_id = $_computer_id;
@@ -116,7 +114,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_asignee field_type           
+     * @param Integer $_asignee
      */
     public function setAsignee($_asignee) {
         $this->_asignee = $_asignee;
@@ -124,7 +122,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_details field_type           
+     * @param Integer $_details
      */
     public function setDetails($_details) {
         $this->_details = $_details;
@@ -132,7 +130,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_status field_type           
+     * @param Integer $_status           
      */
     public function setStatus($_status) {
         $this->_status = $_status;
@@ -140,7 +138,7 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_created_on field_type           
+     * @param DateTime $_created_on
      */
     public function setCreated_on($_created_on) {
         $this->_created_on = $_created_on;
@@ -148,46 +146,45 @@ class SeatEmployee extends DBConnection {
     
     /**
      *
-     * @param $_updated_on field_type           
+     * @param DateTime $_updated_on
      */
     public function setUpdated_on($_updated_on) {
         $this->_updated_on = $_updated_on;
     }
+    /**
+     * 
+     * @param String $name
+     */
     public function setEmpName($name) {
         $this->_emp_name = $name;
     }
+    /**
+     * 
+     * @return String
+     */
     public function getEmpName() {
         return $this->_emp_name;
     }
-    
+   
     /**
-     *
-     * @return true after assigning seat to an employee
+     * 
+     * @param unknown $assignInfo
+     * @return string true after assigning seat to an employee
+     * 
+     * This method is used for assigning seat to employees
      */
     public function assignSeat($assignInfo) {
-    	
-//     	print_r($assignInfo);
-//     	die;
         $this->setEid ( $assignInfo ['empid'] );
         $empName = $this->getEmployeeName ( $assignInfo ['empid'] );
         $isAssigned = $this->checkEmpSeat ( $assignInfo ['empid'] );
-        // var_dump($isAssigned);die;
-        // if(!empty)
-        
         $this->setEmpName ( $empName );
-        // $this->setSid($assignInfo['sid']);
         $this->setAsignee ( $assignInfo ['assigne'] );
         $this->setComputer_id ( $assignInfo ['computerid'] );
-        // $this->setUpdated_on($assignInfo['updated_on']);
         $this->setDetails ( $assignInfo ['details'] );
-        // $this->deleteSeat();
         $this->setStatus ( 1 );
-        // echo $assignInfo['room'];die;
         $roomId = $this->findRoomId ( $assignInfo ['room'] );
-        // echo "roommmmm id .".$roomId;die;
         $sid = $this->findSid ( $roomId, $assignInfo ['row'] );
         $this->setSid ( $sid );
-        // $assignInfo['empid']
         /**
          * **** seat is not assigned to employee before***********
          */
@@ -203,13 +200,11 @@ class SeatEmployee extends DBConnection {
                     'details' => $this->getDetails () );
             $result = $this->_db->insert ( $data ['tables'], $insertValue );
             return "true";
-        } /**
+        }
+        /**
          * **** seat is reallocated ***********
          */
         else {
-            // print_r($isAssigned[0]['id']);die;
-            // echo $isAssigned[0];die;
-			//$frmComputerId=$this->getComputerId($isAssigned[0]['id']);
 			$frmRoom=$this->getfrmRoom($isAssigned[0]['id']);
 			$frmRoom[]=$this->getComputerId($isAssigned[0]['id']);
 			$_SESSION ["frmrow"]=$frmRoom[0];
@@ -221,11 +216,15 @@ class SeatEmployee extends DBConnection {
                     'details' => $this->getDetails () );
             $where = array ('id' => $isAssigned [0] ['id'], 'status' => 1 );
             $result = $this->_db->update ( 'seat_employee', $data, $where );
-            return "true1";
-        
+            return "true1";        
         }
     }
-	/**@ author Avni jain*****/
+	/**
+	 * 
+	 * @author Avni jain 
+	 * @return Integer This will return the Computer ID of
+	 * particular seat.
+	 * */
 	public function getComputerId($id)
 	{
 		$data ['columns'] = array ('computer_id');
@@ -234,16 +233,19 @@ class SeatEmployee extends DBConnection {
                 true );
         $data ['tables'] = 'seat_employee';
         $result = $this->_db->select ( $data );
-        //var_dump($result);die;
 		  while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $myResult [] = $row;
         }
-		//$from[0]=$myResult[0]['row_number'];
-        // echo $myResult[0]['id'];die;
         return $myResult[0]['computer_id'];
 	
 	}
-	/**@ author Avni jain*****/
+	/**
+	 * @author Avni jain
+	 * @param Integer $sid
+	 * @return Array
+	 * 
+	 * This method will fetch the rows from table
+	 */
 	public function getfrmRoom($sid)
 	{
 		$data ['columns'] = array ('id','row_number');
@@ -252,43 +254,39 @@ class SeatEmployee extends DBConnection {
                 true );
         $data ['tables'] = 'room_row';
         $result = $this->_db->select ( $data );
-        //var_dump($result);die;
-		  while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+		while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $myResult [] = $row;
         }
 		$from[0]=$myResult[0]['row_number'];
-        // echo $myResult[0]['id'];die;
-        //return $myResult [0] ['id'];
-		//$data ['columns'] = array ('name');
 		$data ['columns'] = array ('name');
         $data ['conditions'] = array (
                 array ('id=\'' . $myResult[0]['id']. '\' AND status="1"' ), 
                 true );
         $data ['tables'] = 'room';
         $result = $this->_db->select ( $data );
-		//var_dump($result);die;
-		  while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+		while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $room [] = $row;
         }
-		//print_r( $myResult);die;
 		$from[1]=$room[0]['name'];
 		return($from);
 	}
-    /**
-     *
-     * @return true after seting the status flag to 0 array
-     *         0 implies seat is not free
-     */
+	/**
+	 * This method will de-allocate the seat
+	 */
     public function deleteSeat() {
         $this->setStatus ( 0 );
         $data = array ('status' => $this->getStatus () );
         $where = array ('id' => $this->getEid (), 'status' => 1 );
         $result = $this->_db->update ( 'seat_employee', $data, $where );
     }
-    /*
-     * @author : Avni Jain called from : MainController.php. description: This
-     * function is to check whether a seat is already assigned to employee or
-     * not request params: employee id returns: array of result
+    /**
+     * 
+     * @author : Avni Jain 
+     * called from : MainController.php.
+     * description: This function is to check whether a seat is already 
+     * assigned to employee or not request 
+     * @param: $eid 
+     * @return: Array
      */
     public function checkEmpSeat($eid) {
         $data ['columns'] = array ('id' );
@@ -297,46 +295,50 @@ class SeatEmployee extends DBConnection {
                 true );
         $data ['tables'] = 'seat_employee';
         $result = $this->_db->select ( $data );
-        // var_dump($result);die;
         return $result->fetchAll ( PDO::FETCH_ASSOC );
     }
+    /**
+     * 
+     * @param String $roomName
+     */
     public function findRoomId($roomName) {
-        // $Room=new Room();
-        // $Room->setName($roomName);
-        // echo $Room->getName();die;
-        
         $data ['columns'] = array ('room.id' );
         $data ['conditions'] = array (
                 array ('name=\'' . $roomName . '\' AND status="1"' ), 
                 true );
         $data ['tables'] = 'room';
         $result = $this->_db->select ( $data );
-        // var_dump($result);die;
         $myResult = array ();
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $myResult [] = $row;
         }
-        // echo $myResult[0]['id'];die;
         return $myResult [0] ['id'];
     }
-    /*
-     * @author : Avni Jain called from : MainController.php. description: This
-     * function is to get employee name from employee id request params:
-     * employee id returns: employee name
+    /**
+     * 
+     * @author : Avni Jain called from : MainController.php. 
+     * description: This function is to get employee name 
+     * from employee id request
+     *  
+     * @param: employee id 
+     * @return: employee name
      */
     public function getEmployeeName($eid) {
         $data ['columns'] = array ('name' );
         $data ['conditions'] = array (array ('id=\'' . $eid . '\' AND status="1"' ), true );
         $data ['tables'] = 'employee';
         $result = $this->_db->select ( $data );
-        // var_dump($result);die;
         $myResult = array ();
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $myResult [] = $row;
         }
-        // echo $myResult[0]['id'];die;
         return $myResult [0] ['name'];
     }
+    /**
+     * 
+     * @param Integer $roomId
+     * @param Integer $rowNumber
+     */
     public function findSid($roomId, $rowNumber) {
         $data ['columns'] = array ('id' );
         $data ['conditions'] = array (
@@ -345,15 +347,17 @@ class SeatEmployee extends DBConnection {
                 true );
         $data ['tables'] = 'room_row';
         $result = $this->_db->select ( $data );
-        // var_dump($result);die;
         $myResult = array ();
         
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $myResult [] = $row;
         }
-        // echo($myResult[0]['id']);die;
         return $myResult [0] ['id'];
     }
+    /**
+     * 
+     * @return ResultSet
+     */
     public function allSeat() {
         $data ['columns'] = array (
                 'room_row.id',
@@ -377,6 +381,9 @@ class SeatEmployee extends DBConnection {
         }
         return $myResult;
     }
+    /**
+     * @return Object This will give the result set in Object form
+     */
     public function totalRooms() {
         $data ['tables'] = 'room';
         $data ['columns'] = array ('count(*) total_room' );
@@ -384,43 +391,11 @@ class SeatEmployee extends DBConnection {
         $result = $this->_db->select ( $data );
         return $result->fetchAll ( PDO::FETCH_ASSOC );
     }
-    // public function seatStatus($val, $val1) {
-    
-    // $data ['columns'] = array (
-    // 'seat_employee.status',
-    // 'seat_employee.computer_id',
-    // 'seat_employee.eid' );
-    // $data ['tables'] = array ('room' );
-    
-    // $data ['joins'] [] = array (
-    // 'table' => 'room_row',
-    // 'type' => 'inner',
-    // 'conditions' => array ('room.id' => 'room_row.room_id' ) );
-    // $data ['joins'] [] = array (
-    // 'table' => 'seat_employee',
-    // 'type' => 'left',
-    // 'conditions' => array ('room_row.id' => 'seat_employee.sid' ) );
-    
-    // $data ['conditions'] = array (
-    // array (
-    // 'room.id=' . $val . ' AND room_row.room_id=' . $val . ' AND
-    // room_row.row_number=' . $val1 . ' AND
-    // seat_employee.status = "1" ' ),
-    // true );
-    // $data ['order'] = 'seat_employee.computer_id';
-    // $result = $this->_db->select ( $data );
-    
-    // $myResult = array ();
-    // while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
-    // $myResult [] = $row;
-    // }
-    // if (! empty ( $myResult [0] ['status'] ))
-    // return $myResult;
-    // else {
-    // return $a = array ();
-    // }
-    
-    // }
+    /**
+     * 
+     * @param Integer $roomId
+     * This method will fetch data corresponding to particular room
+     */
     public function seatStatus($roomId) {
         
         $data ['columns'] = array (
@@ -450,18 +425,11 @@ class SeatEmployee extends DBConnection {
         $result = $this->_db->select ( $data );
         
         return $result->fetchAll(PDO::FETCH_ASSOC);
-        
-//         $myResult = array ();
-//         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
-//             $myResult [] = $row;
-//         }
-//         if (! empty ( $myResult [0] ['status'] ))
-//             return $myResult;
-//         else {
-//             return $a = array ();
-//         }
-    
     }
+    
+    /**
+     * This funciton will remove the seat allocated to employee.
+     */    
     public function trashSeat() {
         $this->setStatus ( 0 );
         $data = array (
@@ -479,16 +447,19 @@ class SeatEmployee extends DBConnection {
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $myResult [] = $row;
         }
-        
-        // print_r($myResult[0]['name']);die;
         return $myResult [0] ['name'];
     }
-    
+    /**
+     * 
+     * @param Array $Ids
+     * @param String $reason
+     * 
+     * This method is used for multiple deletion
+     */
     public function mulitDelete($Ids=array(),$reason)
     {
     	$data=array('status' => "0",'details' => $reason);
     	$where =array('id' => $Ids);
     	$this->_db->update ( 'seat_employee', $data, $where );
     }
-
 }

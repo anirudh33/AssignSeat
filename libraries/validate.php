@@ -1,236 +1,206 @@
 <?php
-/*
- * FileName: Validate.php
-* Version: 1.0
-* Author: Keshi Chander Yadav, Tanu Trehan, Manish
-* Date: May 03, 2013
-* Description: Validate class
-* ***************************** Update Log ********************************
-	Sr.NO.		Version		Updated by           Updated on          Description
-    -------------------------------------------------------------------------
-	 1			1.1			Keshi				08/05/2013			improved result methode
-    *************************************************************************
+/**
+ * **************************** Creation Log *******************************
+ * File Name                   -  Validate.php
+ * Project Name                -  AssignSeat
+ * Description                 -  Model class from RoomRow Table
+ * @Version                   -  1.0
+ * ***************************** Update Log ********************************
+ * Sr.NO.		Version		Updated by           Updated on          Description
+ * -------------------------------------------------------------------------
+ *
+ * *************************************************************************
  */
+require_once ('validation.class.php');
 
-require_once('validation.class.php');
 class validate
 {
-    private  $obj;	//Class Object Reference
-    private $errorMsg="";
-    
-    public function __construct()
+
+    private $obj; // Class Object Reference
+    private $errorMsg = "";
+
+    public function __construct ()
     {
         $this->obj = new validation();
     }
-    
-    /*
-	 * Description: function to validate fields
-	 * to this function
-	 * Param $controler_name field control name goes here
-	 * Param $postVar field data to be validated
-	 * Param $authType Type of validation required for control
-	 * Param $error error message for in case of validation failed
-	 */
-    function validator($name,$postVar=" ", $authType, $error)
-    {
-    	
-    	if (isset ( $_SERVER ["REQUEST_METHOD"] )) {
-    		if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
-    			$auth=explode('#', $authType);
-    			$err=explode('#', $error);
-    			$authLength=count($auth);
-    			$errLength=count($err);
-    			
-    			if($authLength==$errLength)
-    			{
-    				for($i=0;$i<$authLength;$i++)
-    				{
-    				$this->obj->addFields($name,$postVar, $auth[$i], $err[$i]);
-    				}
-    				return  "here true";
-    			}
-    			else
-    			{
-    			$this->errorMsg="Programer's error";
-    			return $this->errorMsg;
-    			}
-    			 
-    			}
-    	 else {
-         	$this->errorMsg = "Invalid request";
-         	return $this->errorMsg;
-         }
-    		}
-    		
-    		
-         else {
-         	$this->errorMsg = "Invalid request, no request received";
-         	return $this->errorMsg;
-         }
 
-    }
-    
-    
     /**
-     * return validation result with error messages
+     * Description: function to validate fields to this function
+     * 
+     * @param $controler_name field
+     *         control name goes here
+     * @param $postVar field
+     *         data to be validated
+     * @param $authType Type of validation required for control
+     * @param $error error message for in case of validation failed
      */
-    public function result()
+    function validator ($name, $postVar = " ", $authType, $error)
     {
-        $this->errorMsg=$this->obj->validate();
-        $flag =true;
-        //if to set flag to false if any field of form has invalid value
-        if (array_filter( $this->errorMsg,'trim')){
+        if (isset($_SERVER["REQUEST_METHOD"])) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $auth = explode('#', $authType);
+                $err = explode('#', $error);
+                $authLength = count($auth);
+                $errLength = count($err);
+                
+                if ($authLength == $errLength) {
+                    for ($i = 0; $i < $authLength; $i ++) {
+                        $this->obj->addFields($name, $postVar, $auth[$i], $err[$i]);
+                    }
+                    return "here true";
+                } else {
+                    $this->errorMsg = "Programer's error";
+                    return $this->errorMsg;
+                }
+            } else {
+                $this->errorMsg = "Invalid request";
+                return $this->errorMsg;
+            }
+        } 
+
+        else {
+            $this->errorMsg = "Invalid request, no request received";
+            return $this->errorMsg;
+        }
+    }
+
+    /**
+     *
+     * @return validation result with error messages
+     */
+    public function result ()
+    {
+        $this->errorMsg = $this->obj->validate();
+        $flag = true;
+        // if to set flag to false if any field of form has invalid value
+        if (array_filter($this->errorMsg, 'trim')) {
             $flag = false;
         }
-        //if to return TRUE all fields of form are valid
-        if($flag){
+        // if to return TRUE all fields of form are valid
+        if ($flag) {
             return false;
-        }
-        //else return errorMsg[] wid all fields as key and error as value respectively! value is null if no error
-        else{
+        }         // else return errorMsg[] wid all fields as key and error as value respectively! value is null if no error
+        else {
             return $this->errorMsg;
-        }   }
-    
-    /**
-     *  Helps prevent XSS attacks
-     *  Used for encoding before insertion in database
-     */
-    public function encodeXSString($string)
-    {
-    	// Remove dead space.
-    	$string = trim ( $string );
-    		
-    	// Prevent potential Unicode codec problems.
-    	$string = utf8_decode ( $string );
-    		
-    	// HTMLize HTML-specific characters.
-    	$string = htmlentities ( $string, ENT_QUOTES );
-    	$string = str_replace ( "#", "&#35;", $string );
-    	$string = str_replace ( "%", "&#37;", $string );
-    
-    	return $string;
+        }
     }
-    
-    
+
+    /**
+     *
+     * @param unknown $string            
+     * @return mixed Helps prevent XSS attacks
+     * Used for encoding before insertion in database
+     */
+    public function encodeXSString ($string)
+    {
+        // Remove dead space.
+        $string = trim($string);
+        
+        // Prevent potential Unicode codec problems.
+        $string = utf8_decode($string);
+        
+        // HTMLize HTML-specific characters.
+        $string = htmlentities($string, ENT_QUOTES);
+        $string = str_replace("#", "&#35;", $string);
+        $string = str_replace("%", "&#37;", $string);
+        
+        return $string;
+    }
+
     /**
      * Helps prevent XSS attacks
      * Used for denoding before displaying information on page
      */
-    private function decodeXSString($string) 
+    private function decodeXSString ($string)
     {
-    	// Remove dead space.
-    	$string = trim ( $string );
-    		
-    	// Prevent potential Unicode codec problems.
-    	$string = utf8_decode ( $string );
-    		
-    	// HTMLize HTML-specific characters.
-    	$string = htmlentities ( $string, ENT_QUOTES );
-    	$string = str_replace ( "&#35;", "#", $string );
-    	$string = str_replace ( "&#37;", "%", $string );
-    	$length = intval ( $length );
-    		
-    	if ($length > 0)
-    	{
-    		$string = substr ( $string, 0, $length );
-    	}
-    	return $string;
-    }
-    
-    
-    /**
-     * prevent sql injection
-     * $param parameter will accept array type
-     */
-    private function preventSQLInjection($string) {
-    	foreach ( $string as $key => $value ) {
-    		$value = mysql_real_escape_string ( $value );
-    	}
-    	return $string;
+        // Remove dead space.
+        $string = trim($string);
+        
+        // Prevent potential Unicode codec problems.
+        $string = utf8_decode($string);
+        
+        // HTMLize HTML-specific characters.
+        $string = htmlentities($string, ENT_QUOTES);
+        $string = str_replace("&#35;", "#", $string);
+        $string = str_replace("&#37;", "%", $string);
+        $length = intval($length);
+        
+        if ($length > 0) {
+            $string = substr($string, 0, $length);
+        }
+        return $string;
     }
 
     /**
-     * @param unknown $array
-     * @param string $recursive
-     * @param string $null
-     * @return boolean|string
-     * @author anirudh pandita
-     * @usage Generates html from array in tabular format, used to display errors
+     * prevent sql injection
+     * @param parameter will accept array type
      */
-    function array2table($array, $recursive = false, $null = '&nbsp;')
+    private function preventSQLInjection ($string)
     {
-    	// Sanity check
-    	if (empty($array) || !is_array($array)) {
-    		return false;
-    	}
-    
-    	if (!isset($array[0]) || !is_array($array[0])) {
-    		$array = array($array);
-    	}
-    
-    	// Start the table
-    	$table = "<table border='1px' class = 'customHeading'>";
-    
-    	// The header
-    	$table .= "<tr>";
-    	// Take the keys from the first row as the headings
-    	foreach (array_keys($array[0]) as $heading) {
-    		$table .= '<th>' . $heading . '</th>';
-    	}
-    	$table .= "</tr>";
-    
-    	// The body
-    	foreach ($array as $row) {
-    		$table .= "<tr>" ;
-    		foreach ($row as $cell) {
-    			$table .= '<td>';
-    
-    			// Cast objects
-    			if (is_object($cell)) { $cell = (array) $cell; }
-    			 
-    			if ($recursive === true && is_array($cell) && !empty($cell)) {
-    				// Recursive mode
-    				$table .= "\n" . array2table($cell, true, true) . "\n";
-    			} else {
-    				$table .= (strlen($cell) > 0) ?
-    				htmlspecialchars((string) $cell) :
-    				$null;
-    			}
-    
-    			$table .= '</td>';
-    		}
-    
-    		$table .= "</tr>";
-    	}
-    
-    	$table .= '</table>';
-    	return $table;
+        foreach ($string as $key => $value) {
+            $value = mysql_real_escape_string($value);
+        }
+        return $string;
+    }
+
+    /**
+     *
+     * @param unknown $array            
+     * @param string $recursive            
+     * @param string $null            
+     * @return boolean string
+     * @author anirudh pandita
+     * usage Generates html from array in tabular format, used to display errors
+     */
+    function array2table ($array, $recursive = false, $null = '&nbsp;')
+    {
+        // Sanity check
+        if (empty($array) || ! is_array($array)) {
+            return false;
+        }
+        
+        if (! isset($array[0]) || ! is_array($array[0])) {
+            $array = array(
+                $array
+            );
+        }
+        
+        // Start the table
+        $table = "<table border='1px' class = 'customHeading'>";
+        
+        // The header
+        $table .= "<tr>";
+        // Take the keys from the first row as the headings
+        foreach (array_keys($array[0]) as $heading) {
+            $table .= '<th>' . $heading . '</th>';
+        }
+        $table .= "</tr>";
+        
+        // The body
+        foreach ($array as $row) {
+            $table .= "<tr>";
+            foreach ($row as $cell) {
+                $table .= '<td>';
+                
+                // Cast objects
+                if (is_object($cell)) {
+                    $cell = (array) $cell;
+                }
+                
+                if ($recursive === true && is_array($cell) && ! empty($cell)) {
+                    // Recursive mode
+                    $table .= "\n" . array2table($cell, true, true) . "\n";
+                } else {
+                    $table .= (strlen($cell) > 0) ? htmlspecialchars((string) $cell) : $null;
+                }
+                
+                $table .= '</td>';
+            }
+            
+            $table .= "</tr>";
+        }
+        
+        $table .= '</table>';
+        return $table;
     }
 }
-		/* $obj = new validate();
-		$obj->validator('pass#cnfpass','123#123','match','password not match');
-		$error=$obj->result();
-		print_r($error); */
-// 		//$obj->validator("zip","12345", 'datatype=int,5','data');
-// 		var_dump($error);
-// 		if($error==true){
-// 		$error=$obj->result();
-// 		}
-
-// 		print_r($error);
-
-
-
-/* public function checkValidation()
-{
-	echo "i am here";
-	$obj = new validate();
-	$c=$obj->validator("Username","raj42", 'required#alphanumeric#minlength=4#maxlength=25','Username Required#alphanumeric Required#Enter Username atleast 4 characters long#Username should not be more than 25 characters long');
-	//$c=$obj->validator("zip","12345", 'datatype=int,5','data');
-	if($c==true){
-		$error=$obj->result();
-		print_r($error);
-	}else {
-		echo $c;
-	}
-} */
