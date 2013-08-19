@@ -4,13 +4,13 @@
  * Creation Log File Name - MainController.php
  * Description - Main Controller file
  * Version - 1.0
- * Created by - Avni jain
+ * Created by - Chetan Sharma
  * Created on - July 29, 2013
- * * **************************** Update Log ********************************
- Sr.NO.        Version        Updated by           Updated on          Description
- -------------------------------------------------------------------------
- 1				1.0			Anirudh Pandita		August 1, 2013		Validation added on change reason
- *  ************************************************************************
+ * * **************************** Update Log ********************************************************************
+ Sr.NO.        Version      Updated by              Updated on          Description
+ -----------------------------------------------------------------------------------------------------------------
+ 1		1.0         Chetan Sharma           August 1, 2013		Validation added on change reason
+ *  ************************************************************************************************************
  */
 ini_set('display_error','1');
 class MainController extends Acontroller {
