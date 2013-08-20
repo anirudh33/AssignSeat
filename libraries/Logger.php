@@ -53,7 +53,7 @@ class Logger extends DBConnection
 		$insertedValues = array (
 				"user_id"	=> $_SESSION['userid'],
 				"action_performed"	=> "LI",
-				"date_of_log"		=> date("d/m/y H:i:s",time()),
+				"date_of_log"		=> date("Y/m/d H:i:s",time()),
 				"details"	=> str_replace(array("\r\n","\n","="),"",$logData),
 				);
 		$result = $this->_db->insert($data['tables'],$insertedValues);
@@ -77,7 +77,7 @@ $data['tables'] = "log";
 		$insertedValues = array (
 				"user_id"	=> $_SESSION['userid'],
 				"action_performed"	=> "LO",
-				"date_of_log"		=> date("d/m/y H:i:s",time()),
+				"date_of_log"		=> date("Y/m/d H:i:s",time()),
 				"details"	=> str_replace(array("\r\n","\n","="),"",$logData),
 				);
 		// Insert logs in database
@@ -114,7 +114,7 @@ $data['tables'] = "log";
 				"row_id"	=> $logActivity['row'],
 				"computer_id"	=> $logActivity['computerid'],
 				"action_performed"	=> "SA",
-				"date_of_log"		=> date("d/m/y H:i:s",time()),
+				"date_of_log"		=> date("Y/m/d H:i:s",time()),
 				"details"	=> str_replace(array("\r\n","\n","="),"",$logData),
 				);
 		$result = $this->_db->insert($data['tables'],$insertedValues);
@@ -155,7 +155,7 @@ $data['tables'] = "log";
 			    "row_id"	=> $logDelete['row'],
 			    "computer_id"	=> $logDelete['computerid'],
 			    "action_performed"	=> "SD",
-			    "date_of_log"		=> date("d/m/y H:i:s",time()),
+			    "date_of_log"		=> date("Y/m/d H:i:s",time()),
 			    "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
 			);
 			$result = $this->_db->insert($data['tables'],$insertedValues);
@@ -197,7 +197,7 @@ $data['tables'] = "log";
 			    "row_id"	=> $logUpdateSeat['row'],
 			    "computer_id"	=> $logUpdateSeat['computerid'],
 			    "action_performed"	=> "SR",
-			    "date_of_log"		=> date("d/m/y H:i:s",time()),
+			    "date_of_log"		=> date("Y/m/d H:i:s",time()),
 			    "details"	=> str_replace(array("\r\n","\n","="),"",$logData),
 			);
 			$result = $this->_db->insert($data['tables'],$insertedValues);
@@ -257,7 +257,7 @@ $data['tables'] = "log";
 	    $insertedValues = array (
 	        "user_id"	=> $_SESSION['userid'],
 	        "action_performed"	=> $action,
-	        "date_of_log"		=> date("d/m/y H:i:s",time()),
+	        "date_of_log"		=> date("Y/m/d H:i:s",time()),
 	        "details"	=> str_replace(array("\r\n","\n","="),"",$logMessage),
 	    );
 	    $result = $this->_db->insert($data['tables'],$insertedValues);
@@ -364,4 +364,112 @@ $data['tables'] = "log";
 	
 		}
 	}
+	/**
+	 * 
+	 * @param string $fromDate
+	 * @param string $toDate
+	 * @param number $adminId
+	 * @return multitype:array of logs
+	 */
+	public function adminReportFetch($fromDate,$toDate,$adminId)
+	{
+		
+		$data ['columns'] = array (
+				'details' 
+		);
+		$data ['tables'] = array (
+				"log" 
+		);
+		$data ['conditions'] = array (array (
+				'user_id='.$adminId.' AND date_of_log BETWEEN "'.$fromDate.'" AND "'.$toDate.'" ORDER BY date_of_log DESC'
+				
+			),true	);
+		$result = $this->_db->select($data);
+		$myResult = array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[] = $row;
+		}
+		return $myResult;
+		
+	} 
+	/**
+	 * 
+	 * @param string $fromDate
+	 * @param string $toDate
+	 * @param string $roomName
+	 * @return multitype:array of logs
+	 */
+	public function roomReportFetch($fromDate,$toDate,$roomName)
+	{
+	
+		$data ['columns'] = array (
+				'details'
+		);
+		$data ['tables'] = array (
+				"log"
+		);
+		$data ['conditions'] = array (array (
+				'room_name="'.$roomName.'" AND date_of_log BETWEEN "'.$fromDate.'" AND "'.$toDate.'" ORDER BY date_of_log DESC'
+	
+		),true	);
+		$result = $this->_db->select($data);
+		$myResult = array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[] = $row;
+		}
+		return $myResult;
+	
+	}
+	/**
+	 * 
+	 * @param string $fromDate
+	 * @param string $toDate
+	 * @param string $roomName
+	 * @param string $rowId
+	 * @return multitype:array of logs
+	 */
+	public function rowReportFetch($fromDate,$toDate,$roomName,$rowId)
+	{
+	
+		$data ['columns'] = array (
+				'details'
+		);
+		$data ['tables'] = array (
+				"log"
+		);
+		$data ['conditions'] = array (array (
+				'room_name="'.$roomName.'" AND row_id='.$rowId.' AND date_of_log BETWEEN "'.$fromDate.'" AND "'.$toDate.'" ORDER BY date_of_log DESC'
+	
+		),true	);
+		$result = $this->_db->select($data);
+		$myResult = array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[] = $row;
+		}
+		return $myResult;
+	
+	}
+	public function computerReportFetch($fromDate,$toDate,$roomName,$rowId,$computer)
+	{
+	
+		$data ['columns'] = array (
+				'details'
+		);
+		$data ['tables'] = array (
+				"log"
+		);
+		$data ['conditions'] = array (array (
+				'room_name="'.$roomName.'" AND row_id='.$rowId.' AND computer_id='.$computer.' AND date_of_log BETWEEN "'.$fromDate.'" AND "'.$toDate.'" ORDER BY date_of_log DESC'
+	
+		),true	);
+		$result = $this->_db->select($data);
+		$myResult = array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[] = $row;
+		}
+		return $myResult;
+	
+	}
+	
+	
 }

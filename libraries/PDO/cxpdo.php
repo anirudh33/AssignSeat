@@ -107,8 +107,8 @@ class cxpdo extends PDO {
 
  	    
 		//Return the results -or a query string?
-		//echo "<h1>".$query."</h1>";
-// 		die;
+		//echo $query;
+ 		//die;
 		return $return ? $this->query($query) : $query;
 	}
 

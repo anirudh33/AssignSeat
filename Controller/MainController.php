@@ -12,7 +12,6 @@
  1		1.0         Chetan Sharma           August 1, 2013		Validation added on change reason
  *  ************************************************************************************************************
  */
-ini_set('display_error','1');
 class MainController extends Acontroller {
 	/**
 	 *
@@ -208,6 +207,7 @@ class MainController extends Acontroller {
 	 * @return JSON data for Employee
 	 */
 	public function searchEmployee() {
+		$_SESSION['SearchEmpPage']=$_REQUEST['page'];
 		$employeeObj = $this->loadModel ( 'Employee' );
 		$record = $employeeObj->searchEmp ( $_REQUEST ['name'], ($_REQUEST ['page'] * 10) );
 		echo json_encode ( $record );
@@ -615,5 +615,54 @@ class MainController extends Acontroller {
 		} else {
 			echo $error ['colorCode'];
 		}
+	}
+	/**
+	 * Function to Fetch logs for report
+	 */
+	public function fetchLogs()
+	{
+		
+		$logFor=$_POST['logFor'];
+		$objLogger = new Logger ();
+		
+		switch ($logFor) 
+		{
+			case 'admin' :
+				
+				$logs=$objLogger->adminReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['adminId']);
+				echo json_encode($logs);
+				break;
+			case 'rooms' :
+				$logs=$objLogger->roomReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['roomName']);
+				echo json_encode($logs);
+				break;
+			case 'row' :
+				$logs=$objLogger->rowReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['roomName'],$_POST['rowId']);
+				echo json_encode($logs);
+				break;
+			case 'computer' :
+				$logs=$objLogger->computerReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['roomName'],$_POST['rowId'],(intval($_POST['computer'])+1));
+				echo json_encode($logs);
+				break;
+			case 'employee' :
+				$logs=$objLogger->adminReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['adminId']);
+				echo json_encode($logs);
+				break;
+			case 'system' :
+				$logs=$objLogger->adminReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['adminId']);
+				echo json_encode($logs);
+				break;
+		}
+		die;
+	}
+	/**
+	 * 
+	 * @param string $date
+	 * @return string
+	 */
+	public function convertDate($date)
+	{
+		$dateArr=explode('/', $date);
+		return $dateArr[2].'-'.$dateArr[0].'-'.$dateArr[1];
 	}
 }

@@ -162,7 +162,7 @@ class Users extends DBConnection
         );
         $data['conditions'] = array(
             array(
-                'username ="' . $this->getUsername() . '"'
+                'username ="' . $this->getUsername() . '" AND status="1"'
             ),
             true
         );

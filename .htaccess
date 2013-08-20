@@ -1,6 +1,5 @@
 Options -Indexes
 Options +FollowSymLInks
-
 ## PROTECT FILES ###
 <filesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh|php)$">
 Order Allow,Deny

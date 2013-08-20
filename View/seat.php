@@ -12,7 +12,7 @@ function getData(page) {
 var name = document.getElementById("searchtxt").value;
 if(page == undefined)
 {
-page=0;
+page=<?php echo isset($_SESSION['SearchEmpPage'])? $_SESSION['SearchEmpPage']: '0';?>;
 }
 	$.getJSON("index.php",
 		{"name":name,"page":page,"controller":"MainController","method":"searchEmployee"},

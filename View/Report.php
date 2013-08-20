@@ -62,6 +62,7 @@ overflow:scroll;
 				 defaultDate: "+1w",
 				 changeMonth: true,
 				 numberOfMonths: 3,
+				 maxDate: "+0D",
 				 onClose: function( selectedDate ) {
 				 $( "#to" ).datepicker( "option", "minDate", selectedDate );
 				 }
@@ -70,12 +71,25 @@ overflow:scroll;
 				 defaultDate: "+1w",
 				 changeMonth: true,
 				 numberOfMonths: 3,
+				 maxDate: "+0D",
 				 onClose: function( selectedDate ) {
 				 $( "#from" ).datepicker( "option", "maxDate", selectedDate );
 				 }
 				 });
 			
-		})
+		});
+
+		$(function(){
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+
+			var yyyy = today.getFullYear();
+			if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = mm+'/'+dd+'/'+yyyy;
+						
+			$('#from').val(today);
+			$('#to').val(today);
+			})
 	
 	
 	/**
@@ -84,7 +98,26 @@ overflow:scroll;
 	*/
 	function adminLogs(id)
 	{
-		alert(id);
+		//alert(id);
+		fromDate=$('#from').val();
+		toDate=$('#to').val();
+		logFor='admin';
+		$.post('index.php?controller=MainController&method=fetchLogs',
+				{
+			'fromDate':fromDate,
+			'toDate': toDate,
+			'logFor': logFor,
+			'adminId': id
+			},function(data){
+					allLogs=jQuery.parseJSON(data);
+					$('#side2').html('');
+					$.each(allLogs ,function(key,value){
+						$.each(value,function(key2,val2){
+							$('#side2').append(val2);
+							$('#side2').append('<br\> <br\>');
+							});
+						});
+				});
 	}
 	/**
 	*
@@ -92,7 +125,25 @@ overflow:scroll;
 	*/
 	function roomLogs(name)
 	{
-		alert(name);
+		fromDate=$('#from').val();
+		toDate=$('#to').val();
+		logFor='rooms';
+		$.post('index.php?controller=MainController&method=fetchLogs',
+				{
+			'fromDate':fromDate,
+			'toDate': toDate,
+			'logFor': logFor,
+			'roomName': name
+			},function(data){
+					allLogs=jQuery.parseJSON(data);
+					$('#side2').html('');
+					$.each(allLogs ,function(key,value){
+						$.each(value,function(key2,val2){
+							$('#side2').append(val2);
+							$('#side2').append('<br\> <br\>');
+							});
+						});
+				});
 	}
 	/**
 	*
@@ -100,7 +151,26 @@ overflow:scroll;
 	*/
 	function rowLogs(name,rowId)
 	{
-		alert(name+' '+rowId);
+		fromDate=$('#from').val();
+		toDate=$('#to').val();
+		logFor='row';
+		$.post('index.php?controller=MainController&method=fetchLogs',
+				{
+			'fromDate':fromDate,
+			'toDate': toDate,
+			'logFor': logFor,
+			'roomName': name,
+			'rowId' : rowId
+			},function(data){
+					allLogs=jQuery.parseJSON(data);
+					$('#side2').html('');
+					$.each(allLogs ,function(key,value){
+						$.each(value,function(key2,val2){
+							$('#side2').append(val2);
+							$('#side2').append('<br\> <br\>');
+							});
+						});
+				});
 	}
 	/**
 	*
@@ -108,7 +178,27 @@ overflow:scroll;
 	*/
 	function computerLogs(name,rowId,computerId)
 	{
-		alert(name+" "+rowId+" "+computerId );
+		fromDate=$('#from').val();
+		toDate=$('#to').val();
+		logFor='computer';
+		$.post('index.php?controller=MainController&method=fetchLogs',
+				{
+			'fromDate':fromDate,
+			'toDate': toDate,
+			'logFor': logFor,
+			'roomName': name,
+			'rowId' : rowId,
+			'computer' : computerId
+			},function(data){
+					allLogs=jQuery.parseJSON(data);
+					$('#side2').html('');
+					$.each(allLogs ,function(key,value){
+						$.each(value,function(key2,val2){
+							$('#side2').append(val2);
+							$('#side2').append('<br\> <br\>');
+							});
+						});
+				});
 	}
 	/**
 	*
@@ -131,9 +221,9 @@ overflow:scroll;
 <!-- kawaljeet -->
 <div id="datepicker">
 <label for="from">From</label>
-<input type="text" id="from" name="from" />
+<input type="text" id="from" name="from" readonly/>
 <label for="to">to</label>
-<input type="text" id="to" name="to" />
+<input type="text" id="to" name="to" readonly/>
 </div>
 <div id="main">
 
@@ -163,15 +253,17 @@ overflow:scroll;
 		if($value[0]['row_number'] != NULL)
 		{
 			echo "<ul>";
+			$rowCount=0;
 			foreach($value as $key2 => $val2)
 			{
-				echo "<li><span onclick=rowLogs('".$key."',".$val2['row_id'].") class='myHover'>Row ".$val2['row_number']."</span>";
+				$rowCount++;
+				echo "<li><span onclick=rowLogs('".$key."',".$rowCount.") class='myHover'>Row ".$val2['row_number']."</span>";
 				if($val2['computer'] > 0)
 				{
 					echo "<ul>";
 					for($i=0;$i < $val2['computer']; $i++)
 					{
-						echo "<li><span class='myHover' onclick=computerLogs('".$key."',".$val2['row_id'].",".$i.")>Computer ".($i+1)."</span></li>";
+						echo "<li><span class='myHover' onclick=computerLogs('".$key."',".$rowCount.",".$i.")>Computer ".($i+1)."</span></li>";
 					}
 					echo "<li></li></ul>";
 				}

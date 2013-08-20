@@ -7,36 +7,36 @@
 /*
 *Engineering Identification Code
 */
-define ('ENGINEERING',"#c0c1fc" );
+define ('ENGINEERING',"#d4d7c6" );
 
 
 /*
 *HumanCapitalManagement Identification Code
 */
-define ('HUMANCAPITALMANAGEMENT',"#d8e24b" );
+define ('HUMANCAPITALMANAGEMENT',"#cfbcba" );
 
 
 /*
 *Technology Identification Code
 */
-define ('TECHNOLOGY',"#50c22e" );
+define ('TECHNOLOGY',"#d1b3b3" );
 
 
 /*
 *Finance Identification Code
 */
-define ('FINANCE',"#e6c1c1" );
+define ('FINANCE',"#d3dede" );
 
 
 /*
 *BusinessDevelopment Identification Code
 */
-define ('BUSINESSDEVELOPMENT',"#33ddfa" );
+define ('BUSINESSDEVELOPMENT',"#e6d5e5" );
 
 
 /*
 *QMS Identification Code
 */
-define ('QMS',"#efdb6c" );
+define ('QMS',"#e0dfb3" );
 
 

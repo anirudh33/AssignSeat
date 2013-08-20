@@ -161,7 +161,7 @@ function showLog()
                 <div id="nav">
                     <ul>
                         <li class="first active"><a href="index.php"><?php echo $lang->HOME?></a></li>
-                        <li ><a href="index.php?controller=MainController&method=adminView" >Admin</a></li>
+                        <li ><a href="admin" >Admin</a></li>
                         <li ><a href="#reportData" id="report" >Report</a></li>
                         <li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
                         <li><a href="#" id="logout" onClick="showLog()"><?php echo $lang->SHOWLOG?></a></li>
