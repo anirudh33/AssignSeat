@@ -31,7 +31,7 @@ page=0;
 				else
 				{
 					$tickDiv = "";				
-					$tickDiv += "<div class='SearchedEmp' id = 'emp"
+					$tickDiv += "<div class='SearchedEmp customId' id = 'emp"
                         + val['id']
                     + "'>"
                     + val['name'];
@@ -55,26 +55,29 @@ page=0;
 			else if(page==0 && totalRow >= 11)
 			{
 			   $("#pager").html("");
-			   $("#pager").append("<a href=# onClick=getData("+(page+1)+
-					   ")>Next</a> <a href=# onClick=getData("+Math.floor((totalRow-1)/10)+")>Last</a>");
-			}
+			   $("#pager").append("<input type = \"button\" class = 'customButton' onClick=getData("+(page+1)+
+					   ") value = \"Next\"/><input type = \"button\" class = 'customButton' "+
+					   "onClick=getData("+Math.floor((totalRow-1)/10)+") value = \"Last\" />");			}
 			else if(Math.floor((totalRow-1)/10)==page)
 			{
 			   $("#pager").html("");
-			   $("#pager").append("<a href=# onClick=getData('0')>First</a> <a href=# onClick=getData("+(page-1)+")>Prev</a>");
+			   $("#pager").append("<input type = \"button\" class = 'customButton' onClick=getData('0') value = \"First\" />"+
+					   "<input type = \"button\" class = 'customButton' onClick=getData("+(page-1)+") value = \"Prev\" />");
 			}
 			else
 			{
 			   $("#pager").html("");
-			   $("#pager").append("<a href=# onClick=getData('0')>First</a> <a href=# onClick=getData("+(page-1)+
-					   ")>Prev</a> <a href=# onClick=getData("+(page+1)+
-					   ")>Next</a> <a href=# onClick=getData("+Math.floor((totalRow-1)/10)+")>Last</a>");
+			   $("#pager").append(""+
+					   "<input type = \"button\" class = 'customButton' onClick=getData('0') value = \"First\" />"+
+					   "<input type = \"button\" class = 'customButton' onClick=getData("+(page-1)+") value = \"Prev\" />"+
+					   "<input type = \"button\" class = 'customButton' onClick=getData("+(page+1)+") value = \"Next\" />"+
+					   "<input type = \"button\" class = 'customButton' onClick=getData("+Math.floor((totalRow-1)/10)+") value = \"Last\" />");
 			}
   		}); 
 }
 </script>
 
-<label><?php echo $lang->NAME?></label>
+<!-- <label><?php echo $lang->NAME?></label>  -->
 <input type="text" id="searchtxt" onkeyup="getData()" />
 <a id="changeCommentLink" href="#detailDiv">
 
@@ -82,8 +85,9 @@ page=0;
 		<h3 class="customHeading"><?php echo $lang->CHANGEREASON?></h3>
 		<section>
 			<label><?php echo $lang->COMMENT?></label><br>
-			<textarea rows="15" cols="45" id="changeComment" style = "width : 100%" name="changeComment"></textarea>
-			<div id = "commentCount" ></div>
+			<textarea rows="15" cols="45" id="changeComment" style="width: 100%"
+				name="changeComment"></textarea>
+			<div id="commentCount"></div>
 		</section>
 		<input type="button" id="commentSubmit" onClick="closeFancyBox()"
 			name="commentSubmit" value="<?php echo $lang->POSTIT?>" />

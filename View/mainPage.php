@@ -47,8 +47,6 @@
 
 <link rel="stylesheet"
     href="<?php echo SITE_URL;?>assets/css/datepicker.css" />
-<link rel="stylesheet"
-    href="<?php echo SITE_URL;?>assets/css/style.css" />
 
 
 <script>
@@ -177,7 +175,7 @@ function showLog()
                         <div id="leftsubbar">
                          <a href='index.php?controller=MainController&method=picUpload'>User Pic</a>   
                             <h3><?php echo $lang->EMPLOYEES?></h3>
-                            <h3><?php echo $lang->SEARCHEMPLOYEE?></h3>
+                            <?php echo $lang->SEARCHEMPLOYEE?>
 							
 	   <?php include_once 'seat.php';?>
     </div>

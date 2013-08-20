@@ -39,7 +39,7 @@ window.location.reload();
 </form>
 <div id="errors">
 <?php if(isset($_SESSION['msg'])) { ?>
-	<h3><?php echo $lang->ERRORMSG?></h3>
+	<h3 style = "text-align:center;"><?php echo $lang->ERRORMSG?></h3>
 <center>
 <?php echo $_SESSION['msg'];
 }?>
