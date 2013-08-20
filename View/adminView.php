@@ -89,19 +89,6 @@ function uploadcsv() {
 			}	);
 	
 }
-/*
-function deptcolor()
-{
-	$.post('View/deptcolor.php',
-	{
-				
-	},
-	function(data)
-	{
-		$("#adminPanal").html(data);
-	});
-}
-*/
 
 function deptcolor()
 {

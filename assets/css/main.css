@@ -706,6 +706,10 @@ left:50%;
     height: 21px;
     width: 40px;
 }
+.seatDivEM {
+    height: 21px;
+    width: 34px;
+}
 #sirijan3_3_0 {
 	float: right;
 	margin-top: -27px;
@@ -858,4 +862,8 @@ left:50%;
 	height: 20%;
 	overflow: auto;
 	
+}
+
+.customButton
+{
 }

@@ -23,7 +23,7 @@ foreach ( $seatAllocatedInfo as $key => $value ) {
  * room @arg2 Room structure i.e. total rows and 
  * number of computer in them. Data is broken for ease of access
  */
-function createRow($allocatedData, $roomData) {
+function createRow($allocatedData, $roomData,$style='') {
 	
 	$totalRows = count ( $roomData );
 	$maxComputer=0;
@@ -57,11 +57,12 @@ function createRow($allocatedData, $roomData) {
 					continue;
 				}
 				if ((isset ( $tempAllocated  [$value ['row_number']-1][$i-1]['computer_id'] )) && ($tempAllocated  [($value ['row_number'])-1] [$i-1] ['computer_id'] == ($i-1))) {
-					$displayData .= '<div style="float:right" id = "'.$value ['name'].'_'.($value ['row_number']).'_'.($i-1).'" class="cols positionTooltip seatDiv"><img id="'. $tempAllocated [($value ['row_number'])-1] [$i-1]['eid'] .'" class="dragable dragged custom_tooltip context-menu-sub customSetting1" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
+$color = constant(strtoupper(str_replace(' ', '',$tempAllocated [($value ['row_number'] - 1)] [$i-1] ['department'])));
+					$displayData .= '<div style="float:right; background-color:'.$color.'; " id = "'.$value ['name'].'_'.($value ['row_number']).'_'.($i-1).'" class="cols positionTooltip seatDiv '.$style.'" ><img id="'. $tempAllocated [($value ['row_number'])-1] [$i-1]['eid'] .'" class="dragable dragged custom_tooltip context-menu-sub customSetting1" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
 					
 				}
 				else {
-					$displayData .= '<div style="float:right" class="cols droppable dropped positionTooltip seatDiv" id="'.$value ['name'].'_'.($value ['row_number']).'_'.($i-1).'"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
+					$displayData .= '<div style="float:right" class="cols droppable dropped positionTooltip seatDiv '.$style.'" id="'.$value ['name'].'_'.($value ['row_number']).'_'.($i-1).'"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
 				} 
 				$tempRow++;
 			}	
@@ -74,9 +75,12 @@ function createRow($allocatedData, $roomData) {
 		foreach ( $roomData as $key => $value ) {
 			for($i = 0; $i < $value ['computer']; $i ++) {
 				if ((isset ( $tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] )) && ($tempAllocated [($value ['row_number'] - 1)] [$i] ['computer_id'] == $i)) {
-					$displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip seatDiv"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub customSetting2" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
+					$color = constant(strtoupper(str_replace(' ', '',$tempAllocated [($value ['row_number'] - 1)] [$i] ['department'])));
+					//$color;	
+					$displayData .= '<div id = "' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '" class="cols positionTooltip seatDiv '.$style.'" style="background-color:'.$color.';"><img id="' . $tempAllocated [($value ['row_number'] - 1)] [$i] ['eid'] . '" class="dragable dragged custom_tooltip context-menu-sub customSetting2" src="images/green_chair11.png" width = "16px" height = "16px" /></div>';
 				} else {
-					$displayData .= '<div class="cols droppable dropped positionTooltip seatDiv" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
+
+					$displayData .= '<div class="cols droppable dropped positionTooltip seatDiv '.$style.'" id="' . $value ['name'] . '_' . $value ['row_number'] . '_' . $i . '"><img src="images/green_seat.jpeg" class="context-menu-sub" /></div>';
 				}
 			}
 			$displayData .= '<br style="clear:both">';
@@ -529,7 +533,7 @@ function roomLink(roomId)
 			<img alt="" src="images/chess.jpeg"
 				style="height: 20%; width: 100%; float: right; margin-top: 50%;">
 			<div
-				style="border: 1px solid black; height: 26%; margin-top: 643%; width: 90%; "><a href='#' onclick='roomLink(36)'><?php echo $lang->ENABLINGMANAGER;?></a><?php echo createRow($seatAllocatedInfoData[36],$_SESSION['roomData'][36]); ?>
+				style="border: 1px solid black; height: 26%; margin-top: 643%; width: 90%; "><a href='#' onclick='roomLink(36)'><?php echo $lang->ENABLINGMANAGER;?></a><?php echo createRow($seatAllocatedInfoData[36],$_SESSION['roomData'][36],'seatDivEM'); ?>
 			</div>
 			
 		</div>

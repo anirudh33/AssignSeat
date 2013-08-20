@@ -403,7 +403,9 @@ class SeatEmployee extends DBConnection {
                 'seat_employee.computer_id', 
                 'seat_employee.eid',
                 'room_row.row_number',
-                'room_row.room_id'
+                'room_row.room_id',
+		'employee.department',
+		
                 );
         $data ['tables'] = array ('room' );
         
@@ -415,6 +417,10 @@ class SeatEmployee extends DBConnection {
                 'table' => 'seat_employee', 
                 'type' => 'left', 
                 'conditions' => array ('room_row.id' => 'seat_employee.sid' ) );
+        $data ['joins'] [] = array (
+                'table' => 'employee', 
+                'type' => 'left', 
+                'conditions' => array ('seat_employee.eid' => 'employee.id' ) );
         
         $data ['conditions'] = array (
                 array (
