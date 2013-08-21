@@ -665,4 +665,11 @@ class MainController extends Acontroller {
 		$dateArr=explode('/', $date);
 		return $dateArr[2].'-'.$dateArr[0].'-'.$dateArr[1];
 	}
+	/**
+	 * Function to load Upload csv file view
+	 */
+	public function loadUploadView()
+	{
+		$this->loadView('uploadcsv');
+	}
 }

@@ -80,14 +80,13 @@ function showRoomDetails(id) {
 	
 }
 function uploadcsv() {
-	$.post('View/uploadcsv.php',
+	$.post('index.php?controller=MainController&method=loadUploadView',
 			{
 				
 			},
 			function(data){
 				$("#adminPanal").html(data);
 			}	);
-	
 }
 
 function deptcolor()
