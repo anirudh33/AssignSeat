@@ -45,7 +45,9 @@
 	</div>
            
   </div>   
-<div id="adminPanal"></div>
+<div id="adminPanal">
+	<img alt="admin panal" src="assets/images/adminPanal.jpg" width='100%' height='660px'>
+</div>
 <div id="adminFooter">
 	        <div id="copyright">
         <?php include_once 'footer.php';?>
@@ -187,18 +189,20 @@ function deptcolor()
 	padding-right: 2%;
 	margin-top: 2%;
 	width: 16%;
-	height : auto;
+	height : 660px;
 	color:white;
 	
 }
 #allRooms {
 	height: 40%;
-	overflow : scroll ;
+	overflow-y: scroll ;
+	overflow-x: hidden; 
 }
 #adminPanal {
 	box-shadow: -17px -12px 11px #DEB887;
+	background-repeat: no-repeat;
 	width: 75%;
-	height : 100%;
+	height : 660px;
 	margin-left: 2%;
 	margin-top: 2%;
 	border: 2px solid black;

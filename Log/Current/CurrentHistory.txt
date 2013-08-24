@@ -43,3 +43,13 @@ From the IP 127.0.0.1 and browser = Firefox
 Browser version = 14.0.1, Os = Linux 
 ========================= 
 
+Tue - 03/Sep/2013 - 14:52:01 User " USER1 " Logged into the system  
+From the IP 127.0.0.1 and browser = Google Chrome 
+Browser version = 25.0.1364., Os = Linux 
+========================= 
+
+Tue - 03/Sep/2013 - 15:02:23 User " USER1 " Logged into the system  
+From the IP 127.0.0.1 and browser = Firefox 
+Browser version = 14.0.1, Os = Linux 
+========================= 
+
