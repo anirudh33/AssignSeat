@@ -24,20 +24,42 @@ foreach($data['rooms'] as $key => $value)
 padding-left:15px;
 padding-top:15px;
 width: 30%;
-border:1px solid black;
+/*border:1px solid black;*/
 float:left;
-overflow:scroll;
+overflow-y:scroll;
 	margin-left:20px;
 }
 #side2{
 	margin-left: 2%;
 padding-top:15px;
 width: 60%;
-border:1px solid black;
+/*border:1px solid black;*/
 float:left;
-overflow:scroll;
+overflow-y:scroll;
 	margin-left:20px;
 }
+.sysLogs {
+	height: auto;
+	width: auto; 
+	padding: 20px;
+	margin: 1px;
+	background-color: white; 
+
+	/* outer shadows  (note the rgba is red, green, blue, alpha) */
+	-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+	-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+	/* rounded corners */
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 7px; 
+	border-radius: 7px;
+	
+	/* gradients */
+	background: -webkit-gradient(linear, left top, left bottom, 
+	color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5)); 
+	background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+}
+
 #datepicker{
 	
 	height:30px;
@@ -109,12 +131,16 @@ overflow:scroll;
 			'logFor': logFor,
 			'adminId': id
 			},function(data){
+				if(data.indexOf('Password') != -1)
+				{
+					location.reload();
+				}
 					allLogs=jQuery.parseJSON(data);
 					$('#side2').html('');
 					$.each(allLogs ,function(key,value){
 						$.each(value,function(key2,val2){
-							$('#side2').append(val2);
-							$('#side2').append('<br\> <br\>');
+							$('#side2').append("<div class='sysLogs'>"+val2+"</div>");
+							$('#side2').append('<br\>');
 							});
 						});
 				});
@@ -135,12 +161,16 @@ overflow:scroll;
 			'logFor': logFor,
 			'roomName': name
 			},function(data){
+				if(data.indexOf('Password') != -1)
+				{
+					location.reload();
+				}
 					allLogs=jQuery.parseJSON(data);
 					$('#side2').html('');
 					$.each(allLogs ,function(key,value){
 						$.each(value,function(key2,val2){
-							$('#side2').append(val2);
-							$('#side2').append('<br\> <br\>');
+							$('#side2').append("<div class='sysLogs'>"+val2+"</div>");
+							$('#side2').append('<br\>');
 							});
 						});
 				});
@@ -162,12 +192,16 @@ overflow:scroll;
 			'roomName': name,
 			'rowId' : rowId
 			},function(data){
+				if(data.indexOf('Password') != -1)
+				{
+					location.reload();
+				}
 					allLogs=jQuery.parseJSON(data);
 					$('#side2').html('');
 					$.each(allLogs ,function(key,value){
 						$.each(value,function(key2,val2){
-							$('#side2').append(val2);
-							$('#side2').append('<br\> <br\>');
+							$('#side2').append("<div class='sysLogs'>"+val2+"</div>");
+							$('#side2').append('<br\>');
 							});
 						});
 				});
@@ -190,12 +224,16 @@ overflow:scroll;
 			'rowId' : rowId,
 			'computer' : computerId
 			},function(data){
+				if(data.indexOf('Password') != -1)
+				{
+					location.reload();
+				}
 					allLogs=jQuery.parseJSON(data);
 					$('#side2').html('');
 					$.each(allLogs ,function(key,value){
 						$.each(value,function(key2,val2){
-							$('#side2').append(val2);
-							$('#side2').append('<br\> <br\>');
+							$('#side2').append("<div class='sysLogs'>"+val2+"</div>");
+							$('#side2').append('<br\>');
 							});
 						});
 				});
@@ -206,7 +244,29 @@ overflow:scroll;
 	*/
 	function empLogs(id)
 	{
-		alert(id);
+		fromDate=$('#from').val();
+		toDate=$('#to').val();
+		logFor='employee';
+		$.post('index.php?controller=MainController&method=fetchLogs',
+				{
+			'fromDate':fromDate,
+			'toDate': toDate,
+			'logFor': logFor,
+			'empId': id,
+			},function(data){
+				if(data.indexOf('Password') != -1)
+				{
+					location.reload();
+				}
+					allLogs=jQuery.parseJSON(data);
+					$('#side2').html('');
+					$.each(allLogs ,function(key,value){
+						$.each(value,function(key2,val2){
+							$('#side2').append("<div class='sysLogs'>"+val2+"</div>");
+							$('#side2').append('<br\>');
+							});
+						});
+				});
 	}
 	/**
 	*
@@ -214,11 +274,34 @@ overflow:scroll;
 	*/
 	function systemLogs(id)
 	{
-		alert(id);
+		fromDate=$('#from').val();
+		toDate=$('#to').val();
+		logFor='system';
+		$.post('index.php?controller=MainController&method=fetchLogs',
+				{
+			'fromDate':fromDate,
+			'toDate': toDate,
+			'logFor': logFor,
+			'sysAction': id,
+			},function(data){
+				if(data.indexOf('Password') != -1)
+				{
+					location.reload();
+				}
+					allLogs=jQuery.parseJSON(data);
+					$('#side2').html('');
+					$.each(allLogs ,function(key,value){
+						$.each(value,function(key2,val2){
+							$('#side2').append("<div class='sysLogs'>"+val2+"</div>");
+							$('#side2').append('<br\>');
+							});
+						});
+				});
 	}
 </script>
 <!-- Updated for datepicker  -->
 <!-- kawaljeet -->
+<center><h1>System Report</h1></center>
 <div id="datepicker">
 <label for="from">From</label>
 <input type="text" id="from" name="from" readonly/>
@@ -300,7 +383,7 @@ overflow:scroll;
 		<li><span class='myHover' onclick="systemLogs('SD')">Trash</span></li>
 		<li><span class='myHover' onclick="systemLogs('IR')">Row Add</span></li>
 		<li><span class='myHover' onclick="systemLogs('DR')">Row Delete</span></li>
-		<li><span class='myHover' onclick="systemLogs('SA')">Seat Add</span></li>
+		<li><span class='myHover' onclick="systemLogs('IS')">Seat Add</span></li>
 		<li><span class='myHover' onclick="systemLogs('DS')">Seat Delete</span></li>
 		<li><span class='myHover' onclick="systemLogs('UA')">User Add</span></li>
 		<li><span class='myHover' onclick="systemLogs('PC')"> Edit</span></li>

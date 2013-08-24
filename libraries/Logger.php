@@ -365,7 +365,7 @@ $data['tables'] = "log";
 		}
 	}
 	/**
-	 * 
+	 * Function to Fetch Admin logs
 	 * @param string $fromDate
 	 * @param string $toDate
 	 * @param number $adminId
@@ -389,11 +389,11 @@ $data['tables'] = "log";
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$myResult[] = $row;
 		}
-		return $myResult;
+		return array_reverse($myResult);
 		
 	} 
 	/**
-	 * 
+	 * Function to fetch Room logs
 	 * @param string $fromDate
 	 * @param string $toDate
 	 * @param string $roomName
@@ -417,11 +417,11 @@ $data['tables'] = "log";
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$myResult[] = $row;
 		}
-		return $myResult;
+		return array_reverse($myResult);
 	
 	}
 	/**
-	 * 
+	 * Function to Fetch Room's Row logs
 	 * @param string $fromDate
 	 * @param string $toDate
 	 * @param string $roomName
@@ -446,9 +446,18 @@ $data['tables'] = "log";
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$myResult[] = $row;
 		}
-		return $myResult;
+		return array_reverse($myResult);
 	
 	}
+	/**
+	 * Function  Fetch Room's Row's Computer logs
+	 * @param string_type $fromDate
+	 * @param string_type $toDate
+	 * @param string_type $roomName
+	 * @param numeric_type $rowId
+	 * @param numaric_type $computer
+	 * @return text array $myResult
+	 */
 	public function computerReportFetch($fromDate,$toDate,$roomName,$rowId,$computer)
 	{
 	
@@ -467,7 +476,63 @@ $data['tables'] = "log";
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$myResult[] = $row;
 		}
-		return $myResult;
+		return array_reverse($myResult);
+	
+	}
+	/**
+	 * Function to fetch employee logs
+	 * @param string_type $fromDate
+	 * @param string_type $toDate
+	 * @param numeric_type $empId
+	 * @return text array $myResult
+	 */
+	public function empReportFetch($fromDate,$toDate,$empId)
+	{
+	
+		$data ['columns'] = array (
+				'details'
+		);
+		$data ['tables'] = array (
+				"log"
+		);
+		$data ['conditions'] = array (array (
+				'emp_id="'.$empId.'" AND date_of_log BETWEEN "'.$fromDate.'" AND "'.$toDate.'" ORDER BY date_of_log DESC',
+	
+		),true	);
+		$result = $this->_db->select($data);
+		$myResult = array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[] = $row;
+		}
+		return array_reverse($myResult);
+	
+	}
+	/**
+	 * Function to Fetch system logs 
+	 * @param string_type $fromDate
+	 * @param string_type $toDate
+	 * @param string_type $sysAction
+	 * @return text array $myResult
+	 */
+	public function sysReportFetch($fromDate,$toDate,$sysAction)
+	{
+	
+		$data ['columns'] = array (
+				'details'
+		);
+		$data ['tables'] = array (
+				"log"
+		);
+		$data ['conditions'] = array (array (
+				'action_performed="'.$sysAction.'" AND date_of_log BETWEEN "'.$fromDate.'" AND "'.$toDate.'" ORDER BY date_of_log DESC',
+	
+		),true	);
+		$result = $this->_db->select($data);
+		$myResult = array();
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$myResult[] = $row;
+		}
+		return array_reverse($myResult);
 	
 	}
 	

@@ -97,8 +97,8 @@ $(function(){
 		    helpers : {
 		    overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
 		    },
-		    minWidth: '1000',
-		    minHeight: '550'		      	    
+		    minWidth: '1024',
+		    minHeight: '580'		      	    
 		    });	    
     
 $("#logout").click(function(){

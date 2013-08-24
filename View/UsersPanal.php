@@ -21,17 +21,14 @@ var prev = "";
 	
   
   }
- function loadForm(fetch)
-  {
-  $.ajax({
-  type: "POST",
-  url: 'View/createUser.php',
-  success: function(data){
-
-  $("#formpanel").html(data);
-  }
-  });
-  }
+ $(function(){
+		$("#newUserForm").fancybox({	    
+		    closeClick : false, // prevents closing when clicking INSIDE fancybox
+		    helpers : {
+		    overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
+		    }
+		    });
+	 });
 
   function changePassword(fetch)
   {
@@ -70,9 +67,27 @@ if(data.indexOf('Login') != -1)
   $("#show_"+fetch).html("<p>Old Password: <input type='password' name='old_passd' required='required' id='old'></p><p> New Password: <input type='password' name='new_passd' required='required' id='new'></p><span style='margin:60px;'><input type='button' value='Confirm' onclick=changePassword('"+fetch+"')></span><input type='button' value='Cancel' onclick=hideDiv('"+fetch+"')>");
   
   }
+
+  function createUser()
+  {
+  	$.ajax( {
+  	    type: "POST",
+  	    url: 'index.php?controller=MainController&method=createUser',
+  	    data: $("#userCreateForm").find(":input").serialize(),
+  	    success: function( data ) {
+  				if(data.indexOf('Password') != -1)
+  			{
+  				location.reload();
+  			}
+  	      alert(data);
+  	      getUsersPanal();
+  	    }
+  	  } );
+  }
+    
 </script>
 <div style="margin:70px 280px;boder=1px solid red;">
-  <a href="#" onclick="loadForm()"><h3>Create New User</h3></a>
+  <a href="#createNewUsers"  id='newUserForm' ><h3>Create New User</h3></a>
   <div id="formpanel">
   </div>
 </div>
@@ -99,4 +114,24 @@ if(data.indexOf('Login') != -1)
   </tr>
 <?php } ?>
   </table>
-</div>>
+</div>
+
+<div id='createNewUsers' style='display: none'>
+<form action="" id="userCreateForm" method="Post">
+  <table>
+   <tr>
+    <td>Login Id : </td> <td><input type="text" name="user" required="required"></td>
+   </tr>
+   <tr>
+    <td>Password : </td> <td><input type="password" name="password" required="required"></td>
+   </tr>
+   <tr>
+    <td>Confirm Password : </td> <td><input type="password" name="c_password" required="required"></td>
+   </tr>
+   <tr>
+    <td></td> <td><input type="button" value="Create User" onclick="createUser()"></td>
+   </tr>
+  </table>
+</form>
+</div>
+

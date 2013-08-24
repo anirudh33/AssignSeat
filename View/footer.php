@@ -1,4 +1,4 @@
-<head>
+
 <style>
 #navcontainer li:before{
     content:" * ";
@@ -22,8 +22,6 @@ font-family:Serif;
 }
 </style>
 
-</head>
-<body>
 <div id="footer">
 <label id="footer_subtitle">
 Chetan Sharma
@@ -32,4 +30,3 @@ Chetan Sharma
 
 </div>
 </div>
-</body>

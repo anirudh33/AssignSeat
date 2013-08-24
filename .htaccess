@@ -16,3 +16,6 @@ RewriteEngine On
 
 RewriteRule ^admin$ index.php?controller=MainController&method=adminView
 RewriteRule ^login$ index.php?controller=MainController&method=loginClick
+#RewriteRule ^error$ index.php?controller=MainController&method=errorView
+
+#ErrorDocument 404 /View/error404.html

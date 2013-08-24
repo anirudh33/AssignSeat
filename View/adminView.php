@@ -4,6 +4,9 @@
 <link rel="shortcut icon" href="../favicon.ico"> 
 <link rel="stylesheet" type="text/css" href="assets/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/adminView.css" />
+<script type="text/javascript"  src="assets/js/fancybox/jquery.fancybox.js"></script>
+<link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css"
+    media="screen" />
 
 <div id="adminHeader"> 
 
@@ -12,13 +15,14 @@
 	<ul class="adminallMenues">
 	<li><a href="index.php">Home</a></li>
 	<li><a href="#" onclick="getUsersPanal()">Users</a></li>
+	<li><a href="#" onclick="uploadcsv()">Upload CSV File</a></li>
+	<li><a href="javascript:void(0);" onclick="deptcolor()">Dept Color</a></li>
+	<li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
 	</ul>
 	</span>
 </div>
 
 <div id='leftAdminMenu'>
-<h3><a href="#" onclick="uploadcsv()">Upload CSV File</a></h3>
-<h3><a href="javascript:void(0);" onclick="deptcolor()">Dept Color</a></h3>
  <h3>Employees</h3>
 	<div id="allEmployee">
 	<?php include_once 'allEmployee.php';?>
@@ -42,7 +46,13 @@
            
   </div>   
 <div id="adminPanal"></div>
-<div id="adminFooter"></div>
+<div id="adminFooter">
+	        <div id="copyright">
+        <?php include_once 'footer.php';?>
+        <div id = "companyCopyright"><?php echo $lang->COPYRIGHT?></div>
+        </div>
+</div>
+
 <script>
 
 function getUsersPanal()
@@ -79,6 +89,11 @@ function showRoomDetails(id) {
 		);
 	
 }
+$("#logout").click(function(){
+	$.post('index.php?controller=MainController&method=logout',function(data,status){
+				window.location.href = 'index.php';
+				});		
+});
 function uploadcsv() {
 	$.post('index.php?controller=MainController&method=loadUploadView',
 			{
@@ -118,12 +133,16 @@ function deptcolor()
 	font-size: 20px !important;
 	padding: 5px;
 }
+.adminallMenues li a:HOVER
+{
+	color: rgb(13, 175, 182) !important;
+}
 #adminMenu {
 	float:left;
 	margin-top: 40px;	
 }
 #adminMenu a{
-	color: #F4EEEA;
+	color: #FFA92E;
     font-size: 1.2em;
     text-decoration: none;
     text-shadow: 0 1px 1px #32251B;
@@ -219,4 +238,5 @@ function deptcolor()
 	height: 10%;
 	margin-top: 61%
 }
+
 </style>

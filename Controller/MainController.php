@@ -645,11 +645,11 @@ class MainController extends Acontroller {
 				echo json_encode($logs);
 				break;
 			case 'employee' :
-				$logs=$objLogger->adminReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['adminId']);
+				$logs=$objLogger->empReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['empId']);
 				echo json_encode($logs);
 				break;
 			case 'system' :
-				$logs=$objLogger->adminReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['adminId']);
+				$logs=$objLogger->sysReportFetch($this->convertDate($_POST['fromDate']),$this->convertDate($_POST['toDate']),$_POST['sysAction']);
 				echo json_encode($logs);
 				break;
 		}
@@ -672,4 +672,12 @@ class MainController extends Acontroller {
 	{
 		$this->loadView('uploadcsv');
 	}
+	/**
+	 * Function to load Upload csv file view
+	 */
+	public function errorView()
+	{
+		$this->loadView('error404');
+	}
+	
 }

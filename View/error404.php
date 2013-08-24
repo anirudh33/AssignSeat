@@ -1,4 +1,4 @@
-<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script src="../assets/js/jquery.tools.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 <SCRIPT>
 $( document ).ready(function() {
