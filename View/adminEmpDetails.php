@@ -10,19 +10,19 @@
 			</tr>
 			<tr>
 				<td>OSSCube Member Id :</td>
-				<td><input type="text" name='designation' value='<?php echo isset($data['osscubememberid'])?$data['osscubememberid']:'' ?>'  class='empData'/></td>
+				<td><input type="text" name='osscubememberid' value='<?php echo isset($data['osscubememberid'])?$data['osscubememberid']:'' ?>'  class='empData'/></td>
 			</tr>		
 			<tr>
 				<td>OSSCube Member Email Id :</td>
-				<td><input type="text" name='designation' value='<?php echo isset($data['officialemailid'])?$data['officialemailid']:'' ?>'  class='empData'/></td>
+				<td><input type="text" name='officialemailid' value='<?php echo isset($data['officialemailid'])?$data['officialemailid']:'' ?>'  class='empData'/></td>
 			</tr>	
 			<tr>
 				<td>Teams:</td>
-				<td><input type="text" name='designation' value='<?php echo isset($data['teams'])?$data['teams']:'' ?>'  class='empData'/></td>
+				<td><input type="text" name='teams' value='<?php echo isset($data['teams'])?$data['teams']:'' ?>'  class='empData'/></td>
 			</tr>
 			<tr>
-				<td>Phone No.:</td>
-				<td><input type="text" name='designation' value='<?php echo isset($data['cell'])?$data['cell']:'' ?>'  class='empData'/></td>
+				<td>Cell :</td>
+				<td><input type="text" name='cell' value='<?php echo isset($data['cell'])?$data['cell']:'' ?>'  class='empData'/></td>
 			</tr>														
 			<tr>
 				<td>Designation :</td>
@@ -34,11 +34,11 @@
 			</tr>
 			<tr>
 				<td>Location:</td>
-				<td><input type="text" name='designation' value='<?php echo isset($data['location'])?$data['location']:'' ?>'  class='empData'/></td>
+				<td><input type="text" name='location' value='<?php echo isset($data['location'])?$data['location']:'' ?>'  class='empData'/></td>
 			</tr>			
 			<tr>
 				<td>Territory:</td>
-				<td><input type="text" name='designation' value='<?php echo isset($data['territory'])?$data['territory']:'' ?>'  class='empData'/></td>
+				<td><input type="text" name='territory' value='<?php echo isset($data['territory'])?$data['territory']:'' ?>'  class='empData'/></td>
 			</tr>								
 		</table>
 	</form>
