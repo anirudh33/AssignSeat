@@ -38,10 +38,10 @@ class Logger extends DBConnection
 	 */
 	public function logLoginEntryCuurentFile()
 	{
-		$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($_SESSION['username']).' " Logged into the system '." \r\n";
-		$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
-		$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
-		$logData .= "========================= \n\n";
+		$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($_SESSION['username']).' " Logged into the system '." <br\>";
+		$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." <br\>";
+		$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." <br\>";
+		$logData .= "========================= <br\>";
 		$fileName = './Log/Current/CurrentHistory.txt';
 		$fp = fopen($fileName,'a'); // Log Data in text file
 		fwrite($fp,$logData);
@@ -65,10 +65,10 @@ class Logger extends DBConnection
 	 */
 	public function logLogoutEntryCuurentFile()
 	{
-		$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($_SESSION['username']).' " Logged out the system '." \r\n";
-		$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
-		$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
-		$logData .= "========================= \n\n";
+		$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($_SESSION['username']).' " Logged out the system '." <br\>";
+		$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." <br\>";
+		$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." <br\>";
+		$logData .= "========================= <br\>";
 		$fileName = './Log/Current/CurrentHistory.txt';
 		$fp = fopen($fileName,'a'); // Log Data in text file
 		fwrite($fp,$logData);
@@ -93,10 +93,11 @@ $data['tables'] = "log";
 		if(!empty($logActivity))
 		{
 			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logActivity['uname']).' " Assigned the seat number "'.$logActivity['seatid'].'" in room "'.$logActivity['room'].'"' ;
-			$logData .= ' of employee "'.strtoupper($logActivity['ename']).'" at row '.$logActivity['row'].' , computer "'.$logActivity['computerid'].'"'."\r\n";
-			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
-			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
-			$logData .= "========================= \n\n";
+			$logData .= ' of employee "'.strtoupper($logActivity['ename']).'" at row '.$logActivity['row'].' , computer "'.$logActivity['computerid'].'"'."<br\>";
+			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." <br\>";
+			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." <br\>";
+			$logData .= 'Reason is :- '.$logUpdateSeat['reason'].'<br\>';
+			$logData .= "========================= <br\>";
 			$fileName = './Log/Current/CurrentHistory.txt';
 			$fp = fopen($fileName,'a'); // Log data in text file
 			fwrite($fp,$logData);
@@ -134,10 +135,11 @@ $data['tables'] = "log";
 		if(!empty($logDelete))
 		{
 			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logDelete['uname']).' " delete the employee "'.strtoupper($logDelete['ename']).'" from room "'.$logDelete['room'].'"' ;
-			$logData .= ' from row "'.$logDelete['row'].' " , computer "'.$logDelete['computerid'].'"'."\r\n";
-			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
-			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
-			$logData .= "========================= \n\n";
+			$logData .= ' from row "'.$logDelete['row'].' " , computer "'.$logDelete['computerid'].'"'."<br/>";
+			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." <br/>";
+			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." <br/>";
+			$logData .= 'Reason is:- '.$logDelete['reason'].' <br/>';
+			$logData .= "========================= <br/>";
 			$fileName = './Log/Current/CurrentHistory.txt';
 			$fp = fopen($fileName,'a');
 			fwrite($fp,$logData);
@@ -175,10 +177,11 @@ $data['tables'] = "log";
 		if(!empty($logUpdateSeat))
 		{
 			$logData = date('D - d/M/Y - H:i:s').' User " '.strtoupper($logUpdateSeat['uname']).' " moved the employee "'.strtoupper($logUpdateSeat['ename']).' " From room " '.$logUpdateSeat['frmroom'].' ", Row number "'.$logUpdateSeat['frmrow'].' ", From Computer Id "'.$logUpdateSeat['frmcomputerid'].'" To seat number "'.$logUpdateSeat['seatid'].'" in room "'.$logUpdateSeat['room'].'"' ;
-			$logData .= '" at row '.$logUpdateSeat['row'].' , computer "'.$logUpdateSeat['computerid'].'"'."\r\n";
-			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." \r\n";
-			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." \r\n";
-			$logData .= "========================= \n\n";
+			$logData .= '" at row '.$logUpdateSeat['row'].' , computer "'.$logUpdateSeat['computerid'].'"'."<br\>";
+			$logData .= 'From the IP '.$_SERVER['REMOTE_ADDR'].' and browser = '.$this->info['Browser']." <br\>";
+			$logData .= 'Browser version = '.$this->info['Version'].', Os = '.$this->info['Operating System']." <br\>";
+			$logData .= 'Reason is :- '.$logUpdateSeat['reason'].'<br\>';
+			$logData .= "========================= <br\>";
 			$fileName = './Log/Current/CurrentHistory.txt';
 			$fp = fopen($fileName,'a');
 			fwrite($fp,$logData);

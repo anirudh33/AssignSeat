@@ -1,5 +1,5 @@
-<script src="../assets/js/jquery.tools.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+<script src="./assets/js/jquery.tools.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 <SCRIPT>
 $( document ).ready(function() {
 $('#testerror').load(function() {
@@ -33,6 +33,6 @@ padding: 10px;
 
 
 <div class="errorPagediv">
-<img src="../images/404.jpg"  width="98%" height="45%" id="testerror">
+<img src="./images/404.jpg"  width="95%" height="50%" id="testerror">
 </div>
 </body>

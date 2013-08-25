@@ -132,7 +132,7 @@ function deptcolor()
 .adminallMenues  a
 {
 	width:60px;
-	font-size: 20px !important;
+	font-size: 1.2em !important;
 	padding: 5px;
 }
 .adminallMenues li a:HOVER
@@ -145,7 +145,6 @@ function deptcolor()
 }
 #adminMenu a{
 	color: #FFA92E;
-    font-size: 1.2em;
     text-decoration: none;
     text-shadow: 0 1px 1px #32251B;
 	

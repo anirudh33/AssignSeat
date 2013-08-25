@@ -147,6 +147,7 @@ class MainController extends Acontroller {
 				$log ['room'] = $info ['room'];
 				$log ['row'] = $info ['row'];
 				$log ['computerid'] = $info ['computerid'] + 1;
+				$log['reason']=$info['details'];
 				/**
 				 * **** for logging seat allocation********
 				 */
@@ -173,6 +174,7 @@ class MainController extends Acontroller {
 				$log ['frmroom'] = $info ["frmroom"];
 				$log ['frmrow'] = $info ["frmrow"];
 				$log ['frmcomputerid'] = $info ["frmcomputerid"] + 1;
+				$log['reason']=$info['details'];
 				/**
 				 * For logging seat reallocation
 				 */
@@ -260,6 +262,7 @@ class MainController extends Acontroller {
 				$log ['room'] = $a [0] [0];
 				$log ['row'] = $a [0] [1];
 				$log ['computerid'] = $a [0] [2];
+				$log['reason']= $_REQUEST['changeComment'];
 				$objLogger = new Logger ();
 				$boolLogResult = $objLogger->logDeleteSeatCuurentFile ( $log );
 			}
@@ -389,6 +392,8 @@ class MainController extends Acontroller {
 		$roomObj = $this->loadModel ( 'Room' );
 		$roomObj->addRow ( $_POST ['roomId'], $_POST ['rowNo'], $_POST ['computer'] );
 		$this->fetchRoomData ();
+		
+		
 		echo "Row Added";
 	}
 	/**

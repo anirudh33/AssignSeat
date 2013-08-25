@@ -4,7 +4,7 @@
 <table>
 	<tr>
 		<td>Room Name : </td>
-		<td><?php echo $data[0]['name'];?></td>
+		<td id='roomName'><?php echo $data[0]['name'];?></td>
 	</tr>
 		<tr>
 		<td>Total Rows : </td>
@@ -52,19 +52,19 @@ function addNewRow(roomId,rowCount)
 	}
 	selectButton+="</select> ";
 	saveButton="<input type='button' value='Save' onclick=saveNewRow("+roomId+","+(rowCount+1)+")>";
-	$("#newRowEntry").html('<label>Row '+(rowCount+1)+'<label> '+selectButton+saveButton);
+	$("#newRowEntry").html('<label id="newRowCount">Row '+(rowCount+1)+'<label> '+selectButton+saveButton);
 	$("#newRowEntry").show();
 }
 function saveNewRow(roomId,rowCount) 
 {
 	computer=$("#newSelectRow").val();
-	//alert(computer);
+	roomName=$('#roomName').html();
 	/*
 	*
 	*add to database
 	*/
 	$.post('index.php?controller=MainController&method=addNewRoomRow',
-			{'roomId':roomId,'rowNo':rowCount,'computer':computer},function(data){
+			{'roomId':roomId,'rowNo':rowCount,'computer':computer,'roomName':roomName},function(data){
 				if(data.indexOf('password') != -1)
 				{
 					location.reload();
@@ -129,9 +129,3 @@ function submitComputerChange(rowId)
 	$("#row"+rowId).html(computer);
 }
 </script>
-
-
-<style>
-
-
-</style>

@@ -16,6 +16,9 @@ RewriteEngine On
 
 RewriteRule ^admin$ index.php?controller=MainController&method=adminView
 RewriteRule ^login$ index.php?controller=MainController&method=loginClick
-#RewriteRule ^error$ index.php?controller=MainController&method=errorView
+RewriteRule ^error$ index.php?controller=MainController&method=errorView
 
-#ErrorDocument 404 /View/error404.html
+ErrorDocument 404 "<script>window.location.href = 'error';</script>"
+ErrorDocument 500 "<script>window.location.href = 'error';</script>"
+ErrorDocument 301 "<script>window.location.href = 'error';</script>"
+
