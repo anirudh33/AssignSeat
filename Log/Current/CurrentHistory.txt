@@ -1,101 +1,29 @@
-Tue - 03/Sep/2013 - 12:47:28 User " ADMIN " Logged out the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 12:47:33 User " ADMIN " Logged into the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 12:47:48 User " ADMIN " moved the employee "RAVINDRA RAUSHAN " From room " employee search box ", Row number "  ", From Computer Id "1" To seat number "15" in room "Lab-1"" at row 15 , computer "4"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 12:48:50 User " ADMIN " delete the employee "" from room "Lab-1" from row "14 " , computer "3"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 12:49:11 User " ADMIN " moved the employee "SANDEEP PARWAL " From room " sirijan2 ", Row number "1 ", From Computer Id "3" To seat number "15" in room "Lab-1"" at row 15 , computer "3"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 12:49:29 User " ADMIN " delete the employee "" from room "sirijan2" from row "5 " , computer "1"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 12:49:44 User " ADMIN " Assigned the seat number "49" in room "sirijan2" of employee "RAJUL GUPTA" at row 1 , computer "3"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 12:58:20 User " ADMIN " moved the employee "VIJAYKANT KHOWAL " From room " sirijan2 ", Row number "5 ", From Computer Id "3" To seat number "53" in room "sirijan2"" at row 5 , computer "2"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 13:06:29 User " USER1 " Logged into the system  
-From the IP 127.0.0.1 and browser = Firefox 
-Browser version = 14.0.1, Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 14:52:01 User " USER1 " Logged into the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 15:02:23 User " USER1 " Logged into the system  
-From the IP 127.0.0.1 and browser = Firefox 
-Browser version = 14.0.1, Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 15:06:31 User " ADMIN " Logged into the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 15:08:31 User " ADMIN " Logged out the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 15:09:03 User " USER1 " Logged out the system  
-From the IP 127.0.0.1 and browser = Firefox 
-Browser version = 14.0.1, Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 15:11:06 User " USER1 " Logged into the system  
-From the IP 127.0.0.1 and browser = Firefox 
-Browser version = 14.0.1, Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 09:45:02 User " ADMIN " Logged into the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 09:52:44 User " USER1 " Logged into the system  
-From the IP 127.0.0.1 and browser = Firefox 
-Browser version = 14.0.1, Os = Linux 
-========================= 
-
-Tue - 03/Sep/2013 - 10:00:44 User " ADMIN " Logged out the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Sat - 12/Jan/2013 - 12:52:35 User " ADMIN " Logged into the system  
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-========================= 
-
-Sat - 12/Jan/2013 - 07:40:33 User " ADMIN " moved the employee "SHASHI KANT SINGH " From room " sirijan2 ", Row number "5 ", From Computer Id "3" To seat number "54" in room "sirijan2"" at row 6 , computer "3"
-From the IP 127.0.0.1 and browser = Google Chrome 
-Browser version = 25.0.1364., Os = Linux 
-Reason is :- reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\r\n========================= 
-
-Sat - 12/Jan/2013 - 07:45:58 User " ADMIN " moved the employee "SHASHI KANT SINGH " From room " sirijan2 ", Row number "6 ", From Computer Id "3" To seat number "53" in room "sirijan2"" at row 5 , computer "3"<br\>From the IP 127.0.0.1 and browser = Google Chrome <br\>Browser version = 25.0.1364., Os = Linux <br\>Reason is :- dsfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdfadsafasdfasdfasdfsd<br\>========================= <br\>
+Sat - 12/Jan/2013 - 09:31:54 User " ADMIN " moved the employee "PANKAJ CHAUHAN " From room " Lab-1 ", Row number "13 ", From Computer Id "4" To seat number "14" in room "Lab-1"" at row 14 , computer "3"
+<br/>From the IP 127.0.0.1 and browser = Google Chrome 
+<br/>Browser version = 25.0.1364., Os = Linux 
+<br/>Reason is :- sadfffffffffffffffffffffffffffffffffffffffffffffffff\r\n<br/>========================= 
+<br/>Sat - 12/Jan/2013 - 09:33:36 User " ADMIN " delete the employee "" from room "Lab-1" from row "1 " , computer "0"<br/>From the IP 127.0.0.1 and browser = Google Chrome <br/>Browser version = 25.0.1364., Os = Linux <br/>Reason is:- saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa <br/>========================= <br/>Sat - 12/Jan/2013 - 09:34:33 User " ADMIN " delete the employee "" from room "Lab-1" from row "5 " , computer "0"<br/>From the IP 127.0.0.1 and browser = Google Chrome <br/>Browser version = 25.0.1364., Os = Linux <br/>Reason is:- sdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa <br/>========================= <br/>Sat - 12/Jan/2013 - 09:34:48 User " ADMIN " Assigned the seat number "16" in room "Lab-1" of employee "RAJUL GUPTA" at row 16 , computer "5"
+<br/>From the IP 127.0.0.1 and browser = Google Chrome 
+<br/>Browser version = 25.0.1364., Os = Linux 
+<br/>Reason is :- \r\n<br/>========================= 
+<br/>Sat - 12/Jan/2013 - 09:38:34 User " ADMIN " delete the employee "" from room "Lab-1" from row "16 " , computer "4"<br/>From the IP 127.0.0.1 and browser = Google Chrome <br/>Browser version = 25.0.1364., Os = Linux <br/>Reason is:- sdaffffffffffffffffffffffffffffffffffffffffffffffff <br/>========================= <br/>Sat - 12/Jan/2013 - 09:40:07 User " ADMIN " delete the employee "" from room "Lab-1" from row "1 " , computer "0"<br/>From the IP 127.0.0.1 and browser = Google Chrome <br/>Browser version = 25.0.1364., Os = Linux <br/>Reason is:- hdkjadshfkajdshfkhsadkhfkasdhfkjsadhkfhsd d hfkjashd sdkjf hdfks  dshkhfs <br/>========================= <br/>Sat - 12/Jan/2013 - 09:40:24 User " ADMIN " Assigned the seat number "1" in room "Lab-1" of employee "RAJUL GUPTA" at row 1 , computer "1"
+<br/>From the IP 127.0.0.1 and browser = Google Chrome 
+<br/>Browser version = 25.0.1364., Os = Linux 
+<br/>Reason is :- hskdjafh hjksdhf sdhfskjdhf sdhfjaksd fsdhfjksd sdhfjksd fasdhfkjsdh fsdkhfas dfsdhfjksd fsdhfj sd\r\n<br/>========================= 
+<br/>Sat - 12/Jan/2013 - 09:57:00 User " ADMIN " Logged out the system  
+<br/>From the IP 127.0.0.1 and browser = Google Chrome 
+<br/>Browser version = 25.0.1364., Os = Linux 
+<br/>========================= 
+<br/>Sat - 12/Jan/2013 - 09:57:05 User " USER1 " Logged into the system  
+<br/>From the IP 127.0.0.1 and browser = Google Chrome 
+<br/>Browser version = 25.0.1364., Os = Linux 
+<br/>========================= 
+<br/>Sat - 12/Jan/2013 - 09:57:22 User " USER1 " Logged out the system  
+<br/>From the IP 127.0.0.1 and browser = Google Chrome 
+<br/>Browser version = 25.0.1364., Os = Linux 
+<br/>========================= 
+<br/>Sat - 12/Jan/2013 - 09:57:27 User " ADMIN " Logged into the system  
+<br/>From the IP 127.0.0.1 and browser = Google Chrome 
+<br/>Browser version = 25.0.1364., Os = Linux 
+<br/>========================= 
+<br/>

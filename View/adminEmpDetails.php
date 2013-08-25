@@ -7,7 +7,23 @@
 			<tr>
 				<td>Name :</td>
 				<td><input type="text" name='name' value="<?php echo isset($data['name'])?$data['name']:''?>"  class='empData'/></td>
+			</tr>
+			<tr>
+				<td>OSSCube Member Id :</td>
+				<td><input type="text" name='designation' value='<?php echo isset($data['osscubememberid'])?$data['osscubememberid']:'' ?>'  class='empData'/></td>
+			</tr>		
+			<tr>
+				<td>OSSCube Member Email Id :</td>
+				<td><input type="text" name='designation' value='<?php echo isset($data['officialemailid'])?$data['officialemailid']:'' ?>'  class='empData'/></td>
 			</tr>	
+			<tr>
+				<td>Teams:</td>
+				<td><input type="text" name='designation' value='<?php echo isset($data['teams'])?$data['teams']:'' ?>'  class='empData'/></td>
+			</tr>
+			<tr>
+				<td>Phone No.:</td>
+				<td><input type="text" name='designation' value='<?php echo isset($data['cell'])?$data['cell']:'' ?>'  class='empData'/></td>
+			</tr>														
 			<tr>
 				<td>Designation :</td>
 				<td><input type="text" name='designation' value='<?php echo isset($data['designation'])?$data['designation']:'' ?>'  class='empData'/></td>
@@ -17,9 +33,13 @@
 				<td><input type="text" name='department' value='<?php echo isset($data['department'])?$data['department']:'' ?>'  class='empData'/></td>
 			</tr>
 			<tr>
-				<td>Details :</td>
-				<td><textarea  name='details' class='empData' style="width:100%; height: 140%; margin-top: 8%" ><?php echo isset($data['details'])?$data['details']:'' ?> </textarea></td>
-			</tr>					
+				<td>Location:</td>
+				<td><input type="text" name='designation' value='<?php echo isset($data['location'])?$data['location']:'' ?>'  class='empData'/></td>
+			</tr>			
+			<tr>
+				<td>Territory:</td>
+				<td><input type="text" name='designation' value='<?php echo isset($data['territory'])?$data['territory']:'' ?>'  class='empData'/></td>
+			</tr>								
 		</table>
 	</form>
 	</div>
@@ -45,6 +65,9 @@ $('.empData').attr("disabled", "disabled");
 <style>
 #empTxtDetails {
 	float: left;
+}
+.empData {
+	width: 250px;
 }
 #empImageDetails {
 	float: left;

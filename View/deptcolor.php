@@ -23,7 +23,7 @@ span
 .vpb_main_wrapper
 {
 	
-	margin: 200px;
+	margin: 80px;
 	border: solid 1px #cbcbcb;
 	 background-color: #FFF;
 	 box-shadow: 0 0 15px #cbcbcb;
@@ -87,7 +87,6 @@ function saveDeptColor()
 	});
 }
 </script>
-</head>
 <form  action="#" id="frmid" class="vpb_main_wrapper">
 <table cellpadding="15">
 <?php

@@ -155,7 +155,7 @@ function showLog()
             <div id="header">
                 <div id="logo">
                     <h1>
-                        <a href="#"><?php echo $lang->ASSIGNSEAT?></a>
+                        <a href="index"><?php echo $lang->ASSIGNSEAT?></a>
                     </h1>
                 </div>
                 <div id="nav">
@@ -164,7 +164,7 @@ function showLog()
                         <li ><a href="admin" >Admin</a></li>
                         <li ><a href="#reportData" id="report" >Report</a></li>
                         <li><a href="#" id="logout"><?php echo $lang->LOGOUT?></a></li>
-                        <li><a href="#" id="logout" onClick="showLog()"><?php echo $lang->SHOWLOG?></a></li>
+                        <!--  <li><a href="#" id="logout" onClick="showLog()"><?php echo $lang->SHOWLOG?></a></li>-->
                     </ul>
                     <br class="clear" />
                 </div>

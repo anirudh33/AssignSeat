@@ -9,11 +9,16 @@
     media="screen" />
 
 <div id="adminHeader"> 
+                <div id="logo">
+                    <h1>
+                        <a href="index"><?php echo $lang->ASSIGNSEAT?></a>
+                    </h1>
+                </div>
 
 	<span id='adminMenu'>
 	
 	<ul class="adminallMenues">
-	<li><a href="index.php">Home</a></li>
+	<li><a href="index">Home</a></li>
 	<li><a href="#" onclick="getUsersPanal()">Users</a></li>
 	<li><a href="#" onclick="uploadcsv()">Upload CSV File</a></li>
 	<li><a href="javascript:void(0);" onclick="deptcolor()">Dept Color</a></li>
@@ -140,8 +145,9 @@ function deptcolor()
 	color: rgb(13, 175, 182) !important;
 }
 #adminMenu {
-	float:left;
-	margin-top: 40px;	
+	float:right;
+	margin-top: 40px;
+	margin-right: 40px;	
 }
 #adminMenu a{
 	color: #FFA92E;
@@ -240,6 +246,21 @@ function deptcolor()
 	width: 100%;
 	height: 10%;
 	margin-top: 61%
+}
+#logo h1{
+	font-size: 5.5em;
+	font-family: Lobster, cursive;
+	text-shadow: 0 2px 1px #32251B;
+	letter-spacing: -1px;
+	font-weight: bold;
+}
+#logo a{
+	text-decoration: none;
+	color: #fff;
+}
+#logo {
+line-height: 80px;
+float: left;
 }
 
 </style>

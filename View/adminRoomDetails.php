@@ -76,6 +76,7 @@ function saveNewRow(roomId,rowCount)
 }
 function DeleteRow(rowId,roomId)
 {
+	roomName=$('#roomName').html();
 	chk=confirm("Are You Sure");
 	if(chk)
 	{
@@ -84,7 +85,7 @@ function DeleteRow(rowId,roomId)
 		*Data base entry here
 		*/
 		$.post('index.php?controller=MainController&method=delRoomRow',
-				{'roomId':roomId,'rowId':rowId},function(data){
+				{'roomId':roomId,'rowId':rowId,'roomName':roomName},function(data){
 					if(data.indexOf('password') != -1)
 					{
 						location.reload();
@@ -115,6 +116,7 @@ function editComputer(rowId)
 function submitComputerChange(rowId)
 {
 	computer=$("#selectRow"+rowId).val();
+	roomName=$('#roomName').html();
 	/*
 	*change in database
 	*/
